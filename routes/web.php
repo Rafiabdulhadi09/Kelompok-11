@@ -35,3 +35,10 @@ Route::get('/logout', [LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class, 'register']);
 Route::post('/register/create', [RegisterController::class, 'create']);
 
+Route::get('admin/DataSiswa', function () {
+    return view('admin.DataSiswa');
+});
+Route::get('admin/DataGuru', function () {
+    return view('admin.DataGuru');
+});
+
