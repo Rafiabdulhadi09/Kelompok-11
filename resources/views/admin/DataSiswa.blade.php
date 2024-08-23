@@ -15,6 +15,8 @@
 
     <!-- Custom styles for this page -->
     <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -33,7 +35,7 @@
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">Ruang Admin</div>
+          <div class="sidebar-brand-text mx-2">Ruang Admin</div>
         </a>
 
         <!-- Divider -->
@@ -41,7 +43,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{url('admin')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -73,7 +75,7 @@
             data-parent="#accordionSidebar"
           >
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item active" href="#">Data Student</a>
+              <a class="collapse-item active" href="{{url('admin/DataSiswa')}}">Data Student</a>
               <a class="collapse-item" href="{{url('admin/DataGuru')}}">Data Trainer</a>
             </div>
           </div>
@@ -877,7 +879,9 @@
 
     <!-- Page level custom scripts -->
     <script src="assets/js-admin/demo/datatables-demo.js"></script>
-
+    <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
