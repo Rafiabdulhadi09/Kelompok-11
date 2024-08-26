@@ -52,14 +52,25 @@
           <li><a href="#hero" class="active">Dashboard<br></a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#alt-features">About</a></li>
+<<<<<<< HEAD
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="{{url('student/kelas')}}">Kelas</a></li>
+=======
+          <li><a href="#portfolio">Pembelajaran</a></li>
+          <li><a href="#">Kelas</a></li>
+          <li class="dropdown"><a href="#"><img
+                    class="img-profile rounded-circle"
+                    src="assets/img/testimonials/testimonials-7.jpg" width="35"/> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Profil</a></li>
+              <li><a href="logout">Logout</a></li>
+            </ul>
+        </li>
+>>>>>>> bc0370cf2c5dc3ed63f098eedd50354d5a322ec4
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-    <a class="btn-getstarted flex-md-shrink-0" href="{{ 'login' }}">Login</a>
-
     </div>
   </header>
 
