@@ -54,7 +54,7 @@
           <li><a href="#alt-features">About</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="#">Kelas</a></li>
+          <li><a href="{{url('student/kelas')}}">Kelas</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

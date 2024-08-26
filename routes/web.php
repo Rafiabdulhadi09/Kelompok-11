@@ -34,7 +34,9 @@ Route::get('/logout', [LoginController::class,'logout']);
 });
 Route::get('/register', [RegisterController::class, 'register']);
 Route::post('/register/create', [RegisterController::class, 'create']);
-
+Route::get('/student/kelas', function(){
+    return view('student.kelas');
+});
 Route::get('admin/DataSiswa', function () {
     return view('admin.DataSiswa');
 });
