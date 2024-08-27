@@ -37,12 +37,7 @@
 </head>
 
 <body class="index-page">
-<<<<<<< HEAD
-@include('component.navbar')
-=======
 @include('component.header')
-
->>>>>>> 288594e37ec33d4a3a683e61c7f35a6ea38e439e
   <main class="main">
 
     <!-- Hero Section -->
