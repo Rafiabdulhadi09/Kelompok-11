@@ -14,6 +14,10 @@ class DataKelasController extends Controller
     {
         return view ('student/kelas');
     }
+    public function kelas()
+    {
+        return view ('admin/CreateKelas');
+    }
 
     /**
      * Show the form for creating a new resource.

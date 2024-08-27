@@ -38,6 +38,8 @@ Route::post('/register/create', [RegisterController::class, 'create']);
 
 Route::get('/student/kelas',[DataKelasController::class,'index']);
 
+Route::get('/create/kelas',[DataKelasController::class,'kelas']);
+
 Route::get('admin/DataSiswa', function () {
     return view('admin.DataSiswa');
 });
@@ -46,5 +48,8 @@ Route::get('admin/DataGuru', function () {
 });
 Route::get('admin/DataKelas', function () {
     return view('admin.DataKelas');
+});
+Route::get('student/profil', function () {
+    return view('student.profil');
 });
 
