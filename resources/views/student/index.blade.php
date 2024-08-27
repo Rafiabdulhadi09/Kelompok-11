@@ -51,15 +51,10 @@
         <ul>
           <li><a href="#hero" class="active">Dashboard<br></a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#alt-features">About</a></li>
-<<<<<<< HEAD
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="{{url('student/kelas')}}">Kelas</a></li>
-=======
-          <li><a href="#portfolio">Pembelajaran</a></li>
-          <li><a href="#">Kelas</a></li>
-          <li class="dropdown"><a href="#"><img
+          <li><a href="#about">About</a></li>
+          <li><a href="#pembelajaran">pembelajaran</a></li>
+          <li><a href="{{ 'student/kelas' }}">Kelas</a></li>
+          <li class="dropdown"><a href="#">  <img
                     class="img-profile rounded-circle"
                     src="assets/img/testimonials/testimonials-7.jpg" width="35"/> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -67,10 +62,10 @@
               <li><a href="logout">Logout</a></li>
             </ul>
         </li>
->>>>>>> bc0370cf2c5dc3ed63f098eedd50354d5a322ec4
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
 
@@ -82,9 +77,9 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h3>Hi {{ Auth::User()->name }}</h3>
             <h1 data-aos="fade-up">Selamat Datang</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Temukan pengalaman belajar yang menyenangkan dan fleksibel bersama kami. Di sini, Anda dapat mengakses berbagai kelas berkualitas tinggi dari para ahli di berbagai bidang. Dengan materi yang dirancang secara profesional dan metode pengajaran yang interaktif, kami siap membantu Anda mengembangkan keterampilan dan pengetahuan baru kapan saja, di mana saja.</p>
+            <h3>{{Auth::User()->name}}</h3>
+            <p data-aos="fade-up" data-aos-delay="100">Di platform digital yang menyediakan berbagai kursus dan materi pembelajaran melalui internet. Pengguna dapat mendaftar untuk kursus, mengakses materi belajar seperti video dan artikel, mengerjakan tugas dan ujian, serta berinteraksi dengan instruktur dan peserta lain. Dengan fitur seperti pelacakan kemajuan dan sertifikat penyelesaian, platform ini menawarkan fleksibilitas dalam belajar kapan saja dan di mana saja.</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Belajar<i class="bi bi-arrow-right"></i></a>
             </div>
@@ -105,7 +100,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
-        <p>What they are saying about us<br></p>
+        <p>Apa yang mereka katakan tentang kita<br></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -144,12 +139,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                "Tingkat kepuasan saya dengan web kelas online ini sangat tinggi. Materi kursusnya jelas dan terstruktur dengan baik, memungkinkan saya untuk belajar dengan nyaman sesuai waktu saya sendiri. Interaksi dengan pengajar dan peserta lain juga sangat membantu, membuat pengalaman belajar saya menjadi lebih efektif dan menyenangkan."
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <img src="assets/img/testimonials/testimonials-7.jpg" class="testimonial-img" alt="">
+                  <h3>Candra</h3>
+                  <h4>Pelajar</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -160,12 +155,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                Pengalaman belajar di kelas online ini benar-benar luar biasa! Materi yang disajikan sangat lengkap dan mudah dipahami. Ditambah lagi, instruktur-instrukturnya sangat berpengalaman dan selalu siap membantu kapan saja. Saya merasa keterampilan saya meningkat drastis setelah mengikuti kursus ini. Sangat direkomendasikan untuk siapa saja yang ingin belajar secara fleksibel dan efektif.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <img src="assets/img/testimonials/testimonials-6.jpg" class="testimonial-img" alt="">
+                  <h3>Kiara</h3>
+                  <h4>Pelajar</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -176,12 +171,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                Belajar di kelas online ini adalah keputusan terbaik yang pernah saya buat! Saya sangat menyukai fleksibilitasnya, karena saya bisa mengatur waktu belajar sesuai jadwal saya. Materi kursusnya juga sangat relevan dengan kebutuhan industri saat ini, dan cara penyampaiannya interaktif sehingga saya tetap termotivasi untuk belajar. Saya sudah merekomendasikan situs ini kepada teman-teman say
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <img src="assets/img/testimonials/testimonials-8.jpg" class="testimonial-img" alt="">
+                  <h3>Jeni</h3>
+                  <h4>Mahasiswa</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -192,12 +187,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                Saya sangat puas dengan pengalaman belajar di kelas online ini. Kualitas materi yang diberikan sangat tinggi, dan platformnya mudah digunakan, bahkan untuk pemula sekalipun. Setiap kursus dilengkapi dengan video, kuis, dan latihan yang membantu saya memahami topik dengan lebih mendalam. Selain itu, dukungan dari tim pengajar juga sangat responsif. Belajar di sini benar-benar membantu saya mencapai tujuan belajar saya!
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
+                  <img src="assets/img/testimonials/testimonials-9.jpg" class="testimonial-img" alt="">
+                  <h3>Khaider</h3>
+                  <h4>Mahasiswa</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -208,12 +203,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                Belajar di kelas online ini benar-benar luar biasa! Materinya praktis dan aplikatif, dengan instruktur yang ahli di bidangnya. Saya sangat menghargai fleksibilitas waktu dan akses seumur hidup ke kursus-kursusnya. Dukungan komunitas yang aktif juga membuat belajar jadi lebih menyenangkan. Ini adalah investasi terbaik untuk pengembangan diri saya!
                 </p>
                 <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
+                  <img src="assets/img/testimonials/testimonials-10.jpg" class="testimonial-img" alt="">
+                  <h3>Haikal</h3>
+                  <h4>Pelajar</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -224,9 +219,15 @@
 
       </div>
 
-    </section><!-- /Testimonials Section -->
-    <!-- Alt Features Section -->
-    <section id="alt-features" class="alt-features section">
+      </section><!-- /Services Section -->
+    <!-- Team Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p>Online Class</p>
+      </div><!-- End Section Title -->
 
       <div class="container">
 
@@ -237,52 +238,29 @@
             <div class="row align-self-center gy-5">
 
               <div class="col-md-6 icon-box">
-                <i class="bi bi-award"></i>
+                <i class="bi bi-clipboard-data-fill"></i>
                 <div>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <h4>Pengembangan Soft & Hard Skill</h4>
+                  <p>Kurikulum kami telah dirancang secara khusus untuk memberi kamu landasan kokoh dalam kedua aspek ini, mempersiapkan kamu untuk menghadapi tantangan karir yang kompleks</p>
                 </div>
               </div><!-- End Feature Item -->
 
               <div class="col-md-6 icon-box">
-                <i class="bi bi-card-checklist"></i>
+                <i class="bi bi-camera-reels"></i>
                 <div>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>Metode pembelajaran</h4>
+                  <p>Melalui video interaktif, modul pembelajaran, kuis, dan proyek praktis, Anda akan mendapatkan pengalaman belajar yang menyeluruh dan mendalam.</p>
                 </div>
               </div><!-- End Feature Item -->
 
               <div class="col-md-6 icon-box">
-                <i class="bi bi-dribbble"></i>
+                <i class="bi bi-journal-code"></i>
                 <div>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <h4>Jadwal pembelajaran</h4>
+                  <p>Kelas coding kami dirancang untuk memandu Anda dari dasar hingga mahir, dengan jadwal yang fleksibel dan dapat disesuaikan dengan waktu Anda. </p>
                 </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-filter-circle"></i>
-                <div>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-lightning-charge"></i>
-                <div>
-                  <h4>Molestiae dolor</h4>
-                  <p>Et fuga et deserunt et enim. Dolorem architecto ratione tensa raptor marte</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-patch-check"></i>
-                <div>
-                  <h4>Explicabo consectetur</h4>
-                  <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
-                </div>
-              </div><!-- End Feature Item -->
+              </div>
+              <!-- End Feature Item -->
 
             </div>
 
@@ -370,100 +348,6 @@
       </div>
 
     </section><!-- /Services Section -->
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Our hard working team</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
 
   </main>
 

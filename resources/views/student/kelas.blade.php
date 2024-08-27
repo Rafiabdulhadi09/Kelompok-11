@@ -38,17 +38,21 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Dashboard<br></a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#alt-features">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="{{url('student/kelas')}}">Kelas</a></li>
+        <li><a href="/student#testimonials">Testimonials</a></li>
+          <li><a href="/student#about">About</a></li>
+          <li><a href="/student#pembelajaran">pembelajaran</a></li>
+          <li><a href="{{ 'student/kelas' }}">Kelas</a></li>
+          <li class="dropdown"><a href="#">  <img
+                    class="img-profile rounded-circle"
+                    src="{{asset('assets/img/testimonials/testimonials-7.jpg')}}" width="35"/> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Profil</a></li>
+              <li><a href="logout">Logout</a></li>
+            </ul>
+        </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-    <a class="btn-getstarted flex-md-shrink-0" href="{{ 'login' }}">Login</a>
-
     </div>
   </header>
 

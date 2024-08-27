@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DataKelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,9 @@ Route::get('/logout', [LoginController::class,'logout']);
 });
 Route::get('/register', [RegisterController::class, 'register']);
 Route::post('/register/create', [RegisterController::class, 'create']);
-Route::get('/student/kelas', function(){
-    return view('student.kelas');
-});
+
+Route::get('/student/kelas',[DataKelasController::class,'index']);
+
 Route::get('admin/DataSiswa', function () {
     return view('admin.DataSiswa');
 });
