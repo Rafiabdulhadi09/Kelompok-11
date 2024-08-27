@@ -77,6 +77,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <a class="collapse-item active" href="{{url('admin/DataSiswa')}}">Data Student</a>
               <a class="collapse-item" href="{{url('admin/DataGuru')}}">Data Trainer</a>
+              <a class="collapse-item" href="{{url('Admin/DataKelas')}}">Data Kelas</a>
             </div>
           </div>
         </li>

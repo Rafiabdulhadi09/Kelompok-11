@@ -86,22 +86,12 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <a class="collapse-item " href="{{url('admin/DataSiswa')}}">Data Student</a>
               <a class="collapse-item" href="{{url('admin/DataGuru')}}">Data Trainer</a>
+              <a class="collapse-item" href="{{url('admin/DataKelas')}}">Data Kelas</a>
             </div>
           </div>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Addons</div>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a
-          >
-        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block" />

@@ -43,4 +43,7 @@ Route::get('admin/DataSiswa', function () {
 Route::get('admin/DataGuru', function () {
     return view('admin.DataGuru');
 });
+Route::get('admin/DataKelas', function () {
+    return view('admin.DataKelas');
+});
 

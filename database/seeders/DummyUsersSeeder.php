@@ -20,13 +20,13 @@ class DummyUsersSeeder extends Seeder
                 'role'=>'admin',
                 'password'=>bcrypt('12345678')
             ],
-                   [
+                [
                 'name'=>'Trainer Kece',
                 'email'=>'trainerkece@gmail.com',
                 'role'=>'trainer',
                 'password'=>bcrypt('12345678')
             ],
-                   [
+                [
                 'name'=>'Siswa Kece',
                 'email'=>'siswakece@gmail.com',
                 'role'=>'student',
