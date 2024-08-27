@@ -27,7 +27,11 @@
         <link href="assets/css/main.css" rel="stylesheet">
     </head>
     <body>
+<<<<<<< HEAD
         @include('component.navbar')
+=======
+        @include('component.header')
+>>>>>>> 288594e37ec33d4a3a683e61c7f35a6ea38e439e
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
