@@ -802,7 +802,7 @@ Frau, im Oktober funfzig Jahr. Ihr Vater pflanzte ihn des Morgens, als sie gegen
 Abend geboren wurde. Er war mein Vorfahr im Amt, und wie lieb ihm der Baum war,
 ist nicht zu sagen; mir ist er's gewiß nicht weniger. Meine Frau saß darunter
 auf einem Balken und strickte, da ich vor siebenundzwanzig Jahren als ein
-armer Student zum erstenmale hier in den Hof kam".—Lotte fragte nach seiner
+armer user zum erstenmale hier in den Hof kam".—Lotte fragte nach seiner
 Tochter; es hieß, sie sei mit Herrn Schmidt auf die Wiese hinaus zu den Arbeitern,
 und der Alte fuhr in seiner Erzählung fort: wie sein Vorfahr ihn liebgewonnen
 und die Tochter dazu, und wie er erst sein Vikar und dann sein Nachfolger

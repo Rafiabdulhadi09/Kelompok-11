@@ -54,9 +54,9 @@
                     <div class="row gx-5">
                       <div class="col">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" value="student" name="role" id="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" value="user" name="role" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
-                          Student
+                          user
                         </label>
                         </div>
                       </div>

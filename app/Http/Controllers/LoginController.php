@@ -28,8 +28,8 @@ class LoginController extends Controller
                 return redirect('trainer');
             }elseif(Auth::user()->role == 'admin'){
                 return redirect('admin');
-            }elseif(Auth::user()->role == 'student'){
-                return redirect('student');
+            }elseif(Auth::user()->role == 'user'){
+                return redirect('user');
             }
         }else{
             return redirect('/login')->withErrors('Username dan password yang anda masukan tidak sesuai')->withInput();

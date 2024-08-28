@@ -25,7 +25,7 @@
         <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     </head>
     <body>
-        @include('component.header-student')
+        @include('component.header-user')
         <!-- Section-->
         <br><br><br>
         <section class="py-5 ">

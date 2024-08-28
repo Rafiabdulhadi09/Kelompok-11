@@ -37,7 +37,7 @@
 </head>
 
 <body class="index-page">
-@include('component.header-student')
+@include('component.header-user')
   <main class="main">
 
     <!-- Hero Section -->
@@ -145,7 +145,7 @@
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-8.jpg" class="testimonial-img" alt="">
                   <h3>Jeni</h3>
-                  <h4>Mahasiswa</h4>
+                  <h4>Mahauser</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -161,7 +161,7 @@
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-9.jpg" class="testimonial-img" alt="">
                   <h3>Khaider</h3>
-                  <h4>Mahasiswa</h4>
+                  <h4>Mahauser</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->

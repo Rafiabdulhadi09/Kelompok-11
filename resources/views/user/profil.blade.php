@@ -23,7 +23,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col">
-        @include('component.header-student')
+        @include('component.header-user')
       </div>
     </div>
 

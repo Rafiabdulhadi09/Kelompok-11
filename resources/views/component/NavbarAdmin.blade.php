@@ -37,8 +37,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Data User</h6>
-                        <a class="collapse-item" href="{{ 'admin/DataSiswa' }}">Data Siswa</a>
+                        <a class="collapse-item" href="{{ 'admin/DataUser' }}">Data User</a>
                         <a class="collapse-item" href="{{ 'admin/DataGuru' }}">Data Trainer</a>
                         <a class="collapse-item" href="{{ 'admin/DataKelas' }}">Data Kursus</a>
                     </div>

@@ -12,7 +12,7 @@ class DataKelasController extends Controller
      */
     public function index()
     {
-        return view ('student/kelas');
+        return view ('user/kelas');
     }
     public function kelas()
     {
