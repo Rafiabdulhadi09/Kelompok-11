@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('data_kelas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kelas');
-            $table->string('harga');
-            $table->text('deskripsi');
+            $table->string('title');
+            $table->string('price');
+            $table->text('description');
             $table->timestamps();
         });
     }

@@ -13,12 +13,12 @@
           <li><a href="/#testimonials">Testimonials</a></li>
           <li><a href="/#about">About</a></li>
           <li><a href="/#pembelajaran">Pembelajaran</a></li>
-          <li><a href="{{ 'kelas' }}">Kelas</a></li>
+          <li><a href="{{ url('kelas') }}">Kelas</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-    <a class="btn-getstarted flex-md-shrink-0" href="{{ 'login' }}">Login</a>
-      <a class="btn-getstarted flex-md-shrink-0" href="{{ 'register' }}">Register</a>
+    <a class="btn-getstarted flex-md-shrink-0" href="{{ url('login') }}">Login</a>
+      <a class="btn-getstarted flex-md-shrink-0" href="{{ url('register') }}">Register</a>
 
     </div>
   </header>

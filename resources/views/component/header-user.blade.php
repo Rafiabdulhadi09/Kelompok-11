@@ -12,13 +12,13 @@
           <li><a href="/user#testimonials">Testimonials</a></li>
           <li><a href="/user#about">About</a></li>
           <li><a href="/user#pembelajaran">pembelajaran</a></li>
-          <li><a href="{{ 'user/kelas' }}">Kelas</a></li>
+          <li><a href="{{ url('user/kelas') }}">Kelas</a></li>
           <li class="dropdown"><a href="#">  <img
-                    class="img-profile rounded-circle"
-                    src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="35"/> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle "
+                    src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="35" /></a>
           <ul>
-              <li><a href="{{ 'user/profil' }}">Profil</a></li>
-              <li><a href="logout">Logout</a></li>
+              <li><a href="{{ url('user/profil') }}">Profil</a></li>
+              <li><a href="{{ url('logout') }}">Logout</a></li>
           </ul>
           </li>
         </ul>

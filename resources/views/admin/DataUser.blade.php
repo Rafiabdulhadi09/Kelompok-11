@@ -33,6 +33,13 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                  @if (Session::has('success'))
+                                    <div calss='pt-3'>
+                                        <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        </div>
+                                    </div>
+                                    @endif
                             <table border="1">
                                 <thead>
                                     <tr>
@@ -53,7 +60,7 @@
                                         <td>{{ $user->password }}</td>
                                         <td>
                                             <a href="{{ route('admin.dataUser.edit', $user->id) }}">Edit</a>
-                                            <form action="{{ route('admin.dataUser.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                            <form action="{{ route('admin.DataUser.destroy', $user->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>

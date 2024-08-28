@@ -50,6 +50,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.dataUser')->with('success', 'User deleted successfully.');
+        return redirect()->route('admin.DataUser')->with('success', 'User deleted successfully.');
     }
 }
