@@ -250,7 +250,7 @@ MÁSODIK FEJEZET
 1
 José pincér aludt. Aludt, miközben egy pillanatra megállt a levessel, aludt, amíg a szakács tálcára tette a húst, és aludt, amikor egy svéd magántanár ölébe kitálalta.
 Az ordításra felriadt.
-Hutchins, a fűtő is aludt. Aludt, amíg a szén begurult a kazánba, aludt, miközben felemelte a lapátot, és aludt, midőn leejtette a főgépész lábára.
+Hutchins, a fűtő is aludt. Aludt, amíg a szén betrainerlt a kazánba, aludt, miközben felemelte a lapátot, és aludt, midőn leejtette a főgépész lábára.
 Az ordításra felriadt.
 Az első tiszt közölte a kapitánnyal, hogy José, a pincér állandó aluszékonysága súlyosbodott.
 A gépész közölte a kapitánnyal, hogy Hutchins, az amerikai fűtő már csak percekre ébred fel, ha éppen ver valakit.
@@ -476,7 +476,7 @@ Közel állt ahhoz, hogy beverje a steward fejét.
 - Hogy részeges hülye, aki ilyent mesél.
 Hallgattak. Nagy, nyújtott szárnyú, fehér madarak siklottak keringve, alacsonyan, és ferde ívben zuhantak a tengerre, ha zsákmány tűnt fel a szinthez közel.
 A szállásmester komor arccal bámult ki a zavaros, háborgó vízre.
-Alacsony hullámok gurultak, és nyugtalan habtaréj rezgett a tetejükön.
+Alacsony hullámok trainerltak, és nyugtalan habtaréj rezgett a tetejükön.
 - Hej, pincér! Jöjjön a húszas kabinhoz! - kiáltotta egy hang.
 - A húszas fülke Mr. Gouldé... - mondta a steward falfehéren.
 - Na és?...
@@ -541,7 +541,7 @@ Gyilkosság!
 Jelenteni kellene a kapitánynak... De akkor... Vizsgálat. Ki a gyanús elsősorban? Ő, aki hamis írásokkal tartózkodik itt. És ha a szállásmester vall...! Ha csak annyi derül ki, hogy ópiumot adott az utasoknak... Az is tíz év!
 Nem. Ússza meg a gyilkos gazember büntetlenül. Neki vaj van a fején, nem sétálhat a napon... Gyerünk, gyerünk.
 Csak ez az átkozott szél ne vonítana be azzal a furcsa, mély búgással. És elhordja a papírokat az asztalról.
-Kihúzza a halottból a tűt. Most már nem vérzik. Apró, vörös folt maradt utána. Gyorsan felöltöztette. Egy váratlan hullámtól megdőlt a hajó, a tetem lezuhant, elsodorta Jimmy lábát, együtt gurultak a kabin sarkáig. A súlyos, merev testet alig bírta lerázni magáról.
+Kihúzza a halottból a tűt. Most már nem vérzik. Apró, vörös folt maradt utána. Gyorsan felöltöztette. Egy váratlan hullámtól megdőlt a hajó, a tetem lezuhant, elsodorta Jimmy lábát, együtt trainerltak a kabin sarkáig. A súlyos, merev testet alig bírta lerázni magáról.
 Most csakugyan jár valaki a kabin előtt. Csörömpölés. Az illető belerúgott a földön fekvő puskába!
 Jimmy lihegve felállt, megnézte magát a tükörben. Kissé sápadt volt. Az ördögbe is, sohasem tudta, hogy hisztéria is létezik a világon.
 Az eső nem enyhítette a forróságot, sőt alacsonyabbra verte a párákat, és a kabinban megszorult levegő még fülledtebb volt.
@@ -596,12 +596,12 @@ Csak gyorsan vízbe vele! Itt most egy gyilkossági ügy sok ártatlan ember nya
 A vízbe veled, roppant ember, és legyen a fenék titka egy gaztett. Nem az első és nem a százezredik eset az óceánon. Vajon kinek álltál útjában?
 És fütyörészett magában, mert alapjában véve kemény fiú volt ez a Fülig Jimmy. A fürdőszobába ment, és felszedte azt a rácsos, hosszú lécet, ami a kád előtt van. A kabinból hangos robaj és csörömpölés veri fel a csendet. Egy pillanatra megdöbben, azután visszarohan...
 Semmi!
-A halott odábbgurult a padlón egy hullámzás következtében, és elsodorta az asztalt.
+A halott odábbtrainerlt a padlón egy hullámzás következtében, és elsodorta az asztalt.
 - Nyughass, öregem, most már, amíg elintézlek - intette néhai Mr. Gouldot, és közben az ággyal szemben a tükörben megnézte magát.
 Na! Lehetne jobb színben is.
 Rákötötte a halottat a keskeny favázra. Csúf látvány, az bizonyos.
 - Most maradj szép nyugodtan, a bácsi elmegy, és egy kis szenet hoz a lábadhoz. Legalább nem gurigázol ide-oda addig sem, amíg a vízbe dobunk.
-De a halott szépen odagurult lécestől együtt a fürdőszobához, azután egy újabb dőléstől nekiszánkózott az ajtónak, mint valami faltörő kos.
+De a halott szépen odatrainerlt lécestől együtt a fürdőszobához, azután egy újabb dőléstől nekiszánkózott az ajtónak, mint valami faltörő kos.
 - Hé! Nyughass már! Azonnal kapsz nehezéket!
 És gyorsan elugrott, mielőtt a visszazúduló halott leüthette volna a lábáról. Mr. Gould teteme a hullámzás szerint változtatta helyzetét. A hajó olyan merőleges síkban dőlt az oldalára, hogy a nyirkos palló csúszdának is beillett.
 - Na várj! Még most sem nyughatsz?
@@ -711,14 +711,14 @@ Egy tántorgó alak bontakozott ki. És lassan közeledett a homályosan pislog�
 Nem bírta folytatni... Vacogott a foga. Olyan volt, mint aki megtébolyodott. A szeme kimeredt, arca krétafehér és egész testében reszketett.
 - Beszéljen! Maga kiáltott?
 - Az... a... halott... ott... - motyogta, és a sötét felé mutatott.
-A kapitány elszántan indult a jelzett irányba. A hajó lesüllyedt egy újabb hullámtól. Tompa dübörgés hallatszott egyre hangosabban. Valami sebesen gurult, és leütötte a kapitányt a lábáról, hogy hanyatt zuhant. A pisztoly elsült. A kihalt fedélzeten ágyúlövésnek hatott.
+A kapitány elszántan indult a jelzett irányba. A hajó lesüllyedt egy újabb hullámtól. Tompa dübörgés hallatszott egyre hangosabban. Valami sebesen trainerlt, és leütötte a kapitányt a lábáról, hogy hanyatt zuhant. A pisztoly elsült. A kihalt fedélzeten ágyúlövésnek hatott.
 Senki sem mozdult. Pedig a szállásmester sikolyát, majd a revolverlövést hallani kellett mindenütt. De az emberek magukra zárták az ajtót, és imádkoztak. A szállásmester még évek múlva is rángatta az egyik vállát, ha ezt az éjszakát említették.
-- Barmok! - üvöltötte magánkívül a kapitány, és lerázta a lécre kötött tetemet magáról. Mert Mr. Gould holtteste gurult ide-oda, aszerint, hogy merre lejtősödött a hullámverésben imbolygó óceánjáró tükörsima, csúszós fedélzete. Éppen csúszni kezdett.
+- Barmok! - üvöltötte magánkívül a kapitány, és lerázta a lécre kötött tetemet magáról. Mert Mr. Gould holtteste trainerlt ide-oda, aszerint, hogy merre lejtősödött a hullámverésben imbolygó óceánjáró tükörsima, csúszós fedélzete. Éppen csúszni kezdett.
 - Fogja meg!... Fogja meg, a mindenségit!...
-De már késő volt. A lepedőbe varrt tetem elgurult, és hatalmas puffanással nekicsapódott a lépcsőkorlátnak.
+De már késő volt. A lepedőbe varrt tetem eltrainerlt, és hatalmas puffanással nekicsapódott a lépcsőkorlátnak.
 A szállásmester mint az őrült meredt utána. De Jimmy már értett mindent. Űzőbe vette néhai Mr. Gouldot, és mielőtt még a fedélköz lejáratába zuhanhatott volna, lefülelte.
 - Maga az oka! - sziszegte a kapitány.
-- Elismerem - bólintott Fülig Jimmy. - Nyitva hagytam az ajtót, és ahogy a hajó dőlt, Mr. Gould kigurult a kabinból a fedélzetre. Azután összevissza csúszkált.
+- Elismerem - bólintott Fülig Jimmy. - Nyitva hagytam az ajtót, és ahogy a hajó dőlt, Mr. Gould kitrainerlt a kabinból a fedélzetre. Azután összevissza csúszkált.
 - És maga miért ordított? - förmedt a szállásmesterre.
 A szállásmester kissé feleszmélt.
 - Én mentem... valaki után... ugyanis a hajón kísér...
@@ -1916,7 +1916,7 @@ Rongy- és pálinkaszagú kazán volt ez a kis bódé, a mocsaras vidék talajg�
 A kocsmáros megvető arckifejezéssel betöltött egy fél pohárka pálinkát, és vízzel hígította. A herceg felhajtotta, és úgy érezte egy pillanatig, hogy nyomban megfullad. Minden erejére szükség volt, hogy ne köhögjön.
 Azután forróság öntötte el. És nekiugrott a türelmesen várakozó igazi Trebitschnek. A rúgást elkerülte, a csattanó pofont most nem érezte... Csak lihegett a mohó vágytól...
 Megölni!
-Propellerszerű sebességgel zuhogtak az ökölcsapásai, és az ördög tudja, honnan származott ez a mozdulata, térddel gyomorba rúgta az ellenfelét, hogy felbukott. Zuhanás közben az igazi Trebitsch magával rántotta. Hörögve, harapva, bokszolva gurultak a földön... A herceg vérében lángra kapott a pálinka. Forrón zúgott az agya, állati, gyilkos, pusztító örömmel verte az ellenfél fejét a padlóhoz.
+Propellerszerű sebességgel zuhogtak az ökölcsapásai, és az ördög tudja, honnan származott ez a mozdulata, térddel gyomorba rúgta az ellenfelét, hogy felbukott. Zuhanás közben az igazi Trebitsch magával rántotta. Hörögve, harapva, bokszolva trainerltak a földön... A herceg vérében lángra kapott a pálinka. Forrón zúgott az agya, állati, gyilkos, pusztító örömmel verte az ellenfél fejét a padlóhoz.
 Amikor újra felugrottak, mint valami tigris vetette magát a harcba. Rúgott és ütött, míg egy horogütéstől Buzgó Mócsing a lebuj sarkába repült, és mielőtt felállhatott volna, őfelsége a legelső keze ügyébe kerülő üres ládát belevágta, és már ugrott volna az alélt emberre, hogy megölje, de visszarántották.
 - Hohó!
 - Eressz! - hörögte.
@@ -2675,7 +2675,7 @@ Két haditengerészet elvezette, és ezzel befejeződött St. Antonio uralkodó 
 Most nem vitték a lifthez. A ház belsejéből néhány lépcső vezetett le valahová. Azután föld alatti folyosókon át haladtak sokáig vaksötétben.
 - Menj előre! - mondta az egyik kísérő.
 Engedelmeskedett.
-Egyszerre megcsúszott, és gurult... gurult. Nem sokat. Néhány métert mindössze egy sáros, meredek lejtőn.
+Egyszerre megcsúszott, és trainerlt... trainerlt. Nem sokat. Néhány métert mindössze egy sáros, meredek lejtőn.
 Mi ez neki? Fel sem kiáltott. Az egyik haditengerész hangja zúgott végig a boltozatok között:
 - Ördög Will!
 Fénypont közeledett imbolyogva, majd megjelent egy ember, csakugyan olyan, mint az ördög. Szénfekete néger volt, egy lámpással és egy revolverrel felszerelve.
@@ -3258,7 +3258,7 @@ Megnézem. Ott álltam élő nagyságban az üveg alatt revolverrel. Egy uralkod
 - Nem is kell. A kép nagyon jó megöregítése a királynak.
 Aszt hiszem, hogy mielőtt elutazok, eszt a képet sajnálatomra ellopom innét, kénytelen. De miféle csoda tűnt elém a kirakatban! Ott van kint Pollino tűzoltó! A hídlakó és Ekmont, aki megszűnt. Az udvar utánzott! Esz tetszett.
 - No jóéjszakát Firmin alattvaló.
-Én megyek. Kinn a tengeren valahol nagy vihar lehetett, mer jó sok köd gurul a sziget belseje felé lassanként. Tuttam, hogy keressem a szellem-kapitánt, aki most már senki mint Warins Bob. Ahol erdő van és benne a szülöttek. Ott lesz!
+Én megyek. Kinn a tengeren valahol nagy vihar lehetett, mer jó sok köd trainerl a sziget belseje felé lassanként. Tuttam, hogy keressem a szellem-kapitánt, aki most már senki mint Warins Bob. Ahol erdő van és benne a szülöttek. Ott lesz!
 Ázott fák csaptak az arcomba, pedig nem is esett. És tszuppogott a föld a lábom alatt. És mindég több sűrű köd jött, és muszáj volt köhögni... mer itt az erdőben még fullasztóbb, mivel a sok trópusi fa lélekzik. Ezt egy nagy tudós magyarászta, aki az adeni fegyházban lelkész volt. Azonban léptek neszelnek oldalt felé. Semmit sem láték jóformán... De valami mozog!... Megvan!
 Egy tengerészeti sapka fogója csillog a fehér holdas ködben. A kapitány-kísértet lehet csak, azaz Warins Bob! A fák köszt a ködben éppen errejön az árny. Megint csillog valami! Nedves sapka ellenező! Kapitányi!
 Egy alaposat ütök a vasbottal, éppen az árnyalak tetejére. Azt sem mondja, hogy "pardon" és elájula. Eszt csinálja utánam bármelyik nagy Péter vagy Lajos!
@@ -3310,7 +3310,7 @@ Késő éjszaka volt, mire elérték a szigetet. A parton tüzet raktak, és meg
 - De én sürgönyileg kivételesen haladékot kaptam Szingapurból - szólt közbe a herceg.
 - Igen... Ez kissé kínos lehetett a gyilkosnak. Bob Warins is fellopakodott a hajóra. Nem Almira felé szökött a fegyházból, hanem Északnak, egyenesen Port Szuezbe, és bevárta Felséged hajóját. A hajón olyan köpenyben és sapkában járt éjszaka a ködös sötét fedélzeten hogy futólag Wirth kapitánynak hitték, majd pedig kísértetnek. Amikor Fülig Jimmy segítségül hívott, én is találkoztam a kapitánysapkás Warinsszal a fedélzeten, és szembenéztem vele. Ő pisztolyt rántott én kést. Azután meghalt.
 - És biztos, hogy ő volt?
-- Nála volt a saját körözvénye a fényképével. A fedélzeten egy elszabadult tetem gurult arra. Fernandez régensherceg. Pillanatok alatt odakötöztem a helyére Warins Bobot. Ezt dobták a vízbe a régensherceg helyett, Fernandezt visszavittem a kajütjébe, ahol később Fülig Jimmy nyakára zuhant. Fülig Jimmyt ez az eset legalábbis gondolkodóba ejthette. Lejött hozzám, és kért, hogy dobjam újra vízbe a halottat. Kint várt rám a kajüt előtt. Én bementem, de érthetetlen módon Fernandez teteme eltűnt!
+- Nála volt a saját körözvénye a fényképével. A fedélzeten egy elszabadult tetem trainerlt arra. Fernandez régensherceg. Pillanatok alatt odakötöztem a helyére Warins Bobot. Ezt dobták a vízbe a régensherceg helyett, Fernandezt visszavittem a kajütjébe, ahol később Fülig Jimmy nyakára zuhant. Fülig Jimmyt ez az eset legalábbis gondolkodóba ejthette. Lejött hozzám, és kért, hogy dobjam újra vízbe a halottat. Kint várt rám a kajüt előtt. Én bementem, de érthetetlen módon Fernandez teteme eltűnt!
 - Én vittem el - mondta a herceg -, véletlenül benyitottam, és megláttam a halottat. Elrejtettem az én kabinomban, és a másnap érkező Palmerston tanárt megkértem, hogy vigye Fernandez tetemét Szingapurba, ahol majd gondoskodnak az elszállításáról. Az egészségügyi hajó elvitte a halottat. Bizonyára az Almira yachtra került, ahol bebalzsamozták és hazavitték.
 Hallgattak. A fülledt éjszakában egy kakadu rikoltott élesen.
 - Szép életet élt Fernandez herceg - szólt a kapitány -, de igen hányatott halála volt...

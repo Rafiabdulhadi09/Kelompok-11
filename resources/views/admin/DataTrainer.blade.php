@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="{{asset('assets/vendor-admin/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -30,7 +29,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h1>Data User</h1>
+                            <h1>Data Trainer</h1>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -53,15 +52,15 @@
                                 </thead>
                             <tbody>
                             @php $no = 1; @endphp
-                                @foreach($users as $user)
+                                @foreach($trainers as $trainer)
                                     <tr>
                                         <td>{{ $no ++ }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->created_at }}</td>
+                                        <td>{{ $trainer->name }}</td>
+                                        <td>{{ $trainer->email }}</td>
+                                        <td>{{ $trainer->created_at->format('Y-m-d') }}</td>
                                         <td>
-                                            <a type="submit" class="btn btn-info" href="{{ route('admin.dataUser.edit', $user->id) }}">Edit</a>
-                                            <form action="{{ route('admin.DataUser.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                            <button type="submit" class="btn btn-info" href="{{ route('admin.dataUser.edit', $trainer->id) }}">Edit</button>
+                                            <form action="{{ route('admin.DataUser.destroy', $trainer->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

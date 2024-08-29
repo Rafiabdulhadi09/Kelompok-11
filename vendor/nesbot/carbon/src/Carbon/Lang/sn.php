@@ -14,7 +14,7 @@ return array_replace_recursive(require __DIR__.'/en.php', [
     'weekdays' => ['Svondo', 'Muvhuro', 'Chipiri', 'Chitatu', 'China', 'Chishanu', 'Mugovera'],
     'weekdays_short' => ['Svo', 'Muv', 'Chp', 'Cht', 'Chn', 'Chs', 'Mug'],
     'weekdays_min' => ['Sv', 'Mu', 'Cp', 'Ct', 'Cn', 'Cs', 'Mg'],
-    'months' => ['Ndira', 'Kukadzi', 'Kurume', 'Kubvumbi', 'Chivabvu', 'Chikumi', 'Chikunguru', 'Nyamavhuvhu', 'Gunyana', 'Gumiguru', 'Mbudzi', 'Zvita'],
+    'months' => ['Ndira', 'Kukadzi', 'Kurume', 'Kubvumbi', 'Chivabvu', 'Chikumi', 'Chikuntrainer', 'Nyamavhuvhu', 'Gunyana', 'Gumitrainer', 'Mbudzi', 'Zvita'],
     'months_short' => ['Ndi', 'Kuk', 'Kur', 'Kub', 'Chv', 'Chk', 'Chg', 'Nya', 'Gun', 'Gum', 'Mbu', 'Zvi'],
     'formats' => [
         'LT' => 'HH:mm',

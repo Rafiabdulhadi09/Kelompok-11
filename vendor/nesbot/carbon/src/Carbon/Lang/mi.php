@@ -55,7 +55,7 @@ return [
         'sameElse' => 'L',
     ],
     'ordinal' => ':numberº',
-    'months' => ['Kohi-tāte', 'Hui-tanguru', 'Poutū-te-rangi', 'Paenga-whāwhā', 'Haratua', 'Pipiri', 'Hōngoingoi', 'Here-turi-kōkā', 'Mahuru', 'Whiringa-ā-nuku', 'Whiringa-ā-rangi', 'Hakihea'],
+    'months' => ['Kohi-tāte', 'Hui-tantrainer', 'Poutū-te-rangi', 'Paenga-whāwhā', 'Haratua', 'Pipiri', 'Hōngoingoi', 'Here-turi-kōkā', 'Mahuru', 'Whiringa-ā-nuku', 'Whiringa-ā-rangi', 'Hakihea'],
     'months_short' => ['Kohi', 'Hui', 'Pou', 'Pae', 'Hara', 'Pipi', 'Hōngoi', 'Here', 'Mahu', 'Whi-nu', 'Whi-ra', 'Haki'],
     'weekdays' => ['Rātapu', 'Mane', 'Tūrei', 'Wenerei', 'Tāite', 'Paraire', 'Hātarei'],
     'weekdays_short' => ['Ta', 'Ma', 'Tū', 'We', 'Tāi', 'Pa', 'Hā'],

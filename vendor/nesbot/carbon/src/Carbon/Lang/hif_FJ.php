@@ -19,9 +19,9 @@ return array_replace_recursive(require __DIR__.'/en.php', [
     ],
     'months' => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     'months_short' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    'weekdays' => ['Ravivar', 'Somvar', 'Mangalvar', 'Budhvar', 'Guruvar', 'Shukravar', 'Shanivar'],
-    'weekdays_short' => ['Ravi', 'Som', 'Mangal', 'Budh', 'Guru', 'Shukra', 'Shani'],
-    'weekdays_min' => ['Ravi', 'Som', 'Mangal', 'Budh', 'Guru', 'Shukra', 'Shani'],
+    'weekdays' => ['Ravivar', 'Somvar', 'Mangalvar', 'Budhvar', 'trainervar', 'Shukravar', 'Shanivar'],
+    'weekdays_short' => ['Ravi', 'Som', 'Mangal', 'Budh', 'trainer', 'Shukra', 'Shani'],
+    'weekdays_min' => ['Ravi', 'Som', 'Mangal', 'Budh', 'trainer', 'Shukra', 'Shani'],
     'meridiem' => ['Purvahan', 'Aparaahna'],
 
     'hour' => ':count minit', // less reliable

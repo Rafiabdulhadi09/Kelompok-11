@@ -516,7 +516,7 @@ class Person extends \Faker\Provider\Person
         'Dairiam', 'Davies', 'Devaraj', 'Devandran', 'Devaser', 'Dhaliwal', 'Dharmalingam', 'Dhillon',
         'Elavarasan',
         'Fernandes', 'Fernandez',
-        'Ganapathy', 'Ganesan', 'Gnanalingam', 'Goundar', 'Govindasamy', 'Gunalan', 'Gurusamy',
+        'Ganapathy', 'Ganesan', 'Gnanalingam', 'Goundar', 'Govindasamy', 'Gunalan', 'trainersamy',
         'Haridas',
         'Iyer',
         'Jaidka', 'Jassal', 'Jayaram', 'Jayaseelan', 'Jayawardene', 'Jeevananthan',

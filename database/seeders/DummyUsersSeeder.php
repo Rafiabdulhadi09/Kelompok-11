@@ -14,18 +14,18 @@ class DummyUsersSeeder extends Seeder
     public function run(): void
     {
         $UserData = [
-            [
-                'name'=>'Admin Kece',
-                'email'=>'adminkece@gmail.com',
-                'role'=>'admin',
-                'password'=>bcrypt('12345678')
-            ],
-                [
-                'name'=>'Trainer Kece',
-                'email'=>'trainerkece@gmail.com',
-                'role'=>'trainer',
-                'password'=>bcrypt('12345678')
-            ],
+            // [
+            //     'name'=>'Admin Kece',
+            //     'email'=>'adminkece@gmail.com',
+            //     'role'=>'admin',
+            //     'password'=>bcrypt('12345678')
+            // ],
+            //     [
+            //     'name'=>'Trainer Kece',
+            //     'email'=>'trainerkece@gmail.com',
+            //     'role'=>'trainer',
+            //     'password'=>bcrypt('12345678')
+            // ],
                 [
                 'name'=>'user Kece',
                 'email'=>'userkece@gmail.com',

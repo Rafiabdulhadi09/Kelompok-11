@@ -39,7 +39,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data User</h6>
                           <a class="collapse-item" href="{{ url('admin/DataUser') }}">Data User</a>
-                        <a class="collapse-item" href="{{ url('admin/DataGuru')}}">Data Trainer</a>
+                        <a class="collapse-item" href="{{ route('admin.dataTrainer')}}">Data Trainer</a>
                         <a class="collapse-item" href="{{ url('admin/DataKelas') }}">Data Kursus</a>
                     </div>
                 </div>

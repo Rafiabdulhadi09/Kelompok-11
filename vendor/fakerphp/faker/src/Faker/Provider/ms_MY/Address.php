@@ -202,7 +202,7 @@ class Address extends \Faker\Provider\Address
             'Baling', 'Bukit Kayu Hitam',
             'Changlun',
             'Durian Burung',
-            'Gurun',
+            'trainern',
             'Jitra',
             'Kepala Batas', 'Kuah', 'Kuala Kedah', 'Kuala Ketil', 'Kulim',
             'Langgar', 'Lunas',

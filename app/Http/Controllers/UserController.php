@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 use index;
 use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
 
 class UserController extends Controller
 {
@@ -29,10 +29,12 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+
+        // dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'nullable|string|min:8|confirmed', // Password tidak diwajibkan
+            'password' => 'nullable|string|min:8', // Password tidak diwajibkan
         ]);
 
         $user->name = $request->name;
@@ -44,7 +46,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.dataUser')->with('success', 'User updated successfully.');
+        return redirect()->route('admin.DataUser')->with('success', 'User updated successfully.');
     }
 
     public function destroy(User $user)

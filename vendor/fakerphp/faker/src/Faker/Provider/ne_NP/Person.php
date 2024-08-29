@@ -82,7 +82,7 @@ class Person extends \Faker\Provider\Person
         'Baidya', 'Bajracharya', 'Balami', 'Banepali', 'Baniya', 'Banjade', 'Baral', 'Basnet', 'Bastakoti', 'Bastola', 'Basyal', 'Belbase', 'Bhandari', 'Bhatta', 'Bhattarai', 'Bhusal', 'Bijukchhe', 'Bisht', 'Bohara', 'Budathoki', 'Byanjankar',
         'Chalise', 'Chamling', 'Chapagain', 'Chaudhary', 'Chhetri',
         'Dahal', 'Dangol', 'Dawadi', 'Devkota', 'Dhakal', 'Dhamla', 'Dhaubhadel', 'Dhungel',
-        'Gauchan', 'Gautam', 'Ghale', 'Ghimire', 'Giri', 'Golchha', 'Gurung', 'Gyalzen', 'Gyawali',
+        'Gauchan', 'Gautam', 'Ghale', 'Ghimire', 'Giri', 'Golchha', 'trainerng', 'Gyalzen', 'Gyawali',
         'Hamal', 'Himanshu', 'Humagain',
         'Jha', 'Joshi',
         'Kafle', 'Kandel', 'Kansakar', 'Karki', 'Karmacharya', 'Karna', 'Katwal', 'Kayastha', 'KC', 'Khadka', 'Khadgee', 'Khan', 'Khanal', 'Kharel', 'Khatiwada', 'Khatri', 'Khawas', 'Koirala',

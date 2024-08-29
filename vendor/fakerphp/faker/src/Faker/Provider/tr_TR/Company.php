@@ -53,7 +53,7 @@ class Company extends \Faker\Provider\Company
         'Embriyolog', 'Emniyet amiri', 'Emniyet genel müdürü', 'Ergonomist', 'Eskici', 'Falcı',
         'Fizikçi', 'Fizyoterapist', 'Fotoğrafçı', 'Fıçıcı', 'Galerici', 'Garson',
         'Gazete dağıtıcısı', 'Gazete satıcısı', 'Gazeteci', 'Gelir uzman yardımcısı', 'General',
-        'Genetik mühendisi', 'Gezici vaiz', 'Gondolcu', 'Guru', 'Gökbilimci', 'Gözlükçü',
+        'Genetik mühendisi', 'Gezici vaiz', 'Gondolcu', 'trainer', 'Gökbilimci', 'Gözlükçü',
         'Güfteci', 'Gümrük uzmanı', 'Haham', 'Hakem', 'Halkbilimci', 'Hamal', 'Hamurkâr',
         'Hareket memuru', 'Hava trafikçisi', 'Havacı', 'Hayvan terbiyecisi', 'Hesap uzmanı',
         'Heykeltıraş', 'Hokkabaz', 'Irgat', 'İcra memuru', 'İllüzyonist', 'İmam',

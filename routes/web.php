@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
 
@@ -43,8 +44,8 @@ Route::get('/user/kelas',[DataKelasController::class,'show']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 
-Route::get('admin/DataGuru', function () {
-    return view('admin.DataGuru');
+Route::get('admin/DataTrainer', function () {
+    return view('admin.DataTrainer');
 });
 
 Route::get('user/profil', function () {
@@ -56,3 +57,5 @@ Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.Dat
 Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edit'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'update'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
+
+Route::get('/admin/Data-trainer', [TrainerController::class, 'index'])->name('admin.dataTrainer');  
