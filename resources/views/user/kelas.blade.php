@@ -40,7 +40,7 @@
                             <div class="card-body p-3">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <p class="text-start"><small><b>{{ $item->title }}</b></small></p>
+                                    <p class="text-start"><small><b>{{ Str::limit($item['title'], 35) }}</b></small></p>
                                     <!-- Product price-->
                                     <p class="text-start"><img class="img-profile rounded-circle"
                                     src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="25"/> | <small>Rafi abdul hadi</small></a></p>
