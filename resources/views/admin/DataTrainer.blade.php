@@ -25,11 +25,11 @@
 @include('component.NavbarAdmin')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h1>Data Trainer</h1>
+                             <button class="btn btn-primary" type="button"><a href="{{ url('create/trainer') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

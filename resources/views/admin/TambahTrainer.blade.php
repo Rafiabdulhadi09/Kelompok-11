@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -53,11 +53,12 @@
                   <div class="container overflow-hidden text-center">
                     <div class="row gx-5">
                       <div class="col">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" value="user" name="role" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          user
-                        </label>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input mb-4" type="radio" value="trainer" name="role" id="flexRadioDefault2" checked>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Trainer
+                          </label>
                         </div>
                       </div>
                     </div>

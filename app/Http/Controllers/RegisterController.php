@@ -45,7 +45,7 @@ class RegisterController extends Controller
         'password' => $request->password,
        ];
        if (Auth::attempt($infologin)) {
-        return redirect()->to('register')->with('success','Berhasil Melakukan Register Silahkan untuk login');
+        return redirect()->back()->with('success','Berhasil Melakukan Register Silahkan untuk login');
        } else {
         return redirect('register')->withErrors('Username Dan Password Yang di Masukan Tidak Valid');
        }

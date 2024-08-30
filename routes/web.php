@@ -44,10 +44,6 @@ Route::get('/user/kelas',[DataKelasController::class,'show']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 
-Route::get('admin/DataTrainer', function () {
-    return view('admin.DataTrainer');
-});
-
 Route::get('user/profil', function () {
     return view('user.profil');
 });
@@ -59,3 +55,5 @@ Route::put('/admin/data-user/{user}', [UserController::class, 'update'])->name('
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
 
 Route::get('/admin/Data-trainer', [TrainerController::class, 'index'])->name('admin.dataTrainer');  
+Route::get('/create/trainer', [TrainerController::class, 'create'])->name('admin.TambahTrainer');  
+Route::post('/register/create', [RegisterController::class, 'create']);

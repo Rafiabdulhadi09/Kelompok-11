@@ -21,4 +21,8 @@ class TrainerController extends Controller
         // Pastikan data dikirimkan ke view
         return view('admin.DataTrainer', compact('trainers'));
     }
+     public function create(){
+        return view('admin.TambahTrainer');
+    }
 }
+   
