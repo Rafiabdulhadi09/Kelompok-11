@@ -57,3 +57,5 @@ Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->na
 Route::get('/admin/Data-trainer', [TrainerController::class, 'index'])->name('admin.dataTrainer');  
 Route::get('/create/trainer', [TrainerController::class, 'create'])->name('admin.TambahTrainer');  
 Route::post('/register/create', [RegisterController::class, 'create']);
+
+Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer']);

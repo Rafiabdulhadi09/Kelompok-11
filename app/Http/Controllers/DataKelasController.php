@@ -87,7 +87,6 @@ class DataKelasController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -103,4 +102,14 @@ class DataKelasController extends Controller
     {
         //
     }
+    public function Trainer()
+    {
+          // Mengambil semua data dari tabel items
+        $items = DataKelas::all();
+        // Mengirim data ke view
+        return view('trainer.tambahmateri', compact('items'));
+    }
 }
+
+ 
+
