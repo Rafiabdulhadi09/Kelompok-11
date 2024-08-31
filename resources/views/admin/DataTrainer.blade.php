@@ -29,7 +29,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h1>Data Trainer</h1>
-                             <button class="btn btn-primary" type="button"><a href="{{ url('create/trainer') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
+                            <button class="btn btn-primary" type="button"><a href="{{ url('create/trainer') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -109,7 +109,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true">x</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
