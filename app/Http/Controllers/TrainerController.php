@@ -2,27 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\View\View;
+use App\Models\Trainer;
+use Illuminate\Http\Request;
 
 class TrainerController extends Controller
 {
-    /**
-     * Menampilkan data pengguna dengan role 'trainer'.
-     *
-     * @return View
-     */
-    public function index(): View
+    public function store(Request $request)
     {
-        // Mengambil semua data user dengan role 'trainer'
-        $trainers = User::where('role', 'trainer')->get();
-        // dd($trainers);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:trainers',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-        // Pastikan data dikirimkan ke view
-        return view('admin.DataTrainer', compact('trainers'));
-    }
-     public function create(){
-        return view('admin.TambahTrainer');
+        Trainer::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'], // Akan di-hash oleh model
+        ]);
+
+        return redirect()->back()->with('success', 'Trainer account created successfully!');
     }
 }
-   

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
@@ -25,7 +26,7 @@ use App\Http\Controllers\DataKelasController;
     return view('kelas');
 });
 Route::middleware(['guest'])->group(function(){
-   
+
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 });
@@ -47,6 +48,7 @@ Route::post('/kelas/create', [DataKelasController::class, 'create']);
 Route::get('user/profil', function () {
     return view('user.profil');
 });
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
 // Route untuk data user
 Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser');
