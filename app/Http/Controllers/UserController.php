@@ -54,4 +54,12 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.DataUser')->with('success', 'User deleted successfully.');
     }
+    public function trainer()
+    {
+        // Ambil data untuk role 'trainer'
+        $trainers = User::where('role', 'trainer')->get();
+
+        // Kirim data ke view
+        return view('admin.DataTrainer', compact('trainers'));
+    }
 }

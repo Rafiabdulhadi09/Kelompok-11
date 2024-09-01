@@ -17,7 +17,7 @@
                     class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle "
                     src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="35" /></a>
           <ul>
-              <li><a href="{{ url('user/profil') }}">Profil</a></li>
+              <li><a href="{{ url('profile') }}">Profil</a></li>
               <li><a href="{{ url('logout') }}">Logout</a></li>
           </ul>
           </li>
