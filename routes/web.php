@@ -36,7 +36,7 @@ Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses
 Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
 Route::get('/logout', [LoginController::class,'logout']);
 });
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'registeruser']);
 Route::post('/register/create', [RegisterController::class, 'create']);
 
 // Route untuk Data kursus
@@ -55,6 +55,12 @@ Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.Dat
 Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edit'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'update'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
-Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('admin.dataTrainer'); 
 
-Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer']);
+
+Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
+
+// Route untuk DataTrainer
+Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('admin.dataTrainer'); 
+Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
+Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.create');
+Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');

@@ -62,4 +62,9 @@ class UserController extends Controller
         // Kirim data ke view
         return view('admin.DataTrainer', compact('trainers'));
     }
+      public function destroytrainer(User $user)
+    {
+        $user->delete();
+        return redirect()->route('admin.dataTrainer')->with('success', 'User deleted successfully.');
+    }
 }
