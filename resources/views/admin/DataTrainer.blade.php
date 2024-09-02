@@ -59,7 +59,7 @@
                                         <td>{{ $trainer->email }}</td>
                                         <td>{{ $trainer->created_at->format('Y-m-d') }}</td>
                                         <td>
-                                            <button type="submit" class="btn btn-info" href="{{ route('admin.dataUser.edit', $trainer->id) }}">Edit</button>
+                                            <a type="submit" class="btn btn-info" href="{{ route('admin.dataTrainer.edit', $trainer->id) }}">Edit</a>
                                             <form action="{{ route('admin.DataTrainer.destroy', $trainer->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')

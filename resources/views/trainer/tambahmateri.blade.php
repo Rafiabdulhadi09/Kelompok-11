@@ -31,7 +31,6 @@
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
                             <h1>Data Kelas</h1>
-                             <button class="btn btn-primary" type="button"><a href="{{ url('create/kelas') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -42,7 +41,6 @@
                                             <th>Price</th>
                                             <th>Description</th>
                                             <th>Poto</th>
-                                            <th>Trainer</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -53,8 +51,7 @@
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>poto</td>
-                                                <td>trainertd><td>
-                                                <a href="">Edit</a>
+                                                <td><a type="submit" class="btn btn-warning" href="">+Materi</a></td>
                                             </td>
                                         </tr>
                                          @endforeach

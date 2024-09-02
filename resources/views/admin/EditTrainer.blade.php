@@ -33,7 +33,7 @@
                   </div>
                 @endif
 
-                <form action="{{ route('admin.dataUser.update', $user->id) }}" method="post" class="mx-1 mx-md-4">
+                <form action="{{ route('admin.dataTrainer.update', $user->id) }}" method="post" class="mx-1 mx-md-4">
                   @csrf
                   @method(' PUT')
                   <div class="d-flex flex-row align-items-center mb-4">

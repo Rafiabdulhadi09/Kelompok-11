@@ -52,14 +52,16 @@ Route::get('/profile/edit', [ProfileController::class, 'edit']);
 
 // Route untuk data user
 Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser');
-Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edit'])->name('admin.dataUser.edit');
-Route::put('/admin/data-user/{user}', [UserController::class, 'update'])->name('admin.dataUser.update');
+Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
+Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
 
 
 Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
 
 // Route untuk DataTrainer
+Route::get('/admin/data-trainer/{user}/edit', [UserController::class, 'edittrainer'])->name('admin.dataTrainer.edit');
+Route::put('/admin/data-trainer/{user}', [UserController::class, 'updatetrainer'])->name('admin.dataTrainer.update');
 Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('admin.dataTrainer'); 
 Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
 Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.create');

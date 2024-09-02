@@ -22,12 +22,12 @@ class UserController extends Controller
         // Mengirimkan data ke view
         return view('admin.DataUser', compact('users'));
     }
-    public function edit(User $user)
+    public function edituser(User $user)
     {
         return view('admin.EditUser', compact('user'));
     }
 
-    public function update(Request $request, User $user)
+    public function updateuser(Request $request, User $user)
     {
 
         // dd($request->all());
@@ -62,6 +62,32 @@ class UserController extends Controller
         // Kirim data ke view
         return view('admin.DataTrainer', compact('trainers'));
     }
+      public function edittrainer(User $user)
+    {
+        return view('admin.EditTrainer', compact('user'));
+    }
+
+      public function updatetrainer(Request $request, User $user)
+    {
+
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'nullable|string|min:8', // Password tidak diwajibkan
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->route('admin.dataTrainer')->with('success', 'User updated successfully.');
+    }
+
+
       public function destroytrainer(User $user)
     {
         $user->delete();
