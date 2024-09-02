@@ -51,7 +51,7 @@
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>poto</td>
-                                                <td><a type="submit" class="btn btn-warning" href="">+Materi</a></td>
+                                                <td><a type="submit" class="btn btn-warning" href="{{ route('trainer.create.materi') }}">+Materi</a></td>
                                             </td>
                                         </tr>
                                          @endforeach

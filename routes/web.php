@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
+use App\Http\Controllers\PelajaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,6 @@ Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('adm
 Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
 Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.create');
 Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
+
+Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
+Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
