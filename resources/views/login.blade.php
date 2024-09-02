@@ -16,15 +16,7 @@
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-              <ul>
-                @foreach ($errors->all() as $item)
-                    <li>{{ $item }}</li>
-                @endforeach
-              </ul>
-            </div>
-        @endif
+      @include('component.truefalse')
         <form action="" method="POST">
           @csrf
           <!-- Email input -->

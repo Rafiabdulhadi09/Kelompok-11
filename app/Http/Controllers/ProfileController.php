@@ -11,18 +11,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    // public function index()
+    // {
+    //     return view('user.profil');
+    // }   
     public function index()
     {
-        return view('user.profil');
-    }   
-    // public function showProfile()
-    // {
-    //     $user = Auth::user();
-    //     return view('user.profile', compact('user'));
-    // }
+        $user = User::all();
+        return view('user.profile', compact('user'));
+    }
     public function edit()
     {
-        return view ('user.editprofile');
+        $user = User::all();
+        return view('user.editprofile', compact('user'));
     }
     
 

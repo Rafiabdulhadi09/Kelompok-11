@@ -20,22 +20,7 @@
         <div class="card mt-2 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
             <div class = "container">
-                 @if ($errors->any())
-            <div class="alert alert-danger">
-              <ul>
-                @foreach ($errors->all() as $item)
-                    <li>{{ $item }}</li>
-                @endforeach
-              </ul>
-            </div>
-        @endif
-          @if (Session::has('success'))
-                  <div calss='pt-3'>
-                    <div class="alert alert-success">
-                      {{ Session::get('success') }}
-                    </div>
-                  </div>
-                @endif
+      @include('component.truefalse')
         <form action="{{ url('/kelas/create') }}" method="POST">
             @csrf
             <div class="controls">

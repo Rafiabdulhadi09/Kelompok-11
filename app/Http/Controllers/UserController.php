@@ -87,7 +87,6 @@ class UserController extends Controller
         return redirect()->route('admin.dataTrainer')->with('success', 'User updated successfully.');
     }
 
-
       public function destroytrainer(User $user)
     {
         $user->delete();

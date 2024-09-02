@@ -45,14 +45,14 @@ Route::get('/user/kelas',[DataKelasController::class,'show']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit']);
 // Route::put('/profile/edit/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 
 // Route untuk data user
 Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser');
-Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
+Route::get('/admin/data-user/ /edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
 

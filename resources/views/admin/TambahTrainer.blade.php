@@ -16,23 +16,7 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-          @if ($errors->any())
-            <div class="alert alert-danger">
-              <ul>
-                @foreach ($errors->all() as $item)
-                    <li>{{ $item }}</li>
-                @endforeach
-              </ul>
-            </div>
-        @endif
-          @if (Session::has('success'))
-                  <div calss='pt-3'>
-                    <div class="alert alert-success">
-                      {{ Session::get('success') }}
-                    </div>
-                  </div>
-                @endif
-
+        @include('component.truefalse')
                 <form action="/register/create" method="post" class="mx-1 mx-md-4">
                   @csrf
                   <div class="d-flex flex-row align-items-center mb-4">

@@ -34,13 +34,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                @if (Session::has('success'))
-                                    <div calss='pt-3'>
-                                        <div class="alert alert-success">
-                                        {{ Session::get('success') }}
-                                        </div>
-                                    </div>
-                                    @endif
+                               @include('component.truefalse')
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
