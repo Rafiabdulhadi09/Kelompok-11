@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class ProfileController extends Controller
@@ -27,19 +28,26 @@ class ProfileController extends Controller
         return view('user.editprofile', compact('user'));
     }
 
-    public function update(Request $request, User $edit)
+    public function update(Request $request)
     {
         //validate form
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
+            'password' => 'nullable|string|min:8',
         ],);
         
-        $edit->name = $request->input('name');
-        $edit->email = $request->input('email');
+        $user = Auth::user();
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
 
         //check if image is uploaded
-        $edit->update(); // Menyimpan perubahan ke database
+        $user->update(); // Menyimpan perubahan ke database
 
         // Redirect kembali ke halaman profil dengan pesan sukses
         return redirect()->route('profile.edit')->with('success', 'Profile updated successfully!');

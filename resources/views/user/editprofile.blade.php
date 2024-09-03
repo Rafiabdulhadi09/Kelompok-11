@@ -15,15 +15,15 @@
 <body>
   @include('component.header-user')
   <br>
-  @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
   <div class="container mt-5 pt-2" >
 <div class="row gutters">
 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
+@if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 	<div class="card-body">
 		<div class="account-settings">
 			<div class="user-profile">
@@ -55,9 +55,7 @@
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="email">
-						
-					</label>
+					<label for="email">Email</label>
 					<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $user->email) }}">
 				</div>
 			</div>
