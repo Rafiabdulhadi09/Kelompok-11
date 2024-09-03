@@ -70,3 +70,7 @@ Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrai
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+
+Route::get('/user.payment', function () {
+    return view('/user/payment');
+});

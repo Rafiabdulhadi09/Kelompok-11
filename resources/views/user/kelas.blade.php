@@ -49,7 +49,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Button</button>
+                                <button class="btn btn-primary" type="button"><a href="/user.payment">buy</a>
+                                </button>
                             </div>
                         </div>
                     </div>
