@@ -15,6 +15,11 @@
 <body>
   @include('component.header-user')
   <br>
+  @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
   <div class="container mt-5 pt-2" >
 <div class="row gutters">
 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -39,24 +44,28 @@
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<h6 class="mb-2 text-primary">Personal Details</h6>
 			</div>
+			<form action="{{ route('profile.update') }}" method="POST">
+            @csrf
+			@method('PUT')
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="fullName">Full Name</label>
-					<input type="text" class="form-control" id="fullName" placeholder="{{ Auth::user()->name }}">
+					<label for="name">	Name</label>
+					<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $user->name) }}">
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
-					<label for="eMail">Email</label>
-					<input type="email" class="form-control" id="eMail" placeholder="{{ Auth::user()->email }}">
+					<label for="email">
+						
+					</label>
+					<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $user->email) }}">
 				</div>
 			</div>
 		</div>
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
-					<button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-					<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+					<button type="submit" class="btn btn-primary">Update</button>
 				</div>
 			</div>
 		</div>

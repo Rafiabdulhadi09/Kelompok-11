@@ -28,8 +28,6 @@
           <div class="card-body text-center">
             <img src="" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">{{ $user->name }}</h5>
-            <p class="text-muted mb-1">{{ Auth::user()->job_title }}</p>
-            <p class="text-muted mb-4">{{ Auth:: user()->location }}</p>
             <div class="d-grid gap-2 col-6 mx-auto">
               <a href="{{ url('profile/edit') }}" class="btn btn-primary text-white">Edit Profil</a>
             </div>

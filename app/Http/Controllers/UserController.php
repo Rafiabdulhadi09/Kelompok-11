@@ -34,7 +34,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'nullable|string|min:8', // Password tidak diwajibkan
         ]);
 
         $user->name = $request->name;
