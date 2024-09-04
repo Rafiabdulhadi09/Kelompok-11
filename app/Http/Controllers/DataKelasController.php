@@ -5,14 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class DataKelasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // Mengambil semua data dari tabel items
@@ -79,20 +75,36 @@ class DataKelasController extends Controller
         // Mengirim data ke view
         return view('user.kelas', compact('data'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function editkursus($id)
     {
-        //
+        // Mengambil semua data dari tabel items
+        $datakursus = DataKelas::findOrFail($id);
+        // Mengirim data ke view
+        return view('admin.EditKursus', compact('datakursus'));
     }
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    public function updatekursus(Request $request, $id)
     {
-        //
+        $datakursus = DataKelas::findOrFail($id);
+
+        $request->validate([
+            'title'=>'required',
+            'price'=>'required',
+            'description'=>'required'
+        ]);
+        $datakursus->update([
+            'title'=> $request->title,
+            'price'=> $request->price,
+            'description'=> $request->description
+        ]);
+        return redirect()->back()->with('success', 'Data kursus berhasil di edit');
+    }
+
+      public function destroykursus($id)
+    {
+        $datakursus = DataKelas::findOrFail($id);
+        $datakursus->delete();
+        return redirect()->back()->with('success', 'User deleted successfully.');
     }
 
     /**

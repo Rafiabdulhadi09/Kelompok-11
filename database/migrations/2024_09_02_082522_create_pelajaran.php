@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('pelajaran', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('video');
-            $table->string('file');
+            $table->string('type');
+            $table->string('content');
             $table->timestamps();
         });
     }
