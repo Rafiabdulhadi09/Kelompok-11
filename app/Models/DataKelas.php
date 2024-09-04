@@ -12,6 +12,7 @@ class DataKelas extends Model
     protected $fillable = [
         'title',
         'price',
+        'image',
         'description',
     ]; 
 }

@@ -21,7 +21,7 @@
             <div class="card-body bg-light">
             <div class = "container">
       @include('component.truefalse')
-        <form action="{{ url('/kelas/create') }}" method="POST">
+        <form action="{{ url('/kelas/create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="controls">
                  <div class="d-flex flex-row align-items-center mb-4">
@@ -38,12 +38,10 @@
                             <input id="form_email" type="integer" name="price" class="form-control" placeholder="Please enter price *">
                         </div>
                     </div>
-                    {{-- <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="form_need">Please enter profil kursus *</label>
-                          <input type="file" class="form-control" name="poto">
-                        </div>
-                    </div> --}}
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Pilih gambar untuk kelas</label>
+                        <input class="form-control" type="file" id="image" name="image">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">

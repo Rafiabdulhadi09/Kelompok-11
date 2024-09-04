@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('price');
+            $table->string('image')->nullabel();
             $table->text('description');
             $table->timestamps();
         });

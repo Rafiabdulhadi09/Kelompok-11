@@ -33,9 +33,9 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     @foreach ($data as $item)
                     <div class="col mb-5">
-                        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="{{ asset('storage/' . $item->image) }}" width="450" height="120" />
                             <!-- Product details-->
                             <div class="card-body p-3">
                                 <div class="text-center">
@@ -44,12 +44,12 @@
                                     <!-- Product price-->
                                     <p class="text-start"><img class="img-profile rounded-circle"
                                     src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="25"/> | <small>Rafi abdul hadi</small></a></p>
-                                    <p class="text-start"><small>Rp {{ $item->price }},00</small></p>
+                                    <p class="text-start "><small>Rp {{ $item->price }},00</small></p>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="button"><a href="/user.payment">buy</a>
+                                <button class="btn btn-primary" type="button"><a href="/user.payment"><span class="text-white">buy</span></a>
                                 </button>
                             </div>
                         </div>

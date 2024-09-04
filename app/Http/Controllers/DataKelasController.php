@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\UploadedFile;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,27 +26,31 @@ class DataKelasController extends Controller
      */
     public function create(Request $request)
     {
-        Session::flash('title', $request->title);
-        Session::flash('price', $request->price);
-        Session::flash('description', $request->description);
         $request->validate([
         'title' => 'required',
         'price' => 'required',
+        'image' => 'image|file|max:2048',
         'description' => 'required'
        ], [
         'title.required' => 'Title Wajib Diisi',
         'price.required' => 'Email Wajib Diisi',
         'description.required' => 'Description Wajib Diisi'
        ]); 
+       
        $item = [
         'title'=>$request->title,
         'price'=>$request->price,
+        'image'=>$request->image,
         'description'=>$request->description,
        ];
+       if($request->file('image')) {
+        $item['image'] = $request->file('image')->store('kursus-images');
+       }
        DataKelas::create($item);
        $infokursus = [
         'title' => $request->title,
         'price' => $request->price,
+        'image'=>$request->image,
         'description' => $request->description,
        ];
       if ($item) {

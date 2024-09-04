@@ -38,31 +38,35 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Title</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Poto</th>
-                                            <th>Trainer</th>
-                                            <th>Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Title</th>
+                                            <th class="text-center">Price</th>
+                                            <th class="text-center">Description</th>
+                                            <th class="text-center">Poto</th>
+                                            <th class="text-center">Trainer</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                          <tbody>
                                              @php $no = 1; @endphp
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $no ++ }}</td>
-                                            <td>{{ $item->title }}</td>
-                                            <td>{{ $item->price }}</td>
-                                            <td>{{ $item->description }}</td>
-                                            <td>poto</td>
-                                            <td>trainertd><td>
+                                            <td class="text-center">{{ $no ++ }}</td>
+                                            <td class="text-center">{{ $item->title }}</td>
+                                            <td class="text-center">{{ $item->price }}</td>
+                                            <td class="text-center">{{ $item->description }}</td>
+                                            <td class="text-center">
+                                                <img src="{{ asset('storage/' . $item->image) }}" width="75">
+                                            </td>
+                                            <td>trainertd></td>
+                                            <td class="text-center">
                                             <a type="submit" class="btn btn-info" href="{{ route('edit.datakursus', $item->id) }}">Edit</a>
                                             <form action="{{ route('kursus.destroy', $item->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
