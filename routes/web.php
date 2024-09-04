@@ -45,6 +45,9 @@ Route::get('/admin/DataKelas',[DataKelasController::class,'index']);
 Route::get('/user/kelas',[DataKelasController::class,'show']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
+Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus');
+Route::put('/kursus/{id}update', [DataKelasController::class, 'updatekursus'])->name('kursus.update');
+Route::delete('/kursus/{user}destroy', [DataKelasController::class, 'destroykursus'])->name('kursus.destroy');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -16,27 +16,27 @@ class PelajaranController extends Controller
     public function create(Request $request)
     {
         Session::flash('title', $request->title);
-        Session::flash('video', $request->video);
-        Session::flash('file', $request->file);
+        Session::flash('type', $request->type);
+        Session::flash('content', $request->content);
         $request->validate([
         'title' => 'required',
-        'video' => 'required',
-        'file' => 'required'
+        'type' => 'required',
+        'content' => 'required'
        ], [
         'title.required' => 'Title Wajib Diisi',
-        'video.required' => 'Email Wajib Diisi',
-        'file.required' => 'Description Wajib Diisi'
+        'type.required' => 'Pilih Type',
+        'content.required' => 'Content wajib diisi'
        ]); 
        $item = [
         'title'=>$request->title,
-        'video'=>$request->video,
-        'file'=>$request->file,
+        'type'=>$request->type,
+        'content'=>$request->content,
        ];
        Pelajaran::create($item);
        $infokursus = [
         'title' => $request->title,
-        'video' => $request->video,
-        'file' => $request->file,
+        'type' => $request->type,
+        'content' => $request->content,
        ];
       if ($item) {
         // Berhasil menyimpan data
