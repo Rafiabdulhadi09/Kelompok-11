@@ -27,15 +27,18 @@
                  <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Title *</label>
+                    <label class="form-label" for="form3Example1c">Title</label>
                     <input type="text" name="title" id="form3Example1c" placeholder="enter your title" class="form-control" />
                     </div>
                   </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="form_email">link video *</label>
-                            <input id="form_email" type="string" name="video" class="form-control" placeholder="Please enter price *">
+                            <select class="form-select mt-3" name="type">
+                                      <option value="text">Text</option>
+                                      <option value="ebook">E-book</option>
+                                      <option value="video">Video</option>
+                               </select>
                         </div>
                     </div>
                     {{-- <div class="col-md-6">
@@ -48,8 +51,8 @@
                 <div class="row">
                   <div class="col-md-6">
                         <div class="form-group">
-                            <label for="form_email">link file *</label>
-                            <input id="form_email" type="string" name="file" class="form-control" placeholder="Please enter price *">
+                            <label for="form_email">Content</label>
+                            <input id="form_email" type="string" name="content" class="form-control" placeholder="Please enter price *">
                         </div>
                     </div>
                     <div class="col-md-12">

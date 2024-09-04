@@ -68,8 +68,6 @@ class UserController extends Controller
 
       public function updatetrainer(Request $request, User $user)
     {
-
-        // dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
@@ -86,7 +84,7 @@ class UserController extends Controller
         return redirect()->route('admin.dataTrainer')->with('success', 'User updated successfully.');
     }
 
-      public function destroytrainer(User $user)
+    public function destroytrainer(User $user)
     {
         $user->delete();
         return redirect()->route('admin.dataTrainer')->with('success', 'User deleted successfully.');

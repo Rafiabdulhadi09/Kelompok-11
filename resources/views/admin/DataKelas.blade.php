@@ -38,6 +38,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Title</th>
                                             <th>Price</th>
                                             <th>Description</th>
@@ -47,16 +48,21 @@
                                         </tr>
                                     </thead>
                                          <tbody>
+                                             @php $no = 1; @endphp
                                     @foreach ($data as $item)
                                         <tr>
-                                                <td>{{ $item->title }}</td>
-                                                <td>{{ $item->price }}</td>
-                                                <td>{{ $item->description }}</td>
-                                                <td>poto</td>
-                                                <td>trainertd><td>
-                                                <a href="">Edit</a>
-                                                <a href="">Hapus</a>
-                                            </td>
+                                            <td>{{ $no ++ }}</td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>poto</td>
+                                            <td>trainertd><td>
+                                            <a type="submit" class="btn btn-info" href="{{ route('edit.datakursus', $item->id) }}">Edit</a>
+                                            <form action="{{ route('kursus.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                         </tr>
                                     @endforeach
                                     </tbody>
