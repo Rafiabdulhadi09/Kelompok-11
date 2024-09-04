@@ -9,6 +9,7 @@ use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\ProfileTrainerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,9 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
+Route::get('/profiletrainer', [ProfileTrainerController::class, 'index'])->name('profiletrainer');
+Route::get('/profiletrainer/edit', [ProfileTrainerController::class, 'edit'])->name('profiletrainer.edit');
+Route::put('/profiletrainer/update', [ProfileTrainerController::class, 'update'])->name('profiletrainer.update');
 
 // Route untuk data user
 Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser');

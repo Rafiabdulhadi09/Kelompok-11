@@ -32,9 +32,9 @@
                 </div>
                 <div class="card-body col-10 offset-1">
                     <form>
-                        <div class="form-group"> <label><small><strong class="text-muted">CARD HOLDER</strong></small></label> <input class="form-control" placeholder="Devin Caldwell"> </div>
+                        <div class="form-group"> <label><small><strong class="text-muted">CARD HOLDER</strong></small></label> <input class="form-control" placeholder=""> </div>
                         <div class="form-group"> <label><small><strong class="text-muted">CARD NUMBER</strong></small></label>
-                            <div class="d-flex card-number"> <input class="form-control" placeholder="1234-4567-4543-1685"> <i class="fas fa-credit-card text-muted fa-2x"></i> </div>
+                            <div class="d-flex card-number"> <input class="form-control" placeholder=""> <i class="fas fa-credit-card text-muted fa-2x"></i> </div>
                         </div>
                         <div class="line3">
                             <div class="txt d-flex">
@@ -68,7 +68,7 @@
                 <div class="card-footer col-10 offset-1 border-0 footer2">
                     <div class="d-flex total mb-5">
                         <p><strong>TOTAL</strong></p>
-                        <p><strong>$ 1235</strong></p>
+                        <p><strong>Rp. 200.000</strong></p>
                     </div> <button class="btn col-12"> PAY </button>
                 </div>
             </div>

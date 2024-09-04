@@ -51,11 +51,9 @@
                         <div
                           class="text-xs font-weight-bold text-primary text-uppercase mb-1"
                         >
-                          Anggota
+                          Data User
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          100
-                        </div>
+                        <a href="{{url('/admin/DataUser')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -74,14 +72,12 @@
                         <div
                           class="text-xs font-weight-bold text-success text-uppercase mb-1"
                         >
-                          Pembayaran
+                          Data Trainer
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          $215,000
-                        </div>
+                        <a href="{{url('/admin/Data-trainer')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                       </div>
                     </div>
                   </div>
@@ -97,33 +93,14 @@
                         <div
                           class="text-xs font-weight-bold text-info text-uppercase mb-1"
                         >
-                          Tasks
+                          Data Kursus
                         </div>
-                        <div class="row no-gutters align-items-center">
-                          <div class="col-auto">
-                            <div
-                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
-                            >
-                              50%
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="progress progress-sm mr-2">
-                              <div
-                                class="progress-bar bg-info"
-                                role="progressbar"
-                                style="width: 50%"
-                                aria-valuenow="50"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
+                        <a href="{{url('/admin/DataKelas')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+                        
                       </div>
                       <div class="col-auto">
                         <i
-                          class="fas fa-clipboard-list fa-2x text-gray-300"
+                          class="far fa-users-class fa-2x text-gray-300"
                         ></i>
                       </div>
                     </div>
