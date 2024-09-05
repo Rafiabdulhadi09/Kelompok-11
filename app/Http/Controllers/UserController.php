@@ -36,6 +36,8 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255',
         ]);
 
+        $user->update($request->all());
+
         $user->name = $request->name;
         $user->email = $request->email;
 
