@@ -47,7 +47,7 @@
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
             <h1 data-aos="fade-up">Selamat Datang</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Di platform digital yang menyediakan berbagai kursus dan materi pembelajaran melalui internet. Pengguna dapat mendaftar untuk kursus, mengakses materi belajar seperti video dan artikel, mengerjakan tugas dan ujian, serta berinteraksi dengan instruktur dan peserta lain. Dengan fitur seperti pelacakan kemajuan dan sertifikat penyelesaian, platform ini menawarkan fleksibilitas dalam belajar kapan saja dan di mana saja.</p>
+            <p data-aos="fade-up" data-aos-delay="100">Di platform digital yang menyediakan berbagai kursus dan materi pembelajaran melalui internet. Pengguna dapat mendaftar untuk kursus, mengakses materi belajar seperti video dan artikel. Platform ini menawarkan fleksibilitas dalam belajar kapan saja dan di mana saja.</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Belajar<i class="bi bi-arrow-right"></i></a>
             </div>
@@ -68,7 +68,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
-        <p>Apa yang mereka katakan tentang kita<br></p>
+        <p>Apa yang mereka katakan setelah belajar di website kami?<br></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -188,13 +188,60 @@
       </div>
 
       </section><!-- /Services Section -->
+
+         <!-- Services Section -->
+    <section id="pembelajaran" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Belajar</h2>
+        <p>Pembelajaran di website <br></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-activity icon"></i>
+              <h3>Pengembangan Kemampuan</h3>
+              <p>Kurikulum kami telah dirancang secara khusus untuk memberi kamu landasan kokoh dalam aspek kemampuan, mempersiapkan kamu untuk menghadapi tantangan karir yang kompleks</p>
+              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-broadcast icon"></i>
+              <h3>Metode Pembelajaran</h3>
+              <p>Melalui video interaktif, modul pembelajaran, Anda akan mendapatkan pengalaman belajar yang menyeluruh dan mendalam.</p>
+              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <i class="bi bi-easel icon"></i>
+              <h3>Jadwal pembelajaran</h3>
+              <p>Kursus Online kami dirancang untuk memandu Anda dari dasar hingga mahir, dengan jadwal yang fleksibel dan dapat disesuaikan dengan waktu Anda.</p>
+              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
     <!-- Team Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Online Class</p>
+        <h2>Tentang</h2>
+        <p>Tentang kursus online kami</p>
       </div><!-- End Section Title -->
 
       <div class="container">

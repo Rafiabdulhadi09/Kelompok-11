@@ -33,11 +33,11 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     @foreach ($data as $item)
                     <div class="col mb-5">
-                        <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="{{ asset('storage/' . $item->image) }}" width="450" height="120" />
+                            <img class="card-img-top" src="{{ asset('storage/' . $item->image) }}" width="450" height="130" />
                             <!-- Product details-->
-                            <div class="card-body p-3">
+                            <div class="card-body ">
                                 <div class="text-center">
                                     <!-- Product name-->
                                     <p class="text-start"><small><b>{{ Str::limit($item['title'], 35) }}</b></small></p>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="d-grid gap-2 col-6 mx-auto">
+                            <div class="d-grid gap-2 col-6 mx-auto mb-3">
                                 <button class="btn btn-primary" type="button"><a href="/user.payment"><span class="text-white">buy</span></a>
                                 </button>
                             </div>
