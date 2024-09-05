@@ -60,7 +60,7 @@ Route::put('/profiletrainer/update', [ProfileTrainerController::class, 'update']
 
 // Route untuk data user
 Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser');
-Route::get('/admin/data-user/ /edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
+Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
 
