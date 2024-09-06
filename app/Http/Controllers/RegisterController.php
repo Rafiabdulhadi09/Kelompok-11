@@ -16,13 +16,16 @@ class RegisterController extends Controller
         return view('register');
     }
     function create(Request $request)
+    
     {
+        return $request->file('image')->store('post-images');
        Session::flash('name', $request->name);
        Session::flash('email', $request->email);
        Session::flash('role', $request->role);
        $request->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
+    
         'password' => 'required|min:6'
        ], [
         'name.required' => 'Nama Wajib Diisi',
@@ -35,12 +38,15 @@ class RegisterController extends Controller
        $data = [
         'name'=>$request->name,
         'email'=>$request->email,
+     
         'role'=>$request->role,
         'password'=> Hash::make($request->password),
        ];
+      
        User::create($data);
        $infologin = [
         'email' => $request->email,
+       
         'role' => $request->role,
         'password' => $request->password,
        ];

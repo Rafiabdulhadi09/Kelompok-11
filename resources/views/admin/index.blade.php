@@ -53,7 +53,7 @@
                         >
                           Data User
                         </div>
-                        <a href="{{url('/admin/DataUser')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{url('/admin/DataUser')}}" class="small-box-footer">1<i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -74,7 +74,7 @@
                         >
                           Data Trainer
                         </div>
-                        <a href="{{url('/admin/Data-trainer')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{url('/admin/Data-trainer')}}" class="small-box-footer">2<i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -95,7 +95,7 @@
                         >
                           Data Kursus
                         </div>
-                        <a href="{{url('/admin/DataKelas')}}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{url('/admin/DataKelas')}}" class="small-box-footer">3<i class="fas fa-arrow-circle-right"></i></a>
                         
                       </div>
                       <div class="col-auto">

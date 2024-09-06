@@ -18,6 +18,7 @@
     <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -32,6 +33,19 @@
                         <div class="card-header py-3">
                             <h1>Data User</h1>
                         </div>
+                        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <form action="{{ route('admin.dataUser.search') }}" method="GET" class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Search for..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                                </div>
+                             </form>
+                            </div>
+                        </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                @include('component.truefalse')

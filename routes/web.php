@@ -74,6 +74,7 @@ Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('adm
 Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
 Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.create');
 Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
+Route::get('admin/data-user/search', [UserController::class, 'search'])->name('admin.dataUser.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
@@ -81,3 +82,5 @@ Route::post('/materi/create', [PelajaranController::class, 'create'])->name('mat
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
+
+Route::get('/admin/DataKelas/search',[DataKelasController::class,'search']);

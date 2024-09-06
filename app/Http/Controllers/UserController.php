@@ -89,4 +89,23 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.dataTrainer')->with('success', 'User deleted successfully.');
     }
+
+    public function search(Request $request)
+    {
+        // Ambil query pencarian dari input
+        $query = $request->input('query');
+
+        // Cari user dengan role "user" yang cocok dengan query
+        $users = User::where('role', 'user')
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                  ->orWhere('email', 'like', '%' . $query . '%');
+            })
+            ->get();
+
+        // Return ke view dengan hasil pencarian
+        return view('admin.dataUser', compact('users'));
+    }
+
+    
 }
