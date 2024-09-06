@@ -17,11 +17,7 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
          @include('component.truefalse')
-<<<<<<< HEAD
                 <form action="{{ url('register/user') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
-=======
-                <form action="/register/create" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
->>>>>>> 1ce2495c5a803972d78d55e44e17dbd0956c1f4c
                   @csrf
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -38,25 +34,6 @@
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
-<<<<<<< HEAD
-=======
-                  <div class="container overflow-hidden text-center">
-                    <div class="row gx-5">
-                      <div class="col">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" value="user" name="role" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          user
-                        </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                        <label for="image" class="form-label">Pilih gambar untuk kelas</label>
-                        <input class="form-control" type="file" id="image" name="image">
-                    </div>
->>>>>>> 1ce2495c5a803972d78d55e44e17dbd0956c1f4c
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
