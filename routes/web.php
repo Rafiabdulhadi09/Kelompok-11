@@ -49,6 +49,7 @@ Route::post('/kelas/create', [DataKelasController::class, 'create']);
 Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus');
 Route::put('/kursus/{id}update', [DataKelasController::class, 'updatekursus'])->name('kursus.update');
 Route::delete('/kursus/{id}destroy', [DataKelasController::class, 'destroykursus'])->name('kursus.destroy');
+Route::get('/admin/Data-kelas/search', [DataKelasController::class, 'search'])->name('admin.data-kelas.search');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,6 +64,7 @@ Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.Dat
 Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
+Route::get('admin/data-user/search', [UserController::class, 'search'])->name('admin.dataUser.search');
 
 
 Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
@@ -74,6 +76,7 @@ Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('adm
 Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
 Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.trainer');
 Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
+Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
@@ -81,3 +84,4 @@ Route::post('/materi/create', [PelajaranController::class, 'create'])->name('mat
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
+

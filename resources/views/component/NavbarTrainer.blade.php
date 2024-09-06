@@ -3,10 +3,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon ">
+                    <i class="fas fa-user-tie"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin Kelas <sup>Online</sup></div>
+                <div class="sidebar-brand-text mx-3">Trainer kls <sup>Online</sup></div>
             </a>
 
             <!-- Divider -->
@@ -21,11 +21,6 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">

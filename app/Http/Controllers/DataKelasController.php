@@ -126,7 +126,21 @@ class DataKelasController extends Controller
         // Mengirim data ke view
         return view('trainer.tambahmateri', compact('items'));
     }
+
+    public function search(Request $request)
+    {
+        // Ambil query pencarian dari input form
+        $query = $request->input('query');
+
+        // Cari data kelas berdasarkan kolom yang relevan (misal: nama_kelas atau deskripsi)
+        $data = DataKelas::where('title', 'like', '%' . $query . '%')
+            ->orWhere('price', 'like', '%' . $query . '%')
+            ->get();
+
+        // Return hasil pencarian ke view 'admin.datakelas'
+        return view('admin.datakelas', compact('data'));
+    }
 }
 
- 
+
 
