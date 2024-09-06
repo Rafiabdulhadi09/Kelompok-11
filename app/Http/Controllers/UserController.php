@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use index;
 use App\Models\User;
+use App\Models\Trainer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -109,5 +110,21 @@ class UserController extends Controller
         return view('admin.dataUser', compact('users'));
     }
 
+    public function searchtrainer(Request $request)
+    {
+        // Ambil query pencarian dari input
+        $query = $request->input('query');
+
+        // Cari user dengan role "user" yang cocok dengan query
+        $trainers = User::where('role', 'trainer')
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                  ->orWhere('email', 'like', '%' . $query . '%');
+            })
+            ->get();
+
+        // Return ke view dengan hasil pencarian
+        return view('admin.dataTrainer', compact('trainers'));
+    }
     
 }

@@ -33,14 +33,17 @@
                             <h1>Data Kelas</h1>
                              <button class="btn btn-primary" type="button"><a href="{{ url('create/kelas') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
                         </div>
-                        <form action="{{ route('/admin/DataKelas/search') }}" method="GET" class="input-group">
+                        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                        <form action="{{ route('admin.data-kelas.search') }}" method="GET" class="input-group align-right" >
                             <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Search for..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                                 </div>
-                             </form>
+                             </form></div>
+                             </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
