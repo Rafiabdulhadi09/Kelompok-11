@@ -17,7 +17,7 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
         @include('component.truefalse')
-                <form action="/register/create" method="post" class="mx-1 mx-md-4">
+                <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                   @csrf
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -32,19 +32,6 @@
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                       <input type="email" name="email" value="{{ old('email') }}" id="form3Example3c" class="form-control" />
                       <label class="form-label" for="form3Example3c">Your Email</label>
-                    </div>
-                  </div>
-                  <div class="container overflow-hidden text-center">
-                    <div class="row gx-5">
-                      <div class="col">
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input mb-4" type="radio" value="trainer" name="role" id="flexRadioDefault2" checked>
-                          <label class="form-check-label" for="flexRadioDefault2">
-                            Trainer
-                          </label>
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">

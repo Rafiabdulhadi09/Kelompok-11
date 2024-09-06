@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    // public function index()
-    // {
-    //     return view('user.profil');
-    // }   
+    public function profile($id)
+    {
+           $user = Auth::user();
+        return view('component/header-user', compact('user'));
+    }   
     public function index()
     {
         $user = Auth::user();

@@ -18,7 +18,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
     <a class="btn-getstarted flex-md-shrink-0" href="{{ url('login') }}">Login</a>
-      <a class="btn-getstarted flex-md-shrink-0" href="{{ url('register') }}">Register</a>
+      <a class="btn-getstarted flex-md-shrink-0" href="{{ route('register') }}">Register</a>
 
     </div>
   </header>

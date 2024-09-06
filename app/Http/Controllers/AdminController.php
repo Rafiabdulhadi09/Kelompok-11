@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 { 
     function index(){
-        return view('user/index');
+         $user = Auth::user();
+        return view('user/index', compact('user'));
     }
     function trainer(){
         return view('trainer/index');

@@ -23,7 +23,7 @@ class ProfileTrainerController extends Controller
         $trainer = Auth::user();
         return view('trainer.profiletrainer', compact('trainer'));
     }
-    public function edit(Trainer $edit)
+    public function edit(User $edit)
     {
         $trainer = Auth::user();
         return view('trainer.editprofiletrianer', compact('trainer'));

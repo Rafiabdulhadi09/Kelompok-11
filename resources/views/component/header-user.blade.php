@@ -13,9 +13,12 @@
           <li><a href="/user#about">About</a></li>
           <li><a href="/user#pembelajaran">pembelajaran</a></li>
           <li><a href="{{ url('user/kelas') }}">Kelas</a></li>
-          <li class="dropdown"><a href="#">  <img
-                    class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle "
-                    src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="35" /></a>
+          <li class="dropdown"><a href="#">  
+         @if(isset($user) && $user->image)
+        <img class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle" src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->image }}" width="35">
+        @else
+    <p>Gambar profil tidak tersedia</p>
+    @endif
           <ul>
               <li><a href="{{ route('profile') }}">Profil</a></li>
               <li><a href="{{ url('logout') }}">Logout</a></li>
