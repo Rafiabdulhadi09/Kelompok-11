@@ -26,7 +26,17 @@
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
-
+                  <div class="input-group">
+                      <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <option value="laki-laki">laki-laki</option>
+                        <option value="perempuan">perempuan</option>
+                      </select>
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                    <div class="input-group">
+                  <span class="input-group-text">With textarea</span>
+                  <textarea class="form-control" name='alamat' aria-label="With textarea"></textarea>
+                </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
@@ -40,6 +50,7 @@
                       <input type="password" name="password" id="form3Example4c" class="form-control" />
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
+                   
                      <div class="mb-3">
                         <label for="image" class="form-label">Pilih gambar untuk profile</label>
                         <input class="form-control" type="file" id="image" name="image">

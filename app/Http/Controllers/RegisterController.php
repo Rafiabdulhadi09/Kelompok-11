@@ -26,6 +26,8 @@ class RegisterController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'image' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
             'password' => 'required|min:6',
         ], [
             'name.required' => 'Nama Wajib Diisi',
@@ -41,6 +43,9 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'image' => $request->image,
+            'jk' => $request->jk,
+            'alamat' => $request->alamat,
+            'keahlian' => 'pelajar',
             'role' => 'user', // Role diatur secara default menjadi 'user'
             'password' => Hash::make($request->password), // Hash password sebelum disimpan
         ];
@@ -77,6 +82,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
+            'image'=> 'required',
             'password' => 'required|min:6',
         ], [
             'name.required' => 'Nama Wajib Diisi',
@@ -91,9 +97,13 @@ class RegisterController extends Controller
         $datatrainer = [
             'name' => $request->name,
             'email' => $request->email,
+            'image' => $request->image,
             'role' => 'trainer', // Role diatur secara default menjadi 'trainer'
             'password' => Hash::make($request->password), // Hash password sebelum disimpan
         ];
+
+        if($request->file('image')) {
+            $datatrainer['image'] = $request->file('image')->store('profile_trainer');
 
         // Simpan data ke database
         User::create($datatrainer);
@@ -111,4 +121,5 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
     }
+}
 }

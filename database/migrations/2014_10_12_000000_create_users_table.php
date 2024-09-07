@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('image')->nullable();
+            $table->string('jk');
+            $table->string('alamat');
+            $table->string('keahlian');
             $table->string('password');
             $table->enum('role',['admin','trainer','user'])->default('user');
             $table->rememberToken();

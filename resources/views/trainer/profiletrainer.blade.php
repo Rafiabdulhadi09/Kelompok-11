@@ -38,7 +38,11 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+          @if(isset($trainer) && $trainer->image)
+            <img src="{{ asset('storage/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
+            @else
+            <p>Gambar profil tidak tersedia</p>
+            @endif
             <h5 class="my-3">{{ $trainer->name }}</h5>
             <div class="d-grid gap-2 col-6 mx-auto">
               <a href="{{ url('profiletrainer/edit') }}" class="btn btn-primary text-white">Edit Profil</a>
