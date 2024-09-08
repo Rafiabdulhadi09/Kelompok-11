@@ -34,6 +34,10 @@
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
+                  <div class="input-group mb-3">
+  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">KIRIM</button>
+  <input type="file" class="form-control"  name="image" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+</div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">

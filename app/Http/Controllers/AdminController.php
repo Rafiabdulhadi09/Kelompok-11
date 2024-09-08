@@ -12,7 +12,9 @@ class AdminController extends Controller
         return view('user/index', compact('user'));
     }
     function trainer(){
-        return view('trainer/index');
+        $trainer= Auth::user();
+        return view('trainer/index', compact('trainer'));
+       
     }
     function admin(){
         return view('admin/index');
