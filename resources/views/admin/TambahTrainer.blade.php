@@ -26,7 +26,22 @@
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
-
+                    <div class="input-group">
+                      <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <option value="laki-laki">laki-laki</option>
+                        <option value="perempuan">perempuan</option>
+                      </select>
+                    </div>
+                    <div class="input-group">
+                  <span class="input-group-text">With textarea</span>
+                  <textarea class="form-control" name='alamat' aria-label="With textarea"></textarea>
+                </div>
+                 <div class="input-group">
+                      <select class="form-select" name="keahlian"id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <option value="Design Grafis">Design Grafis</option>
+                        <option value="Coding">Coding</option>
+                      </select>
+                    </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">

@@ -82,6 +82,9 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'keahlian' => 'required',
             'image'=> 'required',
             'password' => 'required|min:6',
         ], [
@@ -98,6 +101,9 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'image' => $request->image,
+            'jk' => $request->jk,
+            'alamat' => $request->alamat,
+            'keahlian' => $request->keahlian,
             'role' => 'trainer', // Role diatur secara default menjadi 'trainer'
             'password' => Hash::make($request->password), // Hash password sebelum disimpan
         ];

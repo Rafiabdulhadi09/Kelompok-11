@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function profile($id)
+    public function profile()
     {
            $user = Auth::user();
         return view('component/header-user', compact('user'));
