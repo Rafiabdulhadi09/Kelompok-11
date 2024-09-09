@@ -27,15 +27,15 @@
                  <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Title *</label>
-                    <input type="text" name="title" value="{{ old('title') }}" id="form3Example1c" placeholder="enter your title" class="form-control" />
+                    <label class="form-label" for="form3Example1c">Judul <span class="text-danger">*</span></label>
+                    <input type="text" name="title" value="{{ old('title') }}" id="form3Example1c" placeholder="masukan judul" class="form-control" />
                     </div>
                   </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="form_email">Price *</label>
-                            <input id="form_email" type="integer" name="price" class="form-control" placeholder="Please enter price *">
+                            <label for="form_email">Harga <span class="text-danger">*</span></label>
+                            <input id="form_email" type="integer" name="price" class="form-control" placeholder="masukan harga*">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -46,13 +46,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="form_message">Description *</label>
-                            <textarea id="form_message" name="description" class="form-control" placeholder="Write your message here." rows="4"></textarea>
+                            <label for="form_message">Deskripsi<span class="text-danger">*</span></label>
+                            <textarea id="form_message" name="description" class="form-control" placeholder="tambahkan deskripsi" rows="4"></textarea>
                             </div>
                         </div>
                     <div class="col-md-12">
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
-                            " value="Send Message" >
+                            " value="Kirim" >
                 </div>
                 </div>
         </div>

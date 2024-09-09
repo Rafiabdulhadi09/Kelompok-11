@@ -15,7 +15,7 @@
           <div class="card-body">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Daftar</p>
         @include('component.truefalse')
                 <form action="{{ url('register/user') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                   @csrf
@@ -24,7 +24,7 @@
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
                     <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" />
-                    <label class="form-label" for="email">Email</label>
+                    <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
                   </div>
                 </div>
                 {{-- End input Email --}}
@@ -32,7 +32,7 @@
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
                     <input type="password" name="password" id="password" class="form-control" />
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
                   </div>
                 </div>
                 {{-- End input password --}}
@@ -40,8 +40,8 @@
                 {{-- input Name --}}
                 <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" value="{{ old('name') }}" id="form3Example1c" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input type="text" name="name" value="{{ old('name') }}" id="nama" class="form-control" />
+                      <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
                     </div>
                 </div>
                 {{-- End input Name --}}
@@ -60,7 +60,7 @@
                     <div class="mb-3">
                       <div class="form-outline flex-fill mb-0">
                         <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
-                        <label for="alamat" class="form-label">Alamat</label>
+                        <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
                       </div>
                     </div>
                   {{-- End input alamat --}}

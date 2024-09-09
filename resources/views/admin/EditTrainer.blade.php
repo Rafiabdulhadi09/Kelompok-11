@@ -15,7 +15,7 @@
           <div class="card-body">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">EDIT</p>
             @include('component.truefalse')
                 <form action="{{ route('admin.dataTrainer.update', $user->id) }}" method="post" class="mx-1 mx-md-4">
                   @csrf
@@ -23,20 +23,20 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" value="{{ old('name', $user->name) }}" id="form3Example1c" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input type="text" name="name" value="{{ old('name', $user->name) }}" id="nama" class="form-control" />
+                      <label class="form-label" for="nama">Masukan Nama</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="email" name="email" value="{{ old('name', $user->email) }}" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" name="email" value="{{ old('name', $user->email) }}" id="email" class="form-control" />
+                      <label class="form-label" for="email">Masukan Email</label>
                     </div>
                   </div>
                   <div class="d-grid gap-2">
-                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Update</button>
+                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">KIRIM</button>
                   </div>
 
                 </form>

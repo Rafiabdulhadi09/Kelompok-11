@@ -21,28 +21,26 @@
           @csrf
           <!-- Email input -->
           <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" name="email" value="{{ old('email') }}" id="form1Example13" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example13">Email address</label>
+            <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control form-control-lg" />
+            <label class="form-label" for="email">Masukan Email <span class="text-danger">*</span></label>
           </div>
 
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-4">
             <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Password</label>
+            <label class="form-label" for="form1Example23">Password <span class="text-danger">*</span></label>
           </div>
 
           <div class="d-flex justify-content-around align-items-center mb-4">
             <!-- Checkbox -->
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
+              <label class="form-check-label" for="form1Example3"> Do you have no account? <a href ="{{ route('register')}}">Register</a></label>
             </div>
-            <a href="#!">Forgot password?</a>
           </div>
 
           <!-- Submit button -->
           <div class="d-grid gap-2">
-          <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">Login</button>
           </div>
         </form>
       </div>

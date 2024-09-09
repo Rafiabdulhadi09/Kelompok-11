@@ -29,7 +29,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h1>Data Trainer</h1>
-                            <button class="btn btn-primary" type="button"><a href="{{ route('create/trainer') }}"><span class="text-white font-weight-bold">Tambah data +</span></a></button>
+                            <button class="btn btn-primary" type="button"><a href="{{ route('create/trainer') }}"><span class="text-white font-weight-bold">Tambah Trainer +</span></a></button>
                         </div>
                         <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -85,15 +85,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+           
 
         </div>
         <!-- End of Content Wrapper -->
