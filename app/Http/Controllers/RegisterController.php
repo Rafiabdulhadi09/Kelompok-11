@@ -20,6 +20,7 @@ class RegisterController extends Controller
         // Simpan sementara input untuk ditampilkan kembali di form jika validasi gagal
         Session::flash('name', $request->name);
         Session::flash('email', $request->email);
+        Session::flash('alamat', $request->alamat);
 
         // Validasi input dari request
         $request->validate([
@@ -32,6 +33,8 @@ class RegisterController extends Controller
         ], [
             'name.required' => 'Nama Wajib Diisi',
             'email.required' => 'Email Wajib Diisi',
+            'image.required' => 'Image wajib diisi',
+            'alamat.required' => 'Alamat wajib diisi',
             'email.email' => 'Silahkan Masukan Email Yang Valid',
             'email.unique' => 'Email yang anda masukan sudah terdaftar, masukan email yang lain',
             'password.required' => 'Password Wajib Diisi',

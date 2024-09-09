@@ -19,53 +19,63 @@
         @include('component.truefalse')
                 <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                   @csrf
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="row">
+                {{-- input Email --}}
+                <div class="col-md-6 mb-4">
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" />
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+                </div>
+                {{-- End input Email --}}
+                {{-- input password --}}
+                <div class="col-md-6 mb-4">
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="password" name="password" id="password" class="form-control" />
+                    <label class="form-label" for="password">Password</label>
+                  </div>
+                </div>
+                {{-- End input password --}}
+              </div>
+                {{-- input Name --}}
+                <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                       <input type="text" name="name" value="{{ old('name') }}" id="form3Example1c" class="form-control" />
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
-                  </div>
-                    <div class="input-group">
-                      <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
-                        <option value="laki-laki">laki-laki</option>
-                        <option value="perempuan">perempuan</option>
-                      </select>
-                    </div>
-                    <div class="input-group">
-                  <span class="input-group-text">With textarea</span>
-                  <textarea class="form-control" name='alamat' aria-label="With textarea"></textarea>
                 </div>
-                 <div class="input-group">
-                      <select class="form-select" name="keahlian"id="inputGroupSelect04" aria-label="Example select with button addon">
-                        <option value="Design Grafis">Design Grafis</option>
-                        <option value="Coding">Coding</option>
-                      </select>
+                {{-- End input Name --}}
+                {{-- select Kelamin --}}
+                    <div class="input-group">
+                      <div class="form-outline flex-fill mb-0">
+                        <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
+                          <option value="laki-laki">laki-laki</option>
+                          <option value="perempuan">perempuan</option>
+                        </select>
+                      </div>
                     </div>
+                  {{-- End select Jenis Kelamin --}}
+                    <br>
+                  {{-- input alamat --}}
+                    <div class="mb-3">
+                      <div class="form-outline flex-fill mb-0">
+                        <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                        <label for="alamat" class="form-label">Alamat</label>
+                      </div>
+                    </div>
+                  {{-- End input alamat --}}
+                  {{-- input Image --}}
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="email" name="email" value="{{ old('email') }}" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                       <label for="image" class="form-label">Pilih gambar untuk profile</label>
+                        <input class="form-control" type="file" id="image" name="image">
                     </div>
                   </div>
-                  <div class="input-group mb-3">
-  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">KIRIM</button>
-  <input type="file" class="form-control"  name="image" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
-</div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" name="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
-                  </div>
+                  {{-- End image --}}
                   <div class="d-grid gap-2">
                     <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
                   </div>
-
                 </form>
-
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
