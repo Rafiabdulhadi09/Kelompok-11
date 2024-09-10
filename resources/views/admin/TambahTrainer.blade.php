@@ -64,6 +64,14 @@
                       </div>
                     </div>
                   {{-- End input alamat --}}
+                  <div class="input-group">
+                      <div class="form-outline flex-fill mb-0">
+                        <select class="form-select" name="keahlian"id="inputGroupSelect04" aria-label="Example select with button addon">
+                          <option value="desain">Desain</option>
+                          <option value="programer">Programer</option>
+                        </select>
+                      </div>
+                    </div>
                   {{-- input Image --}}
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">

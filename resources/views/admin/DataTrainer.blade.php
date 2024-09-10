@@ -11,6 +11,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this page -->

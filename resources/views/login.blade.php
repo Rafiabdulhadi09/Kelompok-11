@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <section class="vh-100">
@@ -40,9 +41,25 @@
 
           <!-- Submit button -->
           <div class="d-grid gap-2">
-          <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">Login</button>
+          <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="login">Login</button>
           </div>
         </form>
+  <script>
+  document.getElementById('login').addEventListener('click', function (event) {
+    // Mencegah form dikirim secara langsung
+    event.preventDefault();
+    // Jika dikonfirmasi, kirim form secara manual
+    this.closest('form').submit();
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  });
+</script>
       </div>
     </div>
   </div>

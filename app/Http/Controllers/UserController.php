@@ -87,10 +87,10 @@ class UserController extends Controller
         return redirect()->route('admin.dataTrainer')->with('success', 'User updated successfully.');
     }
 
-    public function destroytrainer(User $user)
+    public function destroytrainer(User $trainer)
     {
-        $user->delete();
-        return redirect()->route('admin.dataTrainer')->with('success', 'User deleted successfully.');
+        $trainer->delete();
+        return redirect()->route('admin.dataTrainer')->with('success', 'trainer deleted successfully.');
     }
 
     public function search(Request $request)
