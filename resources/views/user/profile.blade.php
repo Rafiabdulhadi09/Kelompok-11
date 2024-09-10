@@ -26,8 +26,8 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-             @if(isset($user) && $user->image)
-            <img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->image }}" width="150">
+            @if(isset($user) && $user->image)
+            <img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150" >
             @else
             <p>Gambar profil tidak tersedia</p>
             @endif

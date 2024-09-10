@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProfileController extends Controller
@@ -35,19 +36,33 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'nullable|string|min:8',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048', // validasi untuk gambar
+            'alamat' => 'nullable|string|max:255',
         ],);
         
         $user = Auth::user();
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->alamat = $request->input('alamat');
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }
 
-        //check if image is uploaded
+         // Cek apakah gambar di-upload
+        if ($request->hasFile('image')) {
+        // Hapus gambar lama jika ada
+        if ($user->image && Storage::exists('public/profile_images/' . $user->image)) {
+            Storage::delete('public/profile_images/' . $user->image);
+        }
+
+        // Simpan gambar baru di folder public/storage/profile_images
+        $imagePath = $request->file('image')->store('profile_images', 'public');
+        $user->image = basename($imagePath); // Simpan nama file gambar ke dalam database
+    }
+
+         //check if image is uploaded
         $user->update(); // Menyimpan perubahan ke database
 
         // Redirect kembali ke halaman profil dengan pesan sukses
