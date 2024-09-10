@@ -33,11 +33,6 @@ class PelajaranController extends Controller
         'content'=>$request->content,
        ];
        Pelajaran::create($item);
-       $infokursus = [
-        'title' => $request->title,
-        'type' => $request->type,
-        'content' => $request->content,
-       ];
       if ($item) {
         // Berhasil menyimpan data
         return redirect()->back()->with('success', 'Kursus Berhasil Di Tambahkan');

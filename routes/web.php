@@ -31,15 +31,18 @@ Route::middleware(['guest'])->group(function(){
 
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
+ 
 });
 Route::middleware(['auth'])->group(function(){
-Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');
-Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');
-Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
-Route::get('/logout', [LoginController::class,'logout']);
+    Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');
+    Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');
+    Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
+    Route::get('/logout', [LoginController::class,'logout']);
 });
+
 Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');
 Route::post('/register/user', [RegisterController::class, 'create']);
+
 
 // Route untuk Data kursus
 Route::get('/admin/DataKelas',[DataKelasController::class,'index']);
@@ -75,7 +78,7 @@ Route::put('/admin/data-trainer/{user}', [UserController::class, 'updatetrainer'
 Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('admin.dataTrainer'); 
 Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer');
 Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.trainer');
-Route::delete('/admin/data-trainer/{user}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
+Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');

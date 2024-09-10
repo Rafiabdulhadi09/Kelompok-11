@@ -73,7 +73,7 @@
                   </div>
                   {{-- End image --}}
                   <div class="d-grid gap-2">
-                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
+                    <button  type="submit" id="register" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
                   </div>
                 </form>
               </div>
@@ -88,6 +88,17 @@
       </div>
     </div>
   </div>
+  <script>
+        document.getElementById('register').addEventListener('click', function () {
+          Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
+            }
+    </script>
 </section>
 </body>
 </html>

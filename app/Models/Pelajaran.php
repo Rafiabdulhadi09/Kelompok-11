@@ -9,5 +9,10 @@ class Pelajaran extends Model
 {
     use HasFactory;
     protected $table = 'pelajaran';
-    protected $guarded=[];
+    protected $fillable = [
+        'id',
+        'type',
+        'title',
+        'content'
+    ];
 }

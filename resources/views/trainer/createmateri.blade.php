@@ -28,7 +28,7 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example1c">Title</label>
-                    <input type="text" name="title" id="form3Example1c" placeholder="enter your title" class="form-control" />
+                    <input type="text" name="title" value="{{old('')}}" id="form3Example1c" placeholder="enter your title" class="form-control" />
                     </div>
                   </div>
                 <div class="row">

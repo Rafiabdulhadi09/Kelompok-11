@@ -22,7 +22,6 @@
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-@include('component.NavbarTrainer')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="d-grid gap-2 d-md-block m-3">
