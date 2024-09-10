@@ -68,7 +68,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                        <label for="image" class="form-label">Pilih gambar untuk profile</label>
-                        <input class="form-control" type="file" id="image" name="image">
+                        <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
                     </div>
                   </div>
                   {{-- End image --}}
