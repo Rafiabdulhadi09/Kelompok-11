@@ -44,22 +44,6 @@
           <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="login">Login</button>
           </div>
         </form>
-  <script>
-  document.getElementById('login').addEventListener('click', function (event) {
-    // Mencegah form dikirim secara langsung
-    event.preventDefault();
-    // Jika dikonfirmasi, kirim form secara manual
-    this.closest('form').submit();
-
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your work has been saved",
-      showConfirmButton: false,
-      timer: 1500
-    });
-  });
-</script>
       </div>
     </div>
   </div>

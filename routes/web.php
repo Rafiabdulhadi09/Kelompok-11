@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');
     Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');
     Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
-    Route::get('/logout', [LoginController::class,'logout']);
+    Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 });
 
 Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');

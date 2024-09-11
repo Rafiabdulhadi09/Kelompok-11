@@ -26,7 +26,6 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'image' => 'required',
             'jk' => 'required',
             'alamat' => 'required',
             'password' => 'required|min:6',
@@ -54,6 +53,7 @@ class RegisterController extends Controller
         ];
          if($request->file('image')) {
         $datauser['image'] = $request->file('image')->store('profile_images');
+         }
         // Simpan data ke database
         User::create($datauser);
 
@@ -88,7 +88,6 @@ class RegisterController extends Controller
             'jk' => 'required',
             'alamat' => 'required',
             'keahlian' => 'required',
-            'image'=> 'required',
             'password' => 'required|min:6',
         ], [
             'name.required' => 'Nama Wajib Diisi',
@@ -103,8 +102,8 @@ class RegisterController extends Controller
         $datatrainer = [
             'name' => $request->name,
             'email' => $request->email,
-            'image' => $request->image,
             'jk' => $request->jk,
+            'image' => $request->image,
             'alamat' => $request->alamat,
             'keahlian' => $request->keahlian,
             'role' => 'trainer', // Role diatur secara default menjadi 'trainer'
@@ -113,22 +112,15 @@ class RegisterController extends Controller
 
         if($request->file('image')) {
             $datatrainer['image'] = $request->file('image')->store('profile_trainer');
-
+        }
         // Simpan data ke database
         User::create($datatrainer);
 
         // Siapkan data login untuk Auth::attempt (tanpa bcrypt pada password)
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password, // Gunakan password asli, bukan yang di-hash
-        ];
-
         // Coba login setelah registrasi berhasil
-        if (Auth::attempt($infologin)) {
-            return redirect('/admin/Data-trainer')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
+        if ($datatrainer) {
+            return redirect('/admin/Data-trainer')->with('success', 'Trainer berhasil di tambahkan.');
         } else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
     }
-}
-}
