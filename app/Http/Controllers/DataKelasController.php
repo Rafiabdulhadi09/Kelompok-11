@@ -55,7 +55,7 @@ class DataKelasController extends Controller
        ];
       if ($item) {
         // Berhasil menyimpan data
-        return redirect()->back()->with('success', 'Kursus Berhasil Di Tambahkan');
+        return redirect('/admin/DataKelas')->with('success', 'Kursus Berhasil Di Tambahkan');
     } else {
         // Gagal menyimpan data
         return redirect()->back()->with('error', 'Failed to create new record');

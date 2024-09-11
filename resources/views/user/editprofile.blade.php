@@ -28,7 +28,7 @@
             <div class="account-settings">
               <div class="user-profile text-center">
                 @if(isset($user) && $user->image)
-                	<img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150" >
+                	<img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->image }}" width="150" >
                 @else
                   <p>Gambar profil tidak tersedia</p>
                 @endif
