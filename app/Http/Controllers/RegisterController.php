@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
         // Coba login setelah registrasi berhasil
         if (Auth::attempt($infologin)) {
-            return redirect()->back()->with('success', 'Berhasil Melakukan Register, Silahkan login.');
+            return redirect('/user.index')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
         } else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
@@ -125,7 +125,7 @@ class RegisterController extends Controller
 
         // Coba login setelah registrasi berhasil
         if (Auth::attempt($infologin)) {
-            return redirect()->back()->with('success', 'Berhasil Melakukan Register, Silahkan login.');
+            return redirect('/admin.DataTrainer')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
         } else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
