@@ -25,8 +25,6 @@
   <title>Document</title>
 </head>
 <body>
- 
-  <br>
   <div class="container mt-5 pt-2" >
 <div class="row gutters">
 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -40,8 +38,8 @@
 		<div class="account-settings">
 			<div class="user-profile">
 				<div class="user-avatar">
-					 @if(isset($user) && $user->image)
-                	<img src="{{ asset('storage/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150" >
+					 @if(isset($trainer) && $trainer->image)
+                	<img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150" >
                 @else
                   <p>Gambar profil tidak tersedia</p>
                 @endif

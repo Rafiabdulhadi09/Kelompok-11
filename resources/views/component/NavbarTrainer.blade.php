@@ -84,7 +84,7 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$trainer->name}}</span>
                                 @if(isset($trainer) && $trainer->image)
                                 <img class="img-profile rounded-circle"
-                                src="{{ asset('storage/' . $trainer->image) }}" alt="{{ $trainer->image }}">
+                                src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}">
                                 @else
             <p>Gambar profil tidak tersedia</p>
                                 @endif

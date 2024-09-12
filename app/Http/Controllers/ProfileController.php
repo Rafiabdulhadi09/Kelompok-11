@@ -66,7 +66,7 @@ class ProfileController extends Controller
         $user->update(); // Menyimpan perubahan ke database
 
         // Redirect kembali ke halaman profil dengan pesan sukses
-        return redirect()->route('profile.edit')->with('success', 'Profile updated successfully!');
+        return redirect()->route('profile')->with('success', 'Profile updated successfully!');
     }
     
 
