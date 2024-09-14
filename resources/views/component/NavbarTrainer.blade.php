@@ -24,7 +24,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('Trainer/TambahMateri') }}">
+                <a class="nav-link" href="{{ route('Trainer.TambahMateri', ['trainer_id' => $trainer->id]) }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tambah Materi</span></a>
             </li>
@@ -83,10 +83,9 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$trainer->name}}</span>
                                 @if(isset($trainer) && $trainer->image)
-                                <img class="img-profile rounded-circle"
-                                src="{{ asset('storage/' . $trainer->image) }}" alt="{{ $trainer->image }}">
+                                    <img class="img-profile rounded-circle top-50 start-50 translate-middle"src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
                                 @else
-            <p>Gambar profil tidak tersedia</p>
+                                    <p>Gambar profil tidak tersedia</p>
                                 @endif
                             </a>
                             <!-- Dropdown - User Information -->
@@ -98,10 +97,38 @@
                                 </a>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
+                                <a id="logout" class="dropdown-item" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                   <script>
+    document.getElementById('logout').addEventListener('click', function (event) {
+        // Mencegah form dikirim secara langsung
+        event.preventDefault();
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika dikonfirmasi, kirim form secara manual
+                this.closest('form').submit();
+
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+    });
+</script>
+
                             </div>
                         </li>
 

@@ -70,7 +70,7 @@ Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->na
 Route::get('admin/data-user/search', [UserController::class, 'search'])->name('admin.dataUser.search');
 
 
-Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
+Route::get('Trainer/{trainer_id}/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
 
 // Route untuk DataTrainer
 Route::get('/admin/data-trainer/{user}/edit', [UserController::class, 'edittrainer'])->name('admin.dataTrainer.edit');
@@ -83,6 +83,11 @@ Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+
+Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
+    ->name('FormAddTrainer');
+Route::post('/admin/add-trainer-to-class', [DataKelasController::class, 'addTrainerToClass'])
+    ->name('addTrainerToClass');
 
 Route::get('/user.payment', function () {
     return view('/user/payment');

@@ -67,12 +67,12 @@
                     </div>
                   {{-- End input alamat --}}
                   {{-- input Image --}}
-                  <div class="d-flex flex-row align-items-center mb-4">
+                  {{-- <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                        <label for="image" class="form-label">Pilih gambar untuk profile</label>
                         <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
                     </div>
-                  </div>
+                  </div> --}}
                   {{-- End image --}}
                   <div class="d-grid gap-2">
                     <button  type="submit" id="register" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>

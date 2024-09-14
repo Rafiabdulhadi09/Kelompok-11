@@ -53,12 +53,12 @@ class ProfileTrainerController extends Controller
          // Cek apakah gambar di-upload
         if ($request->hasFile('image')) {
         // Hapus gambar lama jika ada
-        if ($trainer->image && Storage::exists('public/profile_images/' . $trainer->image)) {
-            Storage::delete('public/profile_images/' . $trainer->image);
+        if ($trainer->image && Storage::exists('public/profile_trainer/' . $trainer->image)) {
+            Storage::delete('public/profile_trainer/' . $trainer->image);
         }
 
         // Simpan gambar baru di folder public/storage/profile_images
-        $imagePath = $request->file('image')->store('profile_images', 'public');
+        $imagePath = $request->file('image')->store('profile_trainer', 'public');
         $trainer->image = basename($imagePath); // Simpan nama file gambar ke dalam database
     }
 

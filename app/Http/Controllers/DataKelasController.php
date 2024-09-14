@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\UploadedFile;
+use App\Models\User;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class DataKelasController extends Controller
@@ -119,12 +121,17 @@ class DataKelasController extends Controller
     {
         //
     }
-    public function Trainer()
+    public function Trainer($trainer_id)
     {
           // Mengambil semua data dari tabel items
-        $items = DataKelas::all();
+          
+            $trainer = User::findOrFail($trainer_id);
+
+    // Ambil semua kelas yang terkait dengan trainer tersebut
+            $kelas = $trainer->trainerKelas;
+
         // Mengirim data ke view
-        return view('trainer.tambahmateri', compact('items'));
+        return view('trainer.tambahmateri', compact('kelas','trainer'));
     }
 
     public function search(Request $request)
@@ -139,6 +146,28 @@ class DataKelasController extends Controller
 
         // Return hasil pencarian ke view 'admin.datakelas'
         return view('admin.datakelas', compact('data'));
+    }
+    public function AddTrainerForm()
+    {
+        $kelas = DataKelas::all();
+        $trainers = User::where('role', 'trainer')->get();
+
+        return view('admin.KelasTrainer', compact('kelas', 'trainers'));
+    }
+    public function addTrainerToClass(Request $request)
+    {
+        $validatedData = $request->validate([
+            'kelas_id' => 'required|exists:data_kelas,id',
+            'trainer_id' => 'required|exists:users,id',
+        ]);
+
+        $kelas = DataKelas::findOrFail($validatedData['kelas_id']);
+        $trainer = User::where('id', $validatedData['trainer_id'])->where('role', 'trainer')->firstOrFail();
+
+        // Attach trainer to class (assumes pivot table exists or you need to create one)
+        $kelas->trainers()->attach($trainer->id);
+
+        return redirect()->back()->with('message', 'Trainer berhasil ditambahkan ke kelas.');
     }
 }
 
