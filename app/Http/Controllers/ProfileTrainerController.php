@@ -66,7 +66,7 @@ class ProfileTrainerController extends Controller
         $trainer->update(); // Menyimpan perubahan ke database
 
         // Redirect kembali ke halaman profil dengan pesan sukses
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect('profiletrainer')->with('success', 'Profile updated successfully!');
     }
     
 

@@ -83,7 +83,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$trainer->name}}</span>
                                 @if(isset($trainer) && $trainer->image)
+<<<<<<< HEAD
                                     <img class="img-profile rounded-circle top-50 start-50 translate-middle"src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
+=======
+                                <img class="img-profile rounded-circle"
+                                src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}">
+>>>>>>> 7f4d5df9e725c6eef0c2a91bc9315ebe1fe08e74
                                 @else
                                     <p>Gambar profil tidak tersedia</p>
                                 @endif

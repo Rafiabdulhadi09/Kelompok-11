@@ -23,7 +23,7 @@
                 {{-- input Email --}}
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" />
+                    <input type="email" id="email" name="email" class="form-control" />
                     <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                 {{-- input Name --}}
                 <div class="d-flex flex-row align-items-center mb-4">
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" value="{{ old('name') }}" id="nama" class="form-control" />
+                      <input type="text" name="name" id="nama" class="form-control" />
                       <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
                     </div>
                 </div>
@@ -84,6 +84,7 @@
                     <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Kirim</button>
                   </div>
                 </form>
+                
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 

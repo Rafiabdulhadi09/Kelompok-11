@@ -70,6 +70,10 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7f4d5df9e725c6eef0c2a91bc9315ebe1fe08e74
     function registertrainer()
     {
         return view('admin.TambahTrainer');

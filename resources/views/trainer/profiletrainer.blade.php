@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link
       href="assets/vendor-admin/fontawesome-free/css/all.min.css"
@@ -23,25 +23,29 @@
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    @include('component.NavbarTrainerProfile')
 </head>
 <body>
-  <br><br><br>
 <section style="background-color: #eee;">
   <div class="container py-5">
-    <div class="row">
-      <div class="col">
-      </div>
-    </div>
-
-    <div class="row">
+    <div class="row d-flex justify-content-center">
+      <!-- Card untuk Gambar -->
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
+<<<<<<< HEAD
          @if(isset($trainer) && $trainer->image)
               <img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
           @else
               <p>Gambar profil tidak tersedia</p>
           @endif
+=======
+          @if(isset($trainer) && $trainer->image)
+            <img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
+            @else
+            <p>Gambar profil tidak tersedia</p>
+            @endif
+>>>>>>> 7f4d5df9e725c6eef0c2a91bc9315ebe1fe08e74
             <h5 class="my-3">{{ $trainer->name }}</h5>
             <div class="d-grid gap-2 col-6 mx-auto">
               <a href="{{ url('profiletrainer/edit') }}" class="btn btn-primary text-white">Edit Profil</a>
@@ -49,6 +53,8 @@
           </div>
         </div>
       </div>
+      
+      <!-- Card untuk Form Profil -->
       <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body">
@@ -95,8 +101,6 @@
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{{ Auth::user()->keahlian}}</p>
               </div>
-              </div>
-              </div>
             </div>
           </div>
         </div>
@@ -111,27 +115,4 @@
     <!-- Core plugin JavaScript-->
     <script src="assets/vendor-admin/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="assets/js-admin/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="assets/vendor-admin/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="assets/js-admin/demo/chart-area-demo.js"></script>
-    <script src="assets/js-admin/demo/chart-pie-demo.js"></script>
-  </body>
-<!-- Vendor JS Files -->
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-<script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-
-<!-- Main JS File -->
-<script src="{{ asset('assets/js/main.js') }}"></script>
-</body>
-</html>
+    <!-- Custom scripts for
