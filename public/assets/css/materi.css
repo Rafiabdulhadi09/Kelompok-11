@@ -1,0 +1,39 @@
+            .custom-card {
+                background-color: #e5e5e5;
+                border-radius: 10px;
+                padding: 20px;
+                margin-top: 20px;
+            }
+            .custom-img-placeholder {
+                background-color: #f2f2f2;
+                width: 100%;
+                height: 150px;
+                margin-top: 50px; 
+                margin-bottom: 50px; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #ccc;
+                border-radius: 10px;
+            }
+            .custom-input, .custom-textarea {
+                border-radius: 10px;
+                background-color: #f2f2f2;
+                border: none;
+                padding: 10px;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            .custom-input {
+                height: 50px;
+            }
+            .custom-textarea {
+                height: 100px;
+                resize: none;
+            }
+            .custom-btn {
+                border-radius: 10px;
+                background-color:#4e73df;
+                border: 1px solid black;
+                padding: 10px 20px;
+            }
