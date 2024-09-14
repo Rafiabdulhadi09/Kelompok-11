@@ -67,7 +67,9 @@ class DataKelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = DataKelas::all();
+        // Mengirim data ke view
+        return view('user.materi', compact('data'));
     }
 
     /**
@@ -80,6 +82,7 @@ class DataKelasController extends Controller
         // Mengirim data ke view
         return view('user.kelas', compact('data'));
     }
+    
     public function editkursus($id)
     {
         // Mengambil semua data dari tabel items

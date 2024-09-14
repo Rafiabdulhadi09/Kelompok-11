@@ -34,8 +34,14 @@ class UserController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-        ]);
+            'email' => 'required|email|unique:users',
+        ],[
+            'name.required' => 'name wajib di isi',
+            'email.required' => 'email wajib di isi',
+            'email.unique' => 'email yang anda masukan sudah ada',
+        ]
+    
+    );
 
         $user->update($request->all());
 
@@ -48,7 +54,11 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.DataUser')->with('success', 'User updated successfully.');
+        if ($user) {
+            return redirect('admin.dataUser.edit')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
+        } else {
+            return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
+        }
     }
 
     public function destroy(User $user)
@@ -73,9 +83,13 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'password' => 'nullable|string|min:8', // Password tidak diwajibkan
-        ]);
+            'email' => 'required|string|email|unique:users',
+        ],[
+            'name.required' => 'name wajib di isi',
+            'email.required' => 'email wajib di isi',
+            'email.unique' => 'email yang anda masukan sudah ada',
+        ]
+    );
 
         $user->name = $request->name;
         $user->email = $request->email;

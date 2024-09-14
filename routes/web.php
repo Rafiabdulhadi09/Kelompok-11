@@ -47,6 +47,7 @@ Route::post('/register/user', [RegisterController::class, 'create']);
 // Route untuk Data kursus
 Route::get('/admin/DataKelas',[DataKelasController::class,'index']);
 Route::get('/user/kelas',[DataKelasController::class,'show']);
+Route::get('/user/materi',[DataKelasController::class,'store']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus');
