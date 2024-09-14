@@ -27,13 +27,8 @@
           <div class="card-body">
             <div class="account-settings">
               <div class="user-profile text-center">
-<<<<<<< HEAD
                @if(isset($user) && $user->image)
                 <img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150">
-=======
-                @if(isset($user) && $user->image)
-                	<img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150" >
->>>>>>> 7f4d5df9e725c6eef0c2a91bc9315ebe1fe08e74
                 @else
                 <p>Gambar profil tidak tersedia</p>
                 @endif
