@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Tambah SweetAlert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <section class="vh-100" style="background-color: #ffffff;">
@@ -17,7 +19,7 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Tambah Trainer</p>
         @include('component.truefalse')
-                <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
+                <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data" id="registerForm">
                   @csrf
                   <div class="row">
                 {{-- input Email --}}
@@ -81,7 +83,7 @@
                   </div> --}}
                   {{-- End image --}}
                   <div class="d-grid gap-2">
-                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Kirim</button>
+                    <button  type="submit" id="kirim" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Kirim</button>
                   </div>
                 </form>
                 
@@ -97,6 +99,39 @@
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById('kirim').addEventListener('click', function (event) {
+      event.preventDefault(); // Mencegah form dikirim langsung
+      
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+      let name = document.getElementById('nama').value;
+      let alamat = document.getElementById('alamat').value;
+      
+      // Validasi sederhana untuk input kosong
+      if (!email || !password || !name || !alamat) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Semua kolom wajib diisi!',
+          confirmButtonText: 'Coba Lagi',
+          confirmButtonColor: '#d33' // Warna tombol jadi merah
+        });
+      } else {
+        // Jika valid, tampilkan alert sukses dan kirim form
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Pendaftaran berhasil!",
+          showConfirmButton: false,
+          timer: 1500
+        }).then(function() {
+          // Kirim form secara manual
+          document.getElementById('registerForm').submit();
+        });
+      }
+    });
+  </script>
 </section>
 </body>
 </html>

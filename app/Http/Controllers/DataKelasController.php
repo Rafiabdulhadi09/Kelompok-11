@@ -107,7 +107,7 @@ class DataKelasController extends Controller
             'price'=> $request->price,
             'description'=> $request->description
         ]);
-        return redirect()->back()->with('success', 'Data kursus berhasil di edit');
+        return redirect()->route('datakelas')->with('success', 'Data kursus berhasil di edit');
     }
 
       public function destroykursus($id)
