@@ -14,4 +14,5 @@ class KelasTrainer extends Model
         'user_id',
         'kelas_id'
     ];
+    
 }

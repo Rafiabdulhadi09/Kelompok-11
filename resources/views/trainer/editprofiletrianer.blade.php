@@ -34,20 +34,11 @@
                 {{ session('success') }}
             </div>
         @endif
-<<<<<<< HEAD
      <div class="card-body">
             <div class="account-settings">
               <div class="user-profile text-center">
                @if(isset($trainer) && $trainer->image)
                 <img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
-=======
-	<div class="card-body">
-		<div class="account-settings">
-			<div class="user-profile">
-				<div class="user-avatar">
-					 @if(isset($trainer) && $trainer->image)
-                	<img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150" >
->>>>>>> 7f4d5df9e725c6eef0c2a91bc9315ebe1fe08e74
                 @else
                 <p>Gambar profil tidak tersedia</p>
                 @endif

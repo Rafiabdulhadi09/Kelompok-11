@@ -51,6 +51,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Keahlian</th>
+                                        <th>Alamat</th>
                                         <th>Email</th>
                                         <th>Bergabung Pada</th>
                                         <th>Aksi</th>
@@ -62,6 +64,8 @@
                                     <tr>
                                         <td>{{ $no ++ }}</td>
                                         <td>{{ $trainer->name }}</td>
+                                        <td>{{ $trainer->keahlian }}</td>
+                                        <td>{{ $trainer->alamat }}</td>
                                         <td>{{ $trainer->email }}</td>
                                         <td>{{ $trainer->created_at->format('Y-m-d') }}</td>
                                         <td>

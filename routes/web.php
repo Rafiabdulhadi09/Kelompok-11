@@ -83,7 +83,7 @@ Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroyt
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
-Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+Route::post('/materi//create', [PelajaranController::class, 'create'])->name('materi.create');
 
 Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
     ->name('FormAddTrainer');
@@ -94,3 +94,6 @@ Route::get('/user.payment', function () {
     return view('/user/payment');
 });
 
+Route::get('akses/belajar', function () {
+    return view('user.materi');
+});

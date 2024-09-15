@@ -41,6 +41,17 @@
                                </select>
                         </div>
                     </div>
+                                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="kelas_id">Pilih kelas :</label>
+                            <select id="kelas_id" class="form-select mt-3" name="kelas_id">
+                                @foreach ($kelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                @endforeach
+                               </select>
+                        </div>
+                    </div>
                     {{-- <div class="col-md-6">
                         <div class="form-group">
                             <label for="form_need">Please enter profil kursus *</label>

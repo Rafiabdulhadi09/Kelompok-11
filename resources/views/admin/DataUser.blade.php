@@ -57,6 +57,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Jenis kelamin</th>
+                                        <th>Alamat</th>
                                         <th>Email</th>
                                         <th>Bergabung Pada</th>
                                         <th>Aksi</th>
@@ -68,6 +70,8 @@
                                     <tr>
                                         <td>{{ $no ++ }}</td>
                                         <td>{{ $user->name }}</td>
+                                        <td>{{ $user->jk }}</td>
+                                        <td>{{ $user->alamat }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>

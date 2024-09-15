@@ -15,7 +15,7 @@ class DataKelasController extends Controller
     public function index()
     {
         // Mengambil semua data dari tabel items
-        $data = DataKelas::all();
+        $data = DataKelas::with('trainers')->get();
         // Mengirim data ke view
         return view('admin.DataKelas', compact('data'));
     }

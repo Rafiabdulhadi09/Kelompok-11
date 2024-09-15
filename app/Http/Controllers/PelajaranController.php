@@ -2,43 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataKelas;
+use App\Models\Pelajaran;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Pelajaran;
 use Illuminate\Support\Facades\Session;
 
 class PelajaranController extends Controller
 {
     public function index()
     {
-        return view ('trainer.createmateri');
+        // Mengambil kelas berdasarkan ID
+    $kelas = auth()->user()->trainerKelas;
+    // Mengirim data kelas ke view
+    return view('trainer.createmateri', compact('kelas'));
     }
     public function create(Request $request)
     {
-        Session::flash('title', $request->title);
-        Session::flash('type', $request->type);
-        Session::flash('content', $request->content);
+         // Validasi data yang masuk
         $request->validate([
-        'title' => 'required',
-        'type' => 'required',
-        'content' => 'required'
-       ], [
-        'title.required' => 'Title Wajib Diisi',
-        'type.required' => 'Pilih Type',
-        'content.required' => 'Content wajib diisi'
-       ]); 
-       $item = [
-        'title'=>$request->title,
-        'type'=>$request->type,
-        'content'=>$request->content,
-       ];
-       Pelajaran::create($item);
-      if ($item) {
-        // Berhasil menyimpan data
-        return redirect()->back()->with('success', 'Kursus Berhasil Di Tambahkan');
-    } else {
-        // Gagal menyimpan data
-        return redirect()->back()->with('error', 'Failed to create new record');
-    }
+            'title' => 'required',
+            'type' => 'required',
+            'content' => 'required',
+        ]);
+        $materi = new Pelajaran();
+        $materi->title = $request->title;
+        $materi->type = $request->type;
+        $materi->content = $request->content;
+        $materi->kelas_id = $request->kelas_id; // Pastikan ini ada!
+        $materi->save();
+            // Simpan materi
+            $materi->save();
+
+         if ($materi) {
+            return redirect()->back()->with('success', 'Trainer berhasil di tambahkan.');
+        } else {
+            return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
+        }
     }
 }
