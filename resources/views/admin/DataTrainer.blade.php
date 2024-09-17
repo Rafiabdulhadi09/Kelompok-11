@@ -70,10 +70,10 @@
                                         <td>{{ $trainer->created_at->format('Y-m-d') }}</td>
                                         <td>
                                             <a type="submit" class="btn btn-info" href="{{ route('admin.dataTrainer.edit', $trainer->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></svg></a>
-                                            <form action="{{ route('admin.DataTrainer.destroy', $trainer->id) }}" method="POST" style="display:inline;">
+                                            <form id="delete-form-{{ $trainer->id }}" action="{{ route('admin.DataTrainer.destroy', $trainer->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" id-hapus="{{ $trainer->id }}" class="btn btn-danger">
+                                            <button type="submit" class="btn btn-danger" onclick="confirmDelete(event, {{ $trainer->id }})">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
                                             </svg>
@@ -81,32 +81,6 @@
                                     </form>
                                         </td>
                                     </tr>
-                                    <script>
-                                     document.getElementById('id-hapus').addEventListener('click', function (event) {
-        // Mencegah form dikirim secara langsung
-                                        event.preventDefault();
-                                        Swal.fire({
-                                            title: "Apakah kamu yakin?",
-                                            text: "Anda tidak akan dapat mengembalikannya!",
-                                            icon: "warning",
-                                            showCancelButton: true,
-                                            confirmButtonColor: "#3085d6",
-                                            cancelButtonColor: "#d33",
-                                            confirmButtonText: "Ya, hapus saja!"
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                // Jika dikonfirmasi, kirim form secara manual
-                                                this.closest('form').submit();
-
-                                                Swal.fire({
-                                                    title: "Deleted!",
-                                                    text: "Your file has been deleted.",
-                                                    icon: "success"
-                                                });
-                                            }
-                                        });
-                                    });
-                                    </script>
                                 @endforeach
                             </tbody>
                             </table>
@@ -153,6 +127,25 @@
         </div>
     </div>
 
+    <script>
+    function confirmDelete(event, Id) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Aksi untuk submit form hapus data
+                document.getElementById('delete-form-' + Id).submit();
+            }
+        })
+    }
+</script>
 
       <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
