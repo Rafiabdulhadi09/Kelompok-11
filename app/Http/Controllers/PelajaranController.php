@@ -52,9 +52,10 @@ class PelajaranController extends Controller
 
         return redirect()->back()->with('success','Materi Berhasil di Hapus');
     }
-    public function edit()
+    public function edit($id)
     {
-        return view('trainer.edit_materi');
+        $materi = Pelajaran::findOrFail($id);
+        return view('trainer.edit_materi', compact('materi'));
     }
     public function update(Request $request, $id)
     {
@@ -72,6 +73,6 @@ class PelajaranController extends Controller
             'type'=> $request->type,
             'content'=> $request->content
         ]);
-        return redirect()->route('datakelas')->with('success', 'Data kursus berhasil di edit');
+        return redirect()->back()->with('success', 'Data kursus berhasil di edit');
     }
 }

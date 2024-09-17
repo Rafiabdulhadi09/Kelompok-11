@@ -95,12 +95,5 @@ Route::get('/user.payment', function () {
     return view('/user/payment');
 });
 
-<<<<<<< HEAD
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
-
-=======
-Route::get('akses/belajar', function () {
-    return view('user.materi');
-});
->>>>>>> fbd707fe68a1cb50bcb5992fdbc44999243e335d
+Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
