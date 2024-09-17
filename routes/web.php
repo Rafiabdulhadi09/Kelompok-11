@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\ProfileTrainerController;
+use App\Http\Controllers\KelasMateriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,6 @@ Route::post('/register/user', [RegisterController::class, 'create']);
 // Route untuk Data kursus
 Route::get('/admin/DataKelas',[DataKelasController::class,'index']);
 Route::get('/user/kelas',[DataKelasController::class,'show']);
-Route::get('/user/materi',[DataKelasController::class,'store']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus');
@@ -88,4 +88,7 @@ Route::post('/materi/create', [PelajaranController::class, 'create'])->name('mat
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
+
+Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
+Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
 
