@@ -68,12 +68,6 @@ class DataKelasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $data = DataKelas::all();
-        // Mengirim data ke view
-        return view('user.materi', compact('data'));
-    }
 
     /**
      * Display the specified resource.

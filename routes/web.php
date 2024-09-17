@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\ProfileTrainerController;
+use App\Http\Controllers\KelasMateriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,6 @@ Route::middleware(['auth'])->group(function(){
 // Route untuk Data kursus
 Route::get('/admin/DataKelas',[DataKelasController::class,'index'])->name('datakelas');
 Route::get('/user/kelas',[DataKelasController::class,'show']);
-Route::get('/user/materi',[DataKelasController::class,'store']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
 Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus');
@@ -95,6 +95,12 @@ Route::get('/user.payment', function () {
     return view('/user/payment');
 });
 
+<<<<<<< HEAD
+Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
+Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
+
+=======
 Route::get('akses/belajar', function () {
     return view('user.materi');
 });
+>>>>>>> fbd707fe68a1cb50bcb5992fdbc44999243e335d
