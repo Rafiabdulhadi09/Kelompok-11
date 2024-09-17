@@ -34,23 +34,21 @@
                 {{ session('success') }}
             </div>
         @endif
-	<div class="card-body">
-		<div class="account-settings">
-			<div class="user-profile">
-				<div class="user-avatar">
-					 @if(isset($trainer) && $trainer->image)
-                	<img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150" >
+     <div class="card-body">
+            <div class="account-settings">
+              <div class="user-profile text-center">
+               @if(isset($trainer) && $trainer->image)
+                <img src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="150">
                 @else
-                  <p>Gambar profil tidak tersedia</p>
+                <p>Gambar profil tidak tersedia</p>
                 @endif
-				</div>
-				<h5 class="user-name">{{ Auth::user()->name }}</h5>
-				<h6 class="user-email">{{ Auth::user()->email }}</h6>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
+              </div>
+              <h5 class="user-name text-center mt-3">{{ Auth::user()->name }}</h5>
+              <h6 class="user-email text-center">{{ Auth::user()->email }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
      <!-- Personal Details Form -->
       <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <div class="card h-100">

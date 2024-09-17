@@ -55,7 +55,7 @@ class UserController extends Controller
         $user->save();
 
         if ($user) {
-            return redirect('admin.dataUser.edit')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
+            return redirect()->route('admin.DataUser')->with('success', 'Berhasil Melakukan Register, Silahkan login.');
         } else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }

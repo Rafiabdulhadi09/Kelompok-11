@@ -14,5 +14,10 @@ class Pelajaran extends Model
         'type',
         'title',
         'content'
+        
     ];
+      public function kelas()
+    {
+        return $this->belongsTo(DataKelas::class);
+    }
 }

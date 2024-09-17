@@ -15,4 +15,12 @@ class DataKelas extends Model
         'image',
         'description',
     ]; 
+     public function materi()
+    {
+        return $this->hasMany(Pelajaran::class);
+    }
+    public function trainers()
+    {
+        return $this->belongsToMany(User::class, 'trainerkelas', 'kelas_id', 'user_id')->where('role', 'trainer');
+    }
 }

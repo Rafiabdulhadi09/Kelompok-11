@@ -46,7 +46,7 @@ Route::post('/register/user', [RegisterController::class, 'create']);
 
 
 // Route untuk Data kursus
-Route::get('/admin/DataKelas',[DataKelasController::class,'index']);
+Route::get('/admin/DataKelas',[DataKelasController::class,'index'])->name('datakelas');
 Route::get('/user/kelas',[DataKelasController::class,'show']);
 Route::get('/create/kelas',[DataKelasController::class, 'kelas']);
 Route::post('/kelas/create', [DataKelasController::class, 'create']);
@@ -71,7 +71,7 @@ Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->na
 Route::get('admin/data-user/search', [UserController::class, 'search'])->name('admin.dataUser.search');
 
 
-Route::get('Trainer/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
+Route::get('Trainer/{trainer_id}/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
 
 // Route untuk DataTrainer
 Route::get('/admin/data-trainer/{user}/edit', [UserController::class, 'edittrainer'])->name('admin.dataTrainer.edit');
@@ -83,12 +83,23 @@ Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroyt
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
-Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+Route::post('/materi//create', [PelajaranController::class, 'create'])->name('materi.create');
+
+Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
+    ->name('FormAddTrainer');
+Route::post('/admin/add-trainer-to-class', [DataKelasController::class, 'addTrainerToClass'])
+    ->name('addTrainerToClass');
 
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
 
+<<<<<<< HEAD
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
 Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
 
+=======
+Route::get('akses/belajar', function () {
+    return view('user.materi');
+});
+>>>>>>> fbd707fe68a1cb50bcb5992fdbc44999243e335d

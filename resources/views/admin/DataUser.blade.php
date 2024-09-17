@@ -57,6 +57,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Jenis kelamin</th>
+                                        <th>Alamat</th>
                                         <th>Email</th>
                                         <th>Bergabung Pada</th>
                                         <th>Aksi</th>
@@ -68,6 +70,8 @@
                                     <tr>
                                         <td>{{ $no ++ }}</td>
                                         <td>{{ $user->name }}</td>
+                                        <td>{{ $user->jk }}</td>
+                                        <td>{{ $user->alamat }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>
@@ -75,7 +79,7 @@
                                             <form action="{{ route('admin.DataUser.destroy', $user->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" id="hapus" class="btn btn-danger">
+                                            <button type="submit" class="btn btn-danger" onclick="confirmDelete({{ $user->id }})">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
                                             </svg>
@@ -125,31 +129,22 @@
         </div>
     </div>
     <script>
-    document.getElementById('hapus').addEventListener('click', function (event) {
-        // Mencegah form dikirim secara langsung
-        event.preventDefault();
-
+    function confirmDelete(userId) {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Jika dikonfirmasi, kirim form secara manual
-                this.closest('form').submit();
-
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                // Aksi untuk submit form hapus data
+                document.getElementById('delete-form-' + userId).submit();
             }
-        });
-    });
+        })
+    }
 </script>
 
 

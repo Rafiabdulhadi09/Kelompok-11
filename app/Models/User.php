@@ -27,6 +27,12 @@ class User extends Authenticatable
         'password',
         'role',
     ]; 
+    public function trainerKelas()
+    {
+        return $this->belongsToMany(DataKelas::class, 'trainerkelas', 'user_id', 'kelas_id');
+    }
+    
+
 
     /**
      * The attributes that should be hidden for serialization.

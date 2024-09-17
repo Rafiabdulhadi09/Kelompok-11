@@ -26,11 +26,11 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            @if(isset($user) && $user->image)
-            <img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150" >
-            @else
-            <p>Gambar profil tidak tersedia</p>
-            @endif
+          @if(isset($user) && $user->image)
+          <img src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="150">
+          @else
+          <p>Gambar profil tidak tersedia</p>
+          @endif
             <h5 class="my-3">{{ $user->name }}</h5>
             <div class="d-grid gap-2 col-6 mx-auto">
               <a href="{{ url('profile/edit') }}" class="btn btn-primary text-white">Edit Profil</a>

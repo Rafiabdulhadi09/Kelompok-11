@@ -18,64 +18,57 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Daftar</p>
-        @include('component.truefalse')
-                <form action="{{ url('register/user') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
+                @include('component.truefalse')
+                <form id="registerForm" action="{{ url('register/user') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                   @csrf
-                <div class="row">
-                {{-- input Email --}}
-                <div class="col-md-6 mb-4">
-                  <div data-mdb-input-init class="form-outline">
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" />
-                    <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
-                  </div>
-                </div>
-                {{-- End input Email --}}
-                {{-- input password --}}
-                <div class="col-md-6 mb-4">
-                  <div data-mdb-input-init class="form-outline">
-                    <input type="password" name="password" id="password" class="form-control" />
-                    <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
-                  </div>
-                </div>
-                {{-- End input password --}}
-              </div>
-                {{-- input Name --}}
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" value="{{ old('name') }}" id="nama" class="form-control" />
-                      <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
-                    </div>
-                </div>
-                {{-- End input Name --}}
-                {{-- select Kelamin --}}
-                    <div class="input-group">
-                      <div class="form-outline flex-fill mb-0">
-                        <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
-                          <option value="laki-laki">laki-laki</option>
-                          <option value="perempuan">perempuan</option>
-                        </select>
+                  <div class="row">
+                    {{-- input Email --}}
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" />
+                        <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                  {{-- End select Jenis Kelamin --}}
-                    <br>
-                  {{-- input alamat --}}
-                    <div class="mb-3">
-                      <div class="form-outline flex-fill mb-0">
-                        <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
-                        <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
+                    {{-- End input Email --}}
+                    {{-- input password --}}
+                    <div class="col-md-6 mb-4">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="password" name="password" id="password" class="form-control" />
+                        <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                  {{-- End input alamat --}}
-                  {{-- input Image --}}
+                    {{-- End input password --}}
+                  </div>
+                  {{-- input Name --}}
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                       <label for="image" class="form-label">Pilih gambar untuk profile</label>
-                        <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="text" name="name" value="{{ old('name') }}" id="nama" class="form-control" />
+                        <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
+                      </div>
+                  </div>
+                  {{-- End input Name --}}
+                  {{-- select Kelamin --}}
+                  <div class="input-group">
+                    <div class="form-outline flex-fill mb-0">
+                      <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <option value="laki-laki">laki-laki</option>
+                        <option value="perempuan">perempuan</option>
+                      </select>
                     </div>
                   </div>
-                  {{-- End image --}}
+                  {{-- End select Jenis Kelamin --}}
+                  <br>
+                  {{-- input alamat --}}
+                  <div class="mb-3">
+                    <div class="form-outline flex-fill mb-0">
+                      <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                      <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
+                    </div>
+                  </div>
+                  {{-- End input alamat --}}
+                  
                   <div class="d-grid gap-2">
-                    <button  type="submit" id="register" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
+                    <button type="button" id="register" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
                   </div>
                 </form>
               </div>
@@ -90,22 +83,40 @@
       </div>
     </div>
   </div>
-  <script>
-  document.getElementById('register').addEventListener('click', function (event) {
-    // Mencegah form dikirim secara langsung
-    event.preventDefault();
-    // Jika dikonfirmasi, kirim form secara manual
-    this.closest('form').submit();
 
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your work has been saved",
-      showConfirmButton: false,
-      timer: 1500
+  <script>
+    document.getElementById('register').addEventListener('click', function (event) {
+      event.preventDefault(); // Mencegah form dikirim langsung
+      
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+      let name = document.getElementById('nama').value;
+      let alamat = document.getElementById('alamat').value;
+      
+      // Validasi sederhana untuk input kosong
+      if (!email || !password || !name || !alamat) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Semua kolom wajib diisi!',
+          confirmButtonText: 'Coba Lagi'
+        });
+      } else {
+        // Jika valid, tampilkan alert sukses dan kirim form
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Pendaftaran berhasil!",
+          showConfirmButton: false,
+          timer: 1500
+        }).then(function() {
+          // Kirim form secara manual
+          document.getElementById('registerForm').submit();
+        });
+      }
     });
-  });
-</script>
+  </script>
+  
 </section>
 </body>
 </html>
