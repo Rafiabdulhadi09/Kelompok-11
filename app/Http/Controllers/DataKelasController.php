@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\DataKelas;
+use App\Models\Pelajaran;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
@@ -127,14 +128,12 @@ class DataKelasController extends Controller
     public function Trainer($trainer_id)
     {
           // Mengambil semua data dari tabel items
-          
             $trainer = User::findOrFail($trainer_id);
-
     // Ambil semua kelas yang terkait dengan trainer tersebut
             $kelas = $trainer->trainerKelas;
 
         // Mengirim data ke view
-        return view('trainer.tambahmateri', compact('kelas','trainer'));
+        return view('trainer.tambahmateri', compact('kelas','trainer',));
     }
 
     public function search(Request $request)

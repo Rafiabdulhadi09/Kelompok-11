@@ -36,10 +36,10 @@
                         <div class="card-header py-3">
                             <h1>Data User</h1>
                         </div>
-                        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search pt-3">
                         <div class="input-group">
                             <form action="{{ route('admin.dataUser.search') }}" method="GET" class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Search for..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Cari User..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>

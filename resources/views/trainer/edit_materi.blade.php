@@ -21,7 +21,7 @@
             <div class="card-body bg-light">
             <div class = "container">
       @include('component.truefalse')
-        <form action="{{ route('materi.create') }}" method="POST">
+        <form action="{{ route('materi.update' $materi->id) }}" method="POST">
             @csrf
             <div class="controls">
                  <div class="d-flex flex-row align-items-center mb-4">
@@ -45,9 +45,9 @@
                         <div class="form-group">
                             <label for="kelas_id">Pilih kelas :</label>
                             <select id="kelas_id" class="form-select mt-3" name="kelas_id">
-                                @foreach ($kelas as $item)
+                                {{-- @foreach ($kelas as $item)
                                     <option value="{{ $item->id }}"> {{ $item->title }}</option>
-                                @endforeach
+                                @endforeach --}}
                                </select>
                         </div>
                 </div>

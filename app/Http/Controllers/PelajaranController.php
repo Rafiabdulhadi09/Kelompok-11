@@ -36,8 +36,42 @@ class PelajaranController extends Controller
 
          if ($materi) {
             return redirect()->back()->with('success', 'Trainer berhasil di tambahkan.');
-        } else {
+        }else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
+    }
+    public function materi(DataKelas $kelas){
+        $materi = $kelas->materi;
+
+        return view('trainer.materi', ['kelas' => $kelas, 'materi' => $materi]);
+    }
+    public function destroy($id)
+    {
+        $materi = Pelajaran::findOrFail($id);
+        $materi->delete();
+
+        return redirect()->back()->with('success','Materi Berhasil di Hapus');
+    }
+    public function edit()
+    {
+        return view('trainer.edit_materi');
+    }
+    public function update(Request $request, $id)
+    {
+        $materi = Pelajaran::findOrFail($id);
+
+        $request->validate([
+            'kelas_id'=>'required',
+            'title'=>'required',
+            'type'=>'required',
+            'content'=>'required'
+        ]);
+        $materi->update([
+            'kelas_id'=> $request->kelas_id,
+            'title'=> $request->title,
+            'type'=> $request->type,
+            'content'=> $request->content
+        ]);
+        return redirect()->route('datakelas')->with('success', 'Data kursus berhasil di edit');
     }
 }

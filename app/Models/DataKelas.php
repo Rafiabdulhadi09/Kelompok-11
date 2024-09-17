@@ -17,7 +17,7 @@ class DataKelas extends Model
     ]; 
      public function materi()
     {
-        return $this->hasMany(Pelajaran::class);
+        return $this->hasMany(Pelajaran::class, 'kelas_id');
     }
     public function trainers()
     {

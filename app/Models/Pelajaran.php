@@ -18,6 +18,6 @@ class Pelajaran extends Model
     ];
       public function kelas()
     {
-        return $this->belongsTo(DataKelas::class);
+        return $this->belongsTo(DataKelas::class, 'kelas_id');
     }
 }

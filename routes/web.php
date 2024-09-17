@@ -5,7 +5,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PelajaranController;
@@ -21,17 +20,18 @@ use App\Http\Controllers\ProfileTrainerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
- Route::get('/', function () {
+Route::middleware(['guest'])->group(function(){
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');
+    Route::post('/register/user', [RegisterController::class, 'create']);
+
+     Route::get('/', function () {
     return view('welcome');
 });
  Route::get('/kelas', function () {
     return view('kelas');
 });
-Route::middleware(['guest'])->group(function(){
-
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'login']);
- 
 });
 Route::middleware(['auth'])->group(function(){
     Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');
@@ -39,10 +39,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 });
-
-Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');
-Route::post('/register/user', [RegisterController::class, 'create']);
-
 
 // Route untuk Data kursus
 Route::get('/admin/DataKelas',[DataKelasController::class,'index'])->name('datakelas');
@@ -83,7 +79,12 @@ Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroyt
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
-Route::post('/materi//create', [PelajaranController::class, 'create'])->name('materi.create');
+Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+
+Route::get('/kelas/{kelas}/materi', [PelajaranController::class, 'materi'])->name('materi');
+Route::get('/materi/{id}/edit', [PelajaranController::class, 'edit'])->name('materi.edit');
+Route::put('/materi/{id}/update', [PelajaranController::class, 'update'])->name('materi.update');
+Route::delete('materi/{id}/destroy', [PelajaranController::class, 'destroy'])->name('materi.destroy');
 
 Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
     ->name('FormAddTrainer');
