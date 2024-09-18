@@ -51,8 +51,7 @@
                             </div>
                         </div>
                     <div class="col-md-12">
-                        <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
-                            " value="Kirim" >
+                        <input type="submit" class="btn btn-success btn-send  pt-2 btn-block" value="Kirim" >
                 </div>
                 </div>
         </div>

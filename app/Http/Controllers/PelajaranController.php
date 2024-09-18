@@ -75,4 +75,10 @@ class PelajaranController extends Controller
         ]);
         return redirect()->back()->with('success', 'Data kursus berhasil di edit');
     }
+    public function materiadmin(DataKelas $kelas)
+    {
+        $materi = $kelas->materi;
+
+        return view('admin.materi', ['kelas' => $kelas, 'materi' => $materi]);
+    }
 }
