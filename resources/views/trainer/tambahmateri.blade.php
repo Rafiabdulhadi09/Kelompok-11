@@ -32,6 +32,17 @@
                         @include('component.truefalse')
                        <div class="card-header py-3">
                             <h1>Data Kelas</h1>
+                            <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search pt-3">
+                            <div class="input-group">
+                            <form action="{{ route('trainer.tambahmateri.search') }}" method="GET" class="input-group align-right" >
+                            <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Cari Kelas..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                                </div>
+                             </form></div>
+                             </div>
                             <button class="btn btn-primary" type="button"><a href="{{ route('trainer.create.materi') }}"><span class="text-white font-weight-bold">Tambah Materi</span></a></button>
                         </div>
                         <div class="card-body">

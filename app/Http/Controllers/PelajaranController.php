@@ -75,10 +75,25 @@ class PelajaranController extends Controller
         ]);
         return redirect()->back()->with('success', 'Data kursus berhasil di edit');
     }
+<<<<<<< HEAD
     public function materiadmin(DataKelas $kelas)
     {
         $materi = $kelas->materi;
 
         return view('admin.materi', ['kelas' => $kelas, 'materi' => $materi]);
+=======
+    public function search(Request $request)
+    {
+        // Ambil query pencarian dari input form
+        $query = $request->input('query');
+
+        // Cari data kelas berdasarkan kolom yang relevan (misal: nama_kelas atau deskripsi)
+        $data = DataKelas::where('title', 'like', '%' . $query . '%')
+            ->orWhere('price', 'like', '%' . $query . '%')
+            ->get();
+
+        // Return hasil pencarian ke view 'admin.datakelas'
+        return view('trainer.tambahmateri', compact('data'));
+>>>>>>> 13a596d8a9bb6f2466e8370d5b2aba2fa4d8e4ee
     }
 }
