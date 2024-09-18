@@ -80,6 +80,8 @@ Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'
 
 Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
+Route::get('/trainer/tambahmateri/search', [PelajaranController::class, 'search'])->name('trainer.tambahmateri.search');
+
 
 Route::get('/kelas/{kelas}/materi', [PelajaranController::class, 'materi'])->name('materi');
 Route::get('/materi/{id}/edit', [PelajaranController::class, 'edit'])->name('materi.edit');
@@ -96,12 +98,9 @@ Route::get('/user.payment', function () {
 });
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-<<<<<<< HEAD
 Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
-=======
 Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
 
 Route::get('akses/belajar', function () {
     return view('user.materi');
 });
->>>>>>> 291a7448c1397aa6472d1366c9399db60aab0212
