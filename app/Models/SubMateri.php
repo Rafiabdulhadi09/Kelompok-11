@@ -15,4 +15,8 @@ class SubMateri extends Model
         'type',
         'content'
     ];
+    public function pelajaran()
+    {
+        return $this->belongsTo(Pelajaran::class);
+    }
 }

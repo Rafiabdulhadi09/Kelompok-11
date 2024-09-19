@@ -100,11 +100,7 @@ Route::get('/user.payment', function () {
 Route::get('/admin/{kelas}/materi', [PelajaranController::class, 'materiadmin'])->name('lihat.materi');
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
-<<<<<<< HEAD
-=======
 Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
->>>>>>> 13a596d8a9bb6f2466e8370d5b2aba2fa4d8e4ee
 
 Route::get('akses/belajar', function () {
     return view('user.materi');

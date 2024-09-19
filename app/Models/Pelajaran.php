@@ -20,4 +20,8 @@ class Pelajaran extends Model
     {
         return $this->belongsTo(DataKelas::class, 'kelas_id');
     }
+    public function submateri()
+    {
+        return $this->hasMany(SubMateri::class);
+    }
 }

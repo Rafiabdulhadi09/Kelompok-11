@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-          Schema::create('sub_materi', function (Blueprint $table) {
+        Schema::create('sub_materi', function (Blueprint $table) {
             $table->id();
-           $table->unsignedBigInteger('pelajaran_id');
+            $table->unsignedBigInteger('pelajaran_id');
             $table->string('title');
             $table->string('type');
             $table->string('content');
             $table->timestamps();
 
-             $table->foreign('pelajaran_id')->references('id')->on('pelajaran')->onDelete('cascade');
+            $table->foreign('pelajaran_id')->references('id')->on('pelajaran')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('sub_materi');
     }
 };
