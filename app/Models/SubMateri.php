@@ -15,8 +15,8 @@ class SubMateri extends Model
         'type',
         'content'
     ];
-    public function pelajaran()
+    public function materi()
     {
-        return $this->belongsTo(Pelajaran::class, 'pelajaran_id');
+        return $this->belongsTo(Materi::class, 'materi_id');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pelajaran;
+use App\Models\Materi;
 use App\Models\SubMateri;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class SubmateriController extends Controller
     //
     public function index()
     {
-        $materi = Pelajaran::all();
+        $materi = Materi::all();
         return view('trainer.tambahsubmateri', compact('materi'));
     }
       public function create(Request $request)
@@ -29,7 +29,7 @@ class SubmateriController extends Controller
         $submateri->title = $request->title;
         $submateri->type = $request->type;
         $submateri->content = $request->content;
-        $submateri->pelajaran_id = $request->pelajaran_id;
+        $submateri->materi_id = $request->materi_id;
         $submateri->save();
             // Simpan submateri
             $submateri->save();
@@ -40,12 +40,12 @@ class SubmateriController extends Controller
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
     }
-    public function show(Pelajaran $pelajaran)
+    public function show(materi $materi)
     {
-        $submateri = $pelajaran->submateri;
-        return view('trainer.sub_materi', ['submateri' => $submateri, 'pelajaran' => $pelajaran]);
+        $submateri = $materi->submateri;
+        return view('trainer.sub_materi', ['submateri' => $submateri, 'materi' => $materi]);
     }
-     public function submateri_admin(Pelajaran $apaaja)
+     public function submateri_admin(materi $apaaja)
     {
         $submateri = $apaaja->submateri;
         return view('admin.SubMateri', ['submateri' => $submateri, 'apaaja' => $apaaja]);

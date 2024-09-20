@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKelas;
-use App\Models\Pelajaran;
+use App\Models\Materi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class PelajaranController extends Controller
+class MateriController extends Controller
 {
     public function index()
     {
@@ -25,7 +25,7 @@ class PelajaranController extends Controller
             'type' => 'required',
             'content' => 'required',
         ]);
-        $materi = new Pelajaran();
+        $materi = new Materi();
         $materi->title = $request->title;
         $materi->type = $request->type;
         $materi->content = $request->content;
@@ -47,19 +47,19 @@ class PelajaranController extends Controller
     }
     public function destroy($id)
     {
-        $materi = Pelajaran::findOrFail($id);
+        $materi = Materi::findOrFail($id);
         $materi->delete();
 
         return redirect()->back()->with('success','Materi Berhasil di Hapus');
     }
     public function edit($id)
     {
-        $materi = Pelajaran::findOrFail($id);
+        $materi = Materi::findOrFail($id);
         return view('trainer.edit_materi', compact('materi'));
     }
     public function update(Request $request, $id)
     {
-        $materi = Pelajaran::findOrFail($id);
+        $materi = Materi::findOrFail($id);
 
         $request->validate([
             'kelas_id'=>'required',

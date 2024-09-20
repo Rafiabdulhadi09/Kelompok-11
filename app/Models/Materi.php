@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pelajaran extends Model
+class Materi extends Model
 {
     use HasFactory;
-    protected $table = 'pelajaran';
+    protected $table = 'materi';
     protected $fillable = [
         'id',
         'type',
@@ -22,6 +22,6 @@ class Pelajaran extends Model
     }
     public function submateri()
     {
-        return $this->hasMany(SubMateri::class, 'pelajaran_id');
+        return $this->hasMany(SubMateri::class, 'materi_id');
     }
 }

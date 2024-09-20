@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
-use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\ProfileTrainerController;
 use App\Http\Controllers\KelasMateriController;
 use App\Http\Controllers\SubmateriController;
@@ -80,15 +80,15 @@ Route::post('/register/create', [RegisterController::class, 'tambah'])->name('re
 Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
-Route::get('/trainer.create.materi', [PelajaranController::class, 'index'])->name('trainer.create.materi');
-Route::post('/materi/create', [PelajaranController::class, 'create'])->name('materi.create');
-Route::get('/trainer/tambahmateri/search', [PelajaranController::class, 'search'])->name('trainer.tambahmateri.search');
+Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi');
+Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create');
+Route::get('/trainer/tambahmateri/search', [MateriController::class, 'search'])->name('trainer.tambahmateri.search');
 
 
-Route::get('/kelas/{kelas}/materi', [PelajaranController::class, 'materi'])->name('materi');
-Route::get('/materi/{id}/edit', [PelajaranController::class, 'edit'])->name('materi.edit');
-Route::put('/materi/{id}/update', [PelajaranController::class, 'update'])->name('materi.update');
-Route::delete('materi/{id}/destroy', [PelajaranController::class, 'destroy'])->name('materi.destroy');
+Route::get('/kelas/{kelas}/materi', [MateriController::class, 'materi'])->name('materi');
+Route::get('/materi/{id}/edit', [MateriController::class, 'edit'])->name('materi.edit');
+Route::put('/materi/{id}/update', [MateriController::class, 'update'])->name('materi.update');
+Route::delete('materi/{id}/destroy', [MateriController::class, 'destroy'])->name('materi.destroy');
 
 Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
     ->name('FormAddTrainer');
@@ -99,7 +99,7 @@ Route::get('/user.payment', function () {
     return view('/user/payment');
 });
 
-Route::get('/admin/{kelas}/materi', [PelajaranController::class, 'materiadmin'])->name('lihat.materi');
+Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi');
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
 Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
@@ -111,5 +111,5 @@ Route::get('akses/belajar', function () {
     return view('user.materi');
 });
 
-Route::get('/materi/{pelajaran}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri');
+Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri');
 Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri');

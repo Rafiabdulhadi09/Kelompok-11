@@ -43,8 +43,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pelajaran_id">Pilih kelas :</label>
-                            <select id="pelajaran _id" class="form-select mt-3" name="pelajaran_id">
+                            <label for="materi_id">Pilih kelas :</label>
+                            <select id="materi _id" class="form-select mt-3" name="materi_id">
                                 @foreach ($materi as $item)
                                     <option value="{{ $item->id }}"> {{ $item->title }}</option>
                                 @endforeach

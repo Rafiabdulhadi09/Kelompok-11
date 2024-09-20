@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('sub_materi', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pelajaran_id');
+            $table->unsignedBigInteger('materi_id');
             $table->string('title');
             $table->string('type');
             $table->string('content');
             $table->timestamps();
 
-            $table->foreign('pelajaran_id')->references('id')->on('pelajaran')->onDelete('cascade');
+            $table->foreign('materi_id')->references('id')->on('materi')->onDelete('cascade');
         });
     }
 

@@ -71,7 +71,7 @@
                                                         Lihat Sub Materi
                                                     </a>
                                                     </td>
-                                                <td><a class="btn btn-warning" href="{{ route('tambah.submateri'), $item->id }}">
+                                                <td><a class="btn btn-warning" href="{{ route('tambah.submateri', $item->id) }}">
                                                         Tambah Submateri
                                                     </a></td>
                                     </tbody>

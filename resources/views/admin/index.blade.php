@@ -81,11 +81,11 @@
                           Data Trainer
                         </div>
                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                             @if($jumlah_trainer)
-                                <p>{{ $jumlah_trainer }}</p>
-                            @else
-                                <p>Tidak ada user'</p>
-                            @endif
+                              @if($jumlah_trainer)
+                                  <p>{{ $jumlah_trainer }}</p>
+                              @else
+                                  <p>Tidak ada user'</p>
+                              @endif
                         </div>
                       </div>
                       <div class="col-auto">

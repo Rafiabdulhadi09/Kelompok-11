@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Materi;
+use App\Models\SubMateri;
 use App\Models\User;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
@@ -13,9 +15,12 @@ class AdminController extends Controller
         $user = Auth::user();
         return view('user/index', compact('user'));
     }
-    function trainer(){
+    function trainer(DataKelas $kelas){
         $trainer= Auth::user();
-        return view('trainer/index', compact('trainer'));
+        $jumlah_kelas = $trainer->trainerKelas->count();
+        $jumlah_materi = $kelas->materi->count();
+        $jumlah_submateri = SubMateri::all()->count();
+        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri'));
        
     }
     function admin(){
