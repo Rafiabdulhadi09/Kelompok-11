@@ -10,6 +10,8 @@ use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\ProfileTrainerController;
 use App\Http\Controllers\KelasMateriController;
+use App\Http\Controllers\SubmateriController;
+use App\Models\SubMateri;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,8 +102,14 @@ Route::get('/user.payment', function () {
 Route::get('/admin/{kelas}/materi', [PelajaranController::class, 'materiadmin'])->name('lihat.materi');
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi');
+Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
+
+Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri');
+Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri');
 
 Route::get('akses/belajar', function () {
     return view('user.materi');
 });
+
+Route::get('/materi/{pelajaran}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri');
+Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri');

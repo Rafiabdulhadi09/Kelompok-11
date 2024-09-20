@@ -40,14 +40,13 @@
                                             <th>Judul</th>
                                             <th>Materi</th>
                                             <th>Action</th>
-                                            <th>Sub materi</th>
                                         </tr>
                                     </thead>
                                          <tbody>
-                                         @if($materi->isEmpty())
+                                         @if($submateri->isEmpty())
                                           <p>Tidak ada materi untuk kelas ini.</p>
                                       @else
-                                              @foreach($materi as $item)
+                                              @foreach($submateri as $item)
                                                     <td>
                                                       {{ $item->title }}
                                                     </td>
@@ -67,13 +66,7 @@
                                                         </svg>
                                                     </button>
                                                     </form>
-                                                     <a class="btn btn-success" href=" {{ Route ('materi.submateri', $item->id) }}">
-                                                        Lihat Sub Materi
-                                                    </a>
-                                                    </td>
-                                                <td><a class="btn btn-warning" href="{{ route('tambah.submateri'), $item->id }}">
-                                                        Tambah Submateri
-                                                    </a></td>
+                                                  </td>
                                     </tbody>
                                        @endforeach
                                       @endif

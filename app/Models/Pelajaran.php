@@ -22,6 +22,6 @@ class Pelajaran extends Model
     }
     public function submateri()
     {
-        return $this->hasMany(SubMateri::class);
+        return $this->hasMany(SubMateri::class, 'pelajaran_id');
     }
 }
