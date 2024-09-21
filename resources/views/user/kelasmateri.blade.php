@@ -50,7 +50,7 @@
                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus hic nulla harum ducimus est quasi distinctio omnis provident placeat mollitia! Eos magni suscipit minima tempore doloremque obcaecati molestias provident? Tempora.</p>
 
                         <!-- Akses Materi Button -->
-                        <button class="btn btn-primary"><a href="{{route('materi')}}" class="text-light">Akses Materi</a></button>
+                        <button class="btn btn-primary"><a href="" class="text-light">Akses Materi</a></button>
                     </div>
                 </div>
             </div>
