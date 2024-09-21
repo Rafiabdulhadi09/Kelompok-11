@@ -13,7 +13,7 @@
           <li><a href="/user#about">About</a></li>
           <li><a href="/user#services">pembelajaran</a></li>
           <li><a href="{{ url('user/kelas') }}">Kelas</a></li>
-          <li><a href="{{ route ('kelas.materi') }}">Materi</a></li>
+          <li><a href="{{ route ('materi.user') }}">Materi</a></li>
           <li class="dropdown"><a href="#">  
          @if(isset($user) && $user->image)
         <img class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle" src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="35">

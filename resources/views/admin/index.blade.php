@@ -57,7 +57,7 @@
                              @if($jumlah_user)
                                 <p>{{ $jumlah_user }}</p>
                             @else
-                                <p>Tidak ada user'</p>
+                                <p>Tidak ada user</p>
                             @endif
                         </div>
                       </div>
@@ -84,7 +84,7 @@
                               @if($jumlah_trainer)
                                   <p>{{ $jumlah_trainer }}</p>
                               @else
-                                  <p>Tidak ada user'</p>
+                                  <p>Tidak ada trainer</p>
                               @endif
                         </div>
                       </div>
@@ -111,7 +111,7 @@
                              @if($jumlah_kursus)
                                 <p>{{ $jumlah_kursus}}</p>
                             @else
-                                <p>Tidak ada user'</p>
+                                <p>Tidak ada kursus</p>
                             @endif
                         </div>
                       </div>

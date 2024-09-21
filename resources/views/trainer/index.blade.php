@@ -57,7 +57,7 @@
                               @if($jumlah_kelas)
                                   <p>{{ $jumlah_kelas }}</p>
                               @else
-                                  <p>Tidak ada kelas'</p>
+                                  <p>Tidak ada kelas</p>
                               @endif
                         </div>
                       </div>
@@ -84,7 +84,7 @@
                               @if($jumlah_materi)
                                   <p>{{ $jumlah_materi }}</p>
                               @else
-                                  <p>Tidak ada materi'</p>
+                                  <p>Tidak ada materi</p>
                               @endif
                         </div>
                       </div>
@@ -115,7 +115,7 @@
                             @if($jumlah_submateri)
                                   <p>{{ $jumlah_submateri }}</p>
                               @else
-                                  <p>Tidak ada SubMateri'</p>
+                                  <p>Tidak ada SubMateri</p>
                               @endif
                             </div>
                           </div>
