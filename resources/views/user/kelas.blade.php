@@ -42,8 +42,22 @@
                                     <!-- Product name-->
                                     <p class="text-start"><small><b>{{ Str::limit($item['title'], 35) }}</b></small></p>
                                     <!-- Product price-->
-                                    <p class="text-start"><img class="img-profile rounded-circle"
-                                    src="{{ asset('assets/img/testimonials/testimonials-8.jpg') }}" width="25"/> | <small>Rafi abdul hadi</small></a></p>
+                                    <p class="text-start">
+                                        @if($item->trainers->isNotEmpty())
+                                            @foreach($item->trainers as $trainer)
+                                                <img class="img-profile rounded-circle" src="{{ asset('storage/profile_trainer/' . $trainer->image) }}" alt="{{ $trainer->image }}" width="25">
+                                            @endforeach
+                                            @else
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="25">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                                        @endif |     
+                                                @if($item->trainers->isNotEmpty())
+                                                    @foreach($item->trainers as $trainer)
+                                                        <small>{{ $trainer->name }}</small>
+                                                    @endforeach
+                                                @else
+                                                    <small>Belum ada trainer</small>
+                                                @endif</a></p>
                                     <p class="text-start "><small>Rp {{ $item->price }},00</small></p>
                                 </div>
                             </div>
