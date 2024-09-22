@@ -13,7 +13,8 @@
     <title>Ruang Admin - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link
       href="assets/vendor-admin/fontawesome-free/css/all.min.css"
       rel="stylesheet"
@@ -62,7 +63,7 @@
                         </div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                        <i class="fas fa-landmark fa-2x text-gray-300"></i>
                       </div>
                     </div>
                   </div>
@@ -89,7 +90,7 @@
                         </div>
                       </div>
                       <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-chalkboard fa-2x text-gray-300"></i>
                       </div>
                     </div>
                   </div>
@@ -122,9 +123,7 @@
                         </div>
                       </div>
                       <div class="col-auto">
-                        <i
-                          class="fas fa-clipboard-list fa-2x text-gray-300"
-                        ></i>
+                      <i class="fas fa-chalkboard-user fa-2x text-gray-300"></i>
                       </div>
                     </div>
                   </div>
