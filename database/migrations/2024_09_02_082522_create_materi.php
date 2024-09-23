@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kelas_id');
             $table->string('title');
-            $table->string('type');
             $table->string('content');
             $table->timestamps();
 

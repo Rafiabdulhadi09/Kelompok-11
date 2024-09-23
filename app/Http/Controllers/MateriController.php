@@ -21,14 +21,12 @@ class MateriController extends Controller
     {
          // Validasi data yang masuk
         $request->validate([
-            'title' => 'required',
-            'type' => 'required',
-            'content' => 'required',
+            'judul' => 'required',
+            'description' => 'required',
         ]);
         $materi = new Materi();
-        $materi->title = $request->title;
-        $materi->type = $request->type;
-        $materi->content = $request->content;
+        $materi->title = $request->judul;
+        $materi->content = $request->description;
         $materi->kelas_id = $request->kelas_id; // Pastikan ini ada!
         $materi->save();
             // Simpan materi
@@ -63,15 +61,13 @@ class MateriController extends Controller
 
         $request->validate([
             'kelas_id'=>'required',
-            'title'=>'required',
-            'type'=>'required',
-            'content'=>'required'
+            'judul'=>'required',
+            'description'=>'required'
         ]);
         $materi->update([
             'kelas_id'=> $request->kelas_id,
-            'title'=> $request->title,
-            'type'=> $request->type,
-            'content'=> $request->content
+            'title'=> $request->judul,
+            'content'=> $request->description
         ]);
         return redirect()->back()->with('success', 'Data kursus berhasil di edit');
     }

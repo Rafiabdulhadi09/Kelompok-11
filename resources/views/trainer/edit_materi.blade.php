@@ -28,20 +28,11 @@
                  <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Title</label>
-                    <input type="text" name="title" value="{{ $materi->title }}" id="form3Example1c" placeholder="enter your title" class="form-control" />
+                    <label class="form-label" for="judul">Judul</label>
+                    <input type="text" name="judul" value="{{ $materi->title }}" id="judul" placeholder="Masuka judul materi" class="form-control" />
                     </div>
                   </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <select class="form-select mt-3" name="type">
-                                      <option value="text">Text</option>
-                                      <option value="ebook">E-book</option>
-                                      <option value="video">Video</option>
-                               </select>
-                        </div>
-                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="kelas_id">Pilih kelas :</label>
@@ -53,8 +44,8 @@
                 <div class="row">
                   <div class="col-md-6">
                         <div class="form-group">
-                            <label for="form_email">Content</label>
-                            <input id="form_email" type="string"value="{{ $materi->content }}"  name="content" class="form-control" placeholder="Please enter price *">
+                            <label for="description">Description</label>
+                            <input id="description" type="string"value="{{ $materi->content }}"  name="description" class="form-control" placeholder="Masukan description">
                         </div>
                     </div>
                     <div class="col-md-12">
