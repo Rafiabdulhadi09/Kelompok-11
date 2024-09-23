@@ -58,7 +58,7 @@
                                                 @else
                                                     <small>Belum ada trainer</small>
                                                 @endif</a></p>
-                                    <p class="text-start "><small>Rp {{ $item->price }},00</small></p>
+                                    <p class="text-start "><small>{{ formatRupiah($item->price) }}</small></p>
                                 </div>
                             </div>
                             <!-- Product actions-->

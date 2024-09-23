@@ -66,7 +66,7 @@
                                         <tr>
                                             <td class="text-center">{{ $no ++ }}</td>
                                             <td class="text-center">{{ $items  ->title }}</td>
-                                            <td class="text-center">{{ $items->price }}</td>
+                                            <td class="text-center">{{ formatRupiah($items->price) }}</td>
                                             <td class="text-center">{{ $items->description }}</td>
                                              <td>
                                                 @if($items->trainers->isNotEmpty())
