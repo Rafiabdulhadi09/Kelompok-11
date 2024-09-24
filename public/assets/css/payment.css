@@ -1,30 +1,76 @@
-html{height: 100%}head, 
-body{background-color: #87CEFA}
-.box1{background-color: #ADD8E6;color: white}
-.card-header{background: none}
-.box1{height: 600px}
-.box2{height: 600px}
-.heading{font-weight: 900}
-.heading2{padding-left: 40px}
-.box2-head{font-weight: 900;background: none;border: none}
-.card-header{margin-top: 50px;padding-left: 19px}
-.sub-heading{font-weight: 900;font-size: 14px}.sub-heading2{border: 1px solid white;padding-top: 10px;padding-bottom: 10px}
-.sub-heading1{background-color: white;color: #ADD8E6;padding-top: 10px;padding-bottom: 10px}
-.credit{position: absolute;left: 8vw}.frnt{z-index: 2;position: absolute}
-.back{position: absolute;z-index: 1;left: 70px;top: 30px}
-.form-group>input{border: none;border-bottom: 1px solid lightgray}
-.card-number>input{border: none}
-.card-number{border-bottom: 1px solid lightgray}
-.card-number>input::-webkit-input-placeholder{color: peachpuff;font-size: 25px}
-.card-number>input::-moz-placeholder{color: peachpuff;font-size: 25px}
-.card-number>input:-ms-input-placeholder{color: peachpuff;font-size: 25px}
-.card-number>input::placeholder{color: peachpuff;font-size: 25px}input.focus, input:focus{outline: 0;box-shadow: none !important}
-.card-number
-.hover,.card-number:hover{outline: 0;box-shadow: none !important;border-bottom: 1px solid lightskyblue}select.focus, select:focus{outline: 0;box-shadow: none !important}
-.form-control{border: none;border-bottom: 1px solid lightgray}
-.txt{justify-content: space-between}
-.txt>p>small{font-weight: 900}
-.total{justify-content: space-between}
-.btn{height: 60px;background-color: #00B8D4;color: white}
-.footer2{background: none}
-.btn.focus, .btn:focus{outline: 0;box-shadow: none !important}@media (min-width: 1025px) and (max-width: 1280px){.inner{margin-left: 150px}}
+body {
+    font-family: Arial, sans-serif;
+    background-color:#42b7de;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #359ec2;
+    border-radius: 8px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.header .left {
+    width: 60%;
+}
+.header h1 {
+    font-size: 28px;
+    margin: 0;
+}
+.header .right img {
+    width: 100%;
+    border-radius: 8px;
+}
+.header .right {
+    width: 35%;
+}
+.rating {
+    margin-top: 10px;
+}
+.rating span {
+    color: gold;
+}
+.webinar-info {
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.webinar-info h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+.price-section {
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.price-section p {
+    margin: 5px 0;
+}
+.price-section .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+.price-section button {
+    background-color: #007ae1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.price-section button:hover {
+    background-color: #007ae1;
+}

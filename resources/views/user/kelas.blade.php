@@ -63,7 +63,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="d-grid gap-2 col-6 mx-auto mb-3">
-                                <button class="btn btn-primary" type="button"><a href="/user.payment"><span class="text-white">buy</span></a>
+                                <button class="btn btn-primary" type="button"><a href="{{route('user.payment', $item->id)}}"><span class="text-white">Beli Kelas</span></a>
                                 </button>
                             </div>
                         </div>

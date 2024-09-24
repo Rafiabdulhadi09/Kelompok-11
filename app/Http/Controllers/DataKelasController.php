@@ -162,8 +162,11 @@ class DataKelasController extends Controller
 
         // Attach trainer to class (assumes pivot table exists or you need to create one)
         $kelas->trainers()->attach($trainer->id);
-
-        return redirect()->back()->with('message', 'Trainer berhasil ditambahkan ke kelas.');
+        if ($validatedData) {
+            return redirect('/admin/DataKelas')->with('success', 'Trainer berhasil di tambahkan.');
+        } else {
+            return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
+        }
     }
 }
 

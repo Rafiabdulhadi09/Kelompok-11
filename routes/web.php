@@ -1,17 +1,18 @@
 <?php
 
+use App\Models\SubMateri;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataKelasController;
-use App\Http\Controllers\MateriController;
-use App\Http\Controllers\ProfileTrainerController;
-use App\Http\Controllers\KelasMateriController;
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SubmateriController;
-use App\Models\SubMateri;
+use App\Http\Controllers\KelasMateriController;
+use App\Http\Controllers\ProfileTrainerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,7 @@ Route::post('/admin/add-trainer-to-class', [DataKelasController::class, 'addTrai
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
+Route::get('/user/{id}/payment', [PembelianController::class, 'index'])->name('user.payment');
 
 Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi');
 
