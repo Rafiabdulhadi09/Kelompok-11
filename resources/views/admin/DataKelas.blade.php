@@ -46,7 +46,7 @@
                                 </div>
                              </form></div>
                              </div>
-                        <div class="card-body">
+                        < class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -61,11 +61,10 @@
                                         </tr>
                                     </thead>
                                          <tbody>
-                                             @php $no = 1; @endphp
-                                    @foreach ($data as $item =>$items)
+                                    @foreach($data as $index => $items)
                                         <tr>
-                                            <td class="text-center">{{ $no ++ }}</td>
-                                            <td class="text-center">{{ $items  ->title }}</td>
+                                            <td class="text-center">{{ $data->firstItem() + $index}}</td>
+                                            <td class="text-center">{{ $items->title }}</td>
                                             <td class="text-center">{{ formatRupiah($items->price) }}</td>
                                             <td class="text-center">{{ $items->description }}</td>
                                              <td>
@@ -94,7 +93,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                            {{ $users->links('pagination::bootstrap-4') }}
+                        </>
                     </div>
 
                 </div>

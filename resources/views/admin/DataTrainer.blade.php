@@ -59,10 +59,9 @@
                                     </tr>
                                 </thead>
                             <tbody>
-                            @php $no = 1; @endphp
-                                @foreach($trainers as $trainer)
+                                @foreach($trainers as $index => $trainer)
                                     <tr>
-                                        <td>{{ $no ++ }}</td>
+                                        <td>{{ $trainers->firstItem() + $index}}</td>
                                         <td>{{ $trainer->name }}</td>
                                         <td>{{ $trainer->keahlian }}</td>
                                         <td>{{ $trainer->alamat }}</td>
@@ -94,6 +93,7 @@
                             </tbody>
                             </table>
                             </div>
+                            {{ $trainers->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
 

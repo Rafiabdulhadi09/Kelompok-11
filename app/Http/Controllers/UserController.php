@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index(): View
     {
         // Mengambil semua data user dengan role 'user'
-        $users = User::where('role', 'user')->get();
+        $users = User::where('role', 'user')->paginate(10);
 
         // Mengirimkan data ke view
         return view('admin.DataUser', compact('users'));
@@ -69,7 +69,7 @@ class UserController extends Controller
     public function trainer()
     {
         // Ambil data untuk role 'trainer'
-        $trainers = User::where('role', 'trainer')->get();
+        $trainers = User::where('role', 'trainer')->paginate(10);
 
         // Kirim data ke view
         return view('admin.DataTrainer', compact('trainers'));
