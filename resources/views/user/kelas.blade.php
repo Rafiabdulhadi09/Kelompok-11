@@ -70,7 +70,7 @@
                     </div>
                     @endforeach
                 </div>
-                {{ $items->links('pagination::bootstrap-4') }}
+                {{ $data->links('pagination::bootstrap-4') }}
             </div>
         </section>
         <!-- Bootstrap core JS-->

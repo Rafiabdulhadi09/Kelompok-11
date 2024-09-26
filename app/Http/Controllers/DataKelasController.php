@@ -75,7 +75,7 @@ class DataKelasController extends Controller
     public function show()
     {
           // Mengambil semua data dari tabel items
-        $data = DataKelas::paginate(20);
+        $data = DataKelas::paginate(10);
         // Mengirim data ke view
         return view('user.kelas', compact('data'));
     }
@@ -119,16 +119,6 @@ class DataKelasController extends Controller
     {
         //
     }
-    public function Trainer($trainer_id)
-    {
-          // Mengambil semua data dari tabel items
-            $trainer = User::findOrFail($trainer_id);
-    // Ambil semua kelas yang terkait dengan trainer tersebut
-            $kelas = $trainer->trainerKelas;
-
-        // Mengirim data ke view
-        return view('trainer.tambahmateri', compact('kelas','trainer',));
-    }
 
     public function search(Request $request)
     {
@@ -138,7 +128,7 @@ class DataKelasController extends Controller
         // Cari data kelas berdasarkan kolom yang relevan (misal: nama_kelas atau deskripsi)
         $data = DataKelas::where('title', 'like', '%' . $query . '%')
             ->orWhere('price', 'like', '%' . $query . '%')
-            ->get();
+            ->paginate(10);
 
         // Return hasil pencarian ke view 'admin.datakelas'
         return view('admin.datakelas', compact('data'));

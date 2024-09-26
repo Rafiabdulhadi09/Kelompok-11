@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataKelas;
+use App\Models\User;
 use App\Models\Materi;
+use App\Models\DataKelas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -77,17 +78,28 @@ class MateriController extends Controller
 
         return view('admin.materi', ['kelas' => $kelas, 'materi' => $materi]);
     }    
-    public function search(Request $request)
+    public function searchkelas(Request $request, $trainer_id)
+{
+    // Ambil query pencarian dari input form
+    $query = $request->input('query');
+
+    // Cari data kelas berdasarkan kolom yang relevan (misal: title atau description)
+    $data = DataKelas::where('title', 'like', '%' . $query . '%')
+        ->orWhere('price', 'like', '%' . $query . '%')
+        ->paginate(10);
+
+    // Return hasil pencarian ke view 'trainer.tambahmateri'
+    return view('trainer.tambahmateri', compact('data', 'trainer_id'));
+}
+
+        public function Trainer($trainer_id)
     {
-        // Ambil query pencarian dari input form
-        $query = $request->input('query');
+          // Mengambil semua data dari tabel items
+            $trainer = User::findOrFail($trainer_id);
+    // Ambil semua kelas yang terkait dengan trainer tersebut
+            $kelas = $trainer->trainerKelas;
 
-        // Cari data kelas berdasarkan kolom yang relevan (misal: nama_kelas atau deskripsi)
-        $data = DataKelas::where('title', 'like', '%' . $query . '%')
-            ->orWhere('price', 'like', '%' . $query . '%')
-            ->get();
-
-        // Return hasil pencarian ke view 'admin.datakelas'
-        return view('trainer.tambahmateri', compact('data'));
+        // Mengirim data ke view
+        return view('trainer.tambahmateri', compact('kelas','trainer',));
     }
 }

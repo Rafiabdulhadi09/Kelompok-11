@@ -67,10 +67,11 @@ Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.Dat
 Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit');
 Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update');
 Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy');
-Route::get('admin/data-user/search', [UserController::class, 'search'])->name('admin.dataUser.search');
+Route::get('admin/data-user/search', [UserController::class, 'index'])->name('admin.dataUser.search');
 
 
-Route::get('Trainer/{trainer_id}/TambahMateri',[DataKelasController::class,'Trainer'])->name('Trainer.TambahMateri');
+Route::get('Trainer/{trainer_id}/TambahMateri',[MateriController::class,'Trainer'])->name('Trainer.TambahMateri');
+Route::get('trainer/{trainer_id}/tambahmateri/search', [MateriController::class, 'searchkelas'])->name('trainer.tambahmateri.search');
 
 // Route untuk DataTrainer
 Route::get('/admin/data-trainer/{user}/edit', [UserController::class, 'edittrainer'])->name('admin.dataTrainer.edit');
@@ -83,7 +84,6 @@ Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'
 
 Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create');
-Route::get('/trainer/tambahmateri/search', [MateriController::class, 'search'])->name('trainer.tambahmateri.search');
 
 
 Route::get('/kelas/{kelas}/materi', [MateriController::class, 'materi'])->name('materi');

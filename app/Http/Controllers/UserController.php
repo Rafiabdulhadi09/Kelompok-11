@@ -15,14 +15,28 @@ class UserController extends Controller
      *
      * @return View
      */
-    public function index(): View
-    {
-        // Mengambil semua data user dengan role 'user'
-        $users = User::where('role', 'user')->paginate(10);
+    public function index(Request $request): View
+{
+    // Ambil query pencarian dari input
+    $query = $request->input('query');
 
-        // Mengirimkan data ke view
-        return view('admin.DataUser', compact('users'));
+    // Jika ada query pencarian, cari user berdasarkan nama atau email
+    if ($query) {
+        $users = User::where('role', 'user')
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                ->orWhere('email', 'like', '%' . $query . '%');
+            })
+            ->paginate(10); // Menggunakan paginate jika ada pencarian
+    } else {
+        // Jika tidak ada query, ambil semua data user dengan role 'user'
+        $users = User::where('role', 'user')->paginate(10); // Tetap menggunakan paginate
     }
+
+    // Mengirimkan data ke view
+    return view('admin.DataUser', compact('users'));
+}
+
     public function edituser(User $user)
     {
         return view('admin.EditUser', compact('user'));
@@ -107,23 +121,6 @@ class UserController extends Controller
         return redirect()->route('admin.dataTrainer')->with('success', 'trainer deleted successfully.');
     }
 
-    public function search(Request $request)
-    {
-        // Ambil query pencarian dari input
-        $query = $request->input('query');
-
-        // Cari user dengan role "user" yang cocok dengan query
-        $users = User::where('role', 'user')
-            ->where(function ($q) use ($query) {
-                $q->where('name', 'like', '%' . $query . '%')
-                  ->orWhere('email', 'like', '%' . $query . '%');
-            })
-            ->get();
-
-        // Return ke view dengan hasil pencarian
-        return view('admin.dataUser', compact('users'));
-    }
-
     public function searchtrainer(Request $request)
     {
         // Ambil query pencarian dari input
@@ -135,7 +132,7 @@ class UserController extends Controller
                 $q->where('name', 'like', '%' . $query . '%')
                   ->orWhere('email', 'like', '%' . $query . '%');
             })
-            ->get();
+            ->paginate(10);
 
         // Return ke view dengan hasil pencarian
         return view('admin.dataTrainer', compact('trainers'));
