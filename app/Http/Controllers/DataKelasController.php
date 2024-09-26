@@ -74,17 +74,13 @@ class DataKelasController extends Controller
      */
     public function show()
     {
-          // Mengambil semua data dari tabel items
-        $data = DataKelas::paginate(20);
-        // Mengirim data ke view
+        $data = DataKelas::with('trainers')->paginate(20);
         return view('user.kelas', compact('data'));
     }
     
     public function editkursus($id)
     {
-        // Mengambil semua data dari tabel items
         $datakursus = DataKelas::findOrFail($id);
-        // Mengirim data ke view
         return view('admin.EditKursus', compact('datakursus'));
     }
     
