@@ -31,6 +31,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(DataKelas::class, 'trainerkelas', 'user_id', 'kelas_id');
     }
+
+        public function kelas()
+    {
+        return $this->belongsToMany(DataKelas::class, 'user_kelas');
+    }
+
+        public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
     
 
 

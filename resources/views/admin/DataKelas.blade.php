@@ -46,7 +46,7 @@
                                 </div>
                              </form></div>
                              </div>
-                        <class="card-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -93,8 +93,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{ $data->links('pagination::bootstrap-4') }}
-                        </class=>
+                            {{ $users->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
 
                 </div>

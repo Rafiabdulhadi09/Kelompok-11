@@ -14,14 +14,26 @@
         <div class="left">
             <h1>{{ $kelas->title }}</h1>
             <p><b>Description : </b>{{ $kelas->description }}</p>
-            <p>Trainer: <strong>Nama Trainer</strong></p>
+            <p>Trainer: 
+                <strong>
+                      @if($kelas->trainers->isNotEmpty())
+                            @foreach($kelas->trainers as $trainer)
+                                <small>{{ $trainer->name }}</small>
+                            @endforeach
+                        @else
+                            <small>Belum ada trainer</small>
+                        @endif
+                </strong></p>
             <div class="rating">
                 <div class="webinar-info">
-        <h2>Jadwal gelombang Live Webinar lainnya</h2>
-        <p>Berikut jadwal gelombang yang tersedia. Kamu bisa pilih jadwal saat melakukan pembelian di platform pembayaran 
-            (Bukalapak, Kariermu, Tokopedia, Pijar Mahir, dan Pintar).</p>
-        <p>*Khusus peserta Kartu Prakerja</p>
-        <p>Menampilkan 3 jadwal gelombang yang tersedia.</p>
+                                  @if($materi->isEmpty())
+                                          <p>Tidak ada materi untuk kelas ini.</p>
+                                      @else
+                                              @foreach($materi as $item)
+                                                      <h2>{{ $item->title }}</h2>
+                                                      <p>{{ $item->content }}</p>
+                                       @endforeach
+                                      @endif
     </div>
     <div class="webinar-info">
         <h2>Jadwal gelombang Live Webinar lainnya</h2>
@@ -41,7 +53,7 @@
             <div class="price-section">
                     <span class="price">{{formatRupiah($kelas->price)}}</span><br>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button"><b>
+                    <button class="btn btn-primary" type="button""><b>
                     Beli Kelas</b></button>
                 </div>
     </div>

@@ -82,9 +82,7 @@ class DataKelasController extends Controller
     
     public function editkursus($id)
     {
-        // Mengambil semua data dari tabel items
         $datakursus = DataKelas::findOrFail($id);
-        // Mengirim data ke view
         return view('admin.EditKursus', compact('datakursus'));
     }
     

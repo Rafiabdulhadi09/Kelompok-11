@@ -99,7 +99,7 @@ Route::post('/admin/add-trainer-to-class', [DataKelasController::class, 'addTrai
 Route::get('/user.payment', function () {
     return view('/user/payment');
 });
-Route::get('/user/{id}/payment', [PembelianController::class, 'index'])->name('user.payment');
+Route::get('/user/{id}/payment/', [PembelianController::class, 'index'])->name('user.payment');
 
 Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi');
 
