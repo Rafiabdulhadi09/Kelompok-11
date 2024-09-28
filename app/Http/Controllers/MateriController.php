@@ -33,7 +33,7 @@ class MateriController extends Controller
             // Simpan materi
             $materi->save();
 
-         if ($materi) {
+        if ($materi) {
             return redirect()->back()->with('success', 'Trainer berhasil di tambahkan.');
         }else {
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
@@ -41,8 +41,9 @@ class MateriController extends Controller
     }
     public function materi(DataKelas $kelas){
         $materi = $kelas->materi;
+        $trainer = User::findOrFail(auth()->user()->id);
 
-        return view('trainer.materi', ['kelas' => $kelas, 'materi' => $materi]);
+        return view('trainer.materi', ['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
     }
     public function destroy($id)
     {
@@ -78,24 +79,25 @@ class MateriController extends Controller
 
         return view('admin.materi', ['kelas' => $kelas, 'materi' => $materi]);
     }    
-    public function searchkelas(Request $request, $trainer_id)
+    public function searchkelas(Request $request)
 {
+    $trainer = User::findOrFail(auth()->user()->id);
     // Ambil query pencarian dari input form
     $query = $request->input('query');
 
     // Cari data kelas berdasarkan kolom yang relevan (misal: title atau description)
-    $data = DataKelas::where('title', 'like', '%' . $query . '%')
+    $kelas = DataKelas::where('title', 'like', '%' . $query . '%')
         ->orWhere('price', 'like', '%' . $query . '%')
         ->paginate(10);
 
     // Return hasil pencarian ke view 'trainer.tambahmateri'
-    return view('trainer.tambahmateri', compact('data', 'trainer_id'));
+    return view('trainer.tambahmateri', compact('kelas', 'trainer'));
 }
 
-        public function Trainer($trainer_id)
+        public function Trainer()
     {
           // Mengambil semua data dari tabel items
-            $trainer = User::findOrFail($trainer_id);
+            $trainer = User::findOrFail(auth()->user()->id);
     // Ambil semua kelas yang terkait dengan trainer tersebut
             $kelas = $trainer->trainerKelas;
 
