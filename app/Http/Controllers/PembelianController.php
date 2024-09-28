@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Materi;
 use App\Models\DataKelas;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
@@ -10,17 +9,17 @@ use App\Http\Controllers\Controller;
 
 class PembelianController extends Controller
 {
-    public function pembayaran ()
+       public function index($idKelas)
     {
-        return view('user.BuktiPembayaran');
+        $kelas = DataKelas::with('materi')->findOrFail($idKelas);
+        return view('user.payment', compact('kelas'));
     }
-    public function index(DataKelas $id_materi, $id)
+    public function pembayaran($id)
     {
-        $materi = $id_materi->materi;
-        $kelas = DataKelas::findOrFail($id);
-        return view('user.payment',  ['kelas' => $kelas, 'materi' => $materi, 'id_materi' => $id_materi]);
+        $kelas = DataKelas::findOrFail($id); 
+        return view('user.KirimBukti', compact('kelas'));
     }
-    public function uploadBuktiPembayaran(Request $request)
+    public function BuktiPembayaran(Request $request)
 {
     $request->validate([
         'bukti_pembayaran' => 'required|mimes:jpg,jpeg,png,pdf|max:2048',

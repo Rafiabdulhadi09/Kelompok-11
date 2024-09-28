@@ -25,23 +25,17 @@
                         @endif
                 </strong></p>
             <div class="rating">
-                <div class="webinar-info">
-                                  @if($materi->isEmpty())
-                                          <p>Tidak ada materi untuk kelas ini.</p>
+                
+                                  @if($kelas->materi->isEmpty())
+                                          <h2 class="materi">Tidak ada materi untuk kelas ini.</h2>
                                       @else
-                                              @foreach($materi as $item)
+                                              @foreach($kelas->materi as $item)
+                                               <div class="webinar-info">
                                                       <h2>{{ $item->title }}</h2>
                                                       <p>{{ $item->content }}</p>
+                                                </div>
                                        @endforeach
                                       @endif
-    </div>
-    <div class="webinar-info">
-        <h2>Jadwal gelombang Live Webinar lainnya</h2>
-        <p>Berikut jadwal gelombang yang tersedia. Kamu bisa pilih jadwal saat melakukan pembelian di platform pembayaran 
-            (Bukalapak, Kariermu, Tokopedia, Pijar Mahir, dan Pintar).</p>
-        <p>*Khusus peserta Kartu Prakerja</p>
-        <p>Menampilkan 3 jadwal gelombang yang tersedia.</p>
-    </div>
             </div>
         </div>
         <div class="right">
@@ -53,8 +47,8 @@
             <div class="price-section">
                     <span class="price">{{formatRupiah($kelas->price)}}</span><br>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button""><b>
-                    Beli Kelas</b></button>
+                    <button class="btn btn-primary"><a href="{{ route('bukti.pembayaran', $kelas->id) }}"><b>
+                    Beli Kelas</b></a></button>
                 </div>
     </div>
         </div>

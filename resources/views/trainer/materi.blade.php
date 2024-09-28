@@ -20,7 +20,7 @@
 </head>
 
 <body id="page-top">
-    @include('component.NavbarTrainer');
+    {{-- @include('component.NavbarTrainer'); --}}
     <!-- Page Wrapper -->
     <div id="wrapper">   
                 <!-- Begin Page Content -->

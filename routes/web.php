@@ -115,3 +115,7 @@ Route::get('akses/belajar', function () {
 
 Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri');
 Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri');
+
+Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran');
+Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti');
+
