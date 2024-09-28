@@ -14,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\KelasMateriController' => $baseDir . '/app/Http/Controllers/KelasMateriController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\MateriController' => $baseDir . '/app/Http/Controllers/MateriController.php',
+    'App\\Http\\Controllers\\PembelianController' => $baseDir . '/app/Http/Controllers/PembelianController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Controllers\\ProfileTrainerController' => $baseDir . '/app/Http/Controllers/ProfileTrainerController.php',
     'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',

@@ -545,6 +545,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\KelasMateriController' => __DIR__ . '/../..' . '/app/Http/Controllers/KelasMateriController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\MateriController' => __DIR__ . '/../..' . '/app/Http/Controllers/MateriController.php',
+        'App\\Http\\Controllers\\PembelianController' => __DIR__ . '/../..' . '/app/Http/Controllers/PembelianController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\ProfileTrainerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileTrainerController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
