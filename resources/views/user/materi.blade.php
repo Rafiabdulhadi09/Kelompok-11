@@ -33,53 +33,37 @@
 
         <!-- Materi Section -->
         <div class="container">
-            <h2>Bab Materi</h2>
-            
+            <h1>Materi untuk bab :</h1>
            <!-- Bab 1 -->
-            <div class="custom-card">
+            <div class="custom-card border border-dark-subtle">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="custom-img-placeholder">
-                            <i class="bi bi-image"></i>
-                        </div>
                     </div>
                     <div class="col-md-10">
-                        <h3>Bab 1</h3>
-                        <!-- Kolom Title (vertical layout) -->
-                        <input type="text" class="custom-input" value="Judul Materi Bab 1" readonly>
-
+                       <h1>Judul Materi</h1>
                         <!-- Kolom Deskripsi (vertical layout) -->
-                        <textarea class="custom-textarea" readonly>Ini adalah deskripsi singkat untuk materi Bab 1.</textarea>
+                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus hic nulla harum ducimus est quasi distinctio omnis provident placeat mollitia! Eos magni suscipit minima tempore doloremque obcaecati molestias provident? Tempora.</p>
 
                         <!-- Akses Materi Button -->
-                        <button class="btn btn-primary">Akses Materi</button>
+                        <button class="btn btn-primary"><a href="{{route ('materi.user')}}" class="text-light">Akses Materi</a></button>
                     </div>
                 </div>
             </div>
 
-            <!-- Bab 2 -->
-            <div class="custom-card">
+                       <div class="custom-card border border-dark-subtle">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="custom-img-placeholder">
-                            <i class="bi bi-image"></i>
-                        </div>
                     </div>
                     <div class="col-md-10">
-                        <h1>Bab 2</h1>
-                        <!-- Kolom Title (vertical layout) -->
-                        <input type="text" class="custom-input" value="Judul Materi Bab 2" readonly>
-
+                       <h1>Judul Materi</h1>
                         <!-- Kolom Deskripsi (vertical layout) -->
-                        <textarea class="custom-textarea" readonly>Terkunci</textarea>
+                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus hic nulla harum ducimus est quasi distinctio omnis provident placeat mollitia! Eos magni suscipit minima tempore doloremque obcaecati molestias provident? Tempora.</p>
 
-                        <!-- Akses Materi Button (disabled) -->
-                        <button class="btn btn-primary">Akses Materi</button>
+                        <!-- Akses Materi Button -->
+                        <button class="btn btn-primary"><a href="{{route ('materi.user')}}" class="text-light">Akses Materi</a></button>
                     </div>
                 </div>
             </div>
-        </div>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

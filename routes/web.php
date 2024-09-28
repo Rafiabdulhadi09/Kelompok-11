@@ -109,10 +109,6 @@ Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi
 Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri');
 Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri');
 
-Route::get('akses/belajar', function () {
-    return view('user.materi');
-});
-
 Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri');
 Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri');
 
