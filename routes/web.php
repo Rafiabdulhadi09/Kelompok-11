@@ -82,6 +82,9 @@ Route::post('/register/create', [RegisterController::class, 'tambah'])->name('re
 Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
+//Route untuk data pembelian
+Route::get('/admin/data-pembelian', [PembelianController::class, 'datapembelian',])->name('admin.DataPembelian');
+
 Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create');
 
@@ -104,7 +107,7 @@ Route::get('/user/{id}/payment/', [PembelianController::class, 'index'])->name('
 Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi');
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-Route::get('/user/materi',[KelasMateriController::class,'materi'])->name('materi.user');
+Route::get('/user/{item}/materi',[KelasMateriController::class,'materi'])->name('materi.user');
 
 Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri');
 Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri');
@@ -114,4 +117,8 @@ Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'subm
 
 Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran');
 Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti');
+
+Route::post('/pembayaran/approve/{id}', [PembelianController::class, 'approve'])->name('pembayaran.approve');
+Route::post('/pembayaran/reject/{id}', [PembelianController::class, 'reject'])->name('pembayaran.reject');
+
 

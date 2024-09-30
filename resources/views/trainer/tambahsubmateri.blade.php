@@ -41,25 +41,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Tipe Submateri:</label><br>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="type" id="typeText" value="text" onchange="handleTypeChange()">
-                                                    <label class="form-check-label" for="typeText">Text</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="type" id="typeEbook" value="ebook" onchange="handleTypeChange()">
-                                                    <label class="form-check-label" for="typeEbook">E-book</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="type" id="typeVideo" value="video" onchange="handleTypeChange()">
-                                                    <label class="form-check-label" for="typeVideo">Link YouTube</label>
-                                                </div>
+                                                <label for="typeSelect">Tipe Submateri:</label>
+                                                <select id="typeSelect" class="form-control" name="type" onchange="handleTypeChange()">
+                                                    <option value="">Pilih tipe submateri</option>
+                                                    <option value="text">Text</option>
+                                                    <option value="ebook">E-book</option>
+                                                    <option value="video">Video</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="materi_id">Pilih kelas :</label>
-                                                <select id="materi_id" class="form-select mt-3" name="materi_id">
+                                                <select id="materi_id" class="form-control" name="materi_id">
                                                     @foreach ($materi as $item)
                                                         <option value="{{ $item->id }}">{{ $item->title }}</option>
                                                     @endforeach
@@ -91,13 +85,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="price">Price</label>
-                                                <input id="price" type="number" name="price" class="form-control"
-                                                    placeholder="Enter price">
-                                            </div>
-                                        </div>
                                         <div class="col-md-12">
                                             <input type="submit" class="btn btn-success btn-send pt-2 btn-block"
                                                 value="Send Message">
@@ -116,7 +103,7 @@
 
     <script>
         function handleTypeChange() {
-            var type = document.querySelector('input[name="type"]:checked').value;
+            var type = document.getElementById("typeSelect").value;
             document.getElementById("textInput").style.display = "none";
             document.getElementById("videoInput").style.display = "none";
             document.getElementById("ebookInput").style.display = "none";

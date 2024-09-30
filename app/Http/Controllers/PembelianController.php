@@ -26,7 +26,7 @@ class PembelianController extends Controller
     ]);
 
     $fileName = time() . '_' . $request->file('bukti_pembayaran')->getClientOriginalName();
-    $filePath = $request->file('bukti_pembayaran')->storeAs('public/bukti_pembayaran', $fileName);
+    $filePath = $request->file('bukti_pembayaran')->storeAs('bukti_pembayaran', $fileName);
 
     // Simpan informasi transaksi ke database
     $pembayaran = new Pembayaran();
@@ -38,25 +38,26 @@ class PembelianController extends Controller
 
     return redirect()->back()->with('success', 'Bukti pembayaran berhasil dikirim. Tunggu konfirmasi dari admin.');
 }
-public function verifikasiPembayaran(Request $request, $id)
-{
-    $pembayaran = Pembayaran::find($id);
-    $pembayaran->status = $request->status;
-    $pembayaran->save();
+public function approve($id) {
+    $pembayaran = Pembayaran::findOrFail($id);
+    $pembayaran->update(['status' => 'approved']);
 
-    if ($request->status == 'approved') {
-        // Jika disetujui, tambahkan kelas ke akun pengguna
-        Pembayaran::create([
-            'user_id' => $pembayaran->user_id,
-            'kelas_id' => $pembayaran->kelas_id,
-        ]);
+    // Tambahkan logika untuk mengalihkan kelas ke halaman materi
 
-        // Kirim notifikasi kepada pengguna bahwa pembayaran telah disetujui
-        // Code untuk mengirim notifikasi (email atau lainnya)
-    }
-
-    return redirect()->back()->with('success', 'Status pembayaran telah diperbarui.');
+    return back()->with('message', 'Pembayaran disetujui, kelas tersedia di halaman materi.');
 }
 
+public function reject($id) {
+    $pembayaran = Pembayaran::findOrFail($id);
+    $pembayaran->update(['status' => 'rejected']);
 
+    return back()->with('message', 'Pembayaran ditolak.');
+}
+
+public function datapembelian(){
+    $data = Pembayaran::with(['user', 'kelas']) ->get(['id', 'user_id', 'kelas_id', 'bukti_pembayaran', 'status', 'created_at']);
+;
+
+    return view('admin/DataPembelian', compact('data'));
+}
 }

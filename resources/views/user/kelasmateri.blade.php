@@ -35,44 +35,29 @@
         <!-- Materi Section -->
         <div class="container">
             <h1>Belajar</h1>
-            
+            @foreach ($kelas as $item)
            <!-- Bab 1 -->
             <div class="custom-card border border-dark-subtle">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="custom-img-placeholder">
-                            <i class="bi bi-image"></i>
-                        </div>
+                     @if($item->kelas->image)
+                        <img src="{{ asset('storage/' . $item->kelas->image) }}" alt="Poto Kelas" width="160">
+                    @else
+                        <em>Belum ada poto</em>
+                    @endif
                     </div>
                     <div class="col-md-10">
-                       <h1>Judul Kelas</h1>
+                       <h1>{{ $item->kelas->title }}</h1>
                         <!-- Kolom Deskripsi (vertical layout) -->
-                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus hic nulla harum ducimus est quasi distinctio omnis provident placeat mollitia! Eos magni suscipit minima tempore doloremque obcaecati molestias provident? Tempora.</p>
+                       <p>{{ $item->kelas->description }}</p>
 
                         <!-- Akses Materi Button -->
-                        <button class="btn btn-primary"><a href="{{route ('materi.user')}}" class="text-light">Akses Materi</a></button>
+                        <button class="btn btn-primary"><a href="{{route ('materi.user',$item->id), }}" class="text-light">Akses Materi</a></button>
                     </div>
                 </div>
             </div>
+            @endforeach
            <!-- Bab 1 -->
-            <div class="custom-card border border-dark-subtle">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="custom-img-placeholder">
-                            <i class="bi bi-image"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                       <h1>Judul Kelas</h1>
-                        <!-- Kolom Deskripsi (vertical layout) -->
-                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus hic nulla harum ducimus est quasi distinctio omnis provident placeat mollitia! Eos magni suscipit minima tempore doloremque obcaecati molestias provident? Tempora.</p>
-
-                        <!-- Akses Materi Button -->
-                        <button class="btn btn-primary"><a href="{{route ('materi.user')}}" class="text-light">Akses Materi</a></button>
-                    </div>
-                </div>
-            </div>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
