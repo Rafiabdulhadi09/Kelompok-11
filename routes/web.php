@@ -82,6 +82,9 @@ Route::post('/register/create', [RegisterController::class, 'tambah'])->name('re
 Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy');
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
+//Route untuk data pembelian
+Route::get('/admin/data-pembelian', [PembelianController::class, 'datapembelian',])->name('admin.DataPembelian');
+
 Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create');
 
@@ -118,4 +121,5 @@ Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'subm
 
 Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran');
 Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti');
+
 

@@ -57,6 +57,9 @@ public function verifikasiPembayaran(Request $request, $id)
 
     return redirect()->back()->with('success', 'Status pembayaran telah diperbarui.');
 }
+public function datapembelian(){
+    return view('admin/DataPembelian');
+}
 
 
 }

@@ -49,9 +49,10 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="{{ url('/admin') }}">
+                <a class="nav-link" href="{{ route('admin.DataPembelian') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Data Pembelian</span></a>
+                    
             </li>
 
             <!-- Divider -->
