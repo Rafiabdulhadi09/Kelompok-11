@@ -15,30 +15,39 @@ class SubmateriController extends Controller
         $materi = Materi::all();
         return view('trainer.tambahsubmateri', compact('materi'));
     }
-      public function create(Request $request)
+    public function create(Request $request)
     {
-         // Validasi data yang masuk
+        // Validasi input dari form
         $request->validate([
-            'title' => 'required',
-            'type' => 'required',
-            'content' => 'required',
+            'title' => 'required|string|max:255',
+            'type' => 'required|string',
+            'materi_id' => 'required|integer|exists:materi,id',
+            'text_content' => 'nullable|string',
+            'video_link' => 'nullable|url',
+            'ebook_file' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
         ]);
-       
 
-        $submateri = new SubMateri();
-        $submateri->title = $request->title;
-        $submateri->type = $request->type;
-        $submateri->content = $request->content;
-        $submateri->materi_id = $request->materi_id;
-        $submateri->save();
-            // Simpan submateri
-            $submateri->save();
+        // Membuat objek submateri baru
+        $subMateri = new SubMateri();
+        $subMateri->title = $request->title;
+        $subMateri->type = $request->type;
+        $subMateri->materi_id = $request->materi_id;
 
-         if ($submateri) {
-            return redirect()->back()->with('success', 'Trainer berhasil di tambahkan.');
-        }else {
-            return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
+        // Menyimpan konten berdasarkan tipe submateri
+        if ($request->type == 'text') {
+            $subMateri->content = $request->text_content;
+        } elseif ($request->type == 'video') {
+            $subMateri->content = $request->video_link;
+        } elseif ($request->type == 'ebook' && $request->hasFile('ebook_file')) {
+            $path = $request->file('ebook_file')->store('ebooks', 'public');
+            $subMateri->content = $path;
         }
+
+        // Menyimpan submateri ke database
+        $subMateri->save();
+
+        // Mengirimkan pesan sukses
+        return redirect()->back()->with('success', 'Submateri berhasil ditambahkan!');
     }
     public function show(materi $materi)
     {
