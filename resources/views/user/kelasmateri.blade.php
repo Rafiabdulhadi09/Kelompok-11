@@ -52,7 +52,7 @@
                        <p>{{ $item->kelas->description }}</p>
 
                         <!-- Akses Materi Button -->
-                        <button class="btn btn-primary"><a href="{{route ('materi.user',$item->id), }}" class="text-light">Akses Materi</a></button>
+                        <button class="btn btn-primary"><a href="{{route ('materi.user',$item->id) }}" class="text-light">Akses Materi</a></button>
                     </div>
                 </div>
             </div>
