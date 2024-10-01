@@ -18,9 +18,9 @@ class KelasMateriController extends Controller
         return view ('user.kelasmateri', compact('kelas'));
     }
 
-       public function materi(Materi $item)
+       public function materi($id)
     {
-        $submateri = $item->submateri;
-        return view('user.materi', ['submateri' => $submateri, 'item' => $item]);
+        $submateri = Materi::with('submateri')->findOrFail($id);
+        return view('user.materi', compact('submateri'));
     }
 }

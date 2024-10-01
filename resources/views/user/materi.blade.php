@@ -34,7 +34,10 @@
         <!-- Materi Section -->
         <div class="container">
             <h1>Materi untuk bab :</h1>
-            @foreach ($submateri as $item)
+              @if($materi->subMateri->isEmpty())
+                    <p>Tidak ada sub materi untuk materi ini.</p>
+                @else
+                   @foreach($materi->subMateri as $item)
            <!-- Bab 1 -->
             <div class="custom-card border border-dark-subtle">
                 <div class="row">
@@ -49,8 +52,6 @@
             </div>
             @endforeach
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{{ asset('assets/js/scripts-kelas.js') }}"></script>
+
     </body>
 </html>
