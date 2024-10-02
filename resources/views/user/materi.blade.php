@@ -28,30 +28,38 @@
         <!-- Include header -->
         @include('component.header-user')
 
-        <!-- Section untuk konten -->
-        <br><br><br><br><br>
+<!-- Section untuk konten -->
+<br><br><br><br><br>
 
-        <!-- Materi Section -->
-        <div class="container">
-            <h1>Materi untuk bab :</h1>
-              @if($materi->subMateri->isEmpty())
-                    <p>Tidak ada sub materi untuk materi ini.</p>
-                @else
-                   @foreach($materi->subMateri as $item)
-           <!-- Bab 1 -->
+<!-- Materi Section -->
+<div class="container">
+    <h1>Materi untuk bab :</h1>
+
+    @if($submateri->submateri->isEmpty())
+        <p>Tidak ada sub materi untuk materi ini.</p>
+    @else
+        @foreach($submateri->submateri as $item)
+            <!-- Bab 1 -->
             <div class="custom-card border border-dark-subtle">
                 <div class="row">
                     <div class="col-md-2">
+                        <!-- Kosongkan jika tidak digunakan -->
                     </div>
                     <div class="col-md-10">
-                       <h1>{{ $item->title }}</h1>
-                       <p>{{ $item->content }}</p>
-                        <button class="btn btn-primary"><a href="{{route ('materi.user')}}" class="text-light">Akses Materi</a></button>
+                        <h1>{{ $item->title }}</h1>
+                        <p>{{ $item->content }}</p>
+                        <button class="btn btn-primary">
+                            <a href="{{ route('materi.submateri', ['materi' => $item->id]) }}" class="text-light">Akses Materi</a>
+                        </button>
+
                     </div>
                 </div>
             </div>
-            @endforeach
-        <!-- Bootstrap core JS-->
+        @endforeach
+    @endif
+</div>
 
-    </body>
+<!-- Bootstrap core JS-->
+</body>
 </html>
+
