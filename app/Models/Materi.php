@@ -11,7 +11,6 @@ class Materi extends Model
     protected $table = 'materi';
     protected $fillable = [
         'id',
-        'type',
         'title',
         'content'
         

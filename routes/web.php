@@ -108,6 +108,7 @@ Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->n
 
 Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
 Route::get('/user/{id}/materi',[KelasMateriController::class,'materi'])->name('materi.user');
+Route::get('/user/{id}/submateri',[KelasMateriController::class,'submateri'])->name('submateri.user');
 
 Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri');
 Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri');
