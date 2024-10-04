@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Materi Bab - Platform Belajar</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -24,11 +24,86 @@
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/materi.css') }}">
     <style>
-        .custom-card {
-            margin-bottom: 20px;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
         }
-        .custom-card .btn {
-            margin-top: 10px;
+
+        .custom-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .custom-card h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .custom-card p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .btn {
+            background-color: #38bdf8;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0284c7;
+        }
+
+        .btn a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        .container h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .custom-card h1 {
+                font-size: 18px;
+            }
+
+            .custom-card p {
+                font-size: 12px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+
+            .container h1 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -37,24 +112,20 @@
     @include('component.header-user')
 
     <!-- Section untuk konten -->
-    <br><br><br><br><br>
-
-    <!-- Materi Section -->
     <div class="container">
-        <h1>Materi untuk bab :</h1>
+        <h1>Materi untuk Bab:</h1>
 
         @if($submateri->materi->isEmpty())
             <p>Tidak ada sub materi untuk materi ini.</p>
         @else
             <div class="row">
                 @foreach($submateri->materi as $item)
-                    <!-- Bab 1 -->
-                    <div class="col-md-6">
-                        <div class="custom-card border border-dark-subtle p-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="custom-card" data-aos="fade-up" data-aos-delay="100">
                             <h1 class="h5">{{ $item->title }}</h1>
-                            <p>{{ $item->content }}</p>
-                            <button class="btn btn-primary">
-                                <a href="{{ route('submateri.user', [ $item->id]) }}" class="text-light">Akses Materi</a>
+                            <p>{{ Str::limit($item->content, 100) }}</p>
+                            <button class="btn">
+                                <a href="{{ route('submateri.user', [ $item->id]) }}">Akses Materi</a>
                             </button>
                         </div>
                     </div>
@@ -63,6 +134,10 @@
         @endif
     </div>
 
-    <!-- Bootstrap core JS-->
+    <!-- AOS Animation Script -->
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
