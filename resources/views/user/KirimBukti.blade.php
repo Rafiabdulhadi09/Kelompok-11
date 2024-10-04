@@ -14,6 +14,13 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <!-- Alert untuk pesan sukses -->
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
+
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white text-center">
                         <h4>Unggah Bukti Pembayaran</h4>

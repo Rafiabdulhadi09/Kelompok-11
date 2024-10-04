@@ -15,7 +15,7 @@ class KelasMateriController extends Controller
          $kelas = Pembayaran::where('user_id', auth()->id())
          ->where('status', 'approved') 
          ->with('kelas')->get();
-        return view ('user.kelasmateri', compact('kelas'));
+         return redirect()->back()->with('success', 'Bukti pembayaran berhasil dikirim!');
     }
 
        public function materi($id)
