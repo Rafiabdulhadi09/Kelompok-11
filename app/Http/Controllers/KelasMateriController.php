@@ -28,4 +28,10 @@ class KelasMateriController extends Controller
         $submateri = Materi::with('submateri')->findOrFail($id);
         return view('user.submateri', compact('submateri'));
     }
+    public function belajar($id)
+    {
+        $submateri = SubMateri::where('id', $id)->get();
+        return view('user.belajar', compact('submateri'));
+    }
+    
 }
