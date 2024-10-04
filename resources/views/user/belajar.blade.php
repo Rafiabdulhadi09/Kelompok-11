@@ -18,15 +18,13 @@
 
 <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- Begin Page Content -->
+    <div id="wrapper">        <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- Data Materi User -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h1>Materi</h1>
                 </div>
-                @include('component.header-user')
                 <div class="card-body">
                     <div class="table-responsive">
                     @if($submateri->isEmpty())

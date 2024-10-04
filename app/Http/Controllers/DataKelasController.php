@@ -148,14 +148,17 @@ class DataKelasController extends Controller
         $kelas = DataKelas::findOrFail($validatedData['kelas_id']);
         $trainer = User::where('id', $validatedData['trainer_id'])->where('role', 'trainer')->firstOrFail();
 
-        // Attach trainer to class (assumes pivot table exists or you need to create one)
-        $kelas->trainers()->attach($trainer->id);
-        if ($validatedData) {
-            return redirect('/admin/DataKelas')->with('success', 'Trainer berhasil di tambahkan.');
-        } else {
-            return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
+        // Cek apakah trainer sudah terhubung dengan kelas
+        if ($kelas->trainers()->where('users.id', $trainer->id)->exists()) {
+            return redirect()->back()->withErrors('Trainer ini sudah terhubung dengan kelas ini.');
         }
+
+        // Attach trainer to class (assumes pivot table exists)
+        $kelas->trainers()->attach($trainer->id);
+
+        return redirect('/admin/DataKelas')->with('success', 'Trainer berhasil ditambahkan.');
     }
+
 }
 
 
