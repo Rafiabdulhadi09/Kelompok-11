@@ -51,11 +51,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Poto</th>
-                                            <th>Action</th>
+                                            <th style="text-align: center; vertical-align: middle;">Title</th>
+                                            <th style="text-align: center; vertical-align: middle;">Price</th>
+                                            <th style="text-align: center; vertical-align: middle;">Description</th>
+                                            <th style="text-align: center; vertical-align: middle;">Poto</th>
+                                            <th style="text-align: center; vertical-align: middle;">Action</th>
                                         </tr>
                                     </thead>
                                          <tbody>

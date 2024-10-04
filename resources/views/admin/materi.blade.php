@@ -37,9 +37,9 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Judul</th>
-                                            <th>Materi</th>
-                                            <th>lihat sub materi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Judul</th>
+                                            <th style="text-align: center; vertical-align: middle;">Materi</th>
+                                            <th style="text-align: center; vertical-align: middle;">lihat sub materi</th>
                                         </tr>
                                     </thead>
                                          <tbody>
@@ -47,13 +47,13 @@
                                           <p>Tidak ada materi untuk kelas ini.</p>
                                       @else
                                               @foreach($materi as $item)
-                                                    <td>
+                                                    <td style="text-align: center; vertical-align: middle;">
                                                       {{ $item->title }}
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align: center; vertical-align: middle;">
                                                       {{ $item->content }}
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align: center; vertical-align: middle;">
                                                     <a class="btn btn-info" href="{{ route('admin.materi.submateri', $item->id) }}">
                                                     Lihat Sub Materi
                                                     </a>
