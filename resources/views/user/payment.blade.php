@@ -9,12 +9,11 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f4f7; /* Soft light blue background */
+            background-color: #f0f4f7; /* Light background */
             margin: 0;
             padding: 0;
             color: #333;
-            opacity: 0;
-            animation: fadeIn 1s forwards; /* Fade in animation for body */
+            animation: fadeIn 1s forwards; /* Smooth fade-in */
         }
 
         @keyframes fadeIn {
@@ -33,16 +32,15 @@
             border-radius: 20px;
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Soft shadow */
             padding: 40px;
-            overflow: hidden;
             opacity: 0;
             transform: translateY(50px);
-            animation: slideUp 1s forwards ease-in-out 0.3s; /* Slide up animation with delay */
+            animation: slideUp 1s forwards ease-in-out 0.3s; /* Slide up animation */
         }
 
         @keyframes slideUp {
             0% {
                 opacity: 0;
-                transform: translateY(50px); /* Starts below the screen */
+                transform: translateY(50px);
             }
             100% {
                 opacity: 1;
@@ -62,7 +60,7 @@
         .left, .right {
             opacity: 0;
             transform: translateY(50px);
-            animation: slideUp 1s forwards ease-in-out 0.5s; /* Animates slightly later */
+            animation: slideUp 1s forwards ease-in-out 0.5s;
         }
 
         .left {
@@ -122,7 +120,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             opacity: 0;
-            animation: fadeInImg 1s forwards ease-in-out 1s; /* Delayed fade-in for image */
+            animation: fadeInImg 1s forwards ease-in-out 1s;
         }
 
         @keyframes fadeInImg {
@@ -137,7 +135,7 @@
         }
 
         .right img:hover {
-            transform: scale(1.05); /* Hover effect to enlarge */
+            transform: scale(1.05);
         }
 
         .price-section {
@@ -154,7 +152,7 @@
         }
 
         .btn {
-            background-color: #3498db; /* Light blue for buttons */
+            background-color: #3498db;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -163,7 +161,7 @@
             font-size: 18px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             opacity: 0;
-            animation: fadeInBtn 1s forwards ease-in-out 1.2s; /* Delayed fade-in for button */
+            animation: fadeInBtn 1s forwards ease-in-out 1.2s;
         }
 
         @keyframes fadeInBtn {
@@ -179,7 +177,7 @@
 
         .btn:hover {
             background-color: #2980b9;
-            transform: scale(1.05); /* Smooth hover effect */
+            transform: scale(1.05);
         }
 
         a {
@@ -209,8 +207,8 @@
     <div class="header">
         <div class="left">
             <h1>{{ $kelas->title }}</h1>
-            <p><b>Description : </b>{{ $kelas->description }}</p>
-            <p>Trainer: 
+            <p><b>Description: </b>{{ $kelas->description }}</p>
+            <p>Trainer:
                 <strong>
                     @if($kelas->trainers->isNotEmpty())
                         @foreach($kelas->trainers as $trainer)
@@ -219,7 +217,8 @@
                     @else
                         <small>Belum ada trainer</small>
                     @endif
-                </strong></p>
+                </strong>
+            </p>
             <div class="rating">
                 @if($kelas->materi->isEmpty())
                     <h2 class="materi">Tidak ada materi untuk kelas ini.</h2>
