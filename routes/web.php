@@ -106,8 +106,8 @@ Route::get('/user/{id}/payment/', [PembelianController::class, 'index'])->name('
 
 Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi');
 
-Route::get('/user/kelasmateri',[KelasMateriController::class,'index'])->name('kelas.materi');
-Route::get('/user/{id}/materi',[KelasMateriController::class,'materi'])->name('materi.user');
+Route::get('/user/kelas/materi',[KelasMateriController::class,'index'])->name('kelas.materi');
+Route::get('/user/{id}/materi', [KelasMateriController::class, 'materi'])->name('materi.user');
 Route::get('/user/{id}/submateri',[KelasMateriController::class,'submateri'])->name('submateri.user');
 Route::get('/user/{id}/belajar/', [KelasMateriController::class, 'belajar'])->name('belajar.user');
 

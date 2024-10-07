@@ -13,9 +13,9 @@
           <li><a href="/user#about">About</a></li>
           <li><a href="/user#services">pembelajaran</a></li>
           <li><a href="{{ url('user/kelas') }}">Kelas</a></li>
-          <li><a href="{{ route ('kelas.materi') }}">Materi</a></li>
+          <li><a href="{{ route('kelas.materi') }}">Materi</a></li>
           <li class="dropdown"><a href="#">
-         @if(isset($user) && $user->image)
+        @if(isset($user) && $user->image)
         <img class="img-profile rounded-circle position-absolute top-50 start-50 translate-middle" src="{{ asset('storage/profile_images/' . $user->image) }}" alt="{{ $user->image }}" width="35">
         @else
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="35" class="position-absolute top-50 start-50 translate-middle">
@@ -26,7 +26,7 @@
               <li><a href="{{ route('profile') }}">Profil</a></li>
               <li><a href="{{ url('logout') }}">Logout</a></li>
           </ul>
-          </li>
+        </li>
         </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
