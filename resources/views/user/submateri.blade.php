@@ -84,7 +84,7 @@
 
     <!-- Materi Section -->
     <div class="container">
-        <h1 class="mb-4">Materi untuk Bab:</h1>
+        <h1 class="mb-4">SubBab:</h1>
 
         @if($submateri->submateri->isEmpty())
             <div class="alert alert-warning text-center" role="alert">

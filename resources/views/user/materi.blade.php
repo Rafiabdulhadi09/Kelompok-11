@@ -113,7 +113,7 @@
 
     <!-- Section untuk konten -->
     <div class="container">
-        <h1>Materi untuk Bab:</h1>
+        <h1>Bab:</h1>
 
         @if($submateri->materi->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
