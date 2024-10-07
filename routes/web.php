@@ -83,7 +83,7 @@ Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroyt
 Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search');
 
 //Route untuk data pembelian
-Route::get('/admin/data-pembelian', [PembelianController::class, 'datapembelian',])->name('admin.DataPembelian');
+Route::get('/admin/data-pembelian', [PembelianController::class, 'datapembelian'])->name('admin.DataPembelian');
 
 Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi');
 Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create');
