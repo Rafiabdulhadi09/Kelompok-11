@@ -14,40 +14,77 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fc;
+        }
+        .card-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        .materi-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .materi-content {
+            font-size: 1rem;
+            color: #0062cc;
+            text-decoration: none;
+        }
+        .materi-content:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">        <!-- Begin Page Content -->
+    <div id="wrapper">
+        <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- Data Materi User -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
+            <div class="card shadow mb-4 mt-4">
+                <div class="card-header py-3 bg-primary text-white">
                     <h1>Materi</h1>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    @if($submateri->isEmpty())
-                        <p>Tidak ada materi untuk kelas ini.</p>
-                    @else
-                        @php
-                            $item = $submateri->first();
-                        @endphp
-
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h3>{{ $item->title }}</h3>
+                        @if($submateri->isEmpty())
+                            <div class="alert alert-info text-center">
+                                <p><i class="fas fa-info-circle"></i> Tidak ada materi untuk kelas ini.</p>
                             </div>
-                            <div class="card-body">
-                                @if ($item->type == 'video')
-                                    <a href="{{ $item->content }}" target="_blank">{{ $item->content }}</a>
-                                @elseif ($item->type == 'ebook')
-                                    <!-- Tampilkan ebook -->
-                                @endif
-                            </div>
-                        </div>
-                    @endif
+                        @else
+                            @php
+                                $item = $submateri->first();
+                            @endphp
 
+                            <div class="card mb-4 shadow">
+                                <div class="card-header bg-success text-white">
+                                    <h3 class="materi-title">
+                                        <i class="{{ $item->type == 'video' ? 'fas fa-video' : 'fas fa-book' }} mr-2"></i>
+                                        {{ $item->title }}
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    @if ($item->type == 'video')
+                                        <a href="{{ $item->content }}" target="_blank" class="materi-content">
+                                            <i class="fas fa-link mr-1"></i>{{ $item->content }}
+                                        </a>
+                                    @elseif ($item->type == 'ebook')
+                                        <a href="{{ $item->content }}" target="_blank" class="materi-content">
+                                            <i class="fas fa-download mr-1"></i>{{ $item->content }}
+                                        </a>
+                                    @elseif ($item->type == 'text')
+                                        <div class="materi-text">
+                                            <p>{{ $item->content }}</p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

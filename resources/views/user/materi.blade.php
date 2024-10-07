@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,7 +14,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">      
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -38,6 +39,7 @@
             padding: 20px;
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
         .custom-card:hover {
@@ -49,11 +51,7 @@
             font-size: 20px;
             font-weight: 600;
             color: #343a40;
-        }
-
-        .custom-card p {
-            font-size: 14px;
-            color: #6c757d;
+            margin-bottom: 15px;
         }
 
         .btn {
@@ -75,6 +73,11 @@
             text-decoration: none;
         }
 
+        .btn a:hover {
+            text-decoration: none;
+            color: #f8f9fa;
+        }
+
         .container {
             margin-top: 100px;
             margin-bottom: 50px;
@@ -92,10 +95,6 @@
                 font-size: 18px;
             }
 
-            .custom-card p {
-                font-size: 12px;
-            }
-
             .btn {
                 font-size: 12px;
                 padding: 8px 16px;
@@ -107,6 +106,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Include header -->
     @include('component.header-user')
@@ -116,14 +116,15 @@
         <h1>Materi untuk Bab:</h1>
 
         @if($submateri->materi->isEmpty())
-            <p>Tidak ada sub materi untuk materi ini.</p>
+            <div class="alert alert-warning text-center" role="alert">
+                <i class="bi bi-exclamation-circle-fill"></i> Tidak ada sub materi untuk materi ini.
+            </div>
         @else
             <div class="row">
                 @foreach($submateri->materi as $item)
                     <div class="col-md-6 col-lg-4">
                         <div class="custom-card" data-aos="fade-up" data-aos-delay="100">
                             <h1 class="h5">{{ $item->title }}</h1>
-                            <p>{{ Str::limit($item->content, 100) }}</p>
                             <button class="btn">
                                 <a href="{{ route('submateri.user', [ $item->id]) }}">Akses Materi</a>
                             </button>
@@ -140,4 +141,5 @@
         AOS.init();
     </script>
 </body>
+
 </html>
