@@ -10,6 +10,9 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- Custom styles for this template -->
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
@@ -47,32 +50,32 @@
                                             @if($submateri->isEmpty())
                                                 <p>Tidak ada materi untuk kelas ini.</p>
                                             @else
-                                                @foreach($submateri as $item)
+                                                @foreach($submateri as $sub)
                                                     <tr>
-                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $sub->title }}</td>
                                                         <td>
-                                                            @if ($item->type == 'video')
+                                                            @if ($sub->type == 'video')
                                                                 <!-- Link Youtube -->
-                                                                <a href="{{ $item->content }}" target="_blank">{{ $item->content }}</a>
-                                                            @elseif ($item->type == 'ebook')
+                                                                <a href="{{ $sub->content }}" target="_blank">{{ $sub->content }}</a>
+                                                            @elseif ($sub->type == 'ebook')
                                                                 <!-- Preview PDF -->
-                                                                <embed src="{{ asset('storage/' . $item->content) }}" type="application/pdf" width="75%" height="250px">
+                                                                <embed src="{{ asset('storage/' . $sub->content) }}" type="application/pdf" width="75%" height="250px">
                                                             @else
                                                                 <!-- Text content -->
-                                                                {{ $item->content }}
+                                                                {{ $sub->content }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-info" href="{{ route('materi.edit', $item->id) }}">
+                                                            <a class="btn btn-info" href="{{ route('materi.edit', $sub->id) }}">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                                                                 </svg>
                                                             </a>
-                                                            <form action="{{ route('materi.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                                            <form id="delete-form-{{ $sub->id }}" action="{{ route('submateri.destroy', $sub->id) }}" method="POST" style="display:inline;">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">
+                                                                <button type="submit" class="btn btn-danger" onclick="confirmDelete(event, {{ $sub->id }})">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
                                                                     </svg>
@@ -122,6 +125,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+    function confirmDelete(event, Id) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Aksi untuk submit form hapus data
+                document.getElementById('delete-form-' + Id).submit();
+            }
+        })
+    }
+</script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>

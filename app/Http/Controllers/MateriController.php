@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Materi;
 use App\Models\DataKelas;
+use App\Models\SubMateri;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -106,4 +107,13 @@ class MateriController extends Controller
         // Mengirim data ke view
         return view('trainer.tambahmateri', compact('kelas','trainer',));
     }
+
+    public function destroysub($id)
+    {
+        $submateri = SubMateri::findOrFail($id);
+        $submateri->delete();
+
+        return redirect()->back()->with('success','Materi Berhasil di Hapus');
+    }
+
 }

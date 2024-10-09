@@ -93,6 +93,7 @@ Route::get('/kelas/{kelas}/materi', [MateriController::class, 'materi'])->name('
 Route::get('/materi/{id}/edit', [MateriController::class, 'edit'])->name('materi.edit');
 Route::put('/materi/{id}/update', [MateriController::class, 'update'])->name('materi.update');
 Route::delete('materi/{id}/destroy', [MateriController::class, 'destroy'])->name('materi.destroy');
+Route::delete('submateri/{id}/destroy', [MateriController::class, 'destroysub'])->name('submateri.destroy');
 
 Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
     ->name('FormAddTrainer');
