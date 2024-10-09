@@ -94,6 +94,9 @@ Route::get('/materi/{id}/edit', [MateriController::class, 'edit'])->name('materi
 Route::put('/materi/{id}/update', [MateriController::class, 'update'])->name('materi.update');
 Route::delete('materi/{id}/destroy', [MateriController::class, 'destroy'])->name('materi.destroy');
 Route::delete('submateri/{id}/destroy', [MateriController::class, 'destroysub'])->name('submateri.destroy');
+Route::get('/submateri/{id}/edit', [MateriController::class, 'editsub'])->name('submateri.edit');
+Route::put('/submateri/{id}/update', [MateriController::class, 'updatesub'])->name('submateri.update');
+
 
 Route::get('/admin/add-trainer', [DataKelasController::class, 'AddTrainerForm'])
     ->name('FormAddTrainer');

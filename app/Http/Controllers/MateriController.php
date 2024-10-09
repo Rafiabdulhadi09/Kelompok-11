@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class MateriController extends Controller
 {
@@ -116,4 +117,53 @@ class MateriController extends Controller
         return redirect()->back()->with('success','Materi Berhasil di Hapus');
     }
 
+    public function editsub($id)
+    {
+        $submateri = SubMateri::findOrFail($id);
+        return view('trainer.edit_submateri', compact('submateri'));
+    }
+
+    public function updatesub(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'type' => 'required|string',
+            'text_content' => 'nullable|string',
+            'video_link' => 'nullable|url',
+            'ebook_file' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        // Mengambil data submateri berdasarkan ID
+        $subMateri = SubMateri::findOrFail($id);
+
+        // Mengupdate data submateri selain materi_id
+        $subMateri->title = $request->title;
+        $subMateri->type = $request->type;
+
+        // Mengupdate konten berdasarkan tipe submateri
+        if ($request->type == 'text') {
+            $subMateri->content = $request->text_content;
+        } elseif ($request->type == 'video') {
+            $subMateri->content = $request->video_link;
+        } elseif ($request->type == 'ebook' && $request->hasFile('ebook_file')) {
+            // Hapus file lama jika ada file baru di-upload
+            if ($subMateri->content && Storage::disk('public')->exists($subMateri->content)) {
+                Storage::disk('public')->delete($subMateri->content);
+            }
+
+            // Upload file baru
+            $path = $request->file('ebook_file')->store('ebooks', 'public');
+            $subMateri->content = $path;
+        }
+
+        // Menyimpan perubahan ke database
+        $subMateri->save();
+
+        // Mengirimkan pesan sukses
+        return redirect()->back()->with('success', 'Submateri berhasil diperbarui!');
+    }
+
+
+    
 }
