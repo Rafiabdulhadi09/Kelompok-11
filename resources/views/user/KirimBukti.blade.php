@@ -26,6 +26,7 @@
                         <h4>Unggah Bukti Pembayaran</h4>
                     </div>
                     <div class="card-body">
+                        <h5>No Rekening : 12345678901234</h5>
                         <form action="{{ route('kirim.bukti') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">

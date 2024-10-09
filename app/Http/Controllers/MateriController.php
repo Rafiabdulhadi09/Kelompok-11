@@ -7,6 +7,7 @@ use App\Models\Materi;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class MateriController extends Controller
@@ -76,8 +77,9 @@ class MateriController extends Controller
     public function materiadmin(DataKelas $kelas)
     {
         $materi = $kelas->materi;
+        $user = Auth::user();
 
-        return view('admin.materi', ['kelas' => $kelas, 'materi' => $materi]);
+        return view('admin.materi',compact('user'), ['kelas' => $kelas, 'materi' => $materi]);
     }    
     public function searchkelas(Request $request)
 {

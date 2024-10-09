@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Materi;
 use App\Models\SubMateri;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SubmateriController extends Controller
 {
@@ -52,11 +53,13 @@ class SubmateriController extends Controller
     public function show(materi $materi)
     {
         $submateri = $materi->submateri;
-        return view('trainer.sub_materi', ['submateri' => $submateri, 'materi' => $materi]);
+         $trainer = Auth::user();
+        return view('trainer.sub_materi', compact('trainer'), ['submateri' => $submateri, 'materi' => $materi]);
     }
      public function submateri_admin(materi $apaaja)
     {
         $submateri = $apaaja->submateri;
-        return view('admin.SubMateri', ['submateri' => $submateri, 'apaaja' => $apaaja]);
+         $user = Auth::user();
+        return view('admin.SubMateri', compact('user'), ['submateri' => $submateri, 'apaaja' => $apaaja]);
     }
 }
