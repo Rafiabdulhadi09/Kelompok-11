@@ -58,7 +58,11 @@
                             </div>
                         @else
                             @php
+                                // Ambil pelajaran pertama
                                 $item = $submateri->first();
+
+                                // Cari pelajaran berikutnya (jika ada)
+                                $nextItem = $submateri->skip(1)->first();
                             @endphp
 
                             <div class="card mb-4 shadow">
@@ -69,10 +73,35 @@
                                     </h3>
                                 </div>
                                 <div class="card-body">
-                                    @if ($item->type == 'video')
+                                @if ($item->type == 'video')
+                                    @php
+                                        // Memeriksa apakah konten adalah link YouTube
+                                        $isYouTube = strpos($item->content, 'youtube.com') !== false || strpos($item->content, 'youtu.be') !== false;
+                                        
+                                        // Jika link YouTube, konversi menjadi embed link
+                                        if ($isYouTube) {
+                                            $videoID = '';
+                                            // Regex untuk mengekstrak ID video dari URL YouTube
+                                            if (preg_match('/(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|embed)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $item->content, $matches)) {
+                                                $videoID = $matches[1];
+                                            }
+                                            // URL embed YouTube
+                                            $embedUrl = 'https://www.youtube.com/embed/' . $videoID;
+                                        }
+                                    @endphp
+
+                                    @if ($isYouTube)
+                                        <!-- Menampilkan video YouTube dalam iframe -->
+                                        <iframe width="560" height="315" src="{{ $embedUrl }}" frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                allowfullscreen>
+                                        </iframe>
+                                    @else
+                                        <!-- Jika bukan video YouTube, tampilkan link biasa -->
                                         <a href="{{ $item->content }}" target="_blank" class="materi-content">
                                             <i class="fas fa-link mr-1"></i>{{ $item->content }}
                                         </a>
+                                    @endif
                                     @elseif ($item->type == 'ebook')
                                         <a href="{{ $item->content }}" target="_blank" class="materi-content">
                                             <i class="fas fa-download mr-1"></i>{{ $item->content }}
@@ -83,6 +112,15 @@
                                         </div>
                                     @endif
                                 </div>
+
+                                <!-- Tombol untuk lanjut ke pelajaran berikutnya hanya ditampilkan jika ada pelajaran berikutnya -->
+                                @if ($nextItem)
+                                    <div class="card-footer text-right">
+                                        <a href="{{ route('submateri.show', $nextItem->id) }}" class="btn btn-primary">
+                                            Lanjut Pelajaran <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         @endif
                     </div>

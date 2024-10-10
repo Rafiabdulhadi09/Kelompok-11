@@ -2,6 +2,7 @@
 
 use App\Models\SubMateri;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\YTController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -66,6 +67,8 @@ Route::middleware(['guest'])->group(function(){
     Route::put('/materi/{id}/update', [MateriController::class, 'update'])->name('materi.update')->middleware('userAkses:trainer');
     Route::delete('materi/{id}/destroy', [MateriController::class, 'destroy'])->name('materi.destroy')->middleware('userAkses:trainer');
     Route::delete('submateri/{id}/destroy', [MateriController::class, 'destroysub'])->name('submateri.destroy')->middleware('userAkses:trainer');
+    Route::get('submateri/{id}/edit', [MateriController::class, 'editsub'])->name('submateri.edit')->middleware('userAkses:trainer');
+    Route::put('submateri/{id}/update', [MateriController::class, 'updatesub'])->name('submateri.update')->middleware('userAkses:trainer');
     Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri')->middleware('userAkses:trainer');
     Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri')->middleware('userAkses:trainer');
     Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri')->middleware('userAkses:trainer');
@@ -100,6 +103,5 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/pembayaran/approve/{id}', [PembelianController::class, 'approve'])->name('pembayaran.approve')->middleware('userAkses:admin');
     Route::post('/pembayaran/reject/{id}', [PembelianController::class, 'reject'])->name('pembayaran.reject')->middleware('userAkses:admin');
     Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri')->middleware('userAkses:admin');
-
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 });
