@@ -14,6 +14,7 @@ use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SubmateriController;
 use App\Http\Controllers\KelasMateriController;
 use App\Http\Controllers\ProfileTrainerController;
+use App\Http\Controllers\SosialMediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +32,9 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');
     Route::post('/register/user', [RegisterController::class, 'create']);
     Route::get('/kursus', [DataKelasController::class, 'kursus'])->name('kursus');
+    Route::get('/', [SosialMediaController::class, 'sosialmedia']);
+});
 
-     Route::get('/', function () {
-    return view('welcome');
-});
-});
 //Hak  akses user
     Route::middleware(['auth'])->group(function(){
     Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');

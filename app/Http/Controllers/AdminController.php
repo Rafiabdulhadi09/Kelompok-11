@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Materi;
 use App\Models\SubMateri;
+use App\Models\MediaSosial;
 use App\Models\User;
 use App\Models\DataKelas;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class AdminController extends Controller
 { 
     function index(){
         $user = Auth::user();
-        return view('user/index', compact('user'));
+        $sosmed = MediaSosial::all();
+        return view('user/index', compact('user','sosmed'));
     }
     function trainer(DataKelas $kelas){
         $trainer= Auth::user();
