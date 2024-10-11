@@ -332,12 +332,17 @@
         <div class="col-lg-4 col-md-12">
           <h4>Follow Us</h4>
           <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-          <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+              <div class="social-links d-flex">
+                @if ($sosialmedia)
+                @foreach ($sosialmedia as $sosmed)
+                <div class="social-links d-flex">
+                <a href="{{ $sosmed->x}}"><i class="bi bi-twitter"></i></a>
+                <a href="{{ $sosmed->instagram}}"><i class="bi bi-instagram"></i></a>
+                <a href="{{ $sosmed->youtube}}"><i class="bi bi-youtube"></i></a>
+            </div>
+              @endforeach
+                @endif
+              </div>
         </div>
 
       </div>
