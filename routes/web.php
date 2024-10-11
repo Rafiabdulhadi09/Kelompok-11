@@ -30,12 +30,10 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'registeruser'])->name('register');
     Route::post('/register/user', [RegisterController::class, 'create']);
+    Route::get('/kursus', [DataKelasController::class, 'kursus'])->name('kursus');
 
      Route::get('/', function () {
     return view('welcome');
-});
- Route::get('/kelas', function () {
-    return view('kelas');
 });
 });
 //Hak  akses user

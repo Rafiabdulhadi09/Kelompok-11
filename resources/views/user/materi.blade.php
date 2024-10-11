@@ -117,7 +117,7 @@
 
         @if($submateri->materi->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
-                <i class="bi bi-exclamation-circle-fill"></i> Tidak ada sub materi untuk materi ini.
+                <i class="bi bi-exclamation-circle-fill"></i> Tidak ada materi untuk materi ini.
             </div>
         @else
             <div class="row">

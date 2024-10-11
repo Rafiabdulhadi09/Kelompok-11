@@ -136,7 +136,12 @@
     <!-- Materi Section -->
     <div class="container">
         <h1>Belajar</h1>
-        @foreach ($kelas as $item)
+        @if ($kelas->isEmpty())
+            <div class="alert alert-warning text-center" role="alert">
+                <i class="bi bi-exclamation-circle-fill"></i> Tidak ada kelas/anda belum membeli kelas 
+            </div>
+        @else
+               @foreach ($kelas as $item)
         <!-- Bab -->
         <div class="custom-card border border-dark-subtle" data-aos="fade-up">
             <div class="row align-items-center">
@@ -153,12 +158,13 @@
                     <p>{{ Str::limit($item->kelas->description, 200) }}</p>
                     <!-- Akses Materi Button -->
                     <button class="btn btn-primary">
-                        <a href="{{ route('materi.user', $item->id) }}" class="text-light">Akses Materi</a>
+                        <a href="{{ route('materi.user', $item->kelas->id) }}" class="text-light">Akses Materi</a>
                     </button>
                 </div>
             </div>
         </div>
-        @endforeach
+        @endforeach 
+        @endif
     </div>
 
     <!-- Bootstrap core JS-->

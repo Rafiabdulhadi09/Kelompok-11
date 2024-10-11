@@ -13,7 +13,7 @@
           <li><a href="/#testimonials">Testimonials</a></li>
           <li><a href="/#pembelajaran">Pembelajaran</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a href="{{ url('kelas') }}">Kelas</a></li>
+          <li><a href="{{ route('kursus') }}">Kelas</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

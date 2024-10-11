@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Session;
 
 class DataKelasController extends Controller
 {
+    public function kursus()
+    {
+        $data = DataKelas::all();
+        return view('kelas', compact('data'));
+    }
     public function index()
     {
         // Mengambil semua data dari tabel items

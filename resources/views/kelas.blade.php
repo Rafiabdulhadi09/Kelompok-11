@@ -44,12 +44,17 @@
         </style>
     </head>
     <body>
-        @include('component.header-user')
+        @include('component.header')
         <!-- Section-->
         <br><br><br>
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5" data-aos="fade-up">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @if ($data->isEmpty())
+                    <div class="alert alert-warning text-center" role="alert">
+                        <i class="bi bi-exclamation-circle-fill"></i> Tidak ada kelas yang tersedia untuk saat ini
+                    </div>
+                @else
+                      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     @foreach ($data as $item)
                     <div class="col mb-5" data-aos="zoom-in" data-aos-delay="100">
                         <div class="card h-100">
@@ -88,7 +93,7 @@
                     </div>
                     @endforeach
                 </div>
-               
+                @endif
             </div>
         </section>
         <!-- Bootstrap core JS-->
