@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Materi;
-use App\Models\SubMateri;
-use App\Models\MediaSosial;
 use App\Models\User;
+use App\Models\Materi;
 use App\Models\DataKelas;
+use App\Models\SubMateri;
+use App\Models\Pembayaran;
+use App\Models\MediaSosial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,8 @@ class AdminController extends Controller
         $jumlah_user = User::where('role', 'user')->count();
         $jumlah_trainer =User::where('role','trainer')->count();
         $jumlah_kursus = DataKelas::all()->count();
-        return view('admin/index', compact('jumlah_user', 'jumlah_trainer', 'jumlah_kursus'));
+        $jumlah_pembelian =Pembayaran::where('status','approved')->count();
+        return view('admin/index', compact('jumlah_user', 'jumlah_trainer', 'jumlah_kursus', 'jumlah_pembelian'));
     }
     
 }
