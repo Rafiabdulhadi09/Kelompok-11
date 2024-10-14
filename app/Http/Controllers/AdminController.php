@@ -24,7 +24,6 @@ class AdminController extends Controller
         $jumlah_materi = $kelas->materi->count();
         $jumlah_submateri = SubMateri::all()->count();
         return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri'));
-       
     }
     function admin(){
         $jumlah_user = User::where('role', 'user')->count();

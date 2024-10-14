@@ -80,7 +80,8 @@ class DataKelasController extends Controller
     public function show()
     {
           // Mengambil semua data dari tabel items
-        $data = DataKelas::paginate(10);
+        $data = DataKelas::notApproved()->paginate(10);
+
         // Mengirim data ke view
         return view('user.kelas', compact('data'));
     }
