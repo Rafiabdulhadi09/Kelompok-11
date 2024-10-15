@@ -15,6 +15,11 @@ class DataKelas extends Model
         'image',
         'description',
     ]; 
+
+    public function scopeNotApproved($query)
+    {
+        return $query->where('status', '!=', 'approved');
+    }
      public function materi()
     {
         return $this->hasMany(Materi::class, 'kelas_id');
