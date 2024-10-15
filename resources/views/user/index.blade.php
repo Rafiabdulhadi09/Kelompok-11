@@ -188,13 +188,14 @@
       </div>
 
       </section><!-- /Services Section -->
+
     <!-- Team Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Online Class</p>
+        <h2>Tentang</h2>
+        <p>Kelas Online</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -247,124 +248,96 @@
     <!-- Services Section -->
     <section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Check Our Services<br></p>
-      </div><!-- End Section Title -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+  <h2>Belajar</h2>
+  <p>Pembelajaran di website <br></p>
+</div><!-- End Section Title -->
 
-      <div class="container">
+<div class="container">
 
-        <div class="row gy-4">
+  <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <i class="bi bi-activity icon"></i>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <i class="bi bi-broadcast icon"></i>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <i class="bi bi-easel icon"></i>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <i class="bi bi-bounding-box-circles icon"></i>
-              <h3>Asperiores Commodi</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <i class="bi bi-calendar4-week icon"></i>
-              <h3>Velit Doloremque.</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <i class="bi bi-chat-square-text icon"></i>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
+    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="service-item item-cyan position-relative">
+        <i class="bi bi-activity icon"></i>
+        <h3>Pengembangan Kemampuan</h3>
+        <p>Kurikulum kami telah dirancang secara khusus untuk memberi kamu landasan kokoh dalam aspek kemampuan, mempersiapkan kamu untuk menghadapi tantangan karir yang kompleks</p>
+        <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
       </div>
+    </div><!-- End Service Item -->
 
-    </section><!-- /Services Section -->
+    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="service-item item-orange position-relative">
+        <i class="bi bi-broadcast icon"></i>
+        <h3>Metode Pembelajaran</h3>
+        <p>Melalui video interaktif, modul pembelajaran, Anda akan mendapatkan pengalaman belajar yang menyeluruh dan mendalam.</p>
+        <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div><!-- End Service Item -->
 
+    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+      <div class="service-item item-teal position-relative">
+        <i class="bi bi-easel icon"></i>
+        <h3>Jadwal pembelajaran</h3>
+        <p>Kursus Online kami dirancang untuk memandu Anda dari dasar hingga mahir, dengan jadwal yang fleksibel dan dapat disesuaikan dengan waktu Anda.</p>
+        <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div><!-- End Service Item -->
+
+  </div>
+
+</div>
+
+</section><!-- /Services Section -->
   </main>
 
   <footer id="footer" class="footer">
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">FlexStart</span>
+        <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">SMK NEGERI 1 KAWALI</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>Jalan. Talagasari No. 35 Kawalimukti Kawali Ciamis 46253</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>(0265) 791727</span></p>
+            <p><strong>Email:</strong> <a href="mailto:smkn1kawali@gmail.com"><span style="font-size: 17px;">smkn1kawali@gmail.com</span></a></p>
+
           </div>
         </div>
-
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Tautan</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Dashboard</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/user#hero" class="{{ request()->is('user') ? 'active' : '' }}">Dashboard</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/user#testimonials" class="{{ request()->is('user#testimonials') ? 'active' : '' }}">Testimonials</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/user#about" class="{{ request()->is('user#about') ? 'active' : '' }}">Tentang</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/user#services" class="{{ request()->is('user#services') ? 'active' : '' }}">Pembelajaran</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Layanan Kami</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('user/kelas') }}" class="{{ request()->is('user/kelas') ? 'active' : '' }}">Kelas</a></li>
+            <li><i class="bi bi-chevron-right"></i>  <a href="{{ route('kelas.materi') }}" class="{{ request()->routeIs('kelas.materi') ? 'active' : '' }}">Materi</a>
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-          <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
+        <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Ikuti Kami</h4>
+          <p>Terhubung dengan kami di platform media sosial dan dapatkan informasi terbaru tentang kursus dan materi pembelajaran langsung di feed Anda!</p>
+              <div class="social-links d-flex">
+                @if ($sosmed)
+                @foreach ($sosmed as $sosmed)
+                <div class="social-links d-flex">
+                <a href="{{ $sosmed->x}}"><i class="bi bi-twitter"></i></a>
+                <a href="{{ $sosmed->instagram}}"><i class="bi bi-instagram"></i></a>
+                <a href="{{ $sosmed->youtube}}"><i class="bi bi-youtube"></i></a>
+            </div>
+              @endforeach
+                @endif
+              </div>
       </div>
     </div>
   </footer>

@@ -299,39 +299,37 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">FlexStart</span>
+            <span class="sitename">SMK NEGERI 1 KAWALI</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>Jalan. Talagasari No. 35 Kawalimukti Kawali Ciamis 46253</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>(0265) 791727</span></p>
+            <p><strong>Email:</strong> <a href="mailto:smkn1kawali@gmail.com"><span style="font-size: 17px;">smkn1kawali@gmail.com</span></a></p>
+
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Tautan</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Dashboard</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/#hero">Dashboard</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/#testimonials">Testimonials</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/#pembelajaran">Pembelajaran</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="/#about">Tentang</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Layanan Kami</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('user/kelas') }}" class="{{ request()->is('user/kelas') ? 'active' : '' }}">Kelas</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Materi</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <h4>Ikuti Kami</h4>
+          <p>Terhubung dengan kami di platform media sosial dan dapatkan informasi terbaru tentang kursus dan materi pembelajaran langsung di feed Anda!</p>
               <div class="social-links d-flex">
                 @if ($sosialmedia)
                 @foreach ($sosialmedia as $sosmed)

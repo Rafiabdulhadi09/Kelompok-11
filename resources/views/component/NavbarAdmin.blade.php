@@ -66,6 +66,13 @@
             <span>Data Pembelian</span>
         </a>
     </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item {{ request()->is('admin/data-pembelian') ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('admin.setting')}}">
+            <i class="fa-solid fa-gear"></i>
+            <span>Setings</span>
+        </a>
+    </li>
 
 
     <!-- Divider -->
@@ -121,21 +128,12 @@
                 <div class="topbar-divider d-none d-sm-block"></div>
 
                 <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="35" class="position-absolute top-50 start-50 translate-middle" style="margin: 0 -15px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                    </a>
-                    <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Logout
+                <li class="nav-item dropdown no-arrow ">
+                <a class="dropdown-item" href="{{ route('logout') }}">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
+                            <b class=>Logout</b>
                         </a>
-                    </div>
+                    <!-- Dropdown - User Information -->
                 </li>
 
             </ul>

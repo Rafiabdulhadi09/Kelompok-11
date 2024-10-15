@@ -12,7 +12,7 @@
           <li><a href="/#hero" class="active">Dashboard<br></a></li>
           <li><a href="/#testimonials">Testimonials</a></li>
           <li><a href="/#pembelajaran">Pembelajaran</a></li>
-          <li><a href="/#about">About</a></li>
+          <li><a href="/#about">Tentang</a></li>
           <li><a href="{{ route('kursus') }}">Kelas</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

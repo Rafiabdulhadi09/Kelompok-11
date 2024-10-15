@@ -9,7 +9,7 @@
       <ul>
         <li><a href="/user#hero" class="{{ request()->is('user') ? 'active' : '' }}">Dashboard</a></li>
         <li><a href="/user#testimonials" class="{{ request()->is('user#testimonials') ? 'active' : '' }}">Testimonials</a></li>
-        <li><a href="/user#about" class="{{ request()->is('user#about') ? 'active' : '' }}">About</a></li>
+        <li><a href="/user#about" class="{{ request()->is('user#about') ? 'active' : '' }}">Tentang</a></li>
         <li><a href="/user#services" class="{{ request()->is('user#services') ? 'active' : '' }}">Pembelajaran</a></li>
         <li><a href="{{ url('user/kelas') }}" class="{{ request()->is('user/kelas') ? 'active' : '' }}">Kelas</a></li>
         <li><a href="{{ route('kelas.materi') }}" class="{{ request()->routeIs('kelas.materi') ? 'active' : '' }}">Materi</a></li>
