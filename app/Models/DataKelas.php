@@ -35,6 +35,6 @@ class DataKelas extends Model
 
       public function pembayaran()
     {
-        return $this->hasMany(Pembayaran::class);
+        return $this->hasMany(Pembayaran::class, 'kelas_id');
     }
 }

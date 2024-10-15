@@ -79,10 +79,10 @@ class DataKelasController extends Controller
      */
     public function show()
     {
-          // Mengambil semua data dari tabel items
-        $data = DataKelas::notApproved()->paginate(10);
+       $data = DataKelas::whereDoesntHave('pembayaran', function ($query) {
+        $query->where('user_id', auth()->id())->where('status', 'approved');
+    })->get();
 
-        // Mengirim data ke view
         return view('user.kelas', compact('data'));
     }
     

@@ -93,8 +93,6 @@
                     </div>
                     @endforeach
                 </div>
-                @endif
-                {{ $data->links('pagination::bootstrap-4') }}
             </div>
         </section>
         <!-- Bootstrap core JS-->
