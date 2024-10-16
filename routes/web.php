@@ -102,8 +102,12 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/pembayaran/approve/{id}', [PembelianController::class, 'approve'])->name('pembayaran.approve')->middleware('userAkses:admin');
     Route::post('/pembayaran/reject/{id}', [PembelianController::class, 'reject'])->name('pembayaran.reject')->middleware('userAkses:admin');
     Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri')->middleware('userAkses:admin');
-    Route::get('admin/{id}/setting',[ SosialMediaController::class, 'index'])->name('admin.setting')->middleware('userAkses:admin');
-    Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
+   // Route untuk menampilkan halaman setting dengan data sosial media berdasarkan ID
+Route::get('admin/setting/{id}', [SosialMediaController::class, 'index'])->name('admin.setting')->middleware('userAkses:admin');
+
+// Route untuk proses update data sosial media
+Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
+
 
 });
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');

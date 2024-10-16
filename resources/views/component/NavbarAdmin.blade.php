@@ -67,9 +67,9 @@
         </a>
     </li>
     <hr class="sidebar-divider my-0">
-    <li class="nav-item {{ request()->is('admin/data-pembelian') ? 'active' : '' }}">
-        <a class="nav-link" href="{{route('admin.setting')}}">
-            <i class="fa-solid fa-gear"></i>
+    <li class="nav-item {{ request()->is('admin/setting') ? 'active' : '' }}">
+        <a class="nav-link" href="{{url('admin/setting/1') }}">
+        <i class=" fas fa-fw fa-gears"></i>
             <span>Setings</span>
         </a>
     </li>

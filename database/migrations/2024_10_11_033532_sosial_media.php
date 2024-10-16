@@ -16,6 +16,11 @@ return new class extends Migration
         $table->string('instagram');
         $table->string('youtube');
         $table->string('x');
+        $table->string('logo');
+        $table->string('nama_perusahaan');
+        $table->string('alamat');
+        $table->string('telephone');
+        $table->string('email');
         $table->timestamps();
     });
     }

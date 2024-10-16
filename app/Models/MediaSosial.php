@@ -14,5 +14,10 @@ class MediaSosial extends Model
         'instagram',
         'youtube',
         'x',
+        'logo',
+        'nama_perusahaan',
+        'alamat',
+        'telephone',
+        'email',
     ];
 }
