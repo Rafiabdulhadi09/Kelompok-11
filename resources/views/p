@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi User</title>
-    <link href="{{asset('assets/vendor-admin/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- Begin Page Content -->
-        <div class="container-fluid mt-4">
-            <div class="row g-3">
-                {{-- kiri --}}
-            <div class="col">
+  <div class="card-body">
+                    <div class="table-responsive">
                         @if($submateri->isEmpty())
-          <div class="alert alert-info text-center">
-            <p><i class="fas fa-info-circle"></i> Tidak ada materi untuk kelas ini.</p>
-          </div>
-        @else
-         @php
+                            <div class="alert alert-info text-center">
+                                <p><i class="fas fa-info-circle"></i> Tidak ada materi untuk kelas ini.</p>
+                            </div>
+                        @else
+                            @php
                                 // Ambil pelajaran pertama
                                 $item = $submateri->first();
                                 // Cari pelajaran berikutnya (jika ada)
                                 $nextItem = $submateri->skip(1)->first();
                             @endphp
-         @if ($item->type == 'video')
+                                </div>
+                                <div class="card-body">
+                                @if ($item->type == 'video')
                                     @php
                                         // Memeriksa apakah konten adalah link YouTube
                                         $isYouTube = strpos($item->content, 'youtube.com') !== false || strpos($item->content, 'youtu.be') !== false;
@@ -50,7 +28,8 @@
                                             $embedUrl = 'https://www.youtube.com/embed/' . $videoID;
                                         }
                                     @endphp
-                                        @if ($isYouTube)
+                    <!-- Section Video -->
+                                    @if ($isYouTube)
                                         <!-- Menampilkan video YouTube dalam iframe -->
                                         <iframe width="560" height="315" src="{{ $embedUrl }}" frameborder="0" 
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -70,24 +49,6 @@
                                         <div class="materi-text">
                                             <p>{{ $item->content }}</p>
                                         </div>
-                                        @endif
-                                        @endif
-            </div>
-            {{-- kanan --}}
-            <div class="col">
-                @foreach ($submateri as $item)
-                 <div class="p-3 mb-2 bg-warning text-dark">
-                    <a href="{{ route('belajar.user',3) }}">{{ $item->title }}</a>
-                </div>
-                @endforeach
-                 
-            </div>
-            </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+                                    @endif
+                        @endif
+        </div>
