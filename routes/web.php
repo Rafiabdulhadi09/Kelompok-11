@@ -13,6 +13,7 @@ use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SubmateriController;
 use App\Http\Controllers\KelasMateriController;
+use App\Http\Controllers\KuisController;
 use App\Http\Controllers\ProfileTrainerController;
 use App\Http\Controllers\SosialMediaController;
 
@@ -71,6 +72,8 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri')->middleware('userAkses:trainer');
     Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri')->middleware('userAkses:trainer');
     Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri')->middleware('userAkses:trainer');
+    Route::get('/tambah/kuis',[KuisController::class,'tambah'])->name('tambah.kuis')->middleware('userAkses:trainer');
+    Route::post('/create/kuis',[KuisController::class,'create'])->name('create.kuis')->middleware('userAkses:trainer');
 
 //Hak akses admin
     Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');

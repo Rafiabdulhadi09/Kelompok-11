@@ -31,6 +31,16 @@
         </a>
     </li>
 
+     <hr class="sidebar-divider">
+
+    <!-- Nav Item - Tambah Materi -->
+    <li class="nav-item {{ Request::is('Trainer/TambahKuis*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('tambah.kuis') }}">
+            <i class="fas fa-fw fa-plus-circle"></i>
+            <span>Tambah Kuis</span>
+        </a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
