@@ -35,7 +35,7 @@
           <div class="d-flex justify-content-around align-items-center mb-4">
             <!-- Checkbox -->
             <div class="form-check">
-              <label class="form-check-label" for="form1Example3"> Do you have no account? <a href ="{{ route('register')}}">Register</a></label>
+              <label class="form-check-label" for="form1Example3"> Do you have no account? <a href ="{{ route('register')}}" style="text-decoration: none;">Register</a></label>
             </div>
           </div>
 

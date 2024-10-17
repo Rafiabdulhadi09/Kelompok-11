@@ -135,8 +135,8 @@
                           Data Pembelian
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                             @if($jumlah_pembelian)
-                                <p>{{ $jumlah_pembelian}}</p>
+                             @if($totalHarga)
+                                <p>{{ formatRupiah($totalHarga) }}</p>
                             @else
                                 <p>Tidak ada Pembelian</p>
                             @endif

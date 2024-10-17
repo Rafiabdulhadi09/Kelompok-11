@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Index - FlexStart Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -27,13 +23,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -49,7 +38,7 @@
             <h3>{{Auth::User()->name}}</h3>
             <p data-aos="fade-up" data-aos-delay="100">Di platform digital yang menyediakan berbagai kursus dan materi pembelajaran melalui internet. Pengguna dapat mendaftar untuk kursus, mengakses materi belajar seperti video dan artikel, mengerjakan tugas dan ujian, serta berinteraksi dengan instruktur dan peserta lain. Dengan fitur seperti pelacakan kemajuan dan sertifikat penyelesaian, platform ini menawarkan fleksibilitas dalam belajar kapan saja dan di mana saja.</p>
             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-              <a href="#about" class="btn-get-started">Belajar<i class="bi bi-arrow-right"></i></a>
+              <a href="{{ route('kelas.materi') }}" class="btn-get-started">Belajar<i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">

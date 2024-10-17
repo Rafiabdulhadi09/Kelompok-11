@@ -29,8 +29,13 @@ class AdminController extends Controller
         $jumlah_user = User::where('role', 'user')->count();
         $jumlah_trainer =User::where('role','trainer')->count();
         $jumlah_kursus = DataKelas::all()->count();
-        $jumlah_pembelian =Pembayaran::where('status','approved')->count();
-        return view('admin/index', compact('jumlah_user', 'jumlah_trainer', 'jumlah_kursus', 'jumlah_pembelian'));
+        $totalHarga = Pembayaran::where('status', 'approved')
+        ->with('kelas')
+        ->get()
+        ->sum(function($pembelian) {
+            return $pembelian->kelas ? $pembelian->kelas->price : 0;
+        });
+        return view('admin/index', compact('jumlah_user', 'jumlah_trainer', 'jumlah_kursus', 'totalHarga'));
     }
     
 }
