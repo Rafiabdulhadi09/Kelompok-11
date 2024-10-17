@@ -30,8 +30,9 @@ class KelasMateriController extends Controller
     }
     public function belajar($id)
     {
+        $data = SubMateri::all();
         $submateri = SubMateri::where('id', $id)->get();
-        return view('user.belajar', compact('submateri'));
+        return view('user.belajar', compact('submateri','data'));
     }
     
 }

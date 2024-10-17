@@ -23,7 +23,7 @@
         <div class="container-fluid mt-4">
             <div class="row g-3">
                 {{-- kiri --}}
-            <div class="col">
+            <div class="col p-3 m-2 bg-warning text-dark">
                         @if($submateri->isEmpty())
           <div class="alert alert-info text-center">
             <p><i class="fas fa-info-circle"></i> Tidak ada materi untuk kelas ini.</p>
@@ -74,13 +74,14 @@
                                         @endif
             </div>
             {{-- kanan --}}
-            <div class="col">
-                @foreach ($submateri as $item)
+            <div class="col p-3 m-2 bg-success text-dark">
+                @foreach ($data as $sub)
                  <div class="p-3 mb-2 bg-warning text-dark">
-                    <a href="{{ route('belajar.user',3) }}">{{ $item->title }}</a>
+                    @foreach ($submateri as $item)
+                    <a href="{{ route('belajar.user',$sub->id) }}">{{ $sub->title }} </a>
+                    @endforeach
                 </div>
                 @endforeach
-                 
             </div>
             </div>
     <!-- End of Page Wrapper -->
