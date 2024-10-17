@@ -30,6 +30,15 @@
             <span>Tambah Materi</span>
         </a>
     </li>
+    <hr class="sidebar-divider">
+
+<!-- Nav Item - Tambah Materi -->
+<li class="nav-item {{ Request::is('trainer/penggunakelas*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ url('/trainer/penggunakelas') }}">
+        <i class="fas fa-fw fa-plus-circle"></i>
+        <span>Pengguna kelas</span>
+    </a>
+</li>
 
      <hr class="sidebar-divider">
 

@@ -60,4 +60,10 @@ public function datapembelian(){
 
     return view('admin/DataPembelian', compact('data'));
 }
+public function pengguna()
+{ 
+    $siswa = Pembayaran :: with('user') -> where('status','aprovved')->get();
+    return view ('trainer.penggunakelas');
+
+}
 }
