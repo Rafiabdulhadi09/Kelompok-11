@@ -71,6 +71,7 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri')->middleware('userAkses:trainer');
     Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri')->middleware('userAkses:trainer');
     Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri')->middleware('userAkses:trainer');
+    Route::get('/trainer/penggunakelas',[PembelianController::class,'pengguna'])->name('pengguna')->middleware('userAkses:trainer');
 
 //Hak akses admin
     Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
