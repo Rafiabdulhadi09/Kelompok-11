@@ -18,4 +18,8 @@ class Kuis extends Model
         'pilihan_3',
         'jawaban'
     ];
+     public function submateri()
+    {
+        return $this->belongsTo(SubMateri::class, 'submateri_id');
+    }
 }

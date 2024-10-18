@@ -19,4 +19,8 @@ class SubMateri extends Model
     {
         return $this->belongsTo(Materi::class, 'materi_id');
     }
+     public function kuis()
+    {
+        return $this->hasMany(Kuis::class, 'submateri_id');
+    }
 }

@@ -85,6 +85,7 @@
                                     <th>Nama</th>
                                     <th>Nama Kelas</th>
                                     <th>Bukti Transfer</th>
+                                    <th>Harga</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -100,6 +101,10 @@
                                             @else
                                                 <em>Belum ada foto</em>
                                             @endif
+                                        </td>
+                                        <td>
+                                            {{ formatRupiah($item->kelas->price) }}
+                                            
                                         </td>
                                         <td>{{ $item->status }}</td>
                                         <td class="table-action-btns">

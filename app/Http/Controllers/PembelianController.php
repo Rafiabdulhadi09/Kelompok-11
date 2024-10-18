@@ -62,8 +62,7 @@ public function datapembelian(){
 }
 public function pengguna()
 { 
-    $siswa = Pembayaran :: with('user') -> where('status','aprovved')->get();
-    return view ('trainer.penggunakelas');
-
+    $siswa = Pembayaran::with('user')->where('status','approved');
+    return view('trainer.penggunakelas', compact('siswa'));
 }
 }

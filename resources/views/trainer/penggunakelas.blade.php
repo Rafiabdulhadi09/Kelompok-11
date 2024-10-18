@@ -46,18 +46,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-    @foreach ($user as $item)
-        <tr>
-            <td>
-                {{ $item->user->name ?? 'No Name' }} <!-- Safely access user property -->
-            </td>
-            <td>
-                nanatttt <!-- Replace this with the actual class data if available -->
-            </td>
-        </tr>
-    @endforeach
-</tbody>
-
+                                        @foreach ($user as $item)
+                                            <tr>
+                                                <td>
+                                                    {{ $item->user->name ?? 'No Name' }} <!-- Safely access user property -->
+                                                </td>
+                                                <td>
+                                                    nanatttt <!-- Replace this with the actual class data if available -->
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

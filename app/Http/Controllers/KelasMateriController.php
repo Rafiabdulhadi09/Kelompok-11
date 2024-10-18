@@ -7,6 +7,7 @@ use App\Models\DataKelas;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Kuis;
 use App\Models\SubMateri;
 
 class KelasMateriController extends Controller
@@ -30,9 +31,10 @@ class KelasMateriController extends Controller
     }
     public function belajar($id)
     {
+        $kuis = Submateri::with('kuis')->find($id);
         $data = SubMateri::all();
         $submateri = SubMateri::where('id', $id)->get();
-        return view('user.belajar', compact('submateri','data'));
+        return view('user.belajar', compact('submateri','data','kuis'));
     }
     
 }

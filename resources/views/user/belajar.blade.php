@@ -69,6 +69,14 @@
                             </div>
                         @endif
                     @endif
+                    <div class="d-grid gap-2">
+                      @if ($kuis->kuis->isNotEmpty())
+                        @php
+                            $firstKuis = $kuis->kuis->first();
+                        @endphp
+                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis', [$firstKuis->submateri_id]) }}">Jawab Kuis</a>
+                    @endif
+                    </div>
                 </div>
 
                 <!-- Kanan (Daftar Sub Materi) -->
@@ -76,7 +84,7 @@
                     <h5 class="text-center mb-4">Daftar Sub Materi</h5>
                     @foreach ($data as $sub)
                         <div class="p-3 mb-3 bg-warning rounded">
-                            <h6><a href="{{ route('belajar.user',$sub->id) }}" class="text-dark">{{ $sub->title }}</a></h6>
+                            <a href="{{ route('belajar.user',$sub->id) }}" class="text-dark">{{ $sub->title }}</a>
                         </div>
                     @endforeach
                 </div>

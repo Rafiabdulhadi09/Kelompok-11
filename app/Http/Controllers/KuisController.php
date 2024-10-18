@@ -14,9 +14,9 @@ class KuisController extends Controller
         $data = SubMateri::all();
         return view('trainer.TambahKuis', compact('data'));
     }
-    public function index()
+    public function index($id)
     {
-        $data = SubMateri::all();
+        $data = SubMateri::with('kuis')->findOrFail($id);
         return view('user.kuis', compact('data'));
     }
     public function create(Request $request)
@@ -48,10 +48,34 @@ class KuisController extends Controller
        Kuis::create($item);
       if ($item) {
         // Berhasil menyimpan data
-        return redirect('/admin/DataKelas')->with('success', 'Kursus Berhasil Di Tambahkan');
+        return redirect('/tambah/kuis')->with('success', 'Kursus Berhasil Di Tambahkan');
     } else {
         // Gagal menyimpan data
         return redirect()->back()->with('error', 'Failed to create new record');
     }
     }
+    public function submit(Request $request)
+    {
+                $questions = $request->input('pertanyaan', []);
+
+        if (count($questions) === 0) {
+            return redirect()->back()->with('message', 'No questions were answered.');
+        }
+
+        $correctAnswers = 0;
+        $totalQuestions = count($questions);
+
+        foreach ($questions as $kuis_id => $jawaban) {
+            $kuis = Kuis::find($kuis_id);
+
+            if ($kuis && $jawaban === $kuis->jawaban) {
+                $correctAnswers++;
+            }
+        }
+
+        $score = ($totalQuestions > 0) ? ($correctAnswers / $totalQuestions) * 100 : 0;
+
+        return redirect()->back()->with('message', "Your score is: $score%");
+    }
 }
+
