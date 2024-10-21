@@ -44,30 +44,19 @@
     </style>
 </head>
 <body>
-<<<<<<< HEAD
     <div class="p-3 m-3 bg-body-secondary text-dark rounded">
         @if (session('message'))
             <div class="alert alert-success mt-4">
                 {{ session('message') }}
             </div>
         @endif
-=======
-    @if (session('message'))
-        <div class="alert alert-success mt-4">
-            {{ session('message') }}
-        </div>
-    @endif
+        <h2 class="text-center mb-2">Selamat Mengerjakan</h2>
  <form action="{{ route('kirim.kuis', $submateri->id) }}" method="POST">
         @csrf
         @foreach ($kuis as $item)
             <h3>{{ $item->pertanyaan }}</h3>
->>>>>>> 5de1eed838f86e7284c65adb7edc6b7241ebf076
 
-        <h2 class="text-center mb-2">Selamat Mengerjakan</h2>
-        <form action="{{ route('kirim.kuis') }}" method="POST">
-            @csrf
-            @foreach ($data->kuis as $item)
-                <h5>{{ $loop->iteration }}. {{ $item->pertanyaan }}</h5>
+
 
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_1 }}" id="pertanyaan_{{ $item->id }}_1">

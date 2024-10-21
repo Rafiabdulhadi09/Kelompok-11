@@ -90,13 +90,7 @@
 
     <!-- Materi Section -->
     <div class="container">
-<<<<<<< HEAD
     <h1 class="mb-2" style="color: black;">SubBab:</h1>
-
-
-=======
-        <h1 class="mb-4">SubBab:</h1>
->>>>>>> 5de1eed838f86e7284c65adb7edc6b7241ebf076
         @if($submateri->submateri->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
                 <i class="bi bi-exclamation-circle-fill"></i> Tidak ada sub materi untuk materi ini.
