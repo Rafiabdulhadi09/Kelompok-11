@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kuis;
 use App\Models\Materi;
+use App\Models\KuisUser;
 use App\Models\DataKelas;
+use App\Models\SubMateri;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Kuis;
-use App\Models\SubMateri;
 
 class KelasMateriController extends Controller
 {
@@ -29,11 +30,16 @@ class KelasMateriController extends Controller
         $submateri = Materi::with('submateri')->findOrFail($id);
         return view('user.submateri', compact('submateri'));
     }
-    public function belajar($id)
+    public function belajar($id, $materi_id)
     {
-        $kuis = Submateri::with('kuis')->find($id);
-        $data = SubMateri::all();
-        $submateri = SubMateri::where('id', $id)->get();
+        
+        $user = auth()->user();
+        $submateris = Submateri::findOrFail($id);
+        $materi = $submateris->materi;
+        $data = $materi->submateri;
+        $kuis = Submateri::with('kuis')->findOrFail($id);
+        $submateri = SubMateri::where('id', $id)->where('materi_id', $materi_id)->get();
+        
         return view('user.belajar', compact('submateri','data','kuis'));
     }
     

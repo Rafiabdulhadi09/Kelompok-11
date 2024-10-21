@@ -48,11 +48,11 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/user/kelas/materi',[KelasMateriController::class,'index'])->name('kelas.materi')->middleware('userAkses:user');
     Route::get('/user/{id}/materi', [KelasMateriController::class, 'materi'])->name('materi.user')->middleware('userAkses:user');
     Route::get('/user/{id}/submateri',[KelasMateriController::class,'submateri'])->name('submateri.user')->middleware('userAkses:user');
-    Route::get('/user/{id}/belajar/', [KelasMateriController::class, 'belajar'])->name('belajar.user')->middleware('userAkses:user');
+    Route::get('/user/{id}/belajar/{materi_id}', [KelasMateriController::class, 'belajar'])->name('belajar.user')->middleware('userAkses:user');
     Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran')->middleware('userAkses:user');
     Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti')->middleware('userAkses:user');
-    Route::get('/user/{id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
-    Route::post('/kirim/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
+    Route::get('/user/{submateri_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
+    Route::post('/kirim/{submateri_id}/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
 
 //Hak akses trainer
     Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');

@@ -91,6 +91,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                 <div class="d-grid gap-2">
+                                <button class="btn btn-success table table-bordered" type="button"><h4><b>Total : {{ formatRupiah($totalHarga) }}</b></h4></button>
+                                </div>
                                 @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $item->user->name }}</td>
@@ -160,6 +163,7 @@
             </div>
         </div>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JavaScript -->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>

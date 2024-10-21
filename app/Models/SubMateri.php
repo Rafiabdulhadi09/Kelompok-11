@@ -23,4 +23,10 @@ class SubMateri extends Model
     {
         return $this->hasMany(Kuis::class, 'submateri_id');
     }
+      public function users()
+    {
+        return $this->belongsToMany(User::class, 'kuis_user')
+                    ->withPivot('nilai', 'status')
+                    ->withTimestamps();
+    }
 }

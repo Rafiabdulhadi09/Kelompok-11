@@ -22,4 +22,10 @@ class Kuis extends Model
     {
         return $this->belongsTo(SubMateri::class, 'submateri_id');
     }
+     public function users()
+    {
+        return $this->belongsToMany(User::class, 'kuis_user')
+                    ->withPivot('nilai', 'status')
+                    ->withTimestamps();
+    }
 }

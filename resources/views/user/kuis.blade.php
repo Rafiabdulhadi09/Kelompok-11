@@ -12,9 +12,9 @@
             {{ session('message') }}
         </div>
     @endif
- <form action="{{ route('kirim.kuis') }}" method="POST">
+ <form action="{{ route('kirim.kuis', $submateri->id) }}" method="POST">
         @csrf
-        @foreach ($data->kuis as $item)
+        @foreach ($kuis as $item)
             <h3>{{ $item->pertanyaan }}</h3>
 
             <label>
