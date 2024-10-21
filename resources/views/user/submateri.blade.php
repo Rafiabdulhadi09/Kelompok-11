@@ -24,55 +24,62 @@
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/materi.css') }}">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fc;
-        }
+                <style>
+                body {
+                font-family: 'Poppins', sans-serif;
+                background-color: #f8f9fc;
+            }
 
-        .custom-card {
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 10px;
-        }
+            /* Tambahkan jarak antara header dan konten */
+            .container {
+                margin-top: 50px; /* Atau sesuaikan jaraknya */
+                padding-top: 50px;
+            }
 
-        .custom-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
+            .custom-card {
+                cursor: pointer;
+                transition: transform 0.3s, box-shadow 0.3s;
+                border-radius: 10px;
+            }
 
-        .custom-card h4 {
-            font-weight: 600;
-            color: #333;
-        }
+            .custom-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
 
-        .custom-card .btn {
-            margin-top: 10px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
+            .custom-card h4 {
+                font-weight: 600;
+                color: #333;
+            }
 
-        .custom-card .btn:hover {
-            background-color: #0056b3;
-        }
+            .custom-card .btn {
+                margin-top: 10px;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
 
-        .custom-card .btn a {
-            color: #fff;
-            text-decoration: none;
-        }
+            .custom-card .btn:hover {
+                background-color: #0056b3;
+            }
 
-        .custom-card .btn a:hover {
-            text-decoration: none;
-            color: #f8f9fc;
-        }
+            .custom-card .btn a {
+                color: #fff;
+                text-decoration: none;
+            }
 
-        .btn-primary i {
-            margin-right: 5px;
-        }
-    </style>
+            .custom-card .btn a:hover {
+                text-decoration: none;
+                color: #f8f9fc;
+            }
+
+            .btn-primary i {
+                margin-right: 5px;
+            }
+
+                </style>
 </head>
 
 <body>
@@ -80,11 +87,11 @@
     @include('component.header-user')
 
     <!-- Section untuk konten -->
-    <br><br><br><br><br>
 
     <!-- Materi Section -->
     <div class="container">
-        <h1 class="mb-4">SubBab:</h1>
+    <h1 class="mb-2" style="color: black;">SubBab:</h1>
+
 
         @if($submateri->submateri->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
@@ -108,8 +115,27 @@
     </div>
 
     <!-- Bootstrap core JS-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vendor JS Files -->
+        <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+        <script>
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+        </script>
+        <!-- Vendor JS Files -->
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+<!-- Main JS File -->
+<script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
