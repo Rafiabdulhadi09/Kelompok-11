@@ -29,6 +29,13 @@
             <div class="row">
                 <!-- Kiri (Materi Utama) -->
                 <div class="col-md-7 p-4 bg-light rounded shadow-sm">
+                     {{-- @if($allCompleted)
+                        <a href="" class="btn btn-success">
+                                Selamat kamu telah menyelesaikan sub materi ini dengan Score: {{ $nilai->nilai }} 
+                        </a>
+                    @else
+                        <p>anda perlu menyelesaikan kuis dengan score 80 sedangkan score anda{{ $nilai->nilai }}</p>
+                    @endif --}}
                     @if($submateri->isEmpty())
                         <div class="alert alert-info text-center">
                             <p><i class="fas fa-info-circle"></i> Tidak ada materi untuk kelas ini.</p>
@@ -70,12 +77,9 @@
                         @endif
                     @endif
                     <div class="d-grid gap-2">
-                      @if ($kuis->kuis->isNotEmpty())
-                        @php
-                            $firstKuis = $kuis->kuis->first();
-                        @endphp
-                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis', [$firstKuis->submateri_id]) }}">Jawab Kuis</a>
-                    @endif
+                        @foreach ($kuis->kuis as $item)
+                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis',$item->id) }}">Jawab Kuis</a>
+                        @endforeach
                     </div>
                 </div>
 
@@ -84,7 +88,7 @@
                     <h5 class="text-center mb-4">Daftar Sub Materi</h5>
                     @foreach ($data as $sub)
                         <div class="p-3 mb-3 bg-warning rounded">
-                            <a href="{{ route('belajar.user',$sub->id) }}" class="text-dark">{{ $sub->title }}</a>
+                            <a href="{{ route('belajar.user',['id' => $sub->id, 'materi_id' => $sub->materi_id]) }}" class="text-dark">{{ $sub->title }}</a>
                         </div>
                     @endforeach
                 </div>

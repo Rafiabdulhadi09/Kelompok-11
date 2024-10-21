@@ -56,9 +56,15 @@ public function reject($id) {
 
 public function datapembelian(){
     $data = Pembayaran::with(['user', 'kelas']) ->get(['id', 'user_id', 'kelas_id', 'bukti_pembayaran', 'status', 'created_at']);
+    $totalHarga = Pembayaran::where('status', 'approved')
+        ->with('kelas')
+        ->get()
+        ->sum(function($pembelian) {
+            return $pembelian->kelas ? $pembelian->kelas->price : 0;
+        });
 ;
 
-    return view('admin/DataPembelian', compact('data'));
+    return view('admin/DataPembelian', compact('data','totalHarga'));
 }
 public function pengguna()
 { 

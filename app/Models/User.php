@@ -41,9 +41,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pembayaran::class);
     }
+     public function subMateri()
+    {
+        return $this->belongsToMany(SubMateri::class, 'kuis_user')
+                    ->withPivot('nilai', 'status')
+                    ->withTimestamps();
+    }
+
+    // Relasi ke model Kuis melalui tabel pivot kuis_user (Many-to-Many)
+    public function kuis()
+    {
+        return $this->belongsToMany(Kuis::class, 'kuis_user')
+                    ->withPivot('nilai', 'status')
+                    ->withTimestamps();
+    }
     
-
-
     /**
      * The attributes that should be hidden for serialization.
      *

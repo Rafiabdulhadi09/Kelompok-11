@@ -90,9 +90,13 @@
 
     <!-- Materi Section -->
     <div class="container">
+<<<<<<< HEAD
     <h1 class="mb-2" style="color: black;">SubBab:</h1>
 
 
+=======
+        <h1 class="mb-4">SubBab:</h1>
+>>>>>>> 5de1eed838f86e7284c65adb7edc6b7241ebf076
         @if($submateri->submateri->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
                 <i class="bi bi-exclamation-circle-fill"></i> Tidak ada sub materi untuk materi ini.
@@ -105,7 +109,7 @@
                             <h4 class="h5">{{ $item->title }}</h4>
                             <button class="btn btn-primary">
                                 <i class="bi bi-book-open"></i>
-                                <a href="{{ route('belajar.user', [ $item->id ]) }}" class="text-light">Akses Submateri</a>
+                                <a href="{{ route('belajar.user', ['id' => $item->id, 'materi_id' => $item->materi_id]) }}" class="text-light">Akses Submateri</a>
                             </button>
                         </div>
                     </div>

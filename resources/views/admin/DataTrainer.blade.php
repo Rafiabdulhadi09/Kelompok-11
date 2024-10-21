@@ -75,12 +75,12 @@
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Trainer</h1>
                     <button class="btn btn-custom">
-                        <a href="{{ route('create/trainer') }}" class="text-white font-weight-bold">
+                        <a href="{{ route('create/trainer') }}" class="text-white font-weight-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Tambah Trainer +
                         </a>
                     </button>
                 </div>
-                <div class="d-flex justify-content-end pt-3">
+                <div class="d-flex justify-content-end m-4">
                     <form action="{{ route('admin.data-trainer.search') }}" method="GET" class="input-group search-bar">
                         <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Cari Trainer..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Kuis;
 use App\Models\SubMateri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class KuisController extends Controller
 {
@@ -14,11 +15,16 @@ class KuisController extends Controller
         $data = SubMateri::all();
         return view('trainer.TambahKuis', compact('data'));
     }
-    public function index($id)
-    {
-        $data = SubMateri::with('kuis')->findOrFail($id);
-        return view('user.kuis', compact('data'));
-    }
+   public function index($submateri_id)
+{
+    // Mengambil semua kuis untuk submateri tertentu
+    $kuis = Kuis::where('submateri_id', $submateri_id)->get();
+
+    // Mengambil submateri
+    $submateri = SubMateri::findOrFail($submateri_id);
+
+    return view('user.kuis', compact('kuis', 'submateri'));
+}
     public function create(Request $request)
     {
           $request->validate([
@@ -54,28 +60,35 @@ class KuisController extends Controller
         return redirect()->back()->with('error', 'Failed to create new record');
     }
     }
-    public function submit(Request $request)
+    public function submit(Request $request, $submateri_id)
     {
-                $questions = $request->input('pertanyaan', []);
+        $user = auth()->user();
+        $jawaban = $request->input('pertanyaan'); 
+        $pertanyaan = Kuis::where('submateri_id', $submateri_id)->get();
 
-        if (count($questions) === 0) {
-            return redirect()->back()->with('message', 'No questions were answered.');
-        }
+        $jawabanBenar  = 0;
 
-        $correctAnswers = 0;
-        $totalQuestions = count($questions);
-
-        foreach ($questions as $kuis_id => $jawaban) {
-            $kuis = Kuis::find($kuis_id);
-
-            if ($kuis && $jawaban === $kuis->jawaban) {
-                $correctAnswers++;
+        foreach ($pertanyaan as $item) {
+            if (isset($jawaban[$item->id]) && $jawaban[$item->id] == $item->jawaban) {
+                $jawabanBenar++; // Tambah jumlah jawaban yang benar
             }
         }
 
-        $score = ($totalQuestions > 0) ? ($correctAnswers / $totalQuestions) * 100 : 0;
+        $jumlahPertanyaan = $pertanyaan->count();
+        $nilai = ($jumlahPertanyaan > 0) ? ($jawabanBenar / $jumlahPertanyaan) * 100 : 0;
+        $status = $nilai >= 80;
 
-        return redirect()->back()->with('message', "Your score is: $score%");
+         DB::table('kuis_user')->updateOrInsert(
+            ['user_id' => $user->id, 'submateri_id' => $submateri_id], 
+            ['nilai' => $nilai, 'status' => $status, 'updated_at' => now()]
+        );
+
+        // Redirect dengan pesan berdasarkan status kelulusan
+        if ($status) {
+            return redirect()->back()->with('success', 'Selamat! Anda lulus kuis dengan skor ' . round($nilai, 2) . '%.');
+        } else {
+            return redirect()->back()->with('error', 'Maaf, Anda belum lulus. Skor Anda adalah ' . round($nilai, 2) . '%. Silakan coba lagi.');
+        }
     }
 }
 
