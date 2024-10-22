@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\DataKelas;
 use App\Models\Pembayaran;
 use App\Models\KelasTrainer;
@@ -64,8 +65,6 @@ public function datapembelian(){
         ->sum(function($pembelian) {
             return $pembelian->kelas ? $pembelian->kelas->price : 0;
         });
-;
-
     return view('admin/DataPembelian', compact('data','totalHarga'));
 }
 public function pengguna()
@@ -86,5 +85,20 @@ public function pengguna()
           ->get();
 
     return view('trainer.penggunakelas', compact('siswa'));
+}
+
+public function filter(Request $request){
+
+
+    $start_date =$request->start_date;
+    $end_date =$request->end_date;
+
+    $data = Pembayaran::with(['user', 'kelas'])
+    ->where('created_at', '>=', $start_date)
+    ->where('created_at', '<=', $end_date)
+    ->get();
+
+    return view('admin.DataPembelian',compact('data'));
+    
 }
 }

@@ -26,6 +26,7 @@ class User extends Authenticatable
         'keahlian',
         'password',
         'role',
+        'created_at'
     ]; 
     public function trainerKelas()
     {

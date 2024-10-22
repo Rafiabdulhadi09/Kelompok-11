@@ -75,6 +75,13 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Pembelian</h1>
+                    <form method="GET" action="/filter">
+                    <label for="">Start Date :</label>
+                    <input type="date" class="form-control" name="start_date">
+                    <label for="">End Date :</label>
+                    <input type="date" class="form-control" name="end_date">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    </form>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -92,7 +99,7 @@
                             </thead>
                             <tbody>
                                  <div class="d-grid gap-2">
-                                <button class="btn btn-success table table-bordered" type="button"><h4><b>Total : {{ formatRupiah($totalHarga) }}</b></h4></button>
+
                                 </div>
                                 @foreach ($data as $item)
                                     <tr>
