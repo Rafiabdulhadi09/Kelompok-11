@@ -19,7 +19,7 @@ class PembelianController extends Controller
     public function pembayaran($id)
     {
         $kelas = DataKelas::findOrFail($id); 
-        return view('user.KirimBukti', compact('kelas'));
+        return view('user.payment', compact('kelas'));
     }
     public function BuktiPembayaran(Request $request)
 {

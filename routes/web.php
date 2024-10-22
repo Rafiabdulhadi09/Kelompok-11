@@ -53,6 +53,7 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti')->middleware('userAkses:user');
     Route::get('/user/{submateri_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
     Route::post('/kirim/{submateri_id}/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
+    Route::post('/buat', [UserController::class, 'sertifikat'])->name('sertifikat');
 
 //Hak akses trainer
     Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');

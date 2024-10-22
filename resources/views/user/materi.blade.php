@@ -134,8 +134,35 @@
                 @endforeach
             </div>
         @endif
+        <a href="javascript:void(0)" class="btn btn-info btn-block" data-bs-toggle="modal" data-bs-target="#namaUserModal">Cetak Sertifikat</a>
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="namaUserModal" tabindex="-1" aria-labelledby="namaUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="namaUserModalLabel">Masukkan Nama untuk Sertifikat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formCetakSertifikat" action="{{ route('sertifikat') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-info" form="formCetakSertifikat">Cetak Sertifikat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Bootstrap core JS-->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
