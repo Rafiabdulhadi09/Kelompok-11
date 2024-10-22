@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\DataKelas;
 use App\Models\Pembayaran;
+use App\Models\KelasTrainer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PembelianController extends Controller
 {
@@ -68,7 +70,21 @@ public function datapembelian(){
 }
 public function pengguna()
 { 
-    $siswa = Pembayaran::with('user')->where('status','approved');
+      // Ambil trainer yang sedang login
+      $trainer = Auth::user();
+
+      // Ambil kelas yang diajarkan oleh trainer tersebut
+      $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
+
+      // Ambil ID kelas yang diajarkan oleh trainer
+      $kelasIds = $kelas->pluck('id');
+
+      // Ambil pembelian yang statusnya approved berdasarkan ID kelas
+      $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
+          ->where('status', 'approved')
+          ->with('user') // Pastikan ada relasi user di model Pembelian
+          ->get();
+
     return view('trainer.penggunakelas', compact('siswa'));
 }
 }
