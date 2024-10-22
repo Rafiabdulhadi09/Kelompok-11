@@ -55,8 +55,18 @@
                                                         <td>{{ $sub->title }}</td>
                                                         <td>
                                                             @if ($sub->type == 'video')
-                                                                <!-- Link Youtube -->
-                                                                <a href="{{ $sub->content }}" target="_blank">{{ $sub->content }}</a>
+                                                                <!-- Embed YouTube video -->
+                                                                @php
+                                                                    $videoId = '';
+                                                                    if (preg_match('/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $sub->content, $matches)) {
+                                                                        $videoId = $matches[1];
+                                                                    }
+                                                                @endphp
+                                                                @if ($videoId)
+                                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                @else
+                                                                    <a href="{{ $sub->content }}" target="_blank">{{ $sub->content }}</a>
+                                                                @endif
                                                             @elseif ($sub->type == 'ebook')
                                                                 <!-- Preview PDF -->
                                                                 <embed src="{{ asset('storage/' . $sub->content) }}" type="application/pdf" width="75%" height="250px">

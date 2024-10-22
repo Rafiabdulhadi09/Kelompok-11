@@ -7,6 +7,7 @@ use App\Models\Trainer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use setasign\Fpdi\Fpdi;
 
 class UserController extends Controller
 {
@@ -137,5 +138,28 @@ class UserController extends Controller
         // Return ke view dengan hasil pencarian
         return view('admin.dataTrainer', compact('trainers'));
     }
-    
+
+    public function sertifikat(Request $request){
+        $nama = $request->post('nama');
+        $outputfile = public_path(). 'dcc.pdf';
+        $this->fillPDF(public_path(). '/master/dcc.pdf',$outputfile,$nama);
+        
+        return response()->file($outputfile);
+    }
+    public function fillPDF($file,$outputfile,$nama){
+        $fpdi = new FPDI;
+        $fpdi->setSourceFile($file);
+        $template = $fpdi->importPage(1);
+        $size = $fpdi->getTemplateSize($template);
+        $fpdi->AddPage($size['orientation'],array($size['width'],$size['height']));
+        $fpdi->useTemplate($template);
+        $top = 105;
+        $right = 123;
+        $name = $nama;
+        $fpdi->SetFont("helvetica","",17);
+        $fpdi->SetTextColor(25,26,25);
+        $fpdi->Text($right,$top,$name);
+
+        return $fpdi->Output($outputfile,'F'); 
+    }
 }
