@@ -28,7 +28,7 @@ class AdminController extends Controller
         //     $query->where('status', 'approved'); // Misalkan status 'approved' digunakan untuk menandakan kelas yang sudah di-approve
         // })->count();
     
-        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri', 'jumlah_pengguna'));
+        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri'));
     }
     function admin(){
         $jumlah_user = User::where('role', 'user')->count();

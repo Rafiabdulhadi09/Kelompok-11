@@ -110,7 +110,7 @@
 <body>
     <!-- Include header -->
     @include('component.header-user')
-    <br><br><br><br>
+    
     <!-- Section untuk konten -->
     <div class="container">
         <h1>Bab:</h1>
