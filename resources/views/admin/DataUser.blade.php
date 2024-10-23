@@ -13,6 +13,12 @@
     <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet" />
+
+        <!-- JavaScript -->
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
         .btn-custom {
@@ -154,12 +160,22 @@
         </div>
     </div>
 
+    <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
     <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor-admin/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
     <script src="assets/js-admin/sb-admin-2.min.js"></script>
-    <script src="assets/vendor-admin/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/vendor-admin/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/js-admin/demo/datatables-demo.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="assets/vendor-admin/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="assets/js-admin/demo/chart-area-demo.js"></script>
+    <script src="assets/js-admin/demo/chart-pie-demo.js"></script>
     <script>
     function confirmDelete(event, Id) {
         event.preventDefault();

@@ -12,6 +12,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
     <style>
         .btn-custom {
             background-color: #4e73df;
@@ -180,5 +181,10 @@
     <script src="assets/vendor-admin/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/vendor-admin/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="assets/js-admin/demo/datatables-demo.js"></script>
+            <!-- JavaScript -->
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

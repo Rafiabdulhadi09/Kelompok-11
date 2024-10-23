@@ -34,9 +34,7 @@
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
                             <h1>Data Materi</h1>
-                            <a class="btn btn-warning" href="{{ route('tambah.submateri') }}">
-                                                        Tambah Submateri
-                                                    </a>
+                            <a class="btn btn-warning" href="{{ route('tambah.submateri') }}">Tambah Submateri</a>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">

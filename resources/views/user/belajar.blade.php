@@ -77,9 +77,9 @@
                         @endif
                     @endif
                     <div class="d-grid gap-2">
-                        @foreach ($kuis->kuis as $item)
-                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis',$item->id) }}">Jawab Kuis</a>
-                        @endforeach
+                        @if($kuis->kuis->isNotEmpty())
+                            <a class="btn btn-primary" type="button" href="{{ route('user.kuis', $kuis->kuis->first()->id) }}">Jawab Kuis</a>
+                        @endif
                     </div>
                 </div>
 

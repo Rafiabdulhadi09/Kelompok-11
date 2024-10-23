@@ -165,15 +165,21 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JavaScript -->
+   <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
     <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor-admin/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
     <script src="assets/js-admin/sb-admin-2.min.js"></script>
-    <script src="assets/vendor-admin/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/vendor-admin/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/js-admin/demo/datatables-demo.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="assets/vendor-admin/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="assets/js-admin/demo/chart-area-demo.js"></script>
+    <script src="assets/js-admin/demo/chart-pie-demo.js"></script>
 </body>
 </html>

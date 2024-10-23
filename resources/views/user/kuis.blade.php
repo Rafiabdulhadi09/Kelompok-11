@@ -21,21 +21,23 @@
             margin-bottom: 30px;
             color: #4e73df;
             font-weight: 600;
+            font-size: 28px; /* Menyesuaikan ukuran h2 */
         }
-        h5 {
-            margin-top: 20px;
-            color: #4e73df;
+        h3 {
+            font-size: 20px; /* Ukuran pertanyaan */
+            color: #333;
             font-weight: 500;
         }
-        .form-check {
-            margin-bottom: 15px;
+        label {
+            font-size: 16px; /* Ukuran pilihan kuis */
+            color: #555;
         }
         button {
             margin-top: 20px;
             background-color: #4e73df;
             color: white;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 18px; /* Ukuran tombol */
             letter-spacing: 1px;
         }
         button:hover {
@@ -44,20 +46,17 @@
     </style>
 </head>
 <body>
-    <div class="p-3 m-3 bg-body-secondary text-dark rounded">
+    <div class="container p-3 mt-5 bg-white text-dark rounded shadow-sm">
         @if (session('message'))
             <div class="alert alert-success mt-4">
                 {{ session('message') }}
             </div>
         @endif
-        <h2 class="text-center mb-2">Selamat Mengerjakan</h2>
- <form action="{{ route('kirim.kuis', $submateri->id) }}" method="POST">
-        @csrf
-        @foreach ($kuis as $item)
-            <h3>{{ $item->pertanyaan }}</h3>
-
-
-
+        <h2 class="text-center mb-4">Selamat Mengerjakan</h2>
+        <form action="{{ route('kirim.kuis', $submateri->id) }}" method="POST">
+            @csrf
+            @foreach ($kuis as $item)
+                <h3>{{ $item->pertanyaan }}</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_1 }}" id="pertanyaan_{{ $item->id }}_1">
                     <label class="form-check-label" for="pertanyaan_{{ $item->id }}_1">
