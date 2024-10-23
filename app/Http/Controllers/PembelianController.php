@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\DataKelas;
 use App\Models\Pembayaran;
+use App\Models\KelasTrainer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PembelianController extends Controller
 {
@@ -62,13 +65,40 @@ public function datapembelian(){
         ->sum(function($pembelian) {
             return $pembelian->kelas ? $pembelian->kelas->price : 0;
         });
-;
-
     return view('admin/DataPembelian', compact('data','totalHarga'));
 }
 public function pengguna()
 { 
-    $siswa = Pembayaran::with('user')->where('status','approved');
+      // Ambil trainer yang sedang login
+      $trainer = Auth::user();
+
+      // Ambil kelas yang diajarkan oleh trainer tersebut
+      $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
+
+      // Ambil ID kelas yang diajarkan oleh trainer
+      $kelasIds = $kelas->pluck('id');
+
+      // Ambil pembelian yang statusnya approved berdasarkan ID kelas
+      $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
+          ->where('status', 'approved')
+          ->with('user') // Pastikan ada relasi user di model Pembelian
+          ->get();
+
     return view('trainer.penggunakelas', compact('siswa'));
+}
+
+public function filter(Request $request){
+
+
+    $start_date =$request->start_date;
+    $end_date =$request->end_date;
+
+    $data = Pembayaran::with(['user', 'kelas'])
+    ->where('created_at', '>=', $start_date)
+    ->where('created_at', '<=', $end_date)
+    ->get();
+
+    return view('admin.DataPembelian',compact('data'));
+    
 }
 }
