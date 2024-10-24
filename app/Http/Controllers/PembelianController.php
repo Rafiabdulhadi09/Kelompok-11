@@ -50,12 +50,24 @@ public function approve($id) {
     return back()->with('message', 'Pembayaran disetujui, kelas tersedia di halaman materi.');
 }
 
-public function reject($id) {
-    $pembayaran = Pembayaran::findOrFail($id);
-    $pembayaran->update(['status' => 'rejected']);
+public function reject($id)
+{
+    $pembayaran = Pembayaran::find($id);
 
-    return back()->with('message', 'Pembayaran ditolak.');
+    if ($pembayaran) {
+        // Set status to rejected
+        $pembayaran->status = 'rejected';
+        $pembayaran->save();
+
+        // Delete the record after rejecting
+        $pembayaran->delete();
+        
+        return redirect()->back()->with('success', 'pembayaran berhasil ditolak dan dihapus.');
+    }
+
+    return redirect()->back()->with('error', 'pembayaran tidak ditemukan.');
 }
+
 
 public function datapembelian(){
     $data = Pembayaran::with(['user', 'kelas']) ->get(['id', 'user_id', 'kelas_id', 'bukti_pembayaran', 'status', 'created_at']);

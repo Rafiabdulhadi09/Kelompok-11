@@ -38,9 +38,9 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Judul</th>
-                                            <th style="text-align: center; vertical-align: middle;">Materi</th>
-                                            <th style="text-align: center; vertical-align: middle;">lihat sub materi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Judul Materi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Deskripsi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Lihat Sub Materi</th>
                                         </tr>
                                     </thead>
                                          <tbody>

@@ -38,24 +38,38 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Judul</th>
-                                            <th>Materi</th>
+                                            <th>Judul Submateri</th>
+                                            <th>SubMateri</th>
                                         </tr>
                                     </thead>
-                                         <tbody>
-                                         @if($submateri->isEmpty())
-                                          <p>Tidak ada materi untuk kelas ini.</p>
-                                      @else
-                                              @foreach($submateri as $item)
+                                    <tbody>
+                                        @if($submateri->isEmpty())
+                                            <p>Tidak ada materi untuk kelas ini.</p>
+                                        @else
+                                            @foreach($submateri as $item)
+                                                <tr>
                                                     <td>
-                                                      {{ $item->title }}
+                                                        {{ $item->title }}
                                                     </td>
                                                     <td>
-                                                      {{ $item->content }}
+                                                        @if (strpos($item->content, 'youtube.com') !== false || strpos($item->content, 'youtu.be') !== false)
+                                                            <!-- Embed YouTube video -->
+                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ Str::afterLast($item->content, '/') }}" 
+                                                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                                allowfullscreen>
+                                                            </iframe>
+                                                        @elseif (strpos($item->content, '.pdf') !== false)
+                                                            <!-- Embed PDF -->
+                                                            <embed src="{{ asset('storage/' . $item->content) }}" type="application/pdf" width="100%" height="600px" />
+                                                        @else
+                                                            <!-- Display text -->
+                                                            {{ $item->content }}
+                                                        @endif
                                                     </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
-                                       @endforeach
-                                      @endif
                                 </table>
                             </div>
                         </div>

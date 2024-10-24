@@ -98,9 +98,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 <div class="d-grid gap-2">
-
-                                </div>
                                 @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $item->user->name }}</td>
@@ -112,29 +109,30 @@
                                                 <em>Belum ada foto</em>
                                             @endif
                                         </td>
-                                        <td>
-                                            {{ formatRupiah($item->kelas->price) }}
-                                            
-                                        </td>
+                                        <td>{{ formatRupiah($item->kelas->price) }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td class="table-action-btns">
                                             <div class="d-flex justify-content-center">
-                                                <form action="{{ route('pembayaran.approve', $item->id)}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-success mx-1">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                                                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                                                        </svg>
-                                                    </button>
-                                                </form>
-                                                <form action="{{ route('pembayaran.reject', $item->id)}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-danger mx-1">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                                        </svg>
-                                                    </button>
-                                                </form>
+                                                @if($item->status == 'approved')
+                                                    <span class="text-success">Sudah dikonfirmasi</span>
+                                                @else
+                                                    <form action="{{ route('pembayaran.approve', $item->id)}}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                    <form action="{{ route('pembayaran.reject', $item->id)}}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger mx-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
