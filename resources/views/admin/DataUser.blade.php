@@ -82,7 +82,6 @@
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data User</h1>
                 </div>
-
                 <div class="d-flex justify-content-end m-4">
                     <form action="{{ route('admin.dataUser.search') }}" method="GET" class="input-group search-bar">
                         <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Cari User..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">

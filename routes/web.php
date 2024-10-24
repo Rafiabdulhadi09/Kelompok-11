@@ -46,13 +46,14 @@ Route::middleware(['guest'])->group(function(){
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('userAkses:user');
     Route::get('/user/{id}/payment/', [PembelianController::class, 'index'])->name('user.payment')->middleware('userAkses:user');
     Route::get('/user/kelas/materi',[KelasMateriController::class,'index'])->name('kelas.materi')->middleware('userAkses:user');
-    Route::get('/user/{id}/materi', [KelasMateriController::class, 'materi'])->name('materi.user')->middleware('userAkses:user');
+    Route::get('/user/{id}/materi/{kelasId}/{userId}', [KelasMateriController::class, 'materi'])->name('materi.user')->middleware('userAkses:user');
     Route::get('/user/{id}/submateri',[KelasMateriController::class,'submateri'])->name('submateri.user')->middleware('userAkses:user');
     Route::get('/user/{id}/belajar/{materi_id}', [KelasMateriController::class, 'belajar'])->name('belajar.user')->middleware('userAkses:user');
     Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran')->middleware('userAkses:user');
     Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti')->middleware('userAkses:user');
-    Route::get('/user/{submateri_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
+    Route::get('/user/{materi_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
     Route::post('/kirim/{submateri_id}/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
+    Route::post('/buat', [UserController::class, 'sertifikat'])->name('sertifikat');
 
 //Hak akses trainer
     Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');
@@ -106,13 +107,9 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/admin/{kelas}/materi', [MateriController::class, 'materiadmin'])->name('lihat.materi')->middleware('userAkses:admin');
     Route::post('/pembayaran/approve/{id}', [PembelianController::class, 'approve'])->name('pembayaran.approve')->middleware('userAkses:admin');
     Route::post('/pembayaran/reject/{id}', [PembelianController::class, 'reject'])->name('pembayaran.reject')->middleware('userAkses:admin');
+    Route::get('/filter', [PembelianController::class, 'filter'])->middleware('userAkses:admin');
     Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri')->middleware('userAkses:admin');
-   // Route untuk menampilkan halaman setting dengan data sosial media berdasarkan ID
-Route::get('admin/setting/{id}', [SosialMediaController::class, 'index'])->name('admin.setting')->middleware('userAkses:admin');
-
-// Route untuk proses update data sosial media
-Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
-
-
+    Route::get('admin/setting/{id}', [SosialMediaController::class, 'index'])->name('admin.setting')->middleware('userAkses:admin');
+    Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
 });
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');

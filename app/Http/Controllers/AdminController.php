@@ -23,7 +23,12 @@ class AdminController extends Controller
         $jumlah_kelas = $trainer->trainerKelas->count();
         $jumlah_materi = $kelas->materi->count();
         $jumlah_submateri = SubMateri::all()->count();
-        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri'));
+        // Menghitung jumlah pengguna yang telah di-approve oleh admin
+        // $jumlah_pengguna = User::whereHas('kelas', function($query) {
+        //     $query->where('status', 'approved'); // Misalkan status 'approved' digunakan untuk menandakan kelas yang sudah di-approve
+        // })->count();
+    
+        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri',));
     }
     function admin(){
         $jumlah_user = User::where('role', 'user')->count();

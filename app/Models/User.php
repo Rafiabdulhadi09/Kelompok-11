@@ -26,6 +26,7 @@ class User extends Authenticatable
         'keahlian',
         'password',
         'role',
+        'created_at'
     ]; 
     public function trainerKelas()
     {
@@ -34,7 +35,7 @@ class User extends Authenticatable
 
         public function kelas()
     {
-        return $this->belongsToMany(DataKelas::class, 'user_kelas');
+        return $this->belongsToMany(DataKelas::class, 'user_kelas', 'trainer_id');
     }
 
         public function pembayaran()

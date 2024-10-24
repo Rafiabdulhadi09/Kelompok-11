@@ -158,7 +158,7 @@
                     <p>{{ Str::limit($item->kelas->description, 200) }}</p>
                     <!-- Akses Materi Button -->
                     <button class="btn btn-primary">
-                        <a href="{{ route('materi.user', $item->kelas->id) }}" class="text-light">Akses Materi</a>
+                        <a href="{{ route('materi.user', ['id' => $item->kelas->id, 'kelasId' => $item->kelas->id, 'userId' => auth()->id()]) }}" class="text-light">Akses Materi</a>
                     </button>
                 </div>
             </div>

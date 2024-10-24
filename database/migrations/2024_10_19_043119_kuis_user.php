@@ -14,7 +14,7 @@ return new class extends Migration
          Schema::create('kuis_user', function (Blueprint $table) {
         $table->id();
         $table->foreignId('user_id')->constrained('users');
-        $table->foreignId('submateri_id')->constrained('sub_materi');
+        $table->foreignId('materi_id')->constrained('materi');
         $table->integer('nilai');
         $table->boolean('status')->default(false);
         $table->timestamps();

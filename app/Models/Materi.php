@@ -23,4 +23,8 @@ class Materi extends Model
     {
         return $this->hasMany(SubMateri::class, 'materi_id');
     }
+         public function kuis()
+    {
+        return $this->hasMany(Kuis::class, 'materi_id');
+    }
 }

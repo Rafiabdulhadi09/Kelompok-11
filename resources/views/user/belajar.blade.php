@@ -76,11 +76,6 @@
                             </div>
                         @endif
                     @endif
-                    <div class="d-grid gap-2">
-                        @if($kuis->kuis->isNotEmpty())
-                            <a class="btn btn-primary" type="button" href="{{ route('user.kuis', $kuis->kuis->first()->id) }}">Jawab Kuis</a>
-                        @endif
-                    </div>
                 </div>
 
                 <!-- Kanan (Daftar Sub Materi) -->

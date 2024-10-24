@@ -12,7 +12,7 @@ class KuisUser extends Model
      protected $fillable = [
         'id',
         'user_id',
-        'submateri_id',
+        'materi_id',
         'nilai',
         'status'
         

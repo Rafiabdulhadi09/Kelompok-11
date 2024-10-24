@@ -41,18 +41,18 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Nama</th>
                                             <th style="text-align: center; vertical-align: middle;">Kelas</th>
+                                            <th style="text-align: center; vertical-align: middle;">Nama</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $item)
+                                        @foreach ($siswa as $item)
                                             <tr>
                                                 <td>
-                                                    {{ $item->user->name ?? 'No Name' }} <!-- Safely access user property -->
+                                                    {{ $item->kelas->title }}
                                                 </td>
                                                 <td>
-                                                    nanatttt <!-- Replace this with the actual class data if available -->
+                                                    {{ $item->user->name }}
                                                 </td>
                                             </tr>
                                         @endforeach

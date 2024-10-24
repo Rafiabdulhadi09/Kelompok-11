@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kuis', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('submateri_id')->constrained('sub_materi');
+        $table->foreignId('materi_id')->constrained('materi');
         $table->string('pertanyaan');
         $table->string('pilihan_1');
         $table->string('pilihan_2');

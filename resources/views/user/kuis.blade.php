@@ -53,7 +53,7 @@
             </div>
         @endif
         <h2 class="text-center mb-4">Selamat Mengerjakan</h2>
-        <form action="{{ route('kirim.kuis', $submateri->id) }}" method="POST">
+        <form action="{{ route('kirim.kuis', $materi->id) }}" method="POST">
             @csrf
             @foreach ($kuis as $item)
                 <h3>{{ $item->pertanyaan }}</h3>
@@ -80,6 +80,7 @@
             @endforeach
             <button type="submit" class="btn btn-primary btn-block">Kirim</button>
         </form>
+        <a href="{{ route('sertifikat')}}" class="btn btn-info btn-block">Cetak Sertifikat</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
