@@ -13,13 +13,16 @@
 </head>
 <body>
 
+<!-- Alert Pembelian Berada di Atas -->
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 <div class="container">
     <div class="header">
-    @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                    {{ session('success') }}
-                </div>
-                @endif
         <div class="left">
             <h1>{{ $kelas->title }}</h1>
             <p><b>Description: </b>{{ $kelas->description }}</p>
@@ -54,7 +57,7 @@
                 <p>Gambar profil tidak tersedia</p>
             @endif
             <div class="price-section">
-                <span class="price">{{formatRupiah($kelas->price)}}</span><br>
+                <span class="price">{{ formatRupiah($kelas->price) }}</span><br>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#uploadModal"><b>Beli Kelas</b></button>
                 </div>

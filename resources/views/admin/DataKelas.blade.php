@@ -57,10 +57,10 @@
                     <h1 class="h3">Data Kelas</h1>
                     <div>
                         <button class="btn btn-custom">
-                            <a href="{{ url('create/kelas') }}" class="text-white font-weight-bold">Tambah data +</a>
+                            <a href="{{ url('create/kelas') }}" class="text-white font-weight-bold">Tambah Kursus +</a>
                         </button>
                         <button class="btn btn-warning">
-                            <a href="{{ route('FormAddTrainer') }}" class="text-white font-weight-bold">Tambah Trainer Ke Kelas +</a>
+                            <a href="{{ route('FormAddTrainer') }}" class="text-white font-weight-bold">Tambah Trainer Ke Kursus +</a>
                         </button>
                     </div>
                 </div>
@@ -82,12 +82,12 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Title</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Description</th>
+                                    <th class="text-center">Judul Kursus</th>
+                                    <th class="text-center">harga</th>
+                                    <th class="text-center">Deskripsi</th>
                                     <th class="text-center">Trainer</th>
                                     <th class="text-center">Lihat</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

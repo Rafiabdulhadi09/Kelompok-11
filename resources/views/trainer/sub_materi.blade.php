@@ -33,7 +33,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data Materi</h1>
+                            <h1>Data SubMateri</h1>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">
@@ -41,9 +41,9 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Judul</th>
-                                            <th>Materi</th>
-                                            <th>Action</th>
+                                            <th>Judul SubMateri</th>
+                                            <th>SubMateri</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                         <tbody>
