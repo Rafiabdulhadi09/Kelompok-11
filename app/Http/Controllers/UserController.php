@@ -131,7 +131,7 @@ class UserController extends Controller
         $trainers = User::where('role', 'trainer')
             ->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
-                  ->orWhere('email', 'like', '%' . $query . '%');
+                ->orWhere('email', 'like', '%' . $query . '%');
             })
             ->paginate(10);
 
@@ -154,9 +154,9 @@ class UserController extends Controller
         $fpdi->AddPage($size['orientation'],array($size['width'],$size['height']));
         $fpdi->useTemplate($template);
         $top = 105;
-        $right = 123;
+        $right = 105;
         $name = $nama;
-        $fpdi->SetFont("helvetica","",17);
+        $fpdi->SetFont("times","",40);
         $fpdi->SetTextColor(25,26,25);
         $fpdi->Text($right,$top,$name);
 

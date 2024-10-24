@@ -130,9 +130,6 @@
     <!-- Include header -->
     @include('component.header-user')
 
-    <!-- Section untuk konten -->
-    <br><br><br><br><br>
-
     <!-- Materi Section -->
     <div class="container">
         <h1>Belajar</h1>

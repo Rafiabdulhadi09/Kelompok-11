@@ -142,11 +142,6 @@
                           Jumlah Pengguna
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                              {{-- <!-- @if($jumlah_pengguna)
-                                  <p>{{ $jumlah_pengguna }}</p>
-                              @else
-                                  <p>Tidak ada Pengguna</p>
-                              @endif --> --}}
                         </div>
                       </div>
                       <div class="col-auto">

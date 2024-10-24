@@ -80,7 +80,6 @@
             @endforeach
             <button type="submit" class="btn btn-primary btn-block">Kirim</button>
         </form>
-        <a href="{{ route('sertifikat')}}" class="btn btn-info btn-block">Cetak Sertifikat</a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->

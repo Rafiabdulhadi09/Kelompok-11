@@ -44,7 +44,9 @@
                             </form>
                             </div>
                              </div>
-                            <button class="btn btn-primary" type="button"><a href="{{ route('trainer.create.materi') }}"><span class="text-white font-weight-bold">Tambah Materi</span></a></button>
+                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#tambahMateriModal">
+                                <span class="text-white font-weight-bold">Tambah Materi</span>
+                            </button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -112,6 +114,42 @@
             </div>
         </div>
     </div>
+    <!-- Modal Tambah Materi -->
+<div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahMateriModalLabel">Tambah Kursus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form di dalam modal -->
+                <form action="{{ route('materi.create') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="judul">Judul</label>
+                        <input type="text" name="judul" value="{{old('')}}" id="judul" placeholder="Masukan judul" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas_id">Pilih kelas</label>
+                        <select id="kelas_id" class="form-control" name="kelas_id">
+                            @foreach ($kelas as $item)
+                                <option value="{{ $item->id }}"> {{ $item->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Deskripsi</label>
+                        <input id="description" type="text" name="description" class="form-control" placeholder="Masukan deskripsi">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Tambahkan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
