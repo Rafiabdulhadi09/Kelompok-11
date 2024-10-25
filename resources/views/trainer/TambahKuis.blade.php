@@ -32,7 +32,8 @@
                     <h1 class="h3 text-center">Buat Kuis</h1>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('create.kuis') }}" method="POST">
+                      @csrf
                         <div class="form-group mb-3">
                             <label for="pertanyaan">Pertanyaan</label>
                             <input type="text" name="pertanyaan" class="form-control" id="pertanyaan" placeholder="Masukkan pertanyaan" required>

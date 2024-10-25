@@ -44,7 +44,9 @@
                             </form>
                             </div>
                              </div>
-                            <button class="btn btn-primary" type="button"><a href="{{ route('trainer.create.materi') }}"><span class="text-white font-weight-bold">Tambah Materi</span></a></button>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#tambahMateriModal">
+                                <span class="text-white font-weight-bold">Tambah Materi</span>
+                            </button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -112,9 +114,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-     <!-- Modal Tambah Materi -->
 <div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -150,7 +149,6 @@
         </div>
     </div>
 </div>
->>>>>>> 6788710f90e0eba30a43adc6d9c203015f4244b8
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
