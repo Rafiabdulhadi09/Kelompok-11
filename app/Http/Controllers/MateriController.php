@@ -45,7 +45,6 @@ class MateriController extends Controller
     public function materi(DataKelas $kelas){
         $materi = $kelas->materi;
         $trainer = User::findOrFail(auth()->user()->id);
-
         return view('trainer.materi', ['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
     }
     public function destroy($id)
