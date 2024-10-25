@@ -84,17 +84,18 @@ public function datapembelian(){
         });
     return view('admin/DataPembelian', compact('data','totalHarga'));
 }
-public function pengguna()
+public function pengguna(DataKelas $kelas)
 { 
-      $trainer = Auth::user();
-      $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
-      $kelasIds = $kelas->pluck('id');
-      $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
-          ->where('status', 'approved')
-          ->with('user')
-          ->get();
+    $materi = $kelas->materi;
+    $trainer = Auth::user();
+    $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
+    $kelasIds = $kelas->pluck('id');
+    $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
+        ->where('status', 'approved')
+        ->with('user')
+        ->get();
 
-    return view('trainer.penggunakelas', compact('siswa'));
+    return view('trainer.penggunakelas', compact('siswa'),['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
 }
 
 public function filter(Request $request){
@@ -105,8 +106,14 @@ public function filter(Request $request){
     ->where('created_at', '>=', $start_date)
     ->where('created_at', '<=', $end_date)
     ->get();
+     $totalHarga = Pembayaran::where('status', 'approved')
+        ->with('kelas')
+        ->get()
+        ->sum(function($pembelian) {
+            return $pembelian->kelas ? $pembelian->kelas->price : 0;
+        });
 
-    return view('admin.DataPembelian',compact('data'));
+    return view('admin.DataPembelian',compact('data','totalHarga'));
     
 }
 }

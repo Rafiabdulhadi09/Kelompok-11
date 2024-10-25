@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kuis;
+use App\Models\User;
 use App\Models\Materi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\DataKelas;
 
 class KuisController extends Controller
 {
-    public function tambah()
+    public function tambah(DataKelas $kelas)
     {
+        $materi = $kelas->materi;
+        $trainer = User::findOrFail(auth()->user()->id);
         $data = Materi::all();
-        return view('trainer.TambahKuis', compact('data'));
+        return view('trainer.TambahKuis', compact('data'),['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
     }
    public function index($materi_id)
 {

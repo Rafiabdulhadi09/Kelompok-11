@@ -83,6 +83,7 @@
                     <button type="submit" class="btn btn-primary">Filter</button>
                     </form>
                 </div>
+                 <button class="btn btn-primary m-3"><h3>{{ formatRupiah($totalHarga) }}</h3></button>
                 <div class="card-body">
                     <div class="table-responsive">
                         @include('component.truefalse')
