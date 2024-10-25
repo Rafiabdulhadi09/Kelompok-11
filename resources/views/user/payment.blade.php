@@ -75,6 +75,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <h5> BANK : BRI</h5>
                 <h5>No Rekening: 12345678901234</h5>
                 <form action="{{ route('kirim.bukti') }}" method="POST" enctype="multipart/form-data">
                     @csrf

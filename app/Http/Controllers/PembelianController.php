@@ -41,14 +41,19 @@ class PembelianController extends Controller
 
     return redirect()->back()->with('success', 'Bukti pembayaran berhasil dikirim. Tunggu konfirmasi dari admin.');
 }
-public function approve($id) {
+public function approve($id) 
+{
     $pembayaran = Pembayaran::findOrFail($id);
     $pembayaran->update(['status' => 'approved']);
 
-    // Tambahkan logika untuk mengalihkan kelas ke halaman materi
+    // Flash message session
+    session()->flash('notifikasi', 'Pembayaran disetujui, kelas tersedia di halaman materi.');
 
-    return back()->with('message', 'Pembayaran disetujui, kelas tersedia di halaman materi.');
+    return back()->with('message', 'Pembayaran disetujui.');
 }
+
+
+
 
 public function reject($id)
 {

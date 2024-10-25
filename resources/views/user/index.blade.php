@@ -27,6 +27,11 @@
 
 <body class="index-page">
 @include('component.header-user')
+  @if(session('notifikasi'))
+      <div class="alert alert-success">
+          {{ session('notifikasi') }}
+      </div>
+  @endif
   <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section">
