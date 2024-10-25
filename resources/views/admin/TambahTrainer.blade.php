@@ -22,34 +22,35 @@
                 <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data" id="registerForm">
                   @csrf
                   <div class="row">
+                    {{-- input Name --}}
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
+                      <input type="text" name="name" id="nama" class="form-control" />
+                    </div>
+                </div>
+                {{-- End input Name --}}
                 {{-- input Email --}}
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
-                    <input type="email" id="email" name="email" class="form-control" />
                     <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" />
                   </div>
                 </div>
                 {{-- End input Email --}}
                 {{-- input password --}}
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
-                    <input type="password" name="password" id="password" class="form-control" />
                     <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                    <input type="password" name="password" id="password" class="form-control" />
                   </div>
                 </div>
                 {{-- End input password --}}
               </div>
-                {{-- input Name --}}
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" id="nama" class="form-control" />
-                      <label class="form-label" for="nama">Masukan Nama <span class="text-danger">*</span></label>
-                    </div>
-                </div>
-                {{-- End input Name --}}
                 {{-- select Kelamin --}}
                     <div class="input-group">
                       <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="jk">Jenis Kelamin <span class="text-danger">*</span></label>
                         <select class="form-select" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
                           <option value="laki-laki">laki-laki</option>
                           <option value="perempuan">perempuan</option>
@@ -61,13 +62,14 @@
                   {{-- input alamat --}}
                     <div class="mb-3">
                       <div class="form-outline flex-fill mb-0">
+                      <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
                         <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
-                        <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
                       </div>
                     </div>
                   {{-- End input alamat --}}
                   <div class="input-group">
                       <div class="form-outline flex-fill mb-0">
+                      <label for="keahlian" class="form-label">Keahlian<span class="text-danger">*</span></label>
                         <select class="form-select" name="keahlian"id="inputGroupSelect04" aria-label="Example select with button addon">
                           <option value="desain">Desain</option>
                           <option value="programer">Programer</option>
