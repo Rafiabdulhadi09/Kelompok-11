@@ -22,14 +22,14 @@
           @csrf
           <!-- Email input -->
           <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="email">Masukan Email <span class="text-danger">*</span></label>
             <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control form-control-lg" />
-            <label class="form-label" for="email">Masukan Email <span class="text-danger">*</span></label>
           </div>
 
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form1Example23">Password <span class="text-danger">*</span></label>
             <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Password <span class="text-danger">*</span></label>
           </div>
 
           <div class="d-flex justify-content-around align-items-center mb-4">

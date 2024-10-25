@@ -53,11 +53,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Judul</th>
-                                            <th style="text-align: center; vertical-align: middle;">Harga</th>
-                                            <th style="text-align: center; vertical-align: middle;">Deskripsi</th>
-                                            <th style="text-align: center; vertical-align: middle;">Foto</th>
-                                            <th style="text-align: center; vertical-align: middle;">Aksi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Title</th>
+                                            <th style="text-align: center; vertical-align: middle;">Price</th>
+                                            <th style="text-align: center; vertical-align: middle;">Description</th>
+                                            <th style="text-align: center; vertical-align: middle;">Poto</th>
+                                            <th style="text-align: center; vertical-align: middle;">Action</th>
                                         </tr>
                                     </thead>
                                          <tbody>
@@ -114,7 +114,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Tambah Materi -->
+     <!-- Modal Tambah Materi -->
 <div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
