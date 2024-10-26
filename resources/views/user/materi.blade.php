@@ -25,13 +25,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/materi.css') }}">
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-
         .custom-card {
             background-color: #ffffff;
             border-radius: 10px;
@@ -40,42 +33,8 @@
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-        }
-
-        .custom-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .custom-card h1 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #343a40;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            background-color: #38bdf8;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #0284c7;
-        }
-
-        .btn a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .btn a:hover {
-            text-decoration: none;
-            color: #f8f9fa;
+            width: 100%; /* Membuat card memanjang ke kanan */
+            max-width: 100%; /* Menetapkan lebar maksimum agar 100% */
         }
 
         .container {
@@ -83,25 +42,20 @@
             margin-bottom: 50px;
         }
 
-        .container h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 40px;
+        .row {
+            display: flex; /* Memastikan row menggunakan flexbox */
+            flex-wrap: wrap; /* Mengizinkan item untuk membungkus ke baris baru */
+        }
+
+        .col-md-6, .col-lg-4 {
+            flex: 1; /* Membuat kolom mengambil ruang yang sama */
+            margin-right: 15px; /* Menambahkan jarak di antara kolom */
+            margin-bottom: 15px; /* Menambahkan jarak di bawah kolom */
         }
 
         @media (max-width: 768px) {
-            .custom-card h1 {
-                font-size: 18px;
-            }
-
-            .btn {
-                font-size: 12px;
-                padding: 8px 16px;
-            }
-
-            .container h1 {
-                font-size: 28px;
+            .custom-card {
+                width: 100%; /* Card akan menggunakan 100% lebar pada tampilan kecil */
             }
         }
     </style>
@@ -122,12 +76,12 @@
         @else
             <div class="row">
                 @foreach($submateri->materi as $item)
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4"> <!-- Anda dapat menyesuaikan jumlah kolom -->
                         <div class="custom-card" data-aos="fade-up" data-aos-delay="100">
                             <h1 class="h5">{{ $item->title }}</h1>
                             <p>{{ $item->content }}</p>
-                            <button class="btn">
-                                <a href="{{ route('submateri.user', [$item->id]) }}">Akses Materi</a>
+                            <button class="btn btn-info text-light">
+                                <a href="{{ route('submateri.user', [$item->id]) }}" class="text-white">Akses Materi</a>
                             </button>
                         </div>
                     </div>
@@ -140,6 +94,7 @@
             </div>
         @endif
     </div>
+
     <!-- Modal -->
 <div class="modal fade" id="namaUserModal" tabindex="-1" aria-labelledby="namaUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
