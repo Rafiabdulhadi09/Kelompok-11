@@ -8,6 +8,7 @@ use App\Models\DataKelas;
 use App\Models\SubMateri;
 use App\Models\Pembayaran;
 use App\Models\MediaSosial;
+use App\Models\KelasTrainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,14 +22,17 @@ class AdminController extends Controller
     function trainer(DataKelas $kelas){
         $trainer= Auth::user();
         $jumlah_kelas = $trainer->trainerKelas->count();
-        $jumlah_materi = $kelas->materi->count();
-        $jumlah_submateri = SubMateri::all()->count();
-        // Menghitung jumlah pengguna yang telah di-approve oleh admin
-        // $jumlah_pengguna = User::whereHas('kelas', function($query) {
-        //     $query->where('status', 'approved'); // Misalkan status 'approved' digunakan untuk menandakan kelas yang sudah di-approve
-        // })->count();
-    
-        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'jumlah_materi', 'jumlah_submateri'));
+        $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
+        $kelasIds = $kelas->pluck('id');
+        $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
+            ->where('status', 'approved')
+            ->with('user')
+            ->get(); 
+        $totalSiswa = $siswa->count();
+        $totalMateri = Materi::whereIn('kelas_id', $kelasIds)->count();
+        $materi = Materi::whereIn('kelas_id', $kelasIds)->get();
+        $totalSubmateri = Submateri::whereIn('materi_id', $materi->pluck('id'))->count();
+        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'totalSubmateri','totalSiswa','totalMateri'));
     }
     function admin(){
         $jumlah_user = User::where('role', 'user')->count();

@@ -84,5 +84,21 @@ class KuisController extends Controller
             return redirect()->back()->with('error', 'Maaf, Anda belum lulus. Skor Anda adalah ' . round($nilai, 2) . '%. Silakan coba lagi.');
         }
     }
+    public function TrainerLihatKuis ($kelasId)
+    {
+        $trainer = User::findOrFail(auth()->user()->id);
+        $kelas = DataKelas::with('kuis')->findOrFail($kelasId);
+
+        return view('trainer.Kuis',compact('trainer'),[
+            'kelas' => $kelas,
+        ]);
+    }
+    public function delete($id)
+    {
+    $kuis = Kuis::findOrFail($id);
+    $kuis->delete();
+
+    return redirect()->back()->with('success', 'Kuis berhasil dihapus');
+    }
 }
 

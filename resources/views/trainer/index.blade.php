@@ -71,13 +71,12 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1">
                           Materi
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                              @if($jumlah_materi)
-                                  <p>{{ $jumlah_materi }}</p>
+                              @if($totalMateri)
+                                  <p>{{ $totalMateri }}</p>
                               @else
                                   <p>Tidak ada materi</p>
                               @endif
@@ -98,17 +97,15 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-info text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-info text-uppercase mb-1">
                           SubMateri
                         </div>
                         <div class="row no-gutters align-items-center">
                           <div class="col-auto">
                             <div
-                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
-                            >
-                            @if($jumlah_submateri)
-                                  <p>{{ $jumlah_submateri }}</p>
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                            @if($totalSubmateri)
+                                  <p>{{ $totalSubmateri }}</p>
                               @else
                                   <p>Tidak ada SubMateri</p>
                               @endif
@@ -131,9 +128,20 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                           Jumlah Pengguna
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                            class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                           @if($totalSiswa)
+                                  <p>{{ $totalSiswa }}</p>
+                              @else
+                                  <p>Tidak ada Pengguna</p>
+                              @endif
+                            </div>
+                          </div>
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                         </div>

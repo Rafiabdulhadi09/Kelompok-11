@@ -107,7 +107,7 @@
                                             @endif
                                         </td>
                                         <td style="vertical-align: middle; padding: 25px;" class="text-center">
-                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-warning">Submateri</a>
+                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-warning">Materi</a>
                                         </td>
 
                                         <td class="table-action-btns" style="vertical-align: middle; padding:25px;">

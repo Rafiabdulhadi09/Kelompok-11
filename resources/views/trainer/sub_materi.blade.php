@@ -33,7 +33,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data SubMateri</h1>
+                            <h1>Data SubMateri Pada Materi : {{ $materi->title }}</h1>
                             <a class="btn btn-warning" href="#" data-toggle="modal" data-target="#tambahSubmateriModal">Tambah Submateri</a>
                         </div>
                         @include('component.truefalse')
