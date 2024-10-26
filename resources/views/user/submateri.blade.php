@@ -108,9 +108,6 @@
                         </div>
                     </div>
                 @endforeach
-                    @if($kuis->kuis->isNotEmpty())
-                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis', $kuis->kuis->first()->materi_id) }}">Jawab Kuis</a>
-                    @endif
             </div>
         @endif
     </div>

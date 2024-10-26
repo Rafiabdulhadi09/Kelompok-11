@@ -136,7 +136,6 @@
             </div>
         </div>
     </div>
-
      <!-- Modal Tambah Submateri -->
 <div class="modal fade" id="tambahSubmateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahSubmateriModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

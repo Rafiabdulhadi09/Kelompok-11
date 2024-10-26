@@ -94,7 +94,7 @@ class MateriController extends Controller
         ->paginate(10);
 
     // Return hasil pencarian ke view 'trainer.tambahmateri'
-    return view('trainer.tambahmateri', compact('kelas', 'trainer'));
+    return view('trainer.tambahmateri', compact('kelas', 'trainer','kelas_id'));
 }
 
         public function Trainer()

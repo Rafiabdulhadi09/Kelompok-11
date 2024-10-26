@@ -12,17 +12,10 @@ use App\Models\DataKelas;
 
 class KuisController extends Controller
 {
-    public function tambah(DataKelas $kelas)
-    {
-        $materi = $kelas->materi;
-        $trainer = User::findOrFail(auth()->user()->id);
-        $data = Materi::all();
-        return view('trainer.TambahKuis', compact('data'),['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
-    }
-   public function index($materi_id)
+   public function index($kelas_id)
 {
-    $kuis = Kuis::where('materi_id', $materi_id)->get();
-    $materi = Materi::findOrFail($materi_id);
+    $kuis = Kuis::where('kelas_id', $kelas_id)->get();
+    $materi = DataKelas::findOrFail($kelas_id);
 
     return view('user.kuis', compact('kuis', 'materi'));
 }
@@ -34,14 +27,14 @@ class KuisController extends Controller
         'pilihan_2' => 'required',
         'pilihan_3' => 'required',
         'jawaban' => 'required',
-        'materi_id' => 'required'
+        'kelas_id' => 'required'
        ], [
         'pertanyaan.required' => 'pertanyaan Wajib Diisi',
         'pilihan_1.required' => 'pilihan Wajib Diisi',
         'pilihan_2.required' => 'pilihan Wajib Diisi',
         'pilihan_3.required' => 'pilihan Wajib Diisi',
         'jawaban.required' => 'jawaban Wajib Diisi',
-        'materi_id.required' => 'materi id wajib di isi',
+        'kelas_id.required' => 'kelas id wajib di isi',
        ]); 
        
        $item = [
@@ -50,7 +43,7 @@ class KuisController extends Controller
         'pilihan_2'=>$request->pilihan_2,
         'pilihan_3'=>$request->pilihan_3,
         'jawaban'=>$request->jawaban,
-        'materi_id'=>$request->materi_id,
+        'kelas_id'=>$request->kelas_id,
        ];
        Kuis::create($item);
       if ($item) {
@@ -61,11 +54,11 @@ class KuisController extends Controller
         return redirect()->back()->with('error', 'Failed to create new record');
     }
     }
-    public function submit(Request $request, $materi_id)
+    public function submit(Request $request, $kelas_id)
     {
         $user = auth()->user();
         $jawaban = $request->input('pertanyaan'); 
-        $pertanyaan = Kuis::where('materi_id', $materi_id)->get();
+        $pertanyaan = Kuis::where('kelas_id', $kelas_id)->get();
 
         $jawabanBenar  = 0;
 
@@ -80,7 +73,7 @@ class KuisController extends Controller
         $status = $nilai >= 80;
 
          DB::table('kuis_user')->updateOrInsert(
-            ['user_id' => $user->id, 'materi_id' => $materi_id], 
+            ['user_id' => $user->id, 'kelas_id' => $kelas_id], 
             ['nilai' => $nilai, 'status' => $status, 'updated_at' => now()]
         );
 

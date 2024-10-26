@@ -51,7 +51,7 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/user/{id}/belajar/{materi_id}', [KelasMateriController::class, 'belajar'])->name('belajar.user')->middleware('userAkses:user');
     Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran')->middleware('userAkses:user');
     Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti')->middleware('userAkses:user');
-    Route::get('/user/{materi_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
+    Route::get('/user/{kelas_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
     Route::post('/kirim/{submateri_id}/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
     Route::post('/buat', [UserController::class, 'sertifikat'])->name('sertifikat');
 
@@ -74,7 +74,6 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri')->middleware('userAkses:trainer');
     Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri')->middleware('userAkses:trainer');
     Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri')->middleware('userAkses:trainer');
-    Route::get('/tambah/kuis',[KuisController::class,'tambah'])->name('tambah.kuis')->middleware('userAkses:trainer');
     Route::post('/create/kuis',[KuisController::class,'create'])->name('create.kuis')->middleware('userAkses:trainer');
     Route::get('/trainer/penggunakelas',[PembelianController::class,'pengguna'])->name('pengguna')->middleware('userAkses:trainer');
 

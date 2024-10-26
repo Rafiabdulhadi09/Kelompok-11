@@ -15,16 +15,12 @@ class Materi extends Model
         'content'
         
     ];
-      public function kelas()
+    public function kelas()
     {
         return $this->belongsTo(DataKelas::class, 'kelas_id');
     }
     public function submateri()
     {
         return $this->hasMany(SubMateri::class, 'materi_id');
-    }
-         public function kuis()
-    {
-        return $this->hasMany(Kuis::class, 'materi_id');
     }
 }

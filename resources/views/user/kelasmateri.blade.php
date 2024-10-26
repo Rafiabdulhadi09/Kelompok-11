@@ -157,6 +157,9 @@
                     <button class="btn btn-primary">
                         <a href="{{ route('materi.user', ['id' => $item->kelas->id, 'kelasId' => $item->kelas->id, 'userId' => auth()->id()]) }}" class="text-light">Akses Materi</a>
                     </button>
+                    @if($kuis->isNotEmpty())
+                        <a class="btn btn-primary" type="button" href="{{ route('user.kuis', $kuis->first()->kelas_id) }}">Jawab Kuis</a>
+                    @endif
                 </div>
             </div>
         </div>

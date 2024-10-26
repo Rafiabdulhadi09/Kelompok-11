@@ -132,11 +132,11 @@
                         </div>
                     </div>
                 @endforeach
-                @if ($isCompleted >= 80)
+                  @if ($isCompleted >= 80)
                      <a href="javascript:void(0)" class="btn btn-info btn-block" data-bs-toggle="modal" data-bs-target="#namaUserModal">Cetak Sertifikat</a>
-                @else
-                    <p>Anda harus mencapai nilai minimal 80 untuk melanjutkan materi berikutnya.</p>
-                @endif
+                    @else
+                        <p>Anda harus mencapai nilai minimal 80 untuk melanjutkan materi berikutnya.</p>
+                    @endif
             </div>
         @endif
     </div>
