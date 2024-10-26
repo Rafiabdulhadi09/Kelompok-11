@@ -19,41 +19,31 @@ class KuisController extends Controller
 
     return view('user.kuis', compact('kuis', 'materi'));
 }
-    public function create(Request $request)
-    {
-          $request->validate([
-        'pertanyaan' => 'required',
-        'pilihan_1' => 'required',
-        'pilihan_2' => 'required',
-        'pilihan_3' => 'required',
-        'jawaban' => 'required',
-        'kelas_id' => 'required'
-       ], [
-        'pertanyaan.required' => 'pertanyaan Wajib Diisi',
-        'pilihan_1.required' => 'pilihan Wajib Diisi',
-        'pilihan_2.required' => 'pilihan Wajib Diisi',
-        'pilihan_3.required' => 'pilihan Wajib Diisi',
-        'jawaban.required' => 'jawaban Wajib Diisi',
-        'kelas_id.required' => 'kelas id wajib di isi',
-       ]); 
-       
-       $item = [
-        'pertanyaan'=>$request->pertanyaan,
-        'pilihan_1'=>$request->pilihan_1,
-        'pilihan_2'=>$request->pilihan_2,
-        'pilihan_3'=>$request->pilihan_3,
-        'jawaban'=>$request->jawaban,
-        'kelas_id'=>$request->kelas_id,
-       ];
-       Kuis::create($item);
-      if ($item) {
-        // Berhasil menyimpan data
-        return redirect('/tambah/kuis')->with('success', 'Kursus Berhasil Di Tambahkan');
-    } else {
-        // Gagal menyimpan data
-        return redirect()->back()->with('error', 'Failed to create new record');
-    }
-    }
+public function create(Request $request)
+{
+    $request->validate([
+        'pertanyaan' => 'required|array',
+        'pilihan_1' => 'required|array',
+        'pilihan_2' => 'required|array',
+        'pilihan_3' => 'required|array',
+        'jawaban' => 'required|array',
+        'kelas_id' => 'required',
+    ]);
+
+    $item = [
+        'pertanyaan' => json_encode($request->pertanyaan),
+        'pilihan_1' => json_encode($request->pilihan_1),
+        'pilihan_2' => json_encode($request->pilihan_2),
+        'pilihan_3' => json_encode($request->pilihan_3),
+        'jawaban' => json_encode($request->jawaban),
+        'kelas_id' => $request->kelas_id,
+    ];
+
+    Kuis::create($item);
+
+    return redirect('/tambah/kuis')->with('success', 'Kursus Berhasil Di Tambahkan');
+}
+
     public function submit(Request $request, $kelas_id)
     {
         $user = auth()->user();
