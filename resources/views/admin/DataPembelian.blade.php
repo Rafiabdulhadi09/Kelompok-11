@@ -72,6 +72,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- DataTales Example -->
+<<<<<<< HEAD
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
     <h1 class="h3">Data Pembelian</h1>
     <form method="GET" action="/filter" class="form-inline">
@@ -87,6 +88,20 @@
     </form>
 </div>
 
+=======
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h1 class="h3">Data Pembelian</h1>
+                    <form method="GET" action="/filter">
+                    <label for="">Start Date :</label>
+                    <input type="date" class="form-control" name="start_date">
+                    <label for="">End Date :</label>
+                    <input type="date" class="form-control" name="end_date">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    </form>
+                </div>
+                 <button class="btn btn-primary m-3"><h3>{{ formatRupiah($totalHarga) }}</h3></button>
+>>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
                 <div class="card-body">
                     <div class="table-responsive">
                         @include('component.truefalse')
@@ -97,6 +112,7 @@
                                     <th>Nama Kelas</th>
                                     <th>Bukti Transfer</th>
                                     <th>Harga</th>
+                                    <th>Tanggal</th>
                                     <th>Status</th>
                                     
                                     <th>Aksi</th>
@@ -115,6 +131,7 @@
                                             @endif
                                         </td>
                                         <td>{{ formatRupiah($item->kelas->price) }}</td>
+                                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td class="table-action-btns">
                                             <div class="d-flex justify-content-center">

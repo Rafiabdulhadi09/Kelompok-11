@@ -22,10 +22,9 @@
 </head>
 
 <body id="page-top">
-    {{-- @include('component.NavbarTrainer'); --}}
     <!-- Page Wrapper -->
     <div id="wrapper">   
-
+            @include('component.NavbarTrainer')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="d-grid gap-2 d-md-block m-3">
@@ -33,7 +32,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data Materi</h1>
+                            <h1>Pengguna Kelas</h1>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">

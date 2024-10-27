@@ -113,12 +113,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+<<<<<<< HEAD
                 <div class="bank-logos">
                     <img src="{{ asset('assets/bank/bri.png') }}" alt="Logo BRI" class="bank-logo" data-account="23456789012345">
                     <img src="{{ asset('assets/bank/bni.png') }}" alt="Logo BNI" class="bank-logo" data-account="34567890123456">
                     <img src="{{ asset('assets/bank/mandiri.png') }}" alt="Logo Mandiri" class="bank-logo" data-account="45678901234567">
                 </div>
                 <h5 class="mt-3">No Rekening: <span id="account-number" class="fade-in">Pilih logo bank</span></h5>
+=======
+                <h5> BANK : BRI</h5>
+                <h5>No Rekening: 12345678901234</h5>
+>>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
                 <form action="{{ route('kirim.bukti') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">

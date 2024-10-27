@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class SubmateriController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
-        $materi = Materi::all();
+        $materi = Materi::findOrFail($id);
         return view('trainer.tambahsubmateri', compact('materi'));
     }
     public function create(Request $request)

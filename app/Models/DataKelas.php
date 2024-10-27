@@ -37,4 +37,8 @@ class DataKelas extends Model
     {
         return $this->hasMany(Pembayaran::class, 'kelas_id');
     }
+    public function kuis()
+    {
+        return $this->hasMany(Kuis::class, 'kelas_id');
+    }
 }

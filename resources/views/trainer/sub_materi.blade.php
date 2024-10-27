@@ -33,7 +33,8 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data SubMateri</h1>
+                            <h1>Data SubMateri Pada Materi : {{ $materi->title }}</h1>
+                            <a class="btn btn-warning" href="#" data-toggle="modal" data-target="#tambahSubmateriModal">Tambah Submateri</a>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">
@@ -135,6 +136,88 @@
             </div>
         </div>
     </div>
+     <!-- Modal Tambah Submateri -->
+<div class="modal fade" id="tambahSubmateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahSubmateriModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahSubmateriModalLabel">Tambah Submateri</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form Tambah Submateri -->
+        <form action="{{ route('create.submateri') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" placeholder="Enter title">
+          </div>
+          <div class="form-group">
+            <label for="typeSelect">Tipe Submateri</label>
+            <select id="typeSelect" class="form-control" name="type" onchange="handleTypeChange()">
+              <option value="">Pilih tipe submateri</option>
+              <option value="text">Text</option>
+              <option value="ebook">E-book</option>
+              <option value="video">Video</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="materi_id">Pilih Materi</label>
+            <select id="materi_id" class="form-control" name="materi_id">
+                <option value="{{ $materi->id }}">{{ $materi->title }}</option>
+            </select>
+          </div>
+
+          <!-- Input Tambahan Berdasarkan Tipe -->
+          <div id="textInput" style="display: none;">
+            <div class="form-group">
+              <label for="text_content">Text Content</label>
+              <textarea id="text_content" name="text_content" class="form-control" rows="5"></textarea>
+            </div>
+          </div>
+
+          <div id="videoInput" style="display: none;">
+            <div class="form-group">
+              <label for="video_link">YouTube Link</label>
+              <input type="text" name="video_link" class="form-control">
+            </div>
+          </div>
+
+          <div id="ebookInput" style="display: none;">
+            <div class="form-group">
+              <label for="ebook_file">Upload E-book</label>
+              <input type="file" name="ebook_file" class="form-control">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function handleTypeChange() {
+    var selectedType = document.getElementById('typeSelect').value;
+    document.getElementById('textInput').style.display = 'none';
+    document.getElementById('videoInput').style.display = 'none';
+    document.getElementById('ebookInput').style.display = 'none';
+
+    if (selectedType === 'text') {
+        document.getElementById('textInput').style.display = 'block';
+    } else if (selectedType === 'video') {
+        document.getElementById('videoInput').style.display = 'block';
+    } else if (selectedType === 'ebook') {
+        document.getElementById('ebookInput').style.display = 'block';
+    }
+    }
+    </script>
 
     <script>
     function confirmDelete(event, Id) {

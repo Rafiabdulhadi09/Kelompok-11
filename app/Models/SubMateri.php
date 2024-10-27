@@ -13,7 +13,8 @@ class SubMateri extends Model
     [
         'title',
         'type',
-        'content'
+        'content',
+        'materi_id',
     ];
     public function materi()
     {

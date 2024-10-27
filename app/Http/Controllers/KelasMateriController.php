@@ -17,7 +17,8 @@ class KelasMateriController extends Controller
         $kelas = Pembayaran::where('user_id', auth()->id())
         ->where('status', 'approved') 
         ->with('kelas')->get();
-        return view ('user.kelasmateri', compact('kelas'));
+        $kuis = Kuis::all();
+        return view ('user.kelasmateri', compact('kelas','kuis'));
     }
 
     public function materi($id, $kelasId, $userId)
@@ -25,7 +26,7 @@ class KelasMateriController extends Controller
         $materiList = Materi::where('kelas_id', $kelasId)->get();
 
         $totalMateri = $materiList->count();
-        $completedKuisCount = KuisUser::whereIn('materi_id', $materiList->pluck('id'))
+        $completedKuisCount = KuisUser::whereIn('kelas_id', $materiList->pluck('id'))
                                       ->where('user_id', $userId)
                                       ->where('status', '1') 
                                       ->count();
@@ -40,9 +41,8 @@ class KelasMateriController extends Controller
     }
     public function submateri($id)
     {
-        $kuis = Materi::with('kuis')->findOrFail($id);
         $submateri = Materi::with('submateri')->findOrFail($id);
-        return view('user.submateri', compact('submateri','kuis'));
+        return view('user.submateri', compact('submateri'));
     }
     public function belajar($id, $materi_id)
     {
@@ -53,7 +53,9 @@ class KelasMateriController extends Controller
         $data = $materi->submateri;
         $submateri = SubMateri::where('id', $id)->where('materi_id', $materi_id)->get();
         
-        return view('user.belajar', compact('submateri','data'));
+        return view('user.belajar', compact('submateri','data'),[
+        'currentSubmateriId' => $id
+    ]);
     }
     
 }

@@ -11,16 +11,16 @@ class Kuis extends Model
     protected $table = 'kuis';
      protected $fillable = [
         'id',
-        'materi_id',
+        'kelas_id',
         'pertanyaan',
         'pilihan_1',
         'pilihan_2',
         'pilihan_3',
         'jawaban'
     ];
-     public function materi()
+     public function kelas()
     {
-        return $this->belongsTo(Materi::class, 'materi_id');
+        return $this->belongsTo(DataKelas::class, 'kelas_id');
     }
      public function users()
     {

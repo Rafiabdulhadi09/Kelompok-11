@@ -30,8 +30,10 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data Materi</h1>
-                            <a class="btn btn-warning" href="#" data-toggle="modal" data-target="#tambahSubmateriModal">Tambah Submateri</a>
+                            <h1>Data Materi Pada Kelas : {{ $kelas->title }}</h1>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#tambahMateriModal">
+                                <span class="text-white font-weight-bold">Tambah Materi</span>
+                            </button>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">
@@ -85,93 +87,42 @@
         </div>
     </div>
 
-    <!-- Modal Tambah Submateri -->
-<div class="modal fade" id="tambahSubmateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahSubmateriModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tambahSubmateriModalLabel">Tambah Submateri</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Form Tambah Submateri -->
-        <form action="{{ route('create.submateri') }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" placeholder="Enter title">
-          </div>
-          <div class="form-group">
-            <label for="typeSelect">Tipe Submateri</label>
-            <select id="typeSelect" class="form-control" name="type" onchange="handleTypeChange()">
-              <option value="">Pilih tipe submateri</option>
-              <option value="text">Text</option>
-              <option value="ebook">E-book</option>
-              <option value="video">Video</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="materi_id">Pilih Kelas</label>
-            <select id="materi_id" class="form-control" name="materi_id">
-              @foreach ($materi as $item)
-                <option value="{{ $item->id }}">{{ $item->title }}</option>
-              @endforeach
-            </select>
-          </div>
-
-          <!-- Input Tambahan Berdasarkan Tipe -->
-          <div id="textInput" style="display: none;">
-            <div class="form-group">
-              <label for="text_content">Text Content</label>
-              <textarea id="text_content" name="text_content" class="form-control" rows="5"></textarea>
+    <!-- Modal Tambah Materi -->
+<div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahMateriModalLabel">Tambah Materi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-          </div>
-
-          <div id="videoInput" style="display: none;">
-            <div class="form-group">
-              <label for="video_link">YouTube Link</label>
-              <input type="text" name="video_link" class="form-control">
+            <div class="modal-body">
+                <!-- Form di dalam modal -->
+                <form action="{{ route('materi.create') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="judul">Judul</label>
+                        <input type="text" name="judul" value="{{old('')}}" id="judul" placeholder="Masukan judul" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas_id">Pilih kelas</label>
+                        <select id="kelas_id" class="form-control" name="kelas_id">
+                                <option value="{{ $kelas->id }}"> {{ $kelas->title }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Deskripsi</label>
+                        <input id="description" type="text" name="description" class="form-control" placeholder="Masukan deskripsi">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Tambahkan</button>
+                </form>
             </div>
-          </div>
-
-          <div id="ebookInput" style="display: none;">
-            <div class="form-group">
-              <label for="ebook_file">Upload E-book</label>
-              <input type="file" name="ebook_file" class="form-control">
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
-
-
     <!-- JavaScript untuk mengubah tampilan input berdasarkan tipe -->
-    <script>
-    function handleTypeChange() {
-    var selectedType = document.getElementById('typeSelect').value;
-    document.getElementById('textInput').style.display = 'none';
-    document.getElementById('videoInput').style.display = 'none';
-    document.getElementById('ebookInput').style.display = 'none';
-
-    if (selectedType === 'text') {
-        document.getElementById('textInput').style.display = 'block';
-    } else if (selectedType === 'video') {
-        document.getElementById('videoInput').style.display = 'block';
-    } else if (selectedType === 'ebook') {
-        document.getElementById('ebookInput').style.display = 'block';
-    }
-    }
-    </script>
 
     <script>
     function confirmDelete(event, Id) {

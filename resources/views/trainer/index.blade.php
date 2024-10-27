@@ -11,21 +11,15 @@
     <meta name="author" content="" />
 
     <title>Ruang Admin - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link
       href="assets/vendor-admin/fontawesome-free/css/all.min.css"
       rel="stylesheet"
-      type="text/css"
-    />
+      type="text/css"/>
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
-
-    <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
   <body id="page-top">
@@ -77,13 +71,12 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1">
                           Materi
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                              @if($jumlah_materi)
-                                  <p>{{ $jumlah_materi }}</p>
+                              @if($totalMateri)
+                                  <p>{{ $totalMateri }}</p>
                               @else
                                   <p>Tidak ada materi</p>
                               @endif
@@ -104,17 +97,15 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-info text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-info text-uppercase mb-1">
                           SubMateri
                         </div>
                         <div class="row no-gutters align-items-center">
                           <div class="col-auto">
                             <div
-                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
-                            >
-                            @if($jumlah_submateri)
-                                  <p>{{ $jumlah_submateri }}</p>
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                            @if($totalSubmateri)
+                                  <p>{{ $totalSubmateri }}</p>
                               @else
                                   <p>Tidak ada SubMateri</p>
                               @endif
@@ -137,9 +128,20 @@
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div
-                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
-                        >
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                           Jumlah Pengguna
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                            class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                           @if($totalSiswa)
+                                  <p>{{ $totalSiswa }}</p>
+                              @else
+                                  <p>Tidak ada Pengguna</p>
+                              @endif
+                            </div>
+                          </div>
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                         </div>

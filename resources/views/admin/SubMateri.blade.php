@@ -30,7 +30,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                        <div class="card-header py-3">
-                            <h1>Data SubMateri</h1>
+                            <h1>Data SubMateri Pada Materi : {{ $apaaja->title }}</h1>
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">
