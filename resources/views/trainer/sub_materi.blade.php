@@ -164,7 +164,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="materi_id">Pilih Kelas</label>
+            <label for="materi_id">Pilih Materi</label>
             <select id="materi_id" class="form-control" name="materi_id">
                 <option value="{{ $materi->id }}">{{ $materi->title }}</option>
             </select>

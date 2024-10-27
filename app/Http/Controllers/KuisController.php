@@ -22,26 +22,26 @@ class KuisController extends Controller
 public function create(Request $request)
 {
     $request->validate([
-        'pertanyaan' => 'required|array',
-        'pilihan_1' => 'required|array',
-        'pilihan_2' => 'required|array',
-        'pilihan_3' => 'required|array',
-        'jawaban' => 'required|array',
+        'pertanyaan' => 'required',
+        'pilihan_1' => 'required',
+        'pilihan_2' => 'required',
+        'pilihan_3' => 'required',
+        'jawaban' => 'required',
         'kelas_id' => 'required',
     ]);
 
     $item = [
-        'pertanyaan' => json_encode($request->pertanyaan),
-        'pilihan_1' => json_encode($request->pilihan_1),
-        'pilihan_2' => json_encode($request->pilihan_2),
-        'pilihan_3' => json_encode($request->pilihan_3),
-        'jawaban' => json_encode($request->jawaban),
+        'pertanyaan' => ($request->pertanyaan),
+        'pilihan_1' => ($request->pilihan_1),
+        'pilihan_2' => ($request->pilihan_2),
+        'pilihan_3' => ($request->pilihan_3),
+        'jawaban' => ($request->jawaban),
         'kelas_id' => $request->kelas_id,
     ];
 
     Kuis::create($item);
 
-    return redirect('/tambah/kuis')->with('success', 'Kursus Berhasil Di Tambahkan');
+    return redirect()->back()->with('success', 'Kursus Berhasil Di Tambahkan');
 }
 
     public function submit(Request $request, $kelas_id)
@@ -89,6 +89,33 @@ public function create(Request $request)
     $kuis->delete();
 
     return redirect()->back()->with('success', 'Kuis berhasil dihapus');
+    }
+    public function edit(Request $request, $id)
+    {
+          // Validasi data yang diinputkan
+        $request->validate([
+            'pertanyaan' => 'required|string|max:255',
+            'pilihan_1' => 'required|string|max:255',
+            'pilihan_2' => 'required|string|max:255',
+            'pilihan_3' => 'required|string|max:255',
+            'jawaban' => 'required|string|max:255',
+        ]);
+
+        // Temukan kuis berdasarkan ID
+        $kuis = Kuis::findOrFail($id);
+
+        // Update data kuis
+        $kuis->pertanyaan = $request->input('pertanyaan');
+        $kuis->pilihan_1 = $request->input('pilihan_1');
+        $kuis->pilihan_2 = $request->input('pilihan_2');
+        $kuis->pilihan_3 = $request->input('pilihan_3');
+        $kuis->jawaban = $request->input('jawaban');
+
+        // Simpan perubahan ke database
+        $kuis->save();
+
+        // Redirect atau berikan respon sukses
+        return redirect()->back()->with('success', 'Kuis berhasil diperbarui');
     }
 }
 

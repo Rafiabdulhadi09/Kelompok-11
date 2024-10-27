@@ -94,6 +94,7 @@
                                     <th>Nama Kelas</th>
                                     <th>Bukti Transfer</th>
                                     <th>Harga</th>
+                                    <th>Tanggal</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -111,6 +112,7 @@
                                             @endif
                                         </td>
                                         <td>{{ formatRupiah($item->kelas->price) }}</td>
+                                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td class="table-action-btns">
                                             <div class="d-flex justify-content-center">

@@ -53,7 +53,9 @@ class KelasMateriController extends Controller
         $data = $materi->submateri;
         $submateri = SubMateri::where('id', $id)->where('materi_id', $materi_id)->get();
         
-        return view('user.belajar', compact('submateri','data'));
+        return view('user.belajar', compact('submateri','data'),[
+        'currentSubmateriId' => $id
+    ]);
     }
     
 }

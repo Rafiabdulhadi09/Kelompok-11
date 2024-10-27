@@ -19,6 +19,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    .submateri-item {
+    background-color: #ffc107; /* Warna default */
+    color: black;
+    }
+
+    .submateri-item.active {
+        background-color: #ff9800; /* Warna yang berbeda untuk submateri aktif */
+        color: white;
+    }
+</style>
 
 <body id="page-top">
 
@@ -78,19 +89,28 @@
                     @endif
                 </div>
 
-                <!-- Kanan (Daftar Sub Materi) -->
-                <div class="col-md-5 p-4 bg-white rounded shadow-sm">
+                <div class="col-md-5 p-4 bg-white rounded shadow-sm" id="submateri-list">
                     <h5 class="text-center mb-4">Daftar Sub Materi</h5>
                     @foreach ($data as $sub)
-                        <div class="p-3 mb-3 bg-warning rounded">
-                            <a href="{{ route('belajar.user',['id' => $sub->id, 'materi_id' => $sub->materi_id]) }}" class="text-dark">{{ $sub->title }}</a>
+                         <div class="p-3 mb-3 rounded submateri-item {{ $sub->id == $currentSubmateriId ? 'active' : '' }}"> 
+                            <a href="{{ route('belajar.user', ['id' => $sub->id, 'materi_id' => $sub->materi_id]) }}" class="text-dark">{{ $sub->title }}</a>
                         </div>
                     @endforeach
                 </div>
+
             </div>
         </div>
         <!-- End of Page Wrapper -->
     </div>
+
+    <script>
+        document.querySelectorAll('#submateri-list .submateri-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('#submateri-list .submateri-item').forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -57,7 +57,7 @@
                                               <td>{{ $item->pilihan_3 }}</td>
                                               <td>{{ $item->jawaban }}</td>
                                               <td>
-                                                <button type="button" class="btn btn-primary ml-3">Edit</button>
+                                                  <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#editKuisModal-{{ $item->id }}">Edit</button>
                                                  <form action="{{ route('delete.kuis', $item->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
@@ -129,7 +129,62 @@
           </div>
       </div>
   </div>
+    @foreach ($kelas->kuis as $item)
+    <div class="modal fade" id="editKuisModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="editKuisModalLabel-{{ $item->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="editKuisModalLabel-{{ $item->id }}">Edit Kuis</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('edit.kuis', $item->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="form-group mb-4">
+                            <label for="pertanyaan" class="font-weight-bold">Pertanyaan</label>
+                            <input type="text" name="pertanyaan" class="form-control" id="pertanyaan" value="{{ $item->pertanyaan }}" required>
+                        </div>
 
+                        <div class="form-group mb-4">
+                            <label for="pilihan_1" class="font-weight-bold">Pilihan 1</label>
+                            <input type="text" name="pilihan_1" class="form-control" id="pilihan_1" value="{{ $item->pilihan_1 }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="pilihan_2" class="font-weight-bold">Pilihan 2</label>
+                            <input type="text" name="pilihan_2" class="form-control" id="pilihan_2" value="{{ $item->pilihan_2 }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="pilihan_3" class="font-weight-bold">Pilihan 3</label>
+                            <input type="text" name="pilihan_3" class="form-control" id="pilihan_3" value="{{ $item->pilihan_3 }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="jawaban" class="font-weight-bold">Jawaban</label>
+                            <input type="text" name="jawaban" class="form-control" id="jawaban" value="{{ $item->jawaban }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="kelas_id" class="font-weight-bold">Kelas</label>
+                            <select class="form-control" name="kelas_id" id="kelas_id" disabled>
+                                <option value="{{ $kelas->id }}" selected>{{ $kelas->title }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endforeach
     <script>
     function confirmDelete(event, Id) {
         event.preventDefault();

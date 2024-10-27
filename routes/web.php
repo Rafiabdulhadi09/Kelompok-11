@@ -77,6 +77,7 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/create/kuis',[KuisController::class,'create'])->name('create.kuis')->middleware('userAkses:trainer');
     Route::get('/trainer/{kelasId}/kuis',[KuisController::class,'TrainerLihatKuis'])->name('lihat.kuis')->middleware('userAkses:trainer');
     Route::delete('/trainer/delete/{id}/kuis',[KuisController::class,'delete'])->name('delete.kuis')->middleware('userAkses:trainer');
+    Route::put('/trainer/edit/{id}/kuis',[KuisController::class,'edit'])->name('edit.kuis')->middleware('userAkses:trainer');
     Route::get('/trainer/penggunakelas',[PembelianController::class,'pengguna'])->name('pengguna')->middleware('userAkses:trainer');
 
 //Hak akses admin
