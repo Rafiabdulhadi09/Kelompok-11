@@ -72,17 +72,21 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h1 class="h3">Data Pembelian</h1>
-                    <form method="GET" action="/filter">
-                    <label for="">Start Date :</label>
-                    <input type="date" class="form-control" name="start_date">
-                    <label for="">End Date :</label>
-                    <input type="date" class="form-control" name="end_date">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    </form>
-                </div>
+            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+    <h1 class="h3">Data Pembelian</h1>
+    <form method="GET" action="/filter" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="start_date" class="sr-only">Start Date:</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" placeholder="Start Date">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="end_date" class="sr-only">End Date:</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" placeholder="End Date">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Filter</button>
+    </form>
+</div>
+
                 <div class="card-body">
                     <div class="table-responsive">
                         @include('component.truefalse')
@@ -94,6 +98,7 @@
                                     <th>Bukti Transfer</th>
                                     <th>Harga</th>
                                     <th>Status</th>
+                                    
                                     <th>Aksi</th>
                                 </tr>
                             </thead>

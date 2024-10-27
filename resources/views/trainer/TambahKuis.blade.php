@@ -24,7 +24,7 @@
           <label for="pilihan_1" class="form-label">Pilihan 1</label>
           <input type="text" name="pilihan_1" class="form-control" placeholder="Masukkan opsi 1" required>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3"> 
           <label for="pilihan_2" class="form-label">Pilihan 2</label>
           <input type="text" name="pilihan_2" class="form-control" placeholder="Masukkan opsi 2" required>
         </div>

@@ -8,7 +8,45 @@
     <link rel="stylesheet" href="{{asset('assets/css/payment.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Your existing styles here... */
+        .bank-logos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .bank-logo {
+            width: 80px;
+            height: auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .bank-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .bank-logo:active {
+            transform: scale(0.9);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animasi untuk perubahan nomor rekening */
+        #account-number {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Style untuk animasi */
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -75,7 +113,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5>No Rekening: 12345678901234</h5>
+                <div class="bank-logos">
+                    <img src="{{ asset('assets/bank/bri.png') }}" alt="Logo BRI" class="bank-logo" data-account="23456789012345">
+                    <img src="{{ asset('assets/bank/bni.png') }}" alt="Logo BNI" class="bank-logo" data-account="34567890123456">
+                    <img src="{{ asset('assets/bank/mandiri.png') }}" alt="Logo Mandiri" class="bank-logo" data-account="45678901234567">
+                </div>
+                <h5 class="mt-3">No Rekening: <span id="account-number" class="fade-in">Pilih logo bank</span></h5>
                 <form action="{{ route('kirim.bukti') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">
@@ -92,7 +135,26 @@
     </div>
 </div>
 
-<!-- Bootstrap JS and dependencies -->
+<!-- JavaScript for bank selection and animation -->
+<script>
+    document.querySelectorAll('.bank-logo').forEach((logo) => {
+        logo.addEventListener('click', () => {
+            const accountNumberElement = document.getElementById('account-number');
+            const accountNumber = logo.getAttribute('data-account');
+            
+            // Tambahkan animasi fade-out, lalu ubah teks, dan fade-in kembali
+            accountNumberElement.classList.add('fade-out');
+            
+            // Tunda perubahan teks hingga animasi fade-out selesai
+            setTimeout(() => {
+                accountNumberElement.textContent = accountNumber;
+                accountNumberElement.classList.remove('fade-out');
+                accountNumberElement.classList.add('fade-in');
+            }, 300); // Waktu sesuai durasi animasi fade-out
+        });
+    });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
