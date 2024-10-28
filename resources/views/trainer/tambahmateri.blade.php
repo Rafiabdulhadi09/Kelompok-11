@@ -17,7 +17,13 @@
     <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .table-responsive {
+    overflow-x: auto;
+}
+</style>
 </head>
+
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -63,8 +69,19 @@
                                                 <td>{{ $item->title }}</td>
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
+<<<<<<< HEAD
+                                                <td>
+                                                    @if($item->image)
+                                                        <img src="{{ asset('storage/' . $item->image) }}" alt="Class Image" style="width: 100px; height: auto;">
+                                                    @else
+                                                        <p>No Image</p>
+                                                    @endif
+                                                </td>
+                                                <td>
+=======
                                                 <td>poto</td>
                                                 <td style="text-align: center; vertical-align: middle;">
+>>>>>>> 8e52c7cb4b257d61607691aa28de5df4b57d8849
                                                     <a class="btn btn-warning" href="{{ route('materi', $item->id) }}">Lihat Materi</a>
                                                     <a class="btn btn-success" href="{{ route('lihat.kuis', $item->id) }}">Lihat Kuis</a>
                                                 </td>
@@ -87,7 +104,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -112,7 +128,6 @@
             </div>
         </div>
     </div>
-  
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
     <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>

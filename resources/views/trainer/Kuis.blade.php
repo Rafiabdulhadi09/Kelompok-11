@@ -75,60 +75,63 @@
         </div>
     </div>
       <!-- Modal Popup untuk Tambah Kuis -->
-  <div class="modal fade" id="TambahKuis" tabindex="-1" role="dialog" aria-labelledby="TambahKuis" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header bg-primary text-white">
-                  <h5 class="modal-title" id="TambahKuis">Tambah Kuis</h5>
-                  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <form action="{{ route('create.kuis') }}" method="POST">
-                  @csrf
-                  <div class="modal-body">
-                      <div class="form-group mb-4">
-                          <label for="pertanyaan" class="font-weight-bold">Pertanyaan</label>
-                          <input type="text" name="pertanyaan" class="form-control" id="pertanyaan" placeholder="Masukkan pertanyaan" required>
-                      </div>
+        <div class="modal fade" id="TambahKuis" tabindex="-1" role="dialog" aria-labelledby="TambahKuis" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="TambahKuis">Tambah Kuis</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('create.kuis') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group mb-4">
+                                <label for="pertanyaan" class="font-weight-bold">Pertanyaan</label>
+                                <input type="text" name="pertanyaan" class="form-control" id="pertanyaan" placeholder="Masukkan pertanyaan" required>
+                            </div>
 
-                      <div class="form-group mb-4">
-                          <label for="pilihan_1" class="font-weight-bold">Pilihan 1</label>
-                          <input type="text" name="pilihan_1" class="form-control" id="pilihan_1" placeholder="Masukkan pilihan 1" required>
-                      </div>
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <label for="pilihan_1" class="font-weight-bold">Pilihan 1</label>
+                                    <input type="text" name="pilihan_1" class="form-control" id="pilihan_1" placeholder="Masukkan pilihan 1" required>
+                                </div>
+                                <div class="col">
+                                    <label for="pilihan_2" class="font-weight-bold">Pilihan 2</label>
+                                    <input type="text" name="pilihan_2" class="form-control" id="pilihan_2" placeholder="Masukkan pilihan 2" required>
+                                </div>
+                            </div>
 
-                      <div class="form-group mb-4">
-                          <label for="pilihan_2" class="font-weight-bold">Pilihan 2</label>
-                          <input type="text" name="pilihan_2" class="form-control" id="pilihan_2" placeholder="Masukkan pilihan 2" required>
-                      </div>
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <label for="pilihan_3" class="font-weight-bold">Pilihan 3</label>
+                                    <input type="text" name="pilihan_3" class="form-control" id="pilihan_3" placeholder="Masukkan pilihan 3" required>
+                                </div>
+                                <div class="col">
+                                    <label for="jawaban" class="font-weight-bold">Jawaban</label>
+                                    <input type="text" name="jawaban" class="form-control" id="jawaban" placeholder="Masukkan jawaban yang benar" required>
+                                </div>
+                            </div>
 
-                      <div class="form-group mb-4">
-                          <label for="pilihan_3" class="font-weight-bold">Pilihan 3</label>
-                          <input type="text" name="pilihan_3" class="form-control" id="pilihan_3" placeholder="Masukkan pilihan 3" required>
-                      </div>
+                            <div class="form-group mb-4">
+                                <label for="kelas_id" class="font-weight-bold">Pilih Kelas</label>
+                                <select class="form-control" name="kelas_id" id="kelas_id" required>
+                                    <option value="" disabled selected>Pilih kelas</option>
+                                    <option value="{{ $kelas->id }}">{{ $kelas->title }}</option>
+                                </select>
+                            </div>
+                        </div>
 
-                      <div class="form-group mb-4">
-                          <label for="jawaban" class="font-weight-bold">Jawaban</label>
-                          <input type="text" name="jawaban" class="form-control" id="jawaban" placeholder="Masukkan jawaban yang benar" required>
-                      </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Kirim Kuis</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                      <div class="form-group mb-4">
-                          <label for="kelas_id" class="font-weight-bold">Pilih Kelas</label>
-                          <select class="form-control" name="kelas_id" id="kelas_id" required>
-                              <option value="" disabled selected>Pilih kelas</option>
-                                  <option value="{{ $kelas->id }}">{{ $kelas->title }}</option>
-                          </select>
-                      </div>
-                  </div>
-
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                      <button type="submit" class="btn btn-primary">Kirim Kuis</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
     @foreach ($kelas->kuis as $item)
     <div class="modal fade" id="editKuisModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="editKuisModalLabel-{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
