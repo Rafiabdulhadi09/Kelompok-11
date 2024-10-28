@@ -50,11 +50,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Title</th>
-                                            <th style="text-align: center; vertical-align: middle;">Price</th>
-                                            <th style="text-align: center; vertical-align: middle;">Description</th>
-                                            <th style="text-align: center; vertical-align: middle;">Poto</th>
-                                            <th style="text-align: center; vertical-align: middle;">Action</th>
+                                            <th style="text-align: center; vertical-align: middle;">Kelas</th>
+                                            <th style="text-align: center; vertical-align: middle;">Harga</th>
+                                            <th style="text-align: center; vertical-align: middle;">Deskripsi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Foto</th>
+                                            <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
                                          <tbody>
@@ -64,7 +64,7 @@
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>poto</td>
-                                                <td>
+                                                <td style="text-align: center; vertical-align: middle;">
                                                     <a class="btn btn-warning" href="{{ route('materi', $item->id) }}">Lihat Materi</a>
                                                     <a class="btn btn-success" href="{{ route('lihat.kuis', $item->id) }}">Lihat Kuis</a>
                                                 </td>

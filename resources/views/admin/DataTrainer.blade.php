@@ -30,11 +30,6 @@
             max-width: 400px;
         }
 
-        .btn-action {
-            margin-right: 5px;
-            margin-left: 5px;
-        }
-
         .table thead th {
             background-color: #4e73df;
             color: white;
@@ -51,18 +46,12 @@
             gap: 10px;
         }
 
-        @media (max-width: 768px) {
-            .table-responsive {
-                overflow-x: auto;
-            }
-
-            .btn-custom {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+        .table-action-btns button {
+        height: 36px;
+        width: 36px;
         }
-    </style>
 </head>
+</style>
 
 <body id="page-top">
     <!-- Page Wrapper -->
