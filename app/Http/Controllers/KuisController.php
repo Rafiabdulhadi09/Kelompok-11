@@ -12,9 +12,9 @@ use App\Models\DataKelas;
 
 class KuisController extends Controller
 {
-   public function index($kelas_id)
+    public function index($kelas_id)
 {
-    $kuis = Kuis::where('kelas_id', $kelas_id)->get();
+    $kuis = Kuis::where('kelas_id', $kelas_id)->paginate(1);
     $materi = DataKelas::findOrFail($kelas_id);
 
     return view('user.kuis', compact('kuis', 'materi'));

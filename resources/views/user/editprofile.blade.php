@@ -13,8 +13,6 @@
   <title>Profile</title>
 </head>
 <body>
-  @include('component.header-user')
-  <br>
   <div class="container mt-5 pt-2">
     <div class="row gutters">
       <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">

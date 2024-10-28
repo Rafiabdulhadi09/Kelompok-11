@@ -93,7 +93,7 @@ public function pengguna(DataKelas $kelas)
     $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
         ->where('status', 'approved')
         ->with('user')
-        ->get();
+        ->paginate(10);
 
     return view('trainer.penggunakelas', compact('siswa'),['kelas' => $kelas, 'materi' => $materi, 'trainer'=>$trainer]);
 }

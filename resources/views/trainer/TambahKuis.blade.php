@@ -66,8 +66,7 @@
                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                             </select>
                             @endforeach
-                        </div>
-
+                        </div> 
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-block">Kirim Kuis</button>
                         </div>

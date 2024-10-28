@@ -79,7 +79,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- DataTales Example -->
-            <div class="card">
+            <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Pembelian</h1>
                     <form method="GET" action="/filter" class="form-inline">
@@ -94,7 +94,6 @@
                         <button type="submit" class="btn btn-primary mb-2">Filter</button>
                     </form>
                 </div>
-
                 <div class="card-body">
                     <div class="text-center mb-3">
                         <h3 class="text-primary">{{ formatRupiah($totalHarga) }}</h3>

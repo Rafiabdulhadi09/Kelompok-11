@@ -107,8 +107,8 @@
     @include('component.header-user')
 
     <!-- Materi Section -->
-    <div class="container">
-        <h1 class="text-center">Belajar</h1>
+    <div class="container my-5">
+        <h1 class="text-center mb-5"><br></h1>
         @if ($kelas->isEmpty())
             <div class="alert alert-warning text-center" role="alert">
                 <i class="bi bi-exclamation-circle-fill"></i> Tidak ada kelas/anda belum membeli kelas 
@@ -141,6 +141,8 @@
             @endforeach
         @endif
     </div>
+    {{ $kelas->links('pagination::bootstrap-4') }}
+
 
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
