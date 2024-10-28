@@ -285,7 +285,8 @@
 
 </section><!-- /Services Section -->
   </main>
-
+@foreach ($sosmed as $item)
+    
   <footer id="footer" class="footer">
     <div class="container footer-top">
       <div class="row gy-4">
@@ -294,9 +295,9 @@
             <span class="sitename">SMK NEGERI 1 KAWALI</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Jalan. Talagasari No. 35 Kawalimukti Kawali Ciamis 46253</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>(0265) 791727</span></p>
-            <p><strong>Email:</strong> <a href="mailto:smkn1kawali@gmail.com"><span style="font-size: 17px;">smkn1kawali@gmail.com</span></a></p>
+            <p>{{ $item->alamat }}</p>
+            <p class="mt-3"><strong>No telp:</strong> <span>{{ $item->telephone }}</span></p>
+            <p><strong>Email:</strong> <a href="mailto:smkn1kawali@gmail.com"><span style="font-size: 17px;">{{ $item->email }}</span></a></p>
 
           </div>
         </div>
@@ -335,7 +336,7 @@
       </div>
     </div>
   </footer>
-
+@endforeach
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
