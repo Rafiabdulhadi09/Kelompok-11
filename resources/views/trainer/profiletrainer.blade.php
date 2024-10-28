@@ -26,7 +26,7 @@
     @include('component.NavbarTrainerProfile')
 </head>
 <body>
-<section style="background-color: #eee;">
+
   <div class="container py-5">
     <div class="row d-flex justify-content-center">
       <!-- Card untuk Gambar -->

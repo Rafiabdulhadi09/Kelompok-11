@@ -43,7 +43,7 @@
         .card-img-top {
             object-fit: cover;
             width: 100%;
-            height: auto;
+            height: 140px;
         }
 
         /* Responsif pada font */
