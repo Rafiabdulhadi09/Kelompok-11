@@ -105,7 +105,7 @@
             <div class="row justify-content-center">
               <!-- Form Container -->
               <div class="form-container col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <h1 class="fw-bold mb-4">EDIT KURSUS</h1>
+                <h1 class="fw-bold mb-4">EDIT KELAS</h1>
                 @include('component.truefalse')
                 <form action="{{ route('kursus.update', $datakursus->id) }}" method="post">
                   @csrf

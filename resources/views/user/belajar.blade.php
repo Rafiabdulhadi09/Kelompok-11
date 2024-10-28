@@ -197,8 +197,6 @@
                     </div>
                     @endif
                     @endif
-
-<<<<<<< HEAD
                     <!-- Deskripsi Materi -->
                     <h5>{{ $item->title }}</h5>
                     <p>{{ $item->description }}</p>
@@ -208,37 +206,12 @@
             <!-- Kolom Kanan (Daftar Sub Materi) -->
             <div class="col-md-5">
                 <div class="submateri-section">
-=======
-                <div class="col-md-5 p-4 bg-white rounded shadow-sm" id="submateri-list">
->>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
                     <h5 class="text-center mb-4">Daftar Sub Materi</h5>
-
                     @foreach ($data as $sub)
-<<<<<<< HEAD
-                    <div class="submateri-item">
-                        <img src="https://via.placeholder.com/70x50" alt="Thumbnail">
-                        <div class="submateri-info">
-                            <h6>{{ $sub->title }}</h6>
-                            <p>Kuis {{ $sub->quiz }}</p>
-=======
                          <div class="p-3 mb-3 rounded submateri-item {{ $sub->id == $currentSubmateriId ? 'active' : '' }}"> 
                             <a href="{{ route('belajar.user', ['id' => $sub->id, 'materi_id' => $sub->materi_id]) }}" class="text-dark">{{ $sub->title }}</a>
->>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
                         </div>
-                        <div class="xp-info">
-                            <span>XP {{ $sub->xp }}</span>
-                            <img src="https://via.placeholder.com/18x18" alt="XP">
-                        </div>
-                        @if ($sub->locked)
-                        <i class="fas fa-lock"></i>
-                        @endif
-                    </div>
                     @endforeach
-
-                    <!-- Tombol Rangkuman dan Kuis Akhir -->
-                    <div class="action-buttons">
-                        <a href="#">Kuis Akhir</a>
-                        <a href="#">Rangkuman</a>
                     </div>
                 </div>
 
@@ -246,9 +219,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- Bootstrap JS and jQuery -->
-=======
     <script>
         document.querySelectorAll('#submateri-list .submateri-item').forEach(item => {
             item.addEventListener('click', function() {
@@ -257,9 +227,6 @@
             });
         });
     </script>
-
-    <!-- jQuery and Bootstrap JS -->
->>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 

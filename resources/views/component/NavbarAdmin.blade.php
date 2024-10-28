@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/admin') }}">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-user-md"></i>
+            <i class="fas fa-user"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Admin Kelas <sup>Online</sup></div>
     </a>
@@ -50,7 +50,7 @@
                 </a>
                 <a class="collapse-item {{ request()->is('admin/DataKelas') ? 'active bg-primary text-white' : '' }}" 
                    href="{{ url('admin/DataKelas') }}">
-                    <i class="fas fa-book mr-2"></i>Data Kursus
+                    <i class="fas fa-book mr-2"></i>Data Kelas
                 </a>
             </div>
         </div>

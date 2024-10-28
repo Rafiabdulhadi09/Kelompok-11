@@ -51,12 +51,18 @@
             vertical-align: middle;
         }
 
-        .table-action-btns {
+        .table-action-btns{
             display: flex;
             justify-content: center;
             gap: 10px;
+            text-align: center;
         }
 
+        .table-action-btns button {
+        height: 36px;
+        width: 36px;
+        }
+        
         @media (max-width: 768px) {
             .table-responsive {
                 overflow-x: auto;

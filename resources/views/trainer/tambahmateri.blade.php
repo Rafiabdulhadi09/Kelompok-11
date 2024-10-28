@@ -56,11 +56,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Title</th>
-                                            <th style="text-align: center; vertical-align: middle;">Price</th>
-                                            <th style="text-align: center; vertical-align: middle;">Description</th>
-                                            <th style="text-align: center; vertical-align: middle;">Poto</th>
-                                            <th style="text-align: center; vertical-align: middle;">Action</th>
+                                            <th style="text-align: center; vertical-align: middle;">Kelas</th>
+                                            <th style="text-align: center; vertical-align: middle;">Harga</th>
+                                            <th style="text-align: center; vertical-align: middle;">Deskripsi</th>
+                                            <th style="text-align: center; vertical-align: middle;">Foto</th>
+                                            <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
                                          <tbody>
@@ -69,6 +69,7 @@
                                                 <td>{{ $item->title }}</td>
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
+<<<<<<< HEAD
                                                 <td>
                                                     @if($item->image)
                                                         <img src="{{ asset('storage/' . $item->image) }}" alt="Class Image" style="width: 100px; height: auto;">
@@ -77,6 +78,10 @@
                                                     @endif
                                                 </td>
                                                 <td>
+=======
+                                                <td>poto</td>
+                                                <td style="text-align: center; vertical-align: middle;">
+>>>>>>> 8e52c7cb4b257d61607691aa28de5df4b57d8849
                                                     <a class="btn btn-warning" href="{{ route('materi', $item->id) }}">Lihat Materi</a>
                                                     <a class="btn btn-success" href="{{ route('lihat.kuis', $item->id) }}">Lihat Kuis</a>
                                                 </td>

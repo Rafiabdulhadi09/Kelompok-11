@@ -44,6 +44,11 @@
             justify-content: center;
             gap: 10px;
         }
+
+        .table-action-btns button {
+        height: 36px;
+        width: 36px;
+        }
     </style>
 </head>
 
@@ -57,10 +62,10 @@
                     <h1 class="h3">Data Kelas</h1>
                     <div>
                         <button class="btn btn-custom">
-                            <a href="{{ url('create/kelas') }}" class="text-white font-weight-bold">Tambah Kursus +</a>
+                            <a href="{{ url('create/kelas') }}" class="text-white font-weight-bold">Tambah Kelas +</a>
                         </button>
                         <button class="btn btn-warning">
-                            <a href="{{ route('FormAddTrainer') }}" class="text-white font-weight-bold">Tambah Trainer Ke Kursus +</a>
+                            <a href="{{ route('FormAddTrainer') }}" class="text-white font-weight-bold">Tambah Trainer Ke Kelas +</a>
                         </button>
                     </div>
                 </div>
@@ -82,7 +87,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Judul Kursus</th>
+                                    <th class="text-center">Judul Kelas</th>
                                     <th class="text-center">harga</th>
                                     <th class="text-center">Deskripsi</th>
                                     <th class="text-center">Trainer</th>

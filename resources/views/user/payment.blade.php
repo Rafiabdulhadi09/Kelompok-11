@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Payment</title>
-    <link rel="stylesheet" href="{{asset('assets/css/payment.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/payment.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .bank-logos {
@@ -46,6 +46,45 @@
         .fade-in {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Style untuk alert */
+        .alert {
+            margin-bottom: 20px;
+        }
+
+        /* Style untuk header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        /* Style untuk bagian harga */
+        .price-section {
+            text-align: center;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745; /* Warna hijau untuk harga */
+        }
+
+        /* Style untuk tombol */
+        .btn {
+            background-color: #007bff; /* Warna biru tombol */
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+        }
+
+        /* Style untuk modal */
+        .modal-header {
+            background-color: #007bff; /* Warna biru untuk header modal */
+            color: white;
         }
     </style>
 </head>
@@ -108,22 +147,17 @@
 <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header">
                 <h5 class="modal-title" id="uploadModalLabel">Unggah Bukti Pembayaran</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
                 <div class="bank-logos">
-                    <img src="{{ asset('assets/bank/bri.png') }}" alt="Logo BRI" class="bank-logo" data-account="23456789012345">
-                    <img src="{{ asset('assets/bank/bni.png') }}" alt="Logo BNI" class="bank-logo" data-account="34567890123456">
-                    <img src="{{ asset('assets/bank/mandiri.png') }}" alt="Logo Mandiri" class="bank-logo" data-account="45678901234567">
+                    <img src="{{ asset('assets/bank/bri.png') }}" alt="Logo BRI" class="bank-logo" data-account="23456789012345" onclick="updateAccount(this)">
+                    <img src="{{ asset('assets/bank/bni.png') }}" alt="Logo BNI" class="bank-logo" data-account="34567890123456" onclick="updateAccount(this)">
+                    <img src="{{ asset('assets/bank/mandiri.png') }}" alt="Logo Mandiri" class="bank-logo" data-account="45678901234567" onclick="updateAccount(this)">
                 </div>
                 <h5 class="mt-3">No Rekening: <span id="account-number" class="fade-in">Pilih logo bank</span></h5>
-=======
-                <h5> BANK : BRI</h5>
-                <h5>No Rekening: 12345678901234</h5>
->>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
                 <form action="{{ route('kirim.bukti') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">
