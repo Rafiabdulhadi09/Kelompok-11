@@ -19,23 +19,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<<<<<<< HEAD
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label for="pilihan_1" class="form-label">Pilihan 1</label>
-          <input type="text" name="pilihan_1" class="form-control" placeholder="Masukkan opsi 1" required>
-        </div>
-        <div class="col-md-6 mb-3"> 
-          <label for="pilihan_2" class="form-label">Pilihan 2</label>
-          <input type="text" name="pilihan_2" class="form-control" placeholder="Masukkan opsi 2" required>
-        </div>
-      </div>
-=======
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
         @include('component.NavbarTrainer')
->>>>>>> f58f352b6b2220bc152ce6deb5f87529fc6bf6bc
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
