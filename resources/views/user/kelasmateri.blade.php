@@ -27,6 +27,11 @@
 
     <!-- Custom CSS -->
     <style>
+        /* Navbar Fix */
+        body {
+            padding-top: 60px; /* Reduced padding to move content up */
+        }
+
         /* Custom card style */
         .custom-card {
             border-radius: 15px;
@@ -71,6 +76,13 @@
             max-width: 1140px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Custom H1 style */
+        h1.text-center {
+            color: #000; /* Set color to black */
+            font-size: 2rem; /* Increase font size */
+            margin-bottom: 40px; /* Ensure space below the heading */
         }
 
         /* Responsive adjustments */

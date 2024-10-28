@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
     <title>Materi Bab - Platform Belajar</title>
    <!-- Favicon-->
    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -25,6 +24,22 @@
     <link rel="stylesheet" href="{{ asset('assets/css/materi.css') }}">
 
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa; /* Latar belakang abu-abu terang */
+            color: #000000; /* Teks berwarna hitam */
+        }
+
+        h1, h5 {
+            color: #000000; /* Judul dan subjudul berwarna hitam */
+            font-weight: bold; /* Membuat judul tebal */
+        }
+
+        .custom-card h1 {
+            color: #000000; /* Warna judul materi hitam */
+            font-weight: bold; /* Membuat judul tebal */
+        }
+
         .custom-card {
             background-color: #ffffff;
             border-radius: 10px;
@@ -35,6 +50,20 @@
             text-align: center;
             width: 100%; /* Membuat card memanjang ke kanan */
             max-width: 100%; /* Menetapkan lebar maksimum agar 100% */
+        }
+
+        .custom-card p {
+            color: #000000; /* Warna teks isi hitam */
+        }
+
+        .btn-info {
+            background-color: #007bff; /* Warna biru pada tombol */
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-info:hover {
+            background-color: #0056b3; /* Warna biru lebih gelap saat hover */
         }
 
         .container {
@@ -51,6 +80,20 @@
             flex: 1; /* Membuat kolom mengambil ruang yang sama */
             margin-right: 15px; /* Menambahkan jarak di antara kolom */
             margin-bottom: 15px; /* Menambahkan jarak di bawah kolom */
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #007bff; /* Warna modal biru */
+            color: white;
+        }
+
+        .modal-body input {
+            border: 1px solid #007bff; /* Warna border input */
+        }
+
+        .alert-warning {
+            background-color: #f8d7da;
+            color: #721c24;
         }
 
         @media (max-width: 768px) {
@@ -121,7 +164,6 @@
 </div>
 
     <!-- Bootstrap core JS-->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>

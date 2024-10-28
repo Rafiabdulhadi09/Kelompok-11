@@ -18,7 +18,7 @@
 
     <style>
         body {
-            background-color: #eef4ff;
+            background-color: #f5f7fa;
             font-family: 'Nunito', sans-serif;
         }
 
@@ -57,7 +57,7 @@
         }
 
         .submateri-item {
-            background-color: #eef7ff;
+            background-color: #e6f2ff; /* Warna lembut biru */
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -66,6 +66,11 @@
             justify-content: space-between;
             border: 2px solid #007bff;
             position: relative;
+        }
+
+        .submateri-item.active {
+            background-color: #007bff; /* Warna biru untuk item aktif */
+            color: white;
         }
 
         .submateri-item img {
@@ -83,6 +88,10 @@
             margin: 0;
             color: #007bff;
             font-weight: bold;
+        }
+
+        .submateri-item.active h6 {
+            color: white;
         }
 
         .submateri-item p {
@@ -137,17 +146,6 @@
         }
     </style>
 </head>
-<style>
-    .submateri-item {
-    background-color: #ffc107; /* Warna default */
-    color: black;
-    }
-
-    .submateri-item.active {
-        background-color: #ff9800; /* Warna yang berbeda untuk submateri aktif */
-        color: white;
-    }
-</style>
 
 <body>
 
