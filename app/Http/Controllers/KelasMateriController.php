@@ -16,7 +16,7 @@ class KelasMateriController extends Controller
     public function index (){
         $kelas = Pembayaran::where('user_id', auth()->id())
         ->where('status', 'approved') 
-        ->with('kelas')->get();
+        ->with('kelas')->paginate(15);
         $kuis = Kuis::all();
         return view ('user.kelasmateri', compact('kelas','kuis'));
     }
@@ -51,7 +51,7 @@ class KelasMateriController extends Controller
         $submateris = Submateri::findOrFail($id);
         $materi = $submateris->materi;
         $data = $materi->submateri;
-        $submateri = SubMateri::where('id', $id)->where('materi_id', $materi_id)->get();
+        $submateri = SubMateri::where('id', $id)->where('materi_id', $materi_id)->paginate(10);
         
         return view('user.belajar', compact('submateri','data'),[
         'currentSubmateriId' => $id

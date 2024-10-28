@@ -17,7 +17,13 @@
     <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .table-responsive {
+    overflow-x: auto;
+}
+</style>
 </head>
+
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -63,7 +69,13 @@
                                                 <td>{{ $item->title }}</td>
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->description }}</td>
-                                                <td>poto</td>
+                                                <td>
+                                                    @if($item->image)
+                                                        <img src="{{ asset('storage/' . $item->image) }}" alt="Class Image" style="width: 100px; height: auto;">
+                                                    @else
+                                                        <p>No Image</p>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <a class="btn btn-warning" href="{{ route('materi', $item->id) }}">Lihat Materi</a>
                                                     <a class="btn btn-success" href="{{ route('lihat.kuis', $item->id) }}">Lihat Kuis</a>
@@ -87,7 +99,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -112,7 +123,6 @@
             </div>
         </div>
     </div>
-  
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
     <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>

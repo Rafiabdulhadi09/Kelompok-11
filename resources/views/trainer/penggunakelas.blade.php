@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-
+{{ $siswa->links('pagination::bootstrap-4') }}
     <script>
     function confirmDelete(event, Id) {
         event.preventDefault();
