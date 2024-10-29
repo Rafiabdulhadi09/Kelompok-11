@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\KelasTrainer;
 use App\Models\DataKelas;
 use App\Models\Materi;
 use Illuminate\Http\Request;
@@ -22,8 +23,9 @@ class DataKelasController extends Controller
     {
         // Mengambil semua data dari tabel items
         $items = DataKelas::with('trainers')->paginate(10);
+        $trainerkelas = KelasTrainer::all();
         // Mengirim data ke view
-        return view('admin.DataKelas', compact('items'));
+        return view('admin.DataKelas', compact('items','trainerkelas'));
     }
     public function kelas()
     {
@@ -163,6 +165,35 @@ class DataKelasController extends Controller
         $kelas->trainers()->attach($trainer->id);
 
         return redirect('/admin/DataKelas')->with('success', 'Trainer berhasil ditambahkan.');
+    }
+    public function edit($id)
+    {
+        $trainerkelas = KelasTrainer::findOrFail($id);
+        $trainers = User::where('role', 'trainer')->get(); // assuming 'User' is the trainer model and 'role' column identifies trainers
+    
+        return view('admin.EditTrainerKelas', compact('trainerkelas', 'trainers'));
+    }
+    
+    public function updateTrainerToClass(Request $request, $id)
+    {
+    $request->validate([
+        'trainer_id' => 'required|exists:users,id',
+        'kelas_id' => 'required|exists:kelas,id',
+    ]);
+
+    // Cari data berdasarkan id
+    $trainerkelas = KelasTrainer::find($id);
+
+    if ($trainerkelas) {
+        // Update data
+        $trainerkelas->user_id = $request->trainer_id;
+        $trainerkelas->kelas_id = $request->kelas_id;
+        $trainerkelas->save();
+
+        return redirect()->route('trainerkelas.index')->with('message', 'Data Trainer berhasil diperbarui.');
+    } else {
+        return redirect()->back()->with('error', 'Data tidak ditemukan.');
+    }
     }
 
 }

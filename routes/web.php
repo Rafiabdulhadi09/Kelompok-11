@@ -113,5 +113,10 @@ Route::middleware(['guest'])->group(function(){
     Route::get('admin/materi/{apaaja}/submateri',[ SubmateriController::class, 'submateri_admin'])->name('admin.materi.submateri')->middleware('userAkses:admin');
     Route::get('admin/setting/{id}', [SosialMediaController::class, 'index'])->name('admin.setting')->middleware('userAkses:admin');
     Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
+    Route::get('/edit/trainer/kelas/{id}', [DataKelasController::class, 'edit'])->name('edit.trainer.kelas')->middleware('userAkses:admin');
+    Route::put('/trainerkelas/{id}', [DataKelasController::class, 'updateTrainerToClass'])->name('updateTrainerToClass')->middleware('userAkses:admin');
+    Route::get('/pembelian/chart-data', [PembelianController::class, 'getChartData'])->name('pembelian.chart.data')->middleware('userAkses:admin');
+
+    
 });
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');

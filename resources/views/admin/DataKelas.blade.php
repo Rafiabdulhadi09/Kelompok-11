@@ -126,6 +126,11 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                            @foreach($trainerkelas as $trainer)
+                                            <a href="{{ route('edit.trainer.kelas', $trainer->id) }}" class="btn btn-info btn-action">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            @endforeach
                                         </td>
                                     </tr>
                                 @endforeach
