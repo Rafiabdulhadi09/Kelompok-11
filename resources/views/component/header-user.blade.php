@@ -2,7 +2,9 @@
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
     <a href="index.html" class="logo d-flex align-items-center me-auto">
         <img src="{{ asset('assets/img/logo.png') }}" alt="">
-        <h1 class="sitename">Kelas Online</h1>
+        @foreach ($sosmed as $item)
+                  <h1 class="sitename">{{ $item->nama_perusahaan }}</h1> 
+        @endforeach
     </a>
 
     <nav id="navmenu" class="navmenu">
