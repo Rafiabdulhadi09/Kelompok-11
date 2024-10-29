@@ -8,6 +8,7 @@ use App\Models\KuisUser;
 use App\Models\DataKelas;
 use App\Models\SubMateri;
 use App\Models\Pembayaran;
+use App\Models\MediaSosial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +19,8 @@ class KelasMateriController extends Controller
         ->where('status', 'approved') 
         ->with('kelas')->paginate(15);
         $kuis = Kuis::all();
-        return view ('user.kelasmateri', compact('kelas','kuis'));
+        $sosmed = MediaSosial::all();
+        return view ('user.kelasmateri', compact('kelas','kuis','sosmed'));
     }
 
     public function materi($id, $kelasId, $userId)

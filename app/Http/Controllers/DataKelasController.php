@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\KelasTrainer;
-use App\Models\DataKelas;
 use App\Models\Materi;
+use App\Models\DataKelas;
+use App\Models\MediaSosial;
+use App\Models\KelasTrainer;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,8 @@ class DataKelasController extends Controller
     public function kursus()
     {
         $data = DataKelas::all();
-        return view('kelas', compact('data'));
+        $sosialmedia = MediaSosial::all();
+        return view('kelas', compact('data','sosialmedia'));
     }
     public function index()
     {
@@ -83,9 +85,10 @@ class DataKelasController extends Controller
     {
        $data = DataKelas::whereDoesntHave('pembayaran', function ($query) {
         $query->where('user_id', auth()->id())->where('status', 'approved');
-    })->get();
+        })->get();
+        $sosmed = MediaSosial::all();
 
-        return view('user.kelas', compact('data'));
+        return view('user.kelas', compact('data','sosmed'));
     }
     
     public function editkursus($id)

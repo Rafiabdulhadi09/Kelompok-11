@@ -292,7 +292,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
         <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">SMK NEGERI 1 KAWALI</span>
+            <span class="sitename">{{ $item->nama_perusahaan }}</span>
           </a>
           <div class="footer-contact pt-3">
             <p>{{ $item->alamat }}</p>

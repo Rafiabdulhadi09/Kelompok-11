@@ -106,12 +106,14 @@ public function filter(Request $request){
     ->where('created_at', '>=', $start_date)
     ->where('created_at', '<=', $end_date)
     ->get();
-     $totalHarga = Pembayaran::where('status', 'approved')
-        ->with('kelas')
-        ->get()
-        ->sum(function($pembelian) {
-            return $pembelian->kelas ? $pembelian->kelas->price : 0;
-        });
+    $totalHarga = Pembayaran::where('status', 'approved')
+    ->where('created_at', '>=', $start_date)
+    ->where('created_at', '<=', $end_date)
+    ->with('kelas')
+    ->get()
+    ->sum(function($pembelian) {
+        return $pembelian->kelas ? $pembelian->kelas->price : 0;
+    });
 
     return view('admin.DataPembelian',compact('data','totalHarga'));
     

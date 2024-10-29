@@ -4,7 +4,9 @@
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">Kelas Online</h1>
+        @foreach ($sosialmedia as $item)
+            <h1 class="sitename">{{ $item->nama_perusahaan }}</h1>
+        @endforeach
       </a>
 
       <nav id="navmenu" class="navmenu">
