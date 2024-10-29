@@ -35,7 +35,8 @@ class KelasMateriController extends Controller
 
         $isCompleted = $totalMateri == $completedKuisCount;
         $submateri = DataKelas::with('materi')->findOrFail($id);
-        return view('user.materi', compact('submateri'),[
+        $sosmed = MediaSosial::all();
+        return view('user.materi', compact('submateri','sosmed'),[
             'materiList' => $materiList,
             'isCompleted' => $isCompleted, 
             'kelasId' => $kelasId
@@ -44,7 +45,9 @@ class KelasMateriController extends Controller
     public function submateri($id)
     {
         $submateri = Materi::with('submateri')->findOrFail($id);
-        return view('user.submateri', compact('submateri'));
+        $sosmed = MediaSosial::all();
+        return view('user.submateri', compact('submateri','sosmed'));
+
     }
     public function belajar($id, $materi_id)
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\View\View;
+use App\Models\MediaSosial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,9 @@ class ProfileController extends Controller
     }   
     public function index()
     {
+        $sosmed = MediaSosial::all();
         $user = Auth::user();
-        return view('user.profile', compact('user'));
+        return view('user.profile', compact('user','sosmed'));
     }
     public function edit(User $edit)
     {
