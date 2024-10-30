@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kuis</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +16,7 @@
         label { font-size: 16px; color: #555; }
         button { margin-top: 20px; background-color: #4e73df; color: white; font-weight: 500; font-size: 18px; letter-spacing: 1px; }
         button:hover { background-color: #3b5b9a; }
+        .card { margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -25,32 +25,34 @@
             <div class="alert alert-success mt-4">{{ session('message') }}</div>
         @endif
         <h2 class="text-center mb-4">Selamat Mengerjakan</h2>
-        <form action="{{ route('kirim.kuis', $materi->id) }}" method="POST">
+        <form action="{{ route('kirim.kuis', $kuis->id) }}" method="POST">
             @csrf
-            @foreach ($kuis as $item)
-                <h3>{{ $item->pertanyaan }}</h3>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_1 }}" id="pertanyaan_{{ $item->id }}_1">
-                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_1">{{ $item->pilihan_1 }}</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_2 }}" id="pertanyaan_{{ $item->id }}_2">
-                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_2">{{ $item->pilihan_2 }}</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_3 }}" id="pertanyaan_{{ $item->id }}_3">
-                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_3">{{ $item->pilihan_3 }}</label>
-                </div>
-            @endforeach
-            @if ($kuis->currentPage() == $kuis->lastPage())
-                <button type="submit" class="btn btn-primary btn-block">Kirim</button>
-            @else
-                <a href="{{ $kuis->nextPageUrl() }}" class="btn btn-primary btn-block">Kuis Selanjutnya</a>
-            @endif
+            <div class="row">
+                @foreach ($kuis->kuis as $index => $item)
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>{{ $index + 1 }}. {{ $item->pertanyaan }}</h3> <!-- Nomor pertanyaan ditambahkan di sini -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_1 }}" id="pertanyaan_{{ $item->id }}_1">
+                                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_1">{{ $item->pilihan_1 }}</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_2 }}" id="pertanyaan_{{ $item->id }}_2">
+                                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_2">{{ $item->pilihan_2 }}</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pertanyaan[{{ $item->id }}]" value="{{ $item->pilihan_3 }}" id="pertanyaan_{{ $item->id }}_3">
+                                    <label class="form-check-label" for="pertanyaan_{{ $item->id }}_3">{{ $item->pilihan_3 }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim</button>
         </form>
     </div>
-    <br>
-    {{ $kuis->links('pagination::bootstrap-4') }}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

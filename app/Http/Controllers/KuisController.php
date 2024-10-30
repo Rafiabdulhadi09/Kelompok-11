@@ -14,10 +14,8 @@ class KuisController extends Controller
 {
     public function index($kelas_id)
 {
-    $kuis = Kuis::where('kelas_id', $kelas_id)->paginate(1);
-    $materi = DataKelas::findOrFail($kelas_id);
-
-    return view('user.kuis', compact('kuis', 'materi'));
+    $kuis = DataKelas::with('kuis')->findOrFail($kelas_id);
+    return view('user.kuis', compact('kuis'));
 }
 public function create(Request $request)
 {
