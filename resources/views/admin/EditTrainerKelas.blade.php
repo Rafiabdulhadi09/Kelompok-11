@@ -55,7 +55,7 @@
 
 <body>
     <div class="form-container">
-        <h2>Edit Trainer untuk Kelas {{ $trainerkelas->name }}</h2>
+        <h2>Edit Trainer untuk Kelas {{ $kelas->name }}</h2>
 
         <!-- Menampilkan pesan jika ada -->
         @if(session('message'))
@@ -64,24 +64,22 @@
             </div>
         @endif
 
-        <form action="{{ route('updateTrainerToClass', $trainerkelas->id) }}" method="POST">
+        <form action="{{ route('updateTrainerToClass', $kelas->id) }}" method="POST">
             @csrf
-            @method('PUT') <!-- Method PUT digunakan untuk update -->
+            @method('PUT')
 
             <div class="mb-3">
                 <label for="kelas_id">Pilih Kelas</label>
                 <select class="form-select" name="kelas_id" id="kelas_id" required>
-                    <option value="{{ $trainerkelas->kelas_id }}" selected>{{ $trainerkelas->kelas_id }}</option>
+                    <option value="{{ $kelas->id }}">{{ $kelas->id }}</option>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="trainer_id">Pilih Trainer</label>
-                <select name="trainer_id" id="trainer_id" class="form-control" required>
+                <label for="user_id">Pilih Trainer</label>
+                <select name="user_id" id="user_id" class="form-control" required>
                     @foreach($trainers as $trainer)
-                        <option value="{{ $trainer->id }}" {{ $trainerkelas->user_id == $trainer->id ? 'selected' : '' }}>
-                            {{ $trainer->name }}
-                        </option>
+                        <option value="{{ $trainer->id }}">{{ $trainer->name }}</option>
                     @endforeach
                 </select>
             </div>

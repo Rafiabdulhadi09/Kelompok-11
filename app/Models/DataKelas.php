@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DataKelas extends Model
 {
     use HasFactory;
+     protected $table = 'data_kelas';
+    protected $fillable = [
+        'id',
+        'title',
+        'price',
+        'image',
+        'description'
+    ];
    
     public function scopeNotApproved($query)
     {

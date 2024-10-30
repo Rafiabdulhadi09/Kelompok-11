@@ -74,13 +74,6 @@ class DataKelasController extends Controller
     }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    /**
-     * Display the specified resource.
-     */
     public function show()
     {
        $data = DataKelas::whereDoesntHave('pembayaran', function ($query) {
@@ -171,34 +164,25 @@ class DataKelasController extends Controller
     }
     public function edit($id)
     {
-        $trainerkelas = KelasTrainer::findOrFail($id);
-        $trainers = User::where('role', 'trainer')->get(); // assuming 'User' is the trainer model and 'role' column identifies trainers
+        $kelas = DataKelas::findOrFail($id);
+        $trainers = User::where('role', 'trainer')->get(); 
     
-        return view('admin.EditTrainerKelas', compact('trainerkelas', 'trainers'));
+        return view('admin.EditTrainerKelas', compact('kelas', 'trainers'));
     }
     
     public function updateTrainerToClass(Request $request, $id)
     {
-    $request->validate([
-        'trainer_id' => 'required|exists:users,id',
-        'kelas_id' => 'required|exists:kelas,id',
-    ]);
-
-    // Cari data berdasarkan id
-    $trainerkelas = KelasTrainer::find($id);
-
-    if ($trainerkelas) {
-        // Update data
-        $trainerkelas->user_id = $request->trainer_id;
-        $trainerkelas->kelas_id = $request->kelas_id;
-        $trainerkelas->save();
-
-        return redirect()->route('trainerkelas.index')->with('message', 'Data Trainer berhasil diperbarui.');
-    } else {
-        return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        $datakursus = KelasTrainer::findOrFail($id);
+        $request->validate([
+            'user_id'=>'required',
+            'kelas_id'=>'required',
+        ]);
+        $datakursus->update([
+            'user_id'=> $request->user_id,
+            'kelas_id'=> $request->kelas_id,
+        ]);
+        return redirect()->route('datakelas')->with('success', 'Data sudah berhasil di edit');
     }
-    }
-
 }
 
 
