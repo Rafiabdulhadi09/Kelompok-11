@@ -66,19 +66,19 @@
                                          <tbody>
                                           @foreach ($kelas as $item)
                                         <tr>
-                                                <td>{{ $item->kelas->title }}</td>
-                                                <td>{{ $item->kelas->price }}</td>
-                                                <td>{{ $item->kelas->description }}</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>{{ $item->price }}</td>
+                                                <td>{{ $item->description }}</td>
                                                 <td>
-                                                    @if($item->kelas->image)
-                                                        <img src="{{ asset('storage/' . $item->kelas->image) }}" alt="Class Image" style="width: 100px; height: auto;">
+                                                    @if($item->image)
+                                                        <img src="{{ asset('storage/' . $item->image) }}" alt="Class Image" style="width: 100px; height: auto;">
                                                     @else
                                                         <p>No Image</p>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-warning" href="{{ route('materi', $item->kelas->id) }}">Lihat Materi</a>
-                                                    <a class="btn btn-success" href="{{ route('lihat.kuis', $item->kelas->id) }}">Lihat Kuis</a>
+                                                    <a class="btn btn-warning" href="{{ route('materi', $item->id) }}">Lihat Materi</a>
+                                                    <a class="btn btn-success" href="{{ route('lihat.kuis', $item->id) }}">Lihat Kuis</a>
                                                 </td>
                                             </td>
                                         </tr>

@@ -21,7 +21,7 @@ class AdminController extends Controller
     }
     function trainer(DataKelas $kelas){
         $trainer= Auth::user();
-        $jumlah_kelas = $trainer->trainerKelas->count();
+        $jumlah_kelas = $trainer->kelas->count();
         $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
         $kelasIds = $kelas->pluck('id');
         $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)

@@ -99,9 +99,10 @@ class MateriController extends Controller
 
         public function Trainer()
     {
-        $trainer = User::findOrFail(auth()->user()->id);
+            $trainer = User::findOrFail(auth()->user()->id);
 
-        $kelas = $trainer->trainerKelas()->with('kelas')->get(); 
+            $kelas = $trainer->kelas;
+
         return view('trainer.tambahmateri', compact('kelas','trainer',));
     }
 
