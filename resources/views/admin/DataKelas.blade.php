@@ -113,7 +113,7 @@
                                         </td>
                                         <td style="vertical-align: middle; padding: 25px;" class="text-center">
                                             <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-warning">Materi</a>
-                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-info">Kuis</a>
+                                            <a href="{{ route('kuis.admin', $item->id) }}" class="btn btn-sm btn-info">Kuis</a>
                                         </td>
 
                                         <td class="table-action-btns" style="vertical-align: middle; padding:25px;">

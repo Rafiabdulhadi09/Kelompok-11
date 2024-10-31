@@ -99,12 +99,9 @@ class MateriController extends Controller
 
         public function Trainer()
     {
-          // Mengambil semua data dari tabel items
-            $trainer = User::findOrFail(auth()->user()->id);
-    // Ambil semua kelas yang terkait dengan trainer tersebut
-            $kelas = $trainer->trainerKelas;
+        $trainer = User::findOrFail(auth()->user()->id);
 
-        // Mengirim data ke view
+        $kelas = $trainer->trainerKelas()->with('kelas')->get(); 
         return view('trainer.tambahmateri', compact('kelas','trainer',));
     }
 

@@ -115,5 +115,10 @@ public function create(Request $request)
         // Redirect atau berikan respon sukses
         return redirect()->back()->with('success', 'Kuis berhasil diperbarui');
     }
+    public function kuisadmin($id)
+    {
+        $kuis = DataKelas::with('kuis')->findOrFail($id);
+        return view('admin.DataKuis', compact('kuis'));
+    }
 }
 

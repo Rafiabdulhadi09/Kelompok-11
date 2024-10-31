@@ -118,6 +118,7 @@ Route::middleware(['guest'])->group(function(){
     Route::put('/trainerkelas/{id}', [DataKelasController::class, 'updateTrainerToClass'])->name('updateTrainerToClass')->middleware('userAkses:admin');
     Route::get('/admin/{kelas_id}/trainerkelas', [TrainerkelasController::class, 'index'])->name('kelas.trainer')->middleware('userAkses:admin');
     Route::delete('/admin/Trainerkelas/{id}/delete', [TrainerkelasController::class, 'delete'])->name('trainerkelas.delete')->middleware('userAkses:admin');
+    Route::get('/admin/{id}/datakuis', [KuisController::class, 'kuisadmin'])->name('kuis.admin')->middleware('userAkses:admin');
 
     
 });
