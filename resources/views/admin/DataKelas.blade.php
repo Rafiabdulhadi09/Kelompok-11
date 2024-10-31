@@ -12,16 +12,21 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <style>
         .btn-custom {
             background-color: #4e73df;
             border-color: #4e73df;
+            color: white;
         }
 
         .btn-custom:hover {
             background-color: #224abe;
             border-color: #224abe;
+        }
+
+        .btn-add, .btn-warning, .btn-danger, .btn-info {
+            color: white;
+            font-weight: bold;
         }
 
         .search-bar {
@@ -46,8 +51,8 @@
         }
 
         .table-action-btns button {
-        height: 36px;
-        width: 36px;
+            height: 36px;
+            width: 36px;
         }
     </style>
 </head>
@@ -61,12 +66,8 @@
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Kelas</h1>
                     <div>
-                        <button class="btn btn-custom">
-                            <a href="{{ url('create/kelas') }}" class="text-white font-weight-bold">Tambah Kelas +</a>
-                        </button>
-                        <button class="btn btn-warning">
-                            <a href="{{ route('FormAddTrainer') }}" class="text-white font-weight-bold">Tambah Trainer Ke Kelas +</a>
-                        </button>
+                        <a href="{{ url('create/kelas') }}" class="btn btn-custom btn-add">Tambah Kelas +</a>
+                        <a href="{{ route('FormAddTrainer') }}" class="btn btn-warning btn-add">Tambah Trainer Ke Kelas +</a>
                     </div>
                 </div>
 
@@ -88,9 +89,8 @@
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Judul Kelas</th>
-                                    <th class="text-center">harga</th>
+                                    <th class="text-center">Harga</th>
                                     <th class="text-center">Deskripsi</th>
-                                    <th class="text-center">Trainer</th>
                                     <th class="text-center">Lihat</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
@@ -103,20 +103,10 @@
                                         <td class="text-center">{{ formatRupiah($item->price) }}</td>
                                         <td class="text-center">{{ $item->description }}</td>
                                         <td class="text-center">
-                                        @if ($item->trainers->isNotEmpty())
-                                            @foreach ($item->trainers as $trainer)
-                                                {{ $trainer->name }} @if (!$loop->last), @endif
-                                            @endforeach
-                                        @else
-                                        Trainer belum di tambahkan
-                                        @endif
+                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-warning btn-sm">Materi</a>
+                                            <a href="{{ route('kuis.admin', $item->id) }}" class="btn btn-info btn-sm">Kuis</a>
                                         </td>
-                                        <td style="vertical-align: middle; padding: 25px;" class="text-center">
-                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-warning">Materi</a>
-                                            <a href="{{ route('kuis.admin', $item->id) }}" class="btn btn-sm btn-info">Kuis</a>
-                                        </td>
-
-                                        <td class="table-action-btns" style="vertical-align: middle; padding:25px;">
+                                        <td class="table-action-btns">
                                             <a href="{{ route('edit.datakursus', $item->id) }}" class="btn btn-info btn-action">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
@@ -127,7 +117,9 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
-                                                <a href="{{ route('kelas.trainer', $item->id) }}" class="btn btn-sm btn-primary">Lihat</a>
+                                            <a href="{{ route('kelas.trainer', $item->id) }}" class="btn btn-custom rounded-pill shadow-sm px-3 py-2">
+                                                <i class="fas fa-user"></i> Lihat Trainer
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -144,6 +136,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Modal Logout -->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -181,17 +174,16 @@
     }
     </script>
 
-    <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
-    <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/js-admin/sb-admin-2.min.js"></script>
-    <script src="assets/vendor-admin/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/vendor-admin/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/js-admin/demo/datatables-demo.js"></script>
-            <!-- JavaScript -->
-  
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+    <script src="{{asset('assets/vendor-admin/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/demo/datatables-demo.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    
 </body>
 </html>

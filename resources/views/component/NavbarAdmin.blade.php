@@ -1,13 +1,34 @@
+<style>
+    .sidebar-brand-text {
+    font-weight: bold; /* Menebalkan teks */
+    font-size: 1.10rem; /* Ukuran font utama */
+}
+
+.sidebar-brand-text sup {
+    font-size: 0.75rem; /* Ukuran font untuk sup */
+}
+.sidebar-brand-icon i {
+    transition: transform 0.3s; /* Menambahkan efek transisi */
+}
+
+.sidebar-brand-icon i:hover {
+    transform: scale(1.1); /* Membesarkan ikon saat hover */
+}
+
+</style>
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/admin') }}">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user fa-2x"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin Kelas <sup>Online</sup></div>
+        <div class="sidebar-brand-text mx-3">
+            Admin Kelas <sup>Online</sup>
+        </div>
     </a>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -52,20 +73,17 @@
                    href="{{ url('admin/DataKelas') }}">
                     <i class="fas fa-book mr-2"></i>Data Kelas
                 </a>
+                <a class="collapse-item {{ request()->is('admin/data-pembelian') ? 'active bg-primary text-white' : '' }}" 
+                   href="{{ url('admin/data-pembelian') }}">
+                    <i class="fas fa-credit-card mr-2"></i>Data Pembelian
+                </a>
             </div>
         </div>
     </li>
 
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Data Pembelian -->
-    <!-- Nav Item - Data Pembelian -->
-    <li class="nav-item {{ request()->is('admin/data-pembelian') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ url('/admin/data-pembelian') }}">
-            <i class="fas fa-fw fa-credit-card"></i>
-            <span>Data Pembelian</span>
-        </a>
-    </li>
+    
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{ request()->is('admin/setting') ? 'active' : '' }}">
         <a class="nav-link" href="{{url('admin/setting/1') }}">

@@ -179,6 +179,11 @@
         </div>
     </div>
 
+    <script src="{{ asset('assets/vendor-admin/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor-admin/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
     <script src="assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>
