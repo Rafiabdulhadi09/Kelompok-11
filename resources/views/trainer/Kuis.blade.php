@@ -32,8 +32,9 @@
                        <div class="card-header py-3">
                             <h1>Data Soal Pada Kelas : {{ $kelas->title }}</h1>
                             <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#TambahKuis">
-                                Tambah Kuis
+                                <i class="fas fa-plus"></i> Tambah Kuis
                             </button>
+
                         </div>
                         @include('component.truefalse')
                         <div class="card-body">
@@ -50,22 +51,29 @@
                                         </tr>
                                     </thead>
                                     @foreach ($kelas->kuis as $item)
-                                         <tbody>
-                                              <td>{{ $item->pertanyaan }}</td>
-                                              <td>{{ $item->pilihan_1 }}</td>
-                                              <td>{{ $item->pilihan_2 }}</td>
-                                              <td>{{ $item->pilihan_3 }}</td>
-                                              <td>{{ $item->jawaban }}</td>
-                                              <td>
-                                                  <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#editKuisModal-{{ $item->id }}">Edit</button>
-                                                 <form action="{{ route('delete.kuis', $item->id) }}" method="POST" style="display: inline;">
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $item->pertanyaan }}</td>
+                                            <td>{{ $item->pilihan_1 }}</td>
+                                            <td>{{ $item->pilihan_2 }}</td>
+                                            <td>{{ $item->pilihan_3 }}</td>
+                                            <td>{{ $item->jawaban }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#editKuisModal-{{ $item->id }}">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <form action="{{ route('delete.kuis', $item->id) }}" method="POST" id="delete-form-{{ $item->id }}" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    <button type="button" class="btn btn-danger" onclick="confirmDelete(event, {{ $item->id }})">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
                                                 </form>
-                                              </td>
-                                         </tbody>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                     @endforeach
+
                                 </table>
                             </div>
                         </div>
@@ -124,8 +132,12 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-primary">Kirim Kuis</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                <i class="fas fa-times"></i> Batal
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Kirim Kuis
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -189,26 +201,29 @@
     </div>
     @endforeach
     <script>
-    function confirmDelete(event, Id) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data yang dihapus tidak bisa dikembalikan!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Aksi untuk submit form hapus data
-                document.getElementById('delete-form-' + Id).submit();
-            }
-        })
-    }
+function confirmDelete(event, Id) {
+    event.preventDefault(); // Prevent the default form submission
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Data yang dihapus tidak bisa dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Aksi untuk submit form hapus data
+            document.getElementById('delete-form-' + Id).submit();
+        }
+    });
+}
 </script>
 
+
     <!-- Bootstrap core JavaScript-->
+     <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <!-- Bootstrap and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

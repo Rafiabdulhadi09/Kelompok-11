@@ -46,10 +46,9 @@
         }
 
         .table-action-btns button {
-        height: 36px;
-        width: 36px;
+            height: 36px;
+            width: 36px;
         }
-
 
         /* Ensure action column has consistent width */
         .table .action-column {
@@ -65,8 +64,6 @@
                 width: 100%;
                 margin-bottom: 10px;
             }
-
-            
         }
     </style>
 </head>
@@ -95,25 +92,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                  @if($trainerkelas->isNotEmpty())
-                                @foreach ($trainerkelas as $item)
+                                @if($trainerkelas->isNotEmpty())
+                                    @foreach ($trainerkelas as $item)
+                                        <tr>
+                                            <td>{{ $item->user->name ?? '-' }}</td>
+                                            <td>{{ $item->kelas->title ?? '-' }}</td>
+                                            <td>
+                                                <form id="delete-form-{{ $item->id }}" action="{{ route('trainerkelas.delete', $item->id) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger" title="Hapus" onclick="confirmDelete(event, {{ $item->id }})">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     <tr>
-                                        <td>{{ $item->user->name ?? '-' }}</td>
-                                        <td>{{ $item->kelas->title ?? '-' }}</td>
-                                        <td>
-                                            <form action="{{ route('trainerkelas.delete', $item->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit">Hapus</button>
-                                            </form>
-                                        </td>
+                                        <td colspan="3" class="text-center">Data tidak tersedia</td>
                                     </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="3" class="text-center">Data tidak tersedia</td>
-                                </tr>
-                            @endif
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -145,6 +144,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function confirmDelete(event, id) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data yang dihapus tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>
