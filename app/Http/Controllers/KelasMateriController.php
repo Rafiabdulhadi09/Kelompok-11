@@ -18,9 +18,8 @@ class KelasMateriController extends Controller
         $kelas = Pembayaran::where('user_id', auth()->id())
         ->where('status', 'approved') 
         ->with('kelas')->paginate(15);
-        $kuis = Kuis::all();
         $sosmed = MediaSosial::all();
-        return view ('user.kelasmateri', compact('kelas','kuis','sosmed'));
+        return view ('user.kelasmateri', compact('kelas','sosmed'));
     }
 
     public function materi($id, $kelasId, $userId)
@@ -36,7 +35,8 @@ class KelasMateriController extends Controller
         $isCompleted = $totalMateri == $completedKuisCount;
         $submateri = DataKelas::with('materi')->findOrFail($id);
         $sosmed = MediaSosial::all();
-        return view('user.materi', compact('submateri','sosmed'),[
+        $kuis = Kuis::all();
+        return view('user.materi', compact('submateri','sosmed','kuis'),[
             'materiList' => $materiList,
             'isCompleted' => $isCompleted, 
             'kelasId' => $kelasId

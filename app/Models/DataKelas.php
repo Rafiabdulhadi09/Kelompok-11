@@ -16,7 +16,10 @@ class DataKelas extends Model
         'image',
         'description'
     ];
-   
+    public function trainerKelas()
+    {
+        return $this->hasMany(KelasTrainer::class, 'kelas_id', 'id');
+    }
     public function scopeNotApproved($query)
     {
         return $query->where('status', '!=', 'approved');
@@ -42,4 +45,5 @@ class DataKelas extends Model
     {
         return $this->hasMany(Kuis::class, 'kelas_id');
     }
+   
 }

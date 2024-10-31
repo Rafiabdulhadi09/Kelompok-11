@@ -14,5 +14,13 @@ class KelasTrainer extends Model
         'user_id',
         'kelas_id'
     ];
-    
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(DataKelas::class);
+    }
 }

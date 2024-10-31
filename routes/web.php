@@ -16,6 +16,7 @@ use App\Http\Controllers\KelasMateriController;
 use App\Http\Controllers\KuisController;
 use App\Http\Controllers\ProfileTrainerController;
 use App\Http\Controllers\SosialMediaController;
+use App\Http\Controllers\TrainerkelasController;
 use App\Models\Kuis;
 
 /*
@@ -115,7 +116,8 @@ Route::middleware(['guest'])->group(function(){
     Route::put('/update/{id}/sosialmedia', [SosialMediaController::class, 'update'])->name('update_sosialmedia')->middleware('userAkses:admin');
     Route::get('/edit/trainer/kelas/{id}', [DataKelasController::class, 'edit'])->name('edit.trainer.kelas')->middleware('userAkses:admin');
     Route::put('/trainerkelas/{id}', [DataKelasController::class, 'updateTrainerToClass'])->name('updateTrainerToClass')->middleware('userAkses:admin');
-    Route::get('/pembelian/chart-data', [PembelianController::class, 'getChartData'])->name('pembelian.chart.data')->middleware('userAkses:admin');
+    Route::get('/admin/{kelas_id}/trainerkelas', [TrainerkelasController::class, 'index'])->name('kelas.trainer')->middleware('userAkses:admin');
+    Route::delete('/admin/Trainerkelas/{id}/delete', [TrainerkelasController::class, 'delete'])->name('trainerkelas.delete')->middleware('userAkses:admin');
 
     
 });

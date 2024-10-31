@@ -130,12 +130,14 @@
                     </div>
                 @endforeach
                   @if ($isCompleted >= 80)
-                     <a href="javascript:void(0)" class="btn btn-info btn-block" data-bs-toggle="modal" data-bs-target="#namaUserModal">Cetak Sertifikat</a>
+                     <a href="javascript:void(0)" class="btn btn-success btn-block text-white" data-bs-toggle="modal" data-bs-target="#namaUserModal">Cetak Sertifikat</a>
                     @else
-                        <p>Anda harus mencapai nilai minimal 80 untuk melanjutkan materi berikutnya.</p>
+                    @if($kuis->isNotEmpty())
+                        <a class="btn btn-primary" href="{{ route('user.kuis', $kuis->first()->kelas_id) }}">Jawab Kuis</a>
                     @endif
-            </div>
+                @endif
         @endif
+            </div>
     </div>
 
     <!-- Modal -->

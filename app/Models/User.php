@@ -28,9 +28,9 @@ class User extends Authenticatable
         'role',
         'created_at'
     ]; 
-    public function trainerKelas()
+         public function trainerKelas()
     {
-        return $this->belongsToMany(DataKelas::class, 'trainerkelas', 'user_id', 'kelas_id');
+        return $this->hasMany(KelasTrainer::class, 'kelas_id');
     }
 
         public function kelas()

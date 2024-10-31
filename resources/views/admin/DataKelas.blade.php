@@ -103,16 +103,17 @@
                                         <td class="text-center">{{ formatRupiah($item->price) }}</td>
                                         <td class="text-center">{{ $item->description }}</td>
                                         <td class="text-center">
-                                            @if($item->trainers->isNotEmpty())
-                                                @foreach($item->trainers as $trainer)
-                                                    {{ $trainer->name }}@if(!$loop->last), @endif
-                                                @endforeach
-                                            @else
-                                                <em>Belum ada trainer</em>
-                                            @endif
+                                        @if ($item->trainers->isNotEmpty())
+                                            @foreach ($item->trainers as $trainer)
+                                                {{ $trainer->name }} @if (!$loop->last), @endif
+                                            @endforeach
+                                        @else
+                                        Trainer belum di tambahkan
+                                        @endif
                                         </td>
                                         <td style="vertical-align: middle; padding: 25px;" class="text-center">
                                             <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-warning">Materi</a>
+                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-sm btn-info">Kuis</a>
                                         </td>
 
                                         <td class="table-action-btns" style="vertical-align: middle; padding:25px;">
@@ -126,11 +127,7 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
-                                            @foreach($trainerkelas as $trainer)
-                                            <a href="{{ route('edit.trainer.kelas', $trainer->id) }}" class="btn btn-info btn-action">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            @endforeach
+                                                <a href="{{ route('kelas.trainer', $item->id) }}" class="btn btn-sm btn-primary">Lihat</a>
                                         </td>
                                     </tr>
                                 @endforeach
