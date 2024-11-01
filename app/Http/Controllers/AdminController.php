@@ -19,21 +19,28 @@ class AdminController extends Controller
         $sosmed = MediaSosial::all();
         return view('user/index', compact('user','sosmed'));
     }
-    function trainer(DataKelas $kelas){
-        $trainer= Auth::user();
-        $jumlah_kelas = $trainer->kelas->count();
-        $kelas = KelasTrainer::where('user_id', $trainer->id)->get();
-        $kelasIds = $kelas->pluck('id');
+    function trainer(DataKelas $kelas) {
+        $trainer = Auth::user();
+    
+        $kelasTrainer = KelasTrainer::where('user_id', $trainer->id)->get();
+        $kelasIds = $kelasTrainer->pluck('kelas_id');  
+    
+        $jumlah_kelas = $kelasTrainer->count();
+    
         $siswa = Pembayaran::whereIn('kelas_id', $kelasIds)
             ->where('status', 'approved')
             ->with('user')
-            ->get(); 
+            ->get();
         $totalSiswa = $siswa->count();
-        $totalMateri = Materi::whereIn('kelas_id', $kelasIds)->count();
+    
         $materi = Materi::whereIn('kelas_id', $kelasIds)->get();
+        $totalMateri = $materi->count();
+    
         $totalSubmateri = Submateri::whereIn('materi_id', $materi->pluck('id'))->count();
-        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'totalSubmateri','totalSiswa','totalMateri'));
+    
+        return view('trainer/index', compact('trainer', 'jumlah_kelas', 'totalSiswa', 'totalMateri', 'totalSubmateri'));
     }
+    
     function admin(){
         $jumlah_user = User::where('role', 'user')->count();
         $jumlah_trainer =User::where('role','trainer')->count();
