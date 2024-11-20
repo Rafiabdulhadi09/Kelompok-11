@@ -89,6 +89,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Pertanyaan</th>
                                     <th>Pilihan 1</th>
                                     <th>Pilihan 2</th>
@@ -100,6 +101,7 @@
                                   @if($kuis->kuis->isNotEmpty())
                                 @foreach ($kuis->kuis as $item)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->pertanyaan }}</td>
                                         <td>{{ $item->pilihan_1 }}</td>
                                         <td>{{ $item->pilihan_2 }}</td>
