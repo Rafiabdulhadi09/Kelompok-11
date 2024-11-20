@@ -15,6 +15,5 @@ class KuisUser extends Model
         'kelas_id',
         'nilai',
         'status'
-        
     ];
 }

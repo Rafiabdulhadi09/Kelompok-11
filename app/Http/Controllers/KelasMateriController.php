@@ -22,25 +22,27 @@ class KelasMateriController extends Controller
         return view ('user.kelasmateri', compact('kelas','sosmed'));
     }
 
-    public function materi($id, $kelasId, $userId)
+    public function materi($kelasId, $userId)
     {   
-        $materiList = Materi::where('kelas_id', $kelasId)->get();
+       // Ambil data materi, sertifikat, kuis, dan nilai user
+$materiList = Materi::where('kelas_id', $kelasId)->get();
+$sertifikat = KuisUser::whereIn('kelas_id', $materiList->pluck('id'))
+                      ->where('user_id', $userId)
+                      ->where('status', '1') 
+                      ->get();
+$submateri = DataKelas::with('materi')->findOrFail($kelasId);
+$sosmed = MediaSosial::all();
+$kuis = Kuis::where('kelas_id', $kelasId)->get();
 
-        $totalMateri = $materiList->count();
-        $completedKuisCount = KuisUser::whereIn('kelas_id', $materiList->pluck('id'))
-                                      ->where('user_id', $userId)
-                                      ->where('status', '1') 
-                                      ->count();
+// Ambil nilai user dari tabel KuisUser
+$nilaiUser = KuisUser::where('user_id', $userId)
+                     ->where('kelas_id', $kelasId)
+                     ->first();  // Ambil nilai kuis user berdasarkan kelas_id dan user_id
 
-        $isCompleted = $totalMateri == $completedKuisCount;
-        $submateri = DataKelas::with('materi')->findOrFail($id);
-        $sosmed = MediaSosial::all();
-        $kuis = Kuis::all();
-        return view('user.materi', compact('submateri','sosmed','kuis'),[
-            'materiList' => $materiList,
-            'isCompleted' => $isCompleted, 
-            'kelasId' => $kelasId
-        ]);
+// Jika nilai user tidak ada, set nilai default
+$nilai = $nilaiUser ? $nilaiUser->nilai : 0;
+
+        return view('user.materi', compact('materiList', 'sertifikat', 'submateri', 'sosmed', 'kuis', 'nilai'));
     }
     public function submateri($id)
     {

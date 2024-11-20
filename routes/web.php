@@ -47,7 +47,7 @@ Route::middleware(['guest'])->group(function(){
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('userAkses:user');
     Route::get('/user/{id}/payment/', [PembelianController::class, 'index'])->name('user.payment')->middleware('userAkses:user');
     Route::get('/user/kelas/materi',[KelasMateriController::class,'index'])->name('kelas.materi')->middleware('userAkses:user');
-    Route::get('/user/{id}/materi/{kelasId}/{userId}', [KelasMateriController::class, 'materi'])->name('materi.user')->middleware('userAkses:user');
+    Route::get('/user/materi/{kelasId}/{userId}', [KelasMateriController::class, 'materi'])->name('materi.user')->middleware('userAkses:user');
     Route::get('/user/{id}/submateri',[KelasMateriController::class,'submateri'])->name('submateri.user')->middleware('userAkses:user');
     Route::get('/user/{id}/belajar/{materi_id}', [KelasMateriController::class, 'belajar'])->name('belajar.user')->middleware('userAkses:user');
     Route::get('/bukti/{id}/pembayaran',[PembelianController::class,'pembayaran'])->name('bukti.pembayaran')->middleware('userAkses:user');

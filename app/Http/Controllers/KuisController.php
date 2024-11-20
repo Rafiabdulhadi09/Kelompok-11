@@ -47,12 +47,13 @@ public function create(Request $request)
         $user = auth()->user();
         $jawaban = $request->input('pertanyaan'); 
         $pertanyaan = Kuis::where('kelas_id', $kelas_id)->get();
+        $kelas = DataKelas::find($kelas_id);
 
         $jawabanBenar  = 0;
 
         foreach ($pertanyaan as $item) {
             if (isset($jawaban[$item->id]) && $jawaban[$item->id] == $item->jawaban) {
-                $jawabanBenar++; // Tambah jumlah jawaban yang benar
+                $jawabanBenar++; 
             }
         }
 
@@ -67,9 +68,9 @@ public function create(Request $request)
 
         // Redirect dengan pesan berdasarkan status kelulusan
         if ($status) {
-            return redirect()->back()->with('success', 'Selamat! Anda lulus kuis dengan skor ' . round($nilai, 2) . '%.');
+            return redirect()->route('materi.user', ['kelasId'=>$kelas->id , 'userId'=>$user->id])->with('success', 'Selamat! Anda lulus kuis dengan skor ' . round($nilai, 2) . '%.');
         } else {
-            return redirect()->back()->with('error', 'Maaf, Anda belum lulus. Skor Anda adalah ' . round($nilai, 2) . '%. Silakan coba lagi.');
+            return redirect()->route('materi.user', ['kelasId'=>$kelas->id , 'userId'=>$user->id])->with('error', 'Maaf, Anda belum lulus. Skor Anda adalah ' . round($nilai, 2) . '%. Silakan coba lagi.');
         }
     }
     public function TrainerLihatKuis ($kelasId)

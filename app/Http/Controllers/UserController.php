@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use index;
 use App\Models\User;
 use App\Models\Trainer;
+use setasign\Fpdi\Fpdi;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use setasign\Fpdi\Fpdi;
 
 class UserController extends Controller
 {
@@ -139,8 +140,8 @@ class UserController extends Controller
         return view('admin.dataTrainer', compact('trainers'));
     }
 
-    public function sertifikat(Request $request){
-        $nama = $request->post('nama');
+    public function sertifikat(){
+        $nama = Auth::user()->name;
         $outputfile = public_path(). 'dcc.pdf';
         $this->fillPDF(public_path(). '/master/dcc.pdf',$outputfile,$nama);
         

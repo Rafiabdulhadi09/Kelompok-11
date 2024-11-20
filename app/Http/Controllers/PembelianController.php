@@ -43,7 +43,7 @@ class PembelianController extends Controller
 }
 public function approve($id) 
 {
-    $pembayaran = Pembayaran::findOrFail($id);
+    $pembayaran = Pembayaran::findOrFail($id); 
     $pembayaran->update(['status' => 'approved']);
 
     // Flash message session
