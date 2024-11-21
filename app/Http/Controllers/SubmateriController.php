@@ -23,7 +23,7 @@ class SubmateriController extends Controller
             'title' => 'required|string|max:255',
             'type' => 'required|string',
             'materi_id' => 'required|integer|exists:materi,id',
-            'text_content' => 'nullable|string',
+            'text_content' => 'nullable|string|max:7000',
             'video_link' => 'nullable|url',
             'ebook_file' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
         ]);

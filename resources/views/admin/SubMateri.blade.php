@@ -63,7 +63,9 @@
                                                             <embed src="{{ asset('storage/' . $item->content) }}" type="application/pdf" width="100%" height="600px" />
                                                         @else
                                                             <!-- Display text -->
-                                                            {{ $item->content }}
+                                                            ($request->type == 'text') {
+                                                                $subMateri->content = $request->text_content;
+                                                            }
                                                         @endif
                                                     </td>
                                                 </tr>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\DataKelas;
 use index;
 use App\Models\User;
 use App\Models\Trainer;
@@ -140,28 +141,85 @@ class UserController extends Controller
         return view('admin.dataTrainer', compact('trainers'));
     }
 
-    public function sertifikat(){
+    public function sertifikat($id){
+        $kursus = DataKelas::find($id);
+        $deskripsi = "Peserta telah mengikuti dan menyelesaikan semua materi, tugas, dengan baik, serta menunjukkan komitmen yang tinggi dalam proses pembelajaran di kelas " . $kursus->title;
         $nama = Auth::user()->name;
+
         $outputfile = public_path(). 'dcc.pdf';
-        $this->fillPDF(public_path(). '/master/dcc.pdf',$outputfile,$nama);
+        $this->fillPDF(public_path(). '/master/dcc.pdf',$outputfile,$nama, $deskripsi);
         
         return response()->file($outputfile);
     }
-    public function fillPDF($file,$outputfile,$nama){
-        $fpdi = new FPDI;
-        $fpdi->setSourceFile($file);
-        $template = $fpdi->importPage(1);
-        $size = $fpdi->getTemplateSize($template);
-        $fpdi->AddPage($size['orientation'],array($size['width'],$size['height']));
-        $fpdi->useTemplate($template);
-        $top = 105;
-        $right = 105;
-        $name = $nama;
-        $fpdi->SetFont("times","",40);
-        $fpdi->SetTextColor(25,26,25);
-        $fpdi->Text($right,$top,$name);
+    public function fillPDF($file, $outputfile, $nama, $deskripsi)
+{
+    $fpdi = new FPDI;
+    $fpdi->setSourceFile($file);
+    $template = $fpdi->importPage(1);
+    $size = $fpdi->getTemplateSize($template);
 
-        return $fpdi->Output($outputfile,'F'); 
+    // Tambahkan halaman dengan ukuran template
+    $fpdi->AddPage($size['orientation'], [$size['width'], $size['height']]);
+    $fpdi->useTemplate($template);
+
+    // Tentukan posisi tengah secara horizontal (X tengah = lebar halaman / 2)
+    $centerX = $size['width'] / 2;
+
+    // Tambahkan nama pengguna di tengah
+    $namaY = 100; // Koordinat Y untuk nama
+    $fpdi->SetFont("times", "B", 30); // Bold untuk nama
+    $fpdi->SetTextColor(0, 0, 0); // Warna hitam
+    $fpdi->SetXY(0, $namaY); // Posisi awal (X diabaikan karena rata tengah)
+    $fpdi->Cell(0, 10, $nama, 0, 0, 'C'); // Lebar otomatis, tanpa border, rata tengah ('C')
+
+    // Tentukan posisi untuk deskripsi
+    $deskripsiY = 110; // Koordinat Y untuk deskripsi
+    $fpdi->SetFont("times", "", 16); // Font normal untuk deskripsi
+    $fpdi->SetTextColor(50, 50, 50); // Warna abu-abu
+    $fpdi->SetXY(20, $deskripsiY); // Posisi awal untuk deskripsi
+
+    // Tentukan lebar teks yang tersedia dan tinggi baris
+    $maxWidth = $size['width'] - 40; // Lebar teks yang tersedia
+    $lineHeight = 10; // Tinggi baris untuk teks
+
+    // Membatasi panjang baris pertama menjadi 100 karakter
+    $maxFirstLineLength = 102; // Batas karakter untuk baris pertama
+    $firstLine = substr($deskripsi, 0, $maxFirstLineLength);
+    $remainingText = substr($deskripsi, $maxFirstLineLength);
+
+    // Menentukan posisi X tengah untuk baris pertama
+    $firstLineWidth = $fpdi->GetStringWidth($firstLine); // Lebar baris pertama
+    $centerXFirstLine = ($size['width'] - $firstLineWidth) / 3; // Posisi X agar teks rata tengah
+
+    // Tampilkan baris pertama dengan panjang terbatas dan rata tengah
+    $fpdi->SetXY($centerXFirstLine, $deskripsiY); // Set posisi X untuk baris pertama
+    $fpdi->MultiCell($maxWidth, $lineHeight, $firstLine, 0, 'C'); // Rata tengah
+
+    // Tampilkan sisa teks setelah baris pertama
+    if ($remainingText) {
+        $fpdi->SetXY(20, $fpdi->GetY()); // Set posisi Y untuk sisa teks
+        $fpdi->MultiCell($maxWidth, $lineHeight, $remainingText, 0, 'C'); // Rata tengah
     }
+
+    // Menambahkan tempat dan tanggal di bawah deskripsi
+    $tempat = "Bandung";
+    $tanggal = date("d F Y"); // Format tanggal: hari bulan tahun
+
+    // Tentukan posisi untuk tanggal
+    $tanggalY = $fpdi->GetY(); // Posisi Y setelah tempat
+    $fpdi->SetXY(115, $tanggalY); // Posisi untuk tanggal
+
+    // Set warna teks
+    $fpdi->SetTextColor(38, 53, 129); // Warna #263581
+
+    // Menampilkan tempat dan tanggal dengan warna yang ditentukan
+    $fpdi->Cell(0, 30, $tempat . ", " . $tanggal, 0, 1, 'L');
+
+    // Simpan file PDF
+    return $fpdi->Output($outputfile, 'F');
+}
+
+
+    
 
 }

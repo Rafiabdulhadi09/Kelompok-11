@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('materi_id');
             $table->string('title');
             $table->string('type');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
 
             $table->foreign('materi_id')->references('id')->on('materi')->onDelete('cascade');
