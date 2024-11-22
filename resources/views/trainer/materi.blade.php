@@ -10,7 +10,6 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -71,7 +70,7 @@
                                                     </button>
                                                     </form>
                                                     <a class="btn btn-info" href=" {{ Route ('materi.submateri', $item->id) }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.821 12.43c-.083-.119-2.062-2.944-4.793-4.875C15.612 6.552 13.826 6 12 6s-3.611.552-5.03 1.555c-2.731 1.931-4.708 4.756-4.791 4.875a1 1 0 0 0 0 1.141c.083.119 2.06 2.944 4.791 4.875C8.389 19.448 10.175 20 12 20s3.612-.552 5.028-1.555c2.731-1.931 4.71-4.756 4.793-4.875a1 1 0 0 0 0-1.14M12 16.5c-1.934 0-3.5-1.57-3.5-3.5c0-1.934 1.566-3.5 3.5-3.5c1.93 0 3.5 1.566 3.5 3.5c0 1.93-1.57 3.5-3.5 3.5m2-3.5c0 1.102-.898 2-2 2a2 2 0 1 1 2-2"/></svg>
+                                                    Lihat Submateri
                                                     </a>
                                                     </td>
                                                 <td>
@@ -105,12 +104,13 @@
                         <label for="judul">Judul</label>
                         <input type="text" name="judul" value="{{old('')}}" id="judul" placeholder="Masukan judul" class="form-control" />
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="kelas_id">Pilih kelas</label>
                         <select id="kelas_id" class="form-control" name="kelas_id">
                                 <option value="{{ $kelas->id }}"> {{ $kelas->title }}</option>
                         </select>
-                    </div>
+                    </div> --}}
+                    <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
                         <input id="description" type="text" name="description" class="form-control" placeholder="Masukan deskripsi">

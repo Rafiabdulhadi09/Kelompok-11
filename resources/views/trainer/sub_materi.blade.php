@@ -163,12 +163,13 @@
               <option value="video">Video</option>
             </select>
           </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="materi_id">Pilih Materi</label>
             <select id="materi_id" class="form-control" name="materi_id">
                 <option value="{{ $materi->id }}">{{ $materi->title }}</option>
             </select>
-          </div>
+          </div> --}}
+          <input type="hidden" name="materi_id" value="{{ $materi->id }}">
 
           <!-- Input Tambahan Berdasarkan Tipe -->
           <div id="textInput" style="display: none;">

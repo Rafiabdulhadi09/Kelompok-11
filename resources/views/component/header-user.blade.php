@@ -22,7 +22,7 @@
           <a href="/user#services" class="nav-link {{ request()->is('user#services') ? 'active' : '' }}">Pembelajaran</a>
         </li>
         <li class="nav-item">
-          <a href="{{ url('user/kelas') }}" class="nav-link {{ request()->is('user/kelas') ? 'active' : '' }}">Kelas</a>
+          <a href="{{ route('user.kelas') }}" class="nav-link {{ request()->is('user/kelas') ? 'active' : '' }}">Kelas</a>
         </li>
         <li class="nav-item">
           <a href="{{ route('kelas.materi') }}" class="nav-link {{ request()->routeIs('kelas.materi') ? 'active' : '' }}">Materi</a>

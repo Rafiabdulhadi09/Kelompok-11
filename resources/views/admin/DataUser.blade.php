@@ -115,9 +115,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $index => $user)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{ $users->firstItem() + $index }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->jk }}</td>
                                         <td>{{ $user->alamat }}</td>

@@ -122,13 +122,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group mb-4">
+                            {{-- <div class="form-group mb-4">
                                 <label for="kelas_id" class="font-weight-bold">Pilih Kelas</label>
                                 <select class="form-control" name="kelas_id" id="kelas_id" required>
                                     <option value="" disabled selected>Pilih kelas</option>
                                     <option value="{{ $kelas->id }}">{{ $kelas->title }}</option>
                                 </select>
-                            </div>
+                            </div> --}}
+                            <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">
                         </div>
 
                         <div class="modal-footer">

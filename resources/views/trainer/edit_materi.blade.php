@@ -2,37 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{asset('assets/css/form.css')}}">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    
+    <title>Data Kelas</title>
+    <link href="{{asset('assets/vendor-admin/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
-<div class="container">
-        <div class=" text-center mt-5 ">
-            <h1>Tambah Kursus</h1>
-        </div>
-    <div class="row ">
-      <div class="col-lg-7 mx-auto">
-        <div class="card mt-2 mx-auto p-4 bg-light">
-            <div class="card-body bg-light">
-            <div class = "container">
-      @include('component.truefalse')
-        <form action="{{ route('materi.update', $materi->id) }}" method="POST">
+
+<body id="page-top">
+    <div id="wrapper">
+        @include('component.NavbarTrainer')
+
+        <div class="container-fluid">
+          @include('component.truefalse')
+            <div class="card shadow-sm mt-4">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="card-title mb-0">Edit Data Materi</h5>
+              </div>
+              <div class="card-body">
+                <form action="{{ route('materi.update', $materi->id) }}" method="POST">
             @csrf
              @method('PUT')
             <div class="controls">
                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                     <label class="form-label" for="judul">Judul</label>
                     <input type="text" name="judul" value="{{ $materi->title }}" id="judul" placeholder="Masuka judul materi" class="form-control" />
                     </div>
                   </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="kelas_id">Pilih kelas :</label>
@@ -40,28 +42,74 @@
                                     <option value="{{ $materi->id }}"> {{ $materi->id }}</option>
                                </select>
                         </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
+                </div> --}}
+                <input type="hidden" name="kelas_id" value="{{ $materi->id }}">
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input id="description" type="string"value="{{ $materi->content }}"  name="description" class="form-control" placeholder="Masukan description">
+                           <textarea id="description" name="description" class="form-control" placeholder="Masukan description">{{ $materi->content }}</textarea>
                         </div>
-                    </div>
                     <div class="col-md-12">
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
                             " value="Send Message" >
                 </div>
-                </div>
         </div>
          </form>
+              </div>
+            </div>
         </div>
+      </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Modal Logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
-        <!-- /.8 -->
-    </div>
-    <!-- /.row-->
-</div>
-</div>
+
+    <script>
+    function confirmDelete(event, Id) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + Id).submit();
+            }
+        })
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+    <script src="{{asset('assets/vendor-admin/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/demo/datatables-demo.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

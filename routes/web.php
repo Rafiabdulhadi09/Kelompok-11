@@ -54,7 +54,7 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/kirim/bukti', [PembelianController::class, 'BuktiPembayaran'])->name('kirim.bukti')->middleware('userAkses:user');
     Route::get('/user/{kelas_id}/kuis', [KuisController::class, 'index'])->name('user.kuis')->middleware('userAkses:user');
     Route::post('/kirim/{submateri_id}/kuis', [KuisController::class, 'submit'])->name('kirim.kuis')->middleware('userAkses:user');
-    Route::get('/buat/{id}', [UserController::class, 'sertifikat'])->name('sertifikat');
+    Route::post('/buat/{id}', [UserController::class, 'sertifikat'])->name('sertifikat');
 
 //Hak akses trainer
     Route::get('/trainer',[AdminController::class,'trainer'])->middleware('userAkses:trainer');
@@ -62,8 +62,7 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/profiletrainer/edit', [ProfileTrainerController::class, 'edit'])->name('profiletrainer.edit')->middleware('userAkses:trainer');
     Route::put('/profiletrainer/update', [ProfileTrainerController::class, 'update'])->name('profiletrainer.update')->middleware('userAkses:trainer');
     Route::get('Trainer/TambahMateri',[MateriController::class,'Trainer'])->name('Trainer.TambahMateri')->middleware('userAkses:trainer');
-    Route::get('trainer/tambahmateri/search', [MateriController::class, 'searchkelas'])->name('trainer.tambahmateri.search')->middleware('userAkses:trainer');
-    Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi')->middleware('userAkses:trainer');
+    Route::get('trainer/tambahmateri/search', [MateriController::class, 'searchkelas'])->name('trainer.tambahmateri.search')->middleware('userAkses:trainer');  Route::get('/trainer.create.materi', [MateriController::class, 'index'])->name('trainer.create.materi')->middleware('userAkses:trainer');
     Route::post('/materi/create', [MateriController::class, 'create'])->name('materi.create')->middleware('userAkses:trainer');
     Route::get('/kelas/{kelas}/materi', [MateriController::class, 'materi'])->name('materi')->middleware('userAkses:trainer');
     Route::get('/materi/{id}/edit', [MateriController::class, 'edit'])->name('materi.edit')->middleware('userAkses:trainer');
@@ -73,7 +72,6 @@ Route::middleware(['guest'])->group(function(){
     Route::get('submateri/{id}/edit', [MateriController::class, 'editsub'])->name('submateri.edit')->middleware('userAkses:trainer');
     Route::put('submateri/{id}/update', [MateriController::class, 'updatesub'])->name('submateri.update')->middleware('userAkses:trainer');
     Route::get('/materi/{materi}/submateri',[ SubmateriController::class, 'show'])->name('materi.submateri')->middleware('userAkses:trainer');
-    Route::get('/tambah/submateri',[SubmateriController::class,'index'])->name('tambah.submateri')->middleware('userAkses:trainer');
     Route::post('/tambah/submateri',[SubmateriController::class,'create'])->name('create.submateri')->middleware('userAkses:trainer');
     Route::post('/create/kuis',[KuisController::class,'create'])->name('create.kuis')->middleware('userAkses:trainer');
     Route::get('/trainer/{kelasId}/kuis',[KuisController::class,'TrainerLihatKuis'])->name('lihat.kuis')->middleware('userAkses:trainer');
@@ -83,7 +81,6 @@ Route::middleware(['guest'])->group(function(){
 
 //Hak akses admin
     Route::get('/admin',[AdminController::class,'admin'])->middleware('userAkses:admin');
-    Route::get('/create/kelas',[DataKelasController::class, 'kelas'])->middleware('userAkses:admin');
     Route::post('/kelas/create', [DataKelasController::class, 'create'])->middleware('userAkses:admin');
     Route::get('/datakursus/{id}/edit', [DataKelasController::class, 'editkursus'])->name('edit.datakursus')->middleware('userAkses:admin');
     Route::put('/kursus/{id}update', [DataKelasController::class, 'updatekursus'])->name('kursus.update')->middleware('userAkses:admin');
@@ -91,14 +88,13 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/admin/Data-kelas/search', [DataKelasController::class, 'search'])->name('admin.data-kelas.search')->middleware('userAkses:admin');
     Route::get('/admin/DataKelas',[DataKelasController::class,'index'])->name('datakelas')->middleware('userAkses:admin');
     Route::get('/admin/DataUser', [UserController::class, 'index'])->name('admin.DataUser')->middleware('userAkses:admin');
-    Route::get('/admin/data-user/{user}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit')->middleware('userAkses:admin');
+    Route::get('/admin/data-user/{id}/edit', [UserController::class, 'edituser'])->name('admin.dataUser.edit')->middleware('userAkses:admin');
     Route::put('/admin/data-user/{user}', [UserController::class, 'updateuser'])->name('admin.dataUser.update')->middleware('userAkses:admin');
     Route::delete('/admin/data-user/{user}', [UserController::class, 'destroy'])->name('admin.DataUser.destroy')->middleware('userAkses:admin');
     Route::get('admin/data-user/search', [UserController::class, 'index'])->name('admin.dataUser.search')->middleware('userAkses:admin');
     Route::get('/admin/data-trainer/{user}/edit', [UserController::class, 'edittrainer'])->name('admin.dataTrainer.edit')->middleware('userAkses:admin');
     Route::put('/admin/data-trainer/{user}', [UserController::class, 'updatetrainer'])->name('admin.dataTrainer.update')->middleware('userAkses:admin');
     Route::get('/admin/Data-trainer', [UserController::class, 'trainer'])->name('admin.dataTrainer')->middleware('userAkses:admin'); 
-    Route::get('create/trainer', [RegisterController::class, 'registertrainer'])->name('create/trainer')->middleware('userAkses:admin');
     Route::post('/register/create', [RegisterController::class, 'tambah'])->name('register.trainer')->middleware('userAkses:admin');
     Route::delete('/admin/data-trainer/{trainer}', [UserController::class, 'destroytrainer'])->name('admin.DataTrainer.destroy')->middleware('userAkses:admin');
     Route::get('/admin/data-trainer/search', [UserController::class, 'searchtrainer'])->name('admin.data-trainer.search')->middleware('userAkses:admin');

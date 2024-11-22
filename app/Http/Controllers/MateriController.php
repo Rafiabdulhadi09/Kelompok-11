@@ -14,13 +14,6 @@ use Illuminate\Support\Facades\Storage;
 
 class MateriController extends Controller
 {
-    public function index()
-    {
-        // Mengambil kelas berdasarkan ID
-    $kelas = auth()->user()->trainerKelas;
-    // Mengirim data kelas ke view
-    return view('trainer.createmateri', compact('kelas'));
-    }
     public function create(Request $request)
     {
          // Validasi data yang masuk
@@ -57,7 +50,8 @@ class MateriController extends Controller
     public function edit($id)
     {
         $materi = Materi::findOrFail($id);
-        return view('trainer.edit_materi', compact('materi'));
+        $trainer = User::findOrFail(auth()->user()->id);
+        return view('trainer.edit_materi', compact('materi','trainer'));
     }
     public function update(Request $request, $id)
     {
@@ -94,7 +88,7 @@ class MateriController extends Controller
         ->paginate(10);
 
     // Return hasil pencarian ke view 'trainer.tambahmateri'
-    return view('trainer.tambahmateri', compact('kelas', 'trainer','kelas_id'));
+    return view('trainer.tambahmateri', compact('kelas', 'trainer'));
 }
 
         public function Trainer()
@@ -117,7 +111,8 @@ class MateriController extends Controller
     public function editsub($id)
     {
         $submateri = SubMateri::findOrFail($id);
-        return view('trainer.edit_submateri', compact('submateri'));
+        $trainer = User::findOrFail(auth()->user()->id);
+        return view('trainer.edit_submateri', compact('submateri','trainer'));
     }
 
     public function updatesub(Request $request, $id)

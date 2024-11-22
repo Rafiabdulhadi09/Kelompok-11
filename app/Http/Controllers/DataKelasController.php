@@ -27,10 +27,6 @@ class DataKelasController extends Controller
 
         return view('admin.DataKelas', compact('items',));
     }
-    public function kelas()
-    {
-        return view ('admin/CreateKelas');
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -84,6 +80,7 @@ class DataKelasController extends Controller
     
     public function editkursus($id)
     {
+        // dd(request()->all());
         $datakursus = DataKelas::findOrFail($id);
         return view('admin.EditKursus', compact('datakursus'));
     }
@@ -126,12 +123,12 @@ class DataKelasController extends Controller
         $query = $request->input('query');
 
         // Cari data kelas berdasarkan kolom yang relevan (misal: nama_kelas atau deskripsi)
-        $data = DataKelas::where('title', 'like', '%' . $query . '%')
+        $items = DataKelas::where('title', 'like', '%' . $query . '%')
             ->orWhere('price', 'like', '%' . $query . '%')
             ->paginate(10);
 
         // Return hasil pencarian ke view 'admin.datakelas'
-        return view('admin.datakelas', compact('data'));
+        return view('admin.datakelas', compact('items'));
     }
     public function AddTrainerForm()
     {

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Trainer</title>
     <link href="{{asset('assets/vendor-admin/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css') }}" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -63,11 +64,9 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Trainer</h1>
-                    <button class="btn btn-custom">
-                        <a href="{{ route('create/trainer') }}" class="text-white font-weight-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Tambah Trainer +
-                        </a>
-                    </button>
+                        <button class="btn btn-custom" type="button" data-toggle="modal" data-target="#tambahMateriModal">
+                                <span class="text-white font-weight-bold">Tambah Trainer ++</span>
+                        </button>
                 </div>
                 <div class="d-flex justify-content-end m-4">
                     <form action="{{ route('admin.data-trainer.search') }}" method="GET" class="input-group search-bar">
@@ -150,6 +149,83 @@
             </div>
         </div>
     </div>
+        <!-- Modal Tambah Trainer -->
+<div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahMateriModalLabel">Tambah Materi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form di dalam modal -->
+                       <form action="{{ route('register.trainer') }}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data" id="registerForm">
+                  @csrf
+                    {{-- input Name --}}
+                     <div class="mb-3">
+                      <div class="form-outline flex-fill mb-0">
+                      <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="name" id="name"></input>
+                      </div>
+                    </div>
+                {{-- End input Name --}}
+                {{-- input Email --}}
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" />
+                  </div>
+                </div>
+                {{-- End input Email --}}
+                {{-- input password --}}
+                <div class="col-md-6 mb-4">
+                  <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                    <input type="password" name="password" id="password" class="form-control" />
+                  </div>
+                </div>
+                {{-- End input password --}}
+              </div>
+                {{-- select Kelamin --}}
+                    <div class="input-group">
+                      <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="jk">Jenis Kelamin <span class="text-danger">*</span></label>
+                        <select class="form-control" name="jk"id="inputGroupSelect04" aria-label="Example select with button addon">
+                          <option value="laki-laki">laki-laki</option>
+                          <option value="perempuan">perempuan</option>
+                        </select>
+                      </div>
+                    </div>
+                  {{-- End select Jenis Kelamin --}}
+                    <br>
+                  {{-- input alamat --}}
+                    <div class="mb-3">
+                      <div class="form-outline flex-fill mb-0">
+                      <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                      </div>
+                    </div>
+                  {{-- End input alamat --}}
+                  <div class="input-group">
+                      <div class="form-outline flex-fill mb-0">
+                      <label for="keahlian" class="form-label">Keahlian<span class="text-danger">*</span></label>
+                        <select class="form-control" name="keahlian"id="inputGroupSelect04" aria-label="Example select with button addon">
+                          <option value="desain">Desain</option>
+                          <option value="programer">Programer</option>
+                        </select>
+                      </div>
+                    </div>
+                  <div class="d-grid gap-2">
+                    <button  type="submit" id="kirim" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary form-control">Kirim</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- JavaScript -->
     <script src="assets/vendor-admin/jquery/jquery.min.js"></script>

@@ -25,8 +25,8 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ Request::is('trainer') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/trainer') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <i class="fa-solid fa-house"></i>
+            <span>Beranda</span>
         </a>
     </li>
 
@@ -111,7 +111,5 @@
                 </div>
             </li>
             </ul>
-
-
         </nav>
         <!-- End of Topbar -->

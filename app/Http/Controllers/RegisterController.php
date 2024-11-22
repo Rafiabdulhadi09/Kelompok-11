@@ -70,10 +70,6 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors('Username dan Password yang dimasukkan tidak valid.');
         }
     }
-    function registertrainer()
-    {
-        return view('admin.TambahTrainer');
-    }
     function tambah(Request $request)
     {
        // Simpan sementara input untuk ditampilkan kembali di form jika validasi gagal

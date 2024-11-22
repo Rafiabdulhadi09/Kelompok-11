@@ -36,8 +36,8 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ request()->is('admin') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/admin') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+           <i class="fa-solid fa-house"></i>
+            <span>Beranda</span>
         </a>
     </li>
 
@@ -46,7 +46,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Manage data
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->

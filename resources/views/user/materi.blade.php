@@ -134,7 +134,7 @@
                         @if ($nilai < 80)
                             <a href="{{ route('user.kuis', $submateri->id) }}" class="btn btn-primary">Jawab Kuis</a>
                         @else
-                        <form action="{{ route('sertifikat') }}" method="POST">
+                        <form action="{{ route('sertifikat', $submateri->id) }}" method="POST">
                             @csrf
                         <button type="submit" class="btn btn-success btn-block text-white form-control">Cetak Sertifikat</button>
                         </form>

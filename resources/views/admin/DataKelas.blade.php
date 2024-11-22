@@ -66,21 +66,36 @@
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h1 class="h3">Data Kelas</h1>
                     <div>
-                        <a href="{{ url('create/kelas') }}" class="btn btn-custom btn-add">Tambah Kelas +</a>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#tambahMateriModal">
+                            <span class="text-white font-weight-bold">Tambah Kelas ++</span>
+                        </button>
                         <a href="{{ route('FormAddTrainer') }}" class="btn btn-warning btn-add">Tambah Trainer Ke Kelas +</a>
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-end pt-3">
-                    <form action="{{ route('admin.data-kelas.search') }}" method="GET" class="input-group search-bar">
-                        <input type="text" class="form-control bg-light border-0 small" name="query" placeholder="Cari Kelas..." value="{{ request()->input('query') }}" aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-custom" type="submit">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+             <div class="d-flex justify-content-end pt-3">
+                <form action="{{ route('admin.data-kelas.search') }}" method="GET" class="input-group" style="max-width: 400px;">
+                    <input 
+                        type="text" 
+                        class="form-control rounded-pill shadow-sm border-0" 
+                        name="query" 
+                        placeholder="Cari Kelas..." 
+                        value="{{ request()->input('query') }}" 
+                        aria-label="Search" 
+                        aria-describedby="search-button" 
+                        style="padding: 0.75rem;">
+                    
+                    <div class="input-group-append">
+                        <button 
+                            class="btn btn-primary rounded-pill shadow-sm px-4" 
+                            type="submit" 
+                            id="search-button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -96,34 +111,63 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($items as $index => $item)
-                                    <tr>
-                                        <td class="text-center">{{ $loop->iteration + ($items->currentPage() - 1) * $items->perPage() }}</td>
-                                        <td class="text-center">{{ $item->title }}</td>
-                                        <td class="text-center">{{ formatRupiah($item->price) }}</td>
-                                        <td class="text-center">{{ $item->description }}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-warning btn-sm">Materi</a>
-                                            <a href="{{ route('kuis.admin', $item->id) }}" class="btn btn-info btn-sm">Kuis</a>
-                                        </td>
-                                        <td class="table-action-btns">
-                                            <a href="{{ route('edit.datakursus', $item->id) }}" class="btn btn-info btn-action">
+                            @foreach($items as $index => $item)
+                                <tr>
+                                    <!-- Nomor Urut -->
+                                    <td class="text-center">{{ $loop->iteration + ($items->currentPage() - 1) * $items->perPage() }}</td>
+
+                                    <!-- Judul Kelas -->
+                                    <td>{{ $item->title }}</td>
+
+                                    <!-- Harga -->
+                                    <td>{{ formatRupiah($item->price) }}</td>
+
+                                    <!-- Deskripsi -->
+                                    <td>{{ $item->description }}</td>
+
+                                    <!-- Tombol Lihat Materi dan Kuis -->
+                                    <td>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            <a href="{{ route('lihat.materi', $item->id) }}" class="btn btn-warning btn-sm shadow-sm">
+                                                Materi
+                                            </a>
+                                            <a href="{{ route('kuis.admin', $item->id) }}" class="btn btn-info btn-sm shadow-sm">
+                                                Kuis
+                                            </a>
+                                        </div>
+                                    </td>
+
+                                    <!-- Tombol Aksi -->
+                                    <td>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            <!-- Edit -->
+                                            <a href="{{ route('edit.datakursus', $item->id) }}" class="btn btn-info btn-action shadow-sm d-flex align-items-center">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <form id="delete-form-{{ $item->id }}" action="{{ route('kursus.destroy', $item->id) }}" method="POST" style="display:inline;">
+
+                                            <!-- Delete -->
+                                            <form id="delete-form-{{ $item->id }}" 
+                                                action="{{ route('kursus.destroy', $item->id) }}" 
+                                                method="POST" 
+                                                style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-action" onclick="confirmDelete(event, {{ $item->id }})">
+                                                <button type="submit" 
+                                                        class="btn btn-danger btn-action shadow-sm d-flex align-items-center" 
+                                                        onclick="confirmDelete(event, {{ $item->id }})">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
-                                            <a href="{{ route('kelas.trainer', $item->id) }}" class="btn btn-custom rounded-pill shadow-sm px-3 py-2">
-                                                <i class="fas fa-user"></i> Lihat Trainer
+
+                                            <!-- Lihat Trainer -->
+                                            <a href="{{ route('kelas.trainer', $item->id) }}" class="btn btn-custom btn-sm shadow-sm"><b>Trainer</b>
                                             </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+
                         </table>
                     </div>
                     {{ $items->links('pagination::bootstrap-4') }}
@@ -154,6 +198,48 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="tambahMateriModal" tabindex="-1" role="dialog" aria-labelledby="tambahMateriModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahMateriModalLabel">Tambah Materi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('/kelas/create') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="controls">
+                 <div class="d-flex flex-row align-items-center mb-4">
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="form3Example1c">Judul <span class="text-danger">*</span></label>
+                    <input type="text" name="title" value="{{ old('title') }}" id="form3Example1c" placeholder="masukan judul" class="form-control" />
+                    </div>
+                  </div>
+                        <div class="form-group">
+                            <label for="form_email">Harga <span class="text-danger">*</span></label>
+                            <input id="form_email" type="integer" name="price" class="form-control" placeholder="masukan harga*">
+                        </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Pilih gambar untuk kelas</label>
+                        <input class="form-control" type="file" id="image" name="image">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="form_message">Deskripsi<span class="text-danger">*</span></label>
+                            <textarea id="form_message" name="description" class="form-control" placeholder="tambahkan deskripsi" rows="4"></textarea>
+                            </div>
+                        </div>
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-custom btn-send  pt-2 btn-block" value="Kirim" >
+                </div>
+        </div>
+         </form>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script>
     function confirmDelete(event, Id) {

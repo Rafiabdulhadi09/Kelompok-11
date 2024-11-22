@@ -1,113 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Edit Kursus</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <style>
-    body {
-      background-color: #f0f2f5;
-    }
-    .form-container {
-      max-width: 900px;
-      margin: 50px auto;
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    }
-    .form-container h1 {
-      text-align: center;
-      color: #007bff;
-    }
-    .form-control,
-    .form-select,
-    textarea {
-      background-color: #f8f9fa;
-      color: #000;
-      border-color: #007bff;
-    }
-    .form-control:focus,
-    .form-select:focus,
-    textarea:focus {
-      border-color: #007bff;
-      box-shadow: none;
-    }
-    .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-      color: #ffffff;
-    }
-    .form-label {
-      color: #000;
-    }
-    .form-outline {
-      position: relative;
-    }
-    .form-outline label {
-      position: absolute;
-      top: -10px;
-      left: 12px;
-      background: #ffffff;
-      padding: 0 5px;
-      font-size: 14px;
-      color: #6c757d;
-      transition: all 0.3s;
-    }
-    .form-control:focus + .form-label,
-    .form-control:not(:placeholder-shown) + .form-label,
-    textarea:focus + .form-label,
-    textarea:not(:placeholder-shown) + .form-label {
-      top: -20px;
-      font-size: 12px;
-      color: #007bff;
-    }
-    .img-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .img-container img {
-      max-width: 100%;
-      width: 500px; /* Membesarkan ukuran gambar */
-      border-radius: 10px;
-      box-shadow: 0px 5px 20px 0px rgba(0, 123, 255, 0.3);
-      transition: transform 0.5s ease-in-out;
-      animation: float 3s ease-in-out infinite; /* Animasi gerakan */
-    }
-    /* Efek hover memperbesar gambar */
-    .img-container img:hover {
-      transform: scale(1.1);
-    }
-    /* Animasi gerakan naik-turun */
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kelas</title>
+    <link href="{{asset('assets/vendor-admin/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
-  <section class="vh-100">
-    <div class="container">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-          <div class="card-body">
-            <div class="row justify-content-center">
-              <!-- Form Container -->
-              <div class="form-container col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <h1 class="fw-bold mb-4">EDIT KELAS</h1>
-                @include('component.truefalse')
-                <form action="{{ route('kursus.update', $datakursus->id) }}" method="post">
+
+<body id="page-top">
+    <div id="wrapper">
+        @include('component.NavbarAdmin')
+
+        <div class="container-fluid">
+          @include('component.truefalse')
+            <div class="card shadow-sm mt-4">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="card-title mb-0">Edit Data Kursus</h5>
+              </div>
+              <div class="card-body">
+                 <form action="{{ route('kursus.update', $datakursus->id) }}" method="post">
                   @csrf
                   @method('PUT')
                   <div class="mb-4">
@@ -126,21 +43,67 @@
                   </div>
 
                   <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary btn-lg">KIRIM</button>
+                    <button type="submit" class="btn btn-primary">Kirim Perubahan</button>
                   </div>
                 </form>
               </div>
-
-              <!-- Image Container -->
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 img-container">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image">
-              </div>
             </div>
-          </div>
         </div>
       </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Modal Logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+
+    <script>
+    function confirmDelete(event, Id) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + Id).submit();
+            }
+        })
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+    <script src="{{asset('assets/vendor-admin/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor-admin/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/js-admin/demo/datatables-demo.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css') }}" rel="stylesheet">
 </body>
 </html>
+

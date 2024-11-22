@@ -20,50 +20,39 @@ class UserController extends Controller
      */
     public function index(Request $request): View
 {
-    // Ambil query pencarian dari input
     $query = $request->input('query');
 
-    // Jika ada query pencarian, cari user berdasarkan nama atau email
     if ($query) {
         $users = User::where('role', 'user')
             ->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
                 ->orWhere('email', 'like', '%' . $query . '%');
             })
-            ->paginate(10); // Menggunakan paginate jika ada pencarian
+            ->paginate(10);
     } else {
-        // Jika tidak ada query, ambil semua data user dengan role 'user'
-        $users = User::where('role', 'user')->paginate(10); // Tetap menggunakan paginate
+        $users = User::where('role', 'user')->paginate(10); 
     }
-
-    // Mengirimkan data ke view
     return view('admin.DataUser', compact('users'));
 }
 
-    public function edituser(User $user)
+    public function edituser($id)
     {
-        return view('admin.EditUser', compact('user'));
+        $pengguna = User::findOrFail($id);
+        return view('admin.EditUser', compact('pengguna'));
     }
 
-    public function updateuser(Request $request, User $user)
+    public function updateuser(Request $request, $id)
     {
-
-        // dd($request->all());
+        $user = User::find($id);
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
         ],[
             'name.required' => 'name wajib di isi',
             'email.required' => 'email wajib di isi',
-            'email.unique' => 'email yang anda masukan sudah ada',
         ]
-    
     );
-
-        $user->update($request->all());
-
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->update($request->all()); 
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
@@ -85,15 +74,14 @@ class UserController extends Controller
     }
     public function trainer()
     {
-        // Ambil data untuk role 'trainer'
         $trainers = User::where('role', 'trainer')->paginate(10);
 
-        // Kirim data ke view
         return view('admin.DataTrainer', compact('trainers'));
     }
-      public function edittrainer(User $user)
+      public function edittrainer($id)
     {
-        return view('admin.EditTrainer', compact('user'));
+        $trainer = User::findOrFail($id);
+        return view('admin.EditTrainer', compact('trainer'));
     }
 
       public function updatetrainer(Request $request, User $user)
@@ -104,7 +92,6 @@ class UserController extends Controller
         ],[
             'name.required' => 'name wajib di isi',
             'email.required' => 'email wajib di isi',
-            'email.unique' => 'email yang anda masukan sudah ada',
         ]
     );
 
@@ -218,8 +205,4 @@ class UserController extends Controller
     // Simpan file PDF
     return $fpdi->Output($outputfile, 'F');
 }
-
-
-    
-
 }
