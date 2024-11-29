@@ -41,7 +41,7 @@ Route::middleware(['guest'])->group(function(){
 //Hak  akses user
     Route::middleware(['auth'])->group(function(){
     Route::get('/user',[AdminController::class,'index'])->middleware('userAkses:user');
-    Route::get('/user/kelas',[DataKelasController::class,'show'])->middleware('userAkses:user');
+    Route::get('/user/kelas',[DataKelasController::class,'show'])->name('user.kelas')->middleware('userAkses:user');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('userAkses:user');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('userAkses:user');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('userAkses:user');
